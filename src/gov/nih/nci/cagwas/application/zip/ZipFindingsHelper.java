@@ -37,16 +37,16 @@ public class ZipFindingsHelper {
 	private static String directoryInZip = "CAGWAS";
 	private static String filePrefix = "caintegrator_hidden";
 	private static String genotypeDirectory = "D:";
-	//private static String ftpURL = "ftp://cbiocgemsftp.nci.nih.gov";
+	//private static String ftpURL = "ftp://cbiocagwasftp.nci.nih.gov";
     static
     {
     	// Handle exceptions
     	try
     	 {
-    		cgemsProperties = new Properties();
+    		cagwasProperties = new Properties();
 			InputStream in = Thread.currentThread().getContextClassLoader()
 								.getResourceAsStream(CAGWAS_PROPERTIES);
-			cgemsProperties.load(in);		
+			cagwasProperties.load(in);		
 			in.close();
 			
      	 }
@@ -129,7 +129,7 @@ public class ZipFindingsHelper {
 		}
 	}
 	/**
-	 * @return Returns the cgemsProperties.
+	 * @return Returns the cagwasProperties.
 	 */
 	public static String getCagwasProperties(String propertyName) {
 		return cagwasProperties.getProperty(propertyName);

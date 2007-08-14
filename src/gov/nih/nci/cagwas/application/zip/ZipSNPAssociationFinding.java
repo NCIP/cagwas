@@ -59,32 +59,32 @@ public class ZipSNPAssociationFinding
 			out = new BufferedWriter(new FileWriter(ZipFindingsHelper.getInputZipDirectory()+File.separator+targetFileName));
 
 			// First write out the headers
-			out.write(ZipFindingsHelper.getCgemsProperties("table.header.snpId")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.chromosome")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.position")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.genes")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.analysis")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.pvalue")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.rank")+"\t");
+			out.write(ZipFindingsHelper.getCagwasProperties("table.header.snpId")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.chromosome")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.position")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.genes")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.analysis")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.pvalue")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.rank")+"\t");
 			
 			// Handle the case study specific case
 			if (studyName.equals(caseStudyName))
 			{
-				out.write(ZipFindingsHelper.getCgemsProperties("table.header.eor")+" "+
-						ZipFindingsHelper.getCgemsProperties("table.header.heterozygote.risk")+"\t"+
-						ZipFindingsHelper.getCgemsProperties("table.header.eor")+" "+
-				        ZipFindingsHelper.getCgemsProperties("table.header.homozygote.risk")+"\n");
+				out.write(ZipFindingsHelper.getCagwasProperties("table.header.eor")+" "+
+						ZipFindingsHelper.getCagwasProperties("table.header.heterozygote.risk")+"\t"+
+						ZipFindingsHelper.getCagwasProperties("table.header.eor")+" "+
+				        ZipFindingsHelper.getCagwasProperties("table.header.homozygote.risk")+"\n");
 			}
 			else
 			{
-				out.write(ZipFindingsHelper.getCgemsProperties("table.header.nonaggressive")+" "+
-						ZipFindingsHelper.getCgemsProperties("table.header.heterozygote.risk")+"\t"+
-						ZipFindingsHelper.getCgemsProperties("table.header.nonaggressive")+" "+
-						ZipFindingsHelper.getCgemsProperties("table.header.homozygote.risk")+"\t"+
-						ZipFindingsHelper.getCgemsProperties("table.header.aggressive")+" "+
-						ZipFindingsHelper.getCgemsProperties("table.header.heterozygote.risk")+"\t"+
-						ZipFindingsHelper.getCgemsProperties("table.header.aggressive")+" "+
-						ZipFindingsHelper.getCgemsProperties("table.header.homozygote.risk")+"\n");
+				out.write(ZipFindingsHelper.getCagwasProperties("table.header.nonaggressive")+" "+
+						ZipFindingsHelper.getCagwasProperties("table.header.heterozygote.risk")+"\t"+
+						ZipFindingsHelper.getCagwasProperties("table.header.nonaggressive")+" "+
+						ZipFindingsHelper.getCagwasProperties("table.header.homozygote.risk")+"\t"+
+						ZipFindingsHelper.getCagwasProperties("table.header.aggressive")+" "+
+						ZipFindingsHelper.getCagwasProperties("table.header.heterozygote.risk")+"\t"+
+						ZipFindingsHelper.getCagwasProperties("table.header.aggressive")+" "+
+						ZipFindingsHelper.getCagwasProperties("table.header.homozygote.risk")+"\n");
 			}
 			
 	        // Then get the findings and write them to the file

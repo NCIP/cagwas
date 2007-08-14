@@ -57,17 +57,17 @@ public class ZipSNPFrequencyFinding
 			// Go ahead and write the headers to the file
 		    out = new BufferedWriter(new FileWriter(ZipFindingsHelper.getInputZipDirectory()+File.separator+targetFileName));
 		    out.write(
-		    	ZipFindingsHelper.getCgemsProperties("table.header.snpId")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.chromosome")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.position")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.genes")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.population")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.completion")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.weinberg")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.allele")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.allele.count")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.genotype")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.genotype.count")+"\n");
+		    	ZipFindingsHelper.getCagwasProperties("table.header.snpId")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.chromosome")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.position")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.genes")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.population")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.completion")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.weinberg")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.allele")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.allele.count")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.genotype")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.genotype.count")+"\n");
 		        
 		    // Then get the findings and write them to the file
 		    HashSet results = new HashSet();
