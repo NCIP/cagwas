@@ -60,17 +60,17 @@ public class ZipGenotypeFinding
 			// Go ahead and write the headers to the file
 			out = new BufferedWriter(new FileWriter(ZipFindingsHelper.getInputZipDirectory()+File.separator+targetFileName));
 	        out.write(
-		        ZipFindingsHelper.getCgemsProperties("table.header.snpId")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.participant")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.specimen")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.allele1")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.allele2")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.quality")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.status")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.normalx")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.normaly")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.rawx")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.rawy")+"\n");
+		        ZipFindingsHelper.getCagwasProperties("table.header.snpId")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.participant")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.specimen")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.allele1")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.allele2")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.quality")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.status")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.normalx")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.normaly")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.rawx")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.rawy")+"\n");
 			
 	        // Then get the findings and write them to the file
 	        HashSet results = new HashSet();
@@ -219,17 +219,17 @@ public class ZipGenotypeFinding
 			// Go ahead and write the headers to the file
 			out = new BufferedWriter(new FileWriter(ZipFindingsHelper.getInputZipDirectory()+File.separator+targetFileName));
 	        out.write(
-		        ZipFindingsHelper.getCgemsProperties("table.header.snpId")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.participant")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.specimen")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.allele1")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.allele2")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.quality")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.status")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.normalx")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.normaly")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.rawx")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.rawy")+"\n");
+		        ZipFindingsHelper.getCagwasProperties("table.header.snpId")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.participant")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.specimen")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.allele1")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.allele2")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.quality")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.status")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.normalx")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.normaly")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.rawx")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.rawy")+"\n");
 			
 	        // Get the list of SNP ids that match the initial criteria
 	        Collection<String> snpIds = genoCrit.getAnnotationCriteria().getSnpIdentifiers();
