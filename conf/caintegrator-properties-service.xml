@@ -1,0 +1,5 @@
+<attribute name="Properties">
+      gov.nih.nci.cgems.zip.properties=@CAINTEGRATOR_APPLICATION_CONFIG_PATH@/zip.properties
+	  gov.nih.nci.cgems.mail.properties=@CAINTEGRATOR_APPLICATION_CONFIG_PATH@/mail.properties
+      gov.nih.nci.caintegrator.configFile=@CAINTEGRATOR_APPLICATION_CONFIG_PATH@/caIntegratorConfig.xml
+</attribute>

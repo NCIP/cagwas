@@ -1,0 +1,80 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\froman\fcharset0 Times New Roman;}{\f1\fswiss\fprq2\fcharset0 Arial;}{\f2\fswiss\fcharset0 Arial;}{\f3\froman\fcharset0 Arial Bold;}{\f4\froman\fcharset2 Symbol;}}
+{\colortbl ;\red0\green0\blue128;\red0\green0\blue127;\red0\green0\blue255;\red0\green0\blue0;\red192\green192\blue192;\red255\green255\blue255;}
+{\stylesheet{ Normal;}{\s1 heading 1;}{\s2 heading 2;}}
+{\*\generator Msftedit 5.41.15.1507;}\viewkind4\uc1\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat5\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrt\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\b\f0\fs20 Application and Submitter Information\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx1946\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx4866\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx6424\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\b0 Submitted by\cell Dana Zhang and Jenny Glenn\cell Date\cell 12/14/2006\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx1946\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx4866\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx6424\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0 Application\cell\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\qc CGOM-CGEMS API\cell\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0 Release/Version\cell 1.0\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat5\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\b Build Information\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx1932\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx4866\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx6424\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\b0 Module\cell caintegrator-spec\cell Tag\cell\cf1\f1 CGEMS_API_QA_BUILD_7DEC2006\cf0\f0\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx1932\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0 Associated change requests\cell\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx1932\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0 Changes to build instructions \cell _X_ No\par
+__ Yes [updated build instructions must be attached]\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat5\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\b Dependencies\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx1946\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\b0 Software\cell New Technology Stack (jdk1.5.0_06, jboss 4.0.4, ant 1.6.2)\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx1946\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0 Hardware\cell\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx1946\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0 Database\cell\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat5\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\b Additional Instructions \cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx1946\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\b0 Additional deployment instructions \cell\pard\intbl\nowidctlpar\hyphpar0\sb60\sa60\sl240\slmult0\b\f2 Step 1:  \i Point the oracle-ds.xml file to the production database\i0\par
+\b0 Modify the oracle-ds.xml file contents in \{jboss\}/server/ncicb-app/deploy to point to the production database for CGEMS. \par
+\pard\intbl\hyphpar0\cf2\fs16 <local-tx-datasource>\par
+                 <jndi-name>cgems</jndi-name>\par
+                 <connection-url>CGEMS_PRODUCTION_ORACLE_ _URL</connection-url>\par
+                 <user-name>CGEMS_ PRODUCTION_USERNAME</user-name>\par
+                 <password>CGEMS_ PRODUCTION_PASSWORD</password>\par
+                 <driver-class>oracle.jdbc.driver.OracleDriver</driver-class>\par
+                 <exception-sorter-class-name>org.jboss.resource.adapter.jdbc.vendor.OracleExceptionSorter</exception-sorter-class-name>\par
+  </local-tx-datasource>\par
+\pard\intbl\nowidctlpar\hyphpar0\sb60\sa60\sl240\slmult0\cf0\b\par
+\fs20 Step 2:\b0   \b\i Checkout the files from CVS \cf3\f3\par
+\cf0\b0\i0\f2 Do a CVS checkout of the \b\i caintegrator-spec\b0\i0  module using the tag \cf1\f1 CGEMS_API_QA_BUILD_7DEC2006\cf0\f2\par
+\b\fs16\par
+\fs20 Step 3:  \i Create cgom-cgems.war \b0\par
+\i0 Execute the ant build file\rquote s default task \b\i build-system\b0\i0  which will create the \b\i cgom-cgems.war\b0\i0  file.\par
+\b\par
+Step 5: \i Deploy the cgom-cgems.war file\i0\par
+\b0\par
+Copy the jar files \b\i cgom-cgems.war\b0\i0  into the \i /server/default/deploy \i0 folder. Stop and restart the JBoss server\par
+\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\f0\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx1946\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0 Additional post-deployment test case instructions\cell\pard\intbl\nowidctlpar\hyphpar0\sb60\sa60\sl240\slmult0\f2 The following will test that the staging server is running properly and connecting to the staging database.  \par
+\par
+Step 1)  Connect to the prodcution server, by opening a browser to the following URL:\par
+\pard\intbl\hyphpar0\li360\sb100\sa100 http://\cf3\b\f3 caintegrator.nci.nih.gov\cf0\b0\f2 /cgom-cgems/Happy.jsp\f0\fs24  \par
+\pard\intbl\nowidctlpar\hyphpar0\sb60\sa60\sl240\slmult0\f2\fs20 Step 2) You should see a web page named caCore SDK. Click the SNPAnalysisGroup link in the All Classes navigation area. A new browser window should open and display 12 records for the SNPAnalysisGroup\par
+\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\f0\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat5\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\b Proposed deployment to staging\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx1946\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\b0 Requested Date\cell 11 Dec 2006\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx1946\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0 Actual Date\cell\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat5\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\b Approval For Promotion to Production\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx1946\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\b0 Date\cell\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx1946\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\tx1560 Decision\cell __Approved\par
+__Not Approved  \cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx1946\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0 Approved by\cell\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat5\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\b Proposed deployment to production\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx1946\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\b0 Requested Date\cell 15 Dec 2006\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx1946\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0 Actual Date\cell\cell\row\trowd\trgaph10\trleft-10\trrh107\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat5\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\b Notes\cell\row\trowd\trgaph10\trleft-10\trpaddl10\trpaddr10\trpaddfl3\trpaddfr3
+\clcbpat6\clbrdrl\brdrw15\brdrs\brdrcf4\clbrdrr\brdrw15\brdrs\brdrcf4\clbrdrb\brdrw15\brdrs\brdrcf4 \cellx8636\pard\intbl\nowidctlpar\hyphpar0\sl240\slmult0\b0\cell\row\pard\nowidctlpar\hyphpar0\sl240\slmult0\b\fs32\page\pard\keepn\nowidctlpar\hyphpar0\s1\sb240\sa120\sl240\slmult0\tx0\f2 Field Definitions\par
+\pard\nowidctlpar\hyphpar0\sa120\sl240\slmult0\b0\f0\fs20 Most of the fields should be self-explanatory, so this section will only cover those that are not.  If you have any questions about filling out this form, please contact the NCICB SCM Administrator\par
+\pard\keepn\nowidctlpar\hyphpar0\s2\sb240\sa120\sl240\slmult0\tx0\b\i\f2\fs28 Application and Submitter Information\par
+\pard\nowidctlpar\hyphpar0\fi-360\li720\sa120\sl240\slmult0\tx720\b0\i0\f4\fs18\'b7\tab\f0\fs20 Release/Version.  This section should include the product's official version number, in the form <major>.<minor>.<patch>.  For example, 2.3.04.\par
+\pard\keepn\nowidctlpar\hyphpar0\s2\sb240\sa120\sl240\slmult0\tx0\b\i\f2\fs28 Build Information\par
+\pard\nowidctlpar\hyphpar0\fi-360\li720\sa120\sl240\slmult0\tx720\b0\i0\f4\fs18\'b7\tab\f0\fs20 Module \endash  the name of your software module in CVS (i.e., the name you pass in to the CVS checkout command.)\par
+\f4\fs18\'b7\tab\f0\fs20 Tag \endash  the tag that you have created to denote the build you wish to be promoted. This should ideally consist of the application name, version number, and date.\par
+\pard\keepn\nowidctlpar\hyphpar0\s2\sb240\sa120\sl240\slmult0\tx0\b\i\f2\fs28 Dependencies\par
+\pard\nowidctlpar\hyphpar0\sa120\sl240\slmult0\b0\i0\f0\fs20 Most of this information should have already been covered in the Deployment Instructions Guide, but if some of those dependencies have changed, and deployment  coordination between your application and the other application, is necessary, document it here.\par
+\pard\keepn\nowidctlpar\hyphpar0\s2\sb240\sa120\sl240\slmult0\tx0\b\i\f2\fs28 Additional Instructions\par
+\pard\nowidctlpar\hyphpar0\sa120\sl240\slmult0\b0\i0\f0\fs20 Again, most of this information should be covered in the Deployment Instructions Guide, but if there are additional deployment or test instructions that apply only to this build, include them here.  If the deployment process changes are going to be permanent, they need to get included in the Deployment Instructions Guide.\par
+\pard\keepn\nowidctlpar\hyphpar0\s2\sb240\sa120\sl240\slmult0\tx0\b\i\f2\fs28 Proposed Deployment to Staging\par
+\pard\nowidctlpar\hyphpar0\fi-360\li720\sa120\sl240\slmult0\tx720\b0\i0\f4\fs18\'b7\tab\f0\fs20 Keeping in mind the published deployment windows and the 24-hour turn-around time on requests, enter the date you want to deploy here. The Systems Team/SCM administrator will fill in the actual date after deployment.\par
+\f4\fs18\'b7\tab\f0\fs20 Document any emergency/expedited deployment request in the Notes section\par
+\pard\keepn\nowidctlpar\hyphpar0\s2\sb240\sa120\sl240\slmult0\tx0\b\i\f2\fs28 Proposed Deployment to Production\par
+\pard\nowidctlpar\hyphpar0\fi-360\li720\sa120\sl240\slmult0\tx720\b0\i0\f4\fs18\'b7\tab\f0\fs20 Again, keeping in mind the published deployment windows, and the 24 hour staging requirement, enter the date you wish to go live here.  The Systems Team/SCM administrator will fill in the actual date after deployment.\par
+\f4\fs18\'b7\tab\f0\fs20 As discussed above, applications successfully staged will never be automatically deployed to production without a formal request.\par
+\f4\fs18\'b7\tab\f0\fs20 Document any emergency/expedited deployment request in the Notes section.\par
+\pard\keepn\nowidctlpar\hyphpar0\s2\sb240\sa120\sl240\slmult0\tx0\b\i\f2\fs28 Notes\par
+\pard\nowidctlpar\hyphpar0\fi-360\li720\sa120\sl240\slmult0\tx720\b0\i0\f4\fs18\'b7\tab\f0\fs20 This section can include any other information that is not covered elsewhere that you feel is important.\par
+\f4\fs18\'b7\tab\f0\fs20 If this is an emergency deployment request, please document it here, including a detailed justification of why this deployment should occur outside a scheduled window.\par
+\pard\nowidctlpar\hyphpar0\sa120\sl240\slmult0\par
+}
+ 
