@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.application.zip;
+package gov.nih.nci.cagwas.application.zip;
 
 import gov.nih.nci.caintegrator.application.configuration.SpringContext;
 import gov.nih.nci.caintegrator.application.mail.MailManager;
@@ -8,7 +8,7 @@ import gov.nih.nci.caintegrator.domain.study.bean.StudyParticipant;
 import gov.nih.nci.caintegrator.exceptions.ValidationException;
 import gov.nih.nci.caintegrator.studyQueryService.dto.study.StudyParticipantCriteria;
 import gov.nih.nci.caintegrator.studyQueryService.germline.FindingsManager;
-import gov.nih.nci.cgems.reports.StudyParticipantReport;
+import gov.nih.nci.cagwas.reports.StudyParticipantReport;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -57,12 +57,12 @@ public class ZipSubjectFinding
 			// Go ahead and write the headers to the file
 			out = new BufferedWriter(new FileWriter(ZipFindingsHelper.getInputZipDirectory()+File.separator+targetFileName));
 	        out.write(
-		        ZipFindingsHelper.getCgemsProperties("table.header.participant")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.gender")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.age")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.affection")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.history")+"\t"+
-		        ZipFindingsHelper.getCgemsProperties("table.header.population")+"\n");
+		        ZipFindingsHelper.getCagwasProperties("table.header.participant")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.gender")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.age")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.affection")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.history")+"\t"+
+		        ZipFindingsHelper.getCagwasProperties("table.header.population")+"\n");
 			
 	        // Then get the findings and write them to the file
 	        HashSet results = new HashSet();

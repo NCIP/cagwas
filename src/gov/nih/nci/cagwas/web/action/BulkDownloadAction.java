@@ -1,8 +1,8 @@
-package gov.nih.nci.cgems.web.action;
+package gov.nih.nci.cagwas.web.action;
 
 import gov.nih.nci.caintegrator.domain.study.bean.Study;
-import gov.nih.nci.cgems.application.zip.ZipFindingsHelper;
-import gov.nih.nci.cgems.web.form.BrowseForm;
+import gov.nih.nci.cagwas.application.zip.ZipFindingsHelper;
+import gov.nih.nci.cagwas.web.form.BrowseForm;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

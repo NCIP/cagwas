@@ -1,8 +1,8 @@
-package gov.nih.nci.cgems.web.action;
+package gov.nih.nci.cagwas.web.action;
 
-import gov.nih.nci.cgems.application.zip.ZipFindingsHelper;
-import gov.nih.nci.cgems.application.zip.ZipSNPFrequencyFinding;
-import gov.nih.nci.cgems.reports.SNPFrequencyFindingReport;
+import gov.nih.nci.cagwas.application.zip.ZipFindingsHelper;
+import gov.nih.nci.cagwas.application.zip.ZipSNPFrequencyFinding;
+import gov.nih.nci.cagwas.reports.SNPFrequencyFindingReport;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -50,17 +50,17 @@ public class SavePopulationAction extends Action
 			PrintWriter out = response.getWriter();
 			
 			// First write out the headers
-			out.print(ZipFindingsHelper.getCgemsProperties("table.header.snpId")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.chromosome")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.position")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.genes")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.population")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.completion")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.weinberg")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.allele")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.allele.count")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.genotype")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.genotype.count")+"\n");
+			out.print(ZipFindingsHelper.getCagwasProperties("table.header.snpId")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.chromosome")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.position")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.genes")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.population")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.completion")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.weinberg")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.allele")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.allele.count")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.genotype")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.genotype.count")+"\n");
 			
 			// Then write out the results
 			for (Iterator iterator = results.iterator(); iterator.hasNext();)

@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.reports;
+package gov.nih.nci.cagwas.reports;
 
 import gov.nih.nci.caintegrator.domain.annotation.snp.bean.SNPAnnotation;
 import gov.nih.nci.caintegrator.domain.finding.variation.germline.bean.GenotypeFinding;

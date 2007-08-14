@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.web.action;
+package gov.nih.nci.cagwas.web.action;
 
 import gov.nih.nci.caintegrator.application.configuration.SpringContext;
 import gov.nih.nci.caintegrator.domain.analysis.snp.bean.SNPAnalysisGroup;
@@ -12,7 +12,7 @@ import gov.nih.nci.caintegrator.studyQueryService.dto.germline.SNPAssociationAna
 import gov.nih.nci.caintegrator.studyQueryService.dto.study.PopulationCriteria;
 import gov.nih.nci.caintegrator.studyQueryService.dto.study.StudyCriteria;
 import gov.nih.nci.caintegrator.studyQueryService.germline.FindingsManager;
-import gov.nih.nci.cgems.web.form.BrowseForm;
+import gov.nih.nci.cagwas.web.form.BrowseForm;
 
 import java.util.ArrayList;
 import java.util.Collection;

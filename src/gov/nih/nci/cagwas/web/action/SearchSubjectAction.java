@@ -1,12 +1,12 @@
-package gov.nih.nci.cgems.web.action;
+package gov.nih.nci.cagwas.web.action;
 
 import gov.nih.nci.caintegrator.application.configuration.SpringContext;
 import gov.nih.nci.caintegrator.domain.study.bean.StudyParticipant;
 import gov.nih.nci.caintegrator.studyQueryService.dto.study.StudyParticipantCriteria;
 import gov.nih.nci.caintegrator.studyQueryService.germline.FindingsManager;
-import gov.nih.nci.cgems.application.zip.ZipFindingsHelper;
-import gov.nih.nci.cgems.reports.StudyParticipantReport;
-import gov.nih.nci.cgems.web.form.SubjectForm;
+import gov.nih.nci.cagwas.application.zip.ZipFindingsHelper;
+import gov.nih.nci.cagwas.reports.StudyParticipantReport;
+import gov.nih.nci.cagwas.web.form.SubjectForm;
 
 import java.util.ArrayList;
 import java.util.Collection;

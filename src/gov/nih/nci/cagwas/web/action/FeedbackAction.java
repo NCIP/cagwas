@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.web.action;
+package gov.nih.nci.cagwas.web.action;
 
 import gov.nih.nci.caintegrator.application.configuration.SpringContext;
 import gov.nih.nci.caintegrator.application.mail.MailManager;
@@ -10,9 +10,9 @@ import gov.nih.nci.caintegrator.studyQueryService.dto.germline.AnalysisGroupCrit
 import gov.nih.nci.caintegrator.studyQueryService.dto.study.PopulationCriteria;
 import gov.nih.nci.caintegrator.studyQueryService.dto.study.StudyCriteria;
 import gov.nih.nci.caintegrator.studyQueryService.germline.FindingsManager;
-import gov.nih.nci.cgems.application.zip.ZipFindingsHelper;
-import gov.nih.nci.cgems.web.form.BrowseForm;
-import gov.nih.nci.cgems.web.form.FeedbackForm;
+import gov.nih.nci.cagwas.application.zip.ZipFindingsHelper;
+import gov.nih.nci.cagwas.web.form.BrowseForm;
+import gov.nih.nci.cagwas.web.form.FeedbackForm;
 
 import java.util.ArrayList;
 import java.util.Collection;

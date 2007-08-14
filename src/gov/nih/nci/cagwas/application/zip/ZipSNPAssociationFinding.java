@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.application.zip;
+package gov.nih.nci.cagwas.application.zip;
 
 import gov.nih.nci.caintegrator.application.configuration.SpringContext;
 import gov.nih.nci.caintegrator.application.mail.MailManager;
@@ -8,7 +8,7 @@ import gov.nih.nci.caintegrator.domain.analysis.snp.bean.SNPAssociationFinding;
 import gov.nih.nci.caintegrator.exceptions.ValidationException;
 import gov.nih.nci.caintegrator.studyQueryService.dto.FindingCriteriaDTO;
 import gov.nih.nci.caintegrator.studyQueryService.germline.FindingsManager;
-import gov.nih.nci.cgems.reports.SNPAssociationFindingReport;
+import gov.nih.nci.cagwas.reports.SNPAssociationFindingReport;
 
 import java.io.BufferedWriter;
 import java.io.File;
