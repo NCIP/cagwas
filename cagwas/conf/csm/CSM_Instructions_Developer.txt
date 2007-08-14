@@ -19,7 +19,7 @@ and the server name is set Ex:jboss.server.name=default
 	(for e.g. C:/JBoss/jboss-4.0.2/server/default/conf/)
 	
 	ApplicationSecurityConfig.xml
-	cgems.hibernate.cfg.xml
+	cagwas.hibernate.cfg.xml
 
 **************************************
 
@@ -43,7 +43,7 @@ look something like:
 
 6. Add the following lines to jboss-4.0.2\server\default\conf\login-config.xml
 
-    <application-policy name="cgems">
+    <application-policy name="cagwas">
 		<authentication>
 			<login-module code="gov.nih.nci.security.authentication.loginmodules.LDAPLoginModule" flag="required">
 				<module-option name="ldapHost">ldaps://ncids4a.nci.nih.gov:636</module-option>

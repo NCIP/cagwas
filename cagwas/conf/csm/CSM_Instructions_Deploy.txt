@@ -16,14 +16,14 @@ Steps for setting up CSM for development:
  	ApplicationSecurityConfig.xml
  	oracle-ds.xml
  	properties-service.xml
- 	cgems.hibernate.cfg.xml
+ 	cagwas.hibernate.cfg.xml
 
 *************************************
 
 4. Grab the following files and place them in JBossDir/server/{instance}/conf/
 	
 	ApplicationSecurityConfig.xml
-	cgems.hibernate.cfg.xml
+	cagwas.hibernate.cfg.xml
 
 **************************************
 
@@ -45,7 +45,7 @@ look like:
 
 7. Add the following lines to jboss-4.0.2\server\default\conf\login-config.xml
 
-    <application-policy name="cgems">
+    <application-policy name="cagwas">
 		<authentication>
 			<login-module code="gov.nih.nci.security.authentication.loginmodules.LDAPLoginModule" flag="required">
 				<module-option name="ldapHost">ldaps://ncids4a.nci.nih.gov:636</module-option>
