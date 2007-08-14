@@ -1,14 +1,14 @@
 /**
  * 
  */
-package gov.nih.nci.cgems.application.zip;
+package gov.nih.nci.cagwas.application.zip;
 
 import gov.nih.nci.caintegrator.application.zip.ZipConfig;
 import gov.nih.nci.caintegrator.application.zip.ZipItem;
 import gov.nih.nci.caintegrator.application.zip.ZipManager;
 import gov.nih.nci.caintegrator.domain.annotation.gene.bean.GeneBiomarker;
 import gov.nih.nci.caintegrator.domain.study.bean.Population;
-import gov.nih.nci.cgems.application.zip.CGEMSZipItemImpl;
+import gov.nih.nci.cagwas.application.zip.CaGWASZipItemImpl;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,15 +26,15 @@ import org.apache.log4j.Logger;
  */
 public class ZipFindingsHelper {
 	private static Logger logger = Logger.getLogger(ZipFindingsHelper.class);
-	private static String CGEMS_PROPERTIES = "cgemsResources.properties";
-	private static String CGEMS_ZIP_PROPERTIES = "gov.nih.nci.cgems.zip.properties";
-	private static String CGEMS_MAIL_PROPERTIES = "gov.nih.nci.cgems.mail.properties";
-	private static Properties cgemsProperties;	
+	private static String CAGWAS_PROPERTIES = "cagwasResources.properties";
+	private static String CAGWAS_ZIP_PROPERTIES = "gov.nih.nci.cagwas.zip.properties";
+	private static String CAGWAS_MAIL_PROPERTIES = "gov.nih.nci.cagwas.mail.properties";
+	private static Properties cagwasProperties;	
 	private static String inputZipDirectory = "D:";
 	private static String outputZipDirectory = "D:";
 	private static String anonymousBrowseFtpUrl ;
 	private static String secureFtpUrl;
-	private static String directoryInZip = "CGEMS";
+	private static String directoryInZip = "CAGWAS";
 	private static String filePrefix = "caintegrator_hidden";
 	private static String genotypeDirectory = "D:";
 	//private static String ftpURL = "ftp://cbiocgemsftp.nci.nih.gov";
@@ -45,7 +45,7 @@ public class ZipFindingsHelper {
     	 {
     		cgemsProperties = new Properties();
 			InputStream in = Thread.currentThread().getContextClassLoader()
-								.getResourceAsStream(CGEMS_PROPERTIES);
+								.getResourceAsStream(CAGWAS_PROPERTIES);
 			cgemsProperties.load(in);		
 			in.close();
 			
@@ -53,9 +53,9 @@ public class ZipFindingsHelper {
     	catch(IOException ioe) 
     	{
 			logger.error(ioe.getMessage());
-    		throw new RuntimeException("Could not read cgems configuration file");
+    		throw new RuntimeException("Could not read cagwas configuration file");
     	}
-    	ZipConfig zipConfig = ZipConfig.getInstance(CGEMS_ZIP_PROPERTIES);
+    	ZipConfig zipConfig = ZipConfig.getInstance(CAGWAS_ZIP_PROPERTIES);
     	inputZipDirectory = zipConfig.getZipLocation();
     	outputZipDirectory = zipConfig.getFtpLocation();
     	genotypeDirectory = zipConfig.getGenotypeLocation();
@@ -107,7 +107,7 @@ public class ZipFindingsHelper {
 		String filePath = getInputZipDirectory()+File.separator+targetFileName;
 	    File f = new File(filePath);
 	    if (f.exists()) {
-	    	zipItem = new CGEMSZipItemImpl();
+	    	zipItem = new CaGWASZipItemImpl();
 	        zipItem.setFileName(targetZipFileName);
 	        zipItem.setFilePath(filePath);
 	        zipItem.setDirectoryInZip(directoryInZip);
@@ -124,15 +124,15 @@ public class ZipFindingsHelper {
 			zipper.setItems(zipItemCollection);
 	        zipper.setTarget(getOutputZipDirectory()+File.separator+zipItem.getFileName());
 	        zipper.setBreakIntoMultipleFileIfLarge(false);
-	        zipper.setZipPropertyFilename(CGEMS_ZIP_PROPERTIES);
+	        zipper.setZipPropertyFilename(CAGWAS_ZIP_PROPERTIES);
 	        zipper.run();
 		}
 	}
 	/**
 	 * @return Returns the cgemsProperties.
 	 */
-	public static String getCgemsProperties(String propertyName) {
-		return cgemsProperties.getProperty(propertyName);
+	public static String getCagwasProperties(String propertyName) {
+		return cagwasProperties.getProperty(propertyName);
 	}
 
 	/**
@@ -178,7 +178,7 @@ public class ZipFindingsHelper {
 	}
 
 	public static String getMailPropertiesFilename(){
-		return CGEMS_MAIL_PROPERTIES;
+		return CAGWAS_MAIL_PROPERTIES;
 	}
 
 	public static String getGenotypeDirectory(){

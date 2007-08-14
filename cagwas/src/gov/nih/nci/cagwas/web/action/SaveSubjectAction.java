@@ -1,7 +1,7 @@
-package gov.nih.nci.cgems.web.action;
+package gov.nih.nci.cagwas.web.action;
 
-import gov.nih.nci.cgems.application.zip.ZipFindingsHelper;
-import gov.nih.nci.cgems.reports.StudyParticipantReport;
+import gov.nih.nci.cagwas.application.zip.ZipFindingsHelper;
+import gov.nih.nci.cagwas.reports.StudyParticipantReport;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -49,12 +49,12 @@ public class SaveSubjectAction extends Action
 			PrintWriter out = response.getWriter();
 			
 			// First write out the headers
-			out.print(ZipFindingsHelper.getCgemsProperties("table.header.participant")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.gender")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.age")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.affection")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.history")+"\t"+
-			        ZipFindingsHelper.getCgemsProperties("table.header.population")+"\n");
+			out.print(ZipFindingsHelper.getCagwasProperties("table.header.participant")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.gender")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.age")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.affection")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.history")+"\t"+
+			        ZipFindingsHelper.getCagwasProperties("table.header.population")+"\n");
 			
 			// Then write out the results
 			for (Iterator iterator = results.iterator(); iterator.hasNext();)

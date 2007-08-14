@@ -1,13 +1,13 @@
-package gov.nih.nci.cgems.web.action;
+package gov.nih.nci.cagwas.web.action;
 
 import gov.nih.nci.caintegrator.application.configuration.SpringContext;
 import gov.nih.nci.caintegrator.domain.finding.variation.snpFrequency.bean.SNPFrequencyFinding;
 import gov.nih.nci.caintegrator.studyQueryService.dto.annotation.AnnotationCriteria;
 import gov.nih.nci.caintegrator.studyQueryService.dto.germline.SNPFrequencyFindingCriteriaDTO;
 import gov.nih.nci.caintegrator.studyQueryService.germline.FindingsManager;
-import gov.nih.nci.cgems.application.zip.ZipFindingsHelper;
-import gov.nih.nci.cgems.reports.SNPFrequencyFindingReport;
-import gov.nih.nci.cgems.web.form.PopulationForm;
+import gov.nih.nci.cagwas.application.zip.ZipFindingsHelper;
+import gov.nih.nci.cagwas.reports.SNPFrequencyFindingReport;
+import gov.nih.nci.cagwas.web.form.PopulationForm;
 
 import java.util.ArrayList;
 import java.util.Collection;

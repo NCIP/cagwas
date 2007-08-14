@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.web.bean;
+package gov.nih.nci.cagwas.web.bean;
 
 /**
  * The Applicant class contains all the information for a user request for an

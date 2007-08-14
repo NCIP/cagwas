@@ -1,7 +1,7 @@
 /**
  * 
  */
-package gov.nih.nci.cgems.reports;
+package gov.nih.nci.cagwas.reports;
 
 import java.util.Collection;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.web.form;
+package gov.nih.nci.cagwas.web.form;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
