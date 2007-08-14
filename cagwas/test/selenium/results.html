@@ -1,0 +1,2105 @@
+<html>
+<head><style type='text/css'>
+body, table {
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 12;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+}
+
+a {
+    text-decoration: none;
+}
+
+.title {
+    font-style: italic;
+}
+
+.selected {
+    background-color: #ffffcc;
+}
+
+.status_done {
+    background-color: #eeffee;
+}
+
+.status_passed {
+    background-color: #ccffcc;
+}
+
+.status_failed {
+    background-color: #ffcccc;
+}
+
+.breakpoint {
+    background-color: #cccccc;
+    border: 1px solid black;
+}
+</style><title>Test suite results</title></head>
+<body>
+<h1>Test suite results </h1>
+
+<table>
+<tr>
+<td>result:</td>
+<td>failed</td>
+</tr>
+<tr>
+<td>totalTime:</td>
+<td>118</td>
+</tr>
+<tr>
+<td>numTestPasses:</td>
+<td>2</td>
+</tr>
+<tr>
+<td>numTestFailures:</td>
+<td>1</td>
+</tr>
+<tr>
+<td>numCommandPasses:</td>
+<td>100</td>
+</tr>
+<tr>
+<td>numCommandFailures:</td>
+<td>3</td>
+</tr>
+<tr>
+<td>numCommandErrors:</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Selenium Version:</td>
+<td>0.8.2-SNAPSHOT</td>
+</tr>
+<tr>
+<td>Selenium Revision:</td>
+<td>1726</td>
+</tr>
+<tr>
+<td><TABLE>
+<TBODY>
+<TR class="title   status_failed">
+<TD>Test suite for the CGEMS application </TD></TR><!-- 
+	<tr>
+		<td>
+			<a href="QA_tests/QA_baseline_UI_tests.html">General UI</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="QA_tests/QA_baseline_PopulationFreq.html">Population Frequency</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="QA_tests/QA_baseline_AccessControl.html">Login and Study Access Control</a>
+		</td>
+	</tr>
+-->
+<TR class="  status_passed">
+<TD><A href="#testresult0">Search Association</A> </TD></TR>
+<TR class="  status_failed">
+<TD><A href="#testresult1">Search Association #2</A> </TD></TR>
+<TR class="  status_passed">
+<TD><A href="#testresult2">Search Association #3</A> </TD></TR><!-- 
+	<tr>
+		<td>
+			<a href="QA_tests/QA_baseline_SearchAssoc4.html">Search Association #4</a>
+		</td>
+	</tr>
+--><!--
+	<tr>
+		<td>
+			<a href="QA_tests/QA_defect_retests.html">Defect retests</a>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="QA_tests/QA_baseline_debug_tests.html">Debug test scripts</a>
+		</td>
+	</tr>
+--></TBODY></TABLE></td>
+<td>&nbsp;</td>
+</tr>
+</table><table><tr>
+<td><a name="testresult0">QA_tests/QA_baseline_SearchAssoc.html</a><br/><DIV>
+<TABLE cellSpacing=1 cellPadding=1 border=1>
+<THEAD>
+<TR class="title status_passed">
+<TD colSpan=3>QA_baseline_SearchAssoc</TD></TR></THEAD>
+<TBODY><!-- Public data, no login required --><!-- Begin individual test cases for Search Associations -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>open</TD>
+<TD>/cgems/</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 1 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Breast Cancer WGAS (Illumina 550K)">label=CGEMS Breast Cancer WGAS (Illumina 550K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Breast Cancer WGAS (Illumina 550K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=1">label=1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="1">1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="20000">20000</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTitle</TD>
+<TD>CGEMS SNP Association Finding Report</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>exact:Study: CGEMS Breast Cancer WGAS (Illumina 550K)</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Your search criteria produced no results</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 3 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Breast Cancer WGAS (Illumina 550K)">label=CGEMS Breast Cancer WGAS (Illumina 550K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Breast Cancer WGAS (Illumina 550K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>panel</TD>
+<TD originalHTML="label=Illumina HumanHap550">label=Illumina HumanHap550</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=X">label=X</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="500000">500000</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>exact:Study: CGEMS Breast Cancer WGAS (Illumina 550K)</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>exact:Panel: Illumina HumanHap550</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Your search criteria produced no results</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 4 Verify breast study column headers -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Breast Cancer WGAS (Illumina 550K)">label=CGEMS Breast Cancer WGAS (Illumina 550K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Breast Cancer WGAS (Illumina 550K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>hugoList</TD>
+<TD originalHTML="LOC441868<BR>LOC401934<BR>LOC401934<BR>FLJ20584<BR>LOC254099<BR>FLJ36119<BR>TNFRSF18<BR>TNFRSF4<BR>UBE2J2<BR>SCNN1D<BR>AKIP<BR>ATAD3B<BR>ATAD3A<BR>HSPC182<BR>FLJ13052<BR>GNB1<BR>KIAA1751<BR>PRKCZ<BR>SKI<BR>FLJ13941">LOC441868<BR>LOC401934<BR>LOC401934<BR>FLJ20584<BR>LOC254099<BR>FLJ36119<BR>TNFRSF18<BR>TNFRSF4<BR>UBE2J2<BR>SCNN1D<BR>AKIP<BR>ATAD3B<BR>ATAD3A<BR>HSPC182<BR>FLJ13052<BR>GNB1<BR>KIAA1751<BR>PRKCZ<BR>SKI<BR>FLJ13941</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>exact:Study: CGEMS Breast Cancer WGAS (Illumina 550K) Version: Version 1.0</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (254 results)</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyElementPresent</TD>
+<TD>link=dbSNP ID</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyElementPresent</TD>
+<TD>link=Chromosome</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Physical Position (bp)</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Associated Genes</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyElementPresent</TD>
+<TD>link=Analysis Name</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyElementPresent</TD>
+<TD>link=p-value</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTable</TD>
+<TD>searchAssocTable.0.6</TD>
+<TD originalHTML="Whole Genome Rank">Whole Genome Rank</TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Estimated Odds Ratios</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Heterozygote Risk</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Homozygote Risk</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 23 Verify Prostate study headers -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=1">label=1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="1">1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="2">2</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>fromUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>toUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTitle</TD>
+<TD>CGEMS SNP Association Finding Report</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>exact:Study: CGEMS Prostate Cancer WGAS (Illumina 317K) Version: Version 1.0</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (152 results)</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyText</TD>
+<TD>link=dbSNP ID</TD>
+<TD originalHTML="dbSNP ID">dbSNP ID</TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyText</TD>
+<TD>link=Chromosome</TD>
+<TD originalHTML="Chromosome">Chromosome</TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Physical Position (bp)</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Associated Genes</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyElementPresent</TD>
+<TD>link=Analysis Name</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyElementPresent</TD>
+<TD>link=p-value</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyElementPresent</TD>
+<TD>link=Whole Genome Rank</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Estimated Odds Ratios Non-Aggressive Tumors vs Controls</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Heterozygote Risk</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Homozygote Risk</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Estimated Odds Ratios Aggressive Tumors vs Controls</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Heterozygote Risk</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Homozygote Risk</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 34 Verify Prostate headers for 317K + 240K-->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>analysisMethod1</TD>
+<TD originalHTML="label=INCIDENCE DENSITY">label=INCIDENCE DENSITY</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=1">label=1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="1">1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>fromUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="2">2</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>toUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Study: CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Version: Version 1.0</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (112 results)</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyElementPresent</TD>
+<TD>link=dbSNP ID</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyElementPresent</TD>
+<TD>link=Chromosome</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Physical Position (bp)</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Associated Genes</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyElementPresent</TD>
+<TD>link=Analysis Name</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyElementPresent</TD>
+<TD>link=p-value</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyElementPresent</TD>
+<TD>link=Whole Genome Rank</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTable</TD>
+<TD>searchAssocTable.0.7</TD>
+<TD originalHTML="Estimated Odds Ratios Non-Aggressive Tumors vs Controls">Estimated Odds Ratios Non-Aggressive Tumors vs Controls</TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Heterozygote Risk</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Homozygote Risk</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Estimated Odds Ratios Aggressive Tumors vs Controls</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Heterozygote Risk</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Homozygote Risk</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 5 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Breast Cancer WGAS (Illumina 550K)">label=CGEMS Breast Cancer WGAS (Illumina 550K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Breast Cancer WGAS (Illumina 550K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>hugoList</TD>
+<TD originalHTML="ABCA4<BR>ABCB10<BR>ABCD3<BR>ABHD7<BR>ABL2<BR>ACADM<BR>ACADM<BR>ACBD3<BR>ACBD6<BR>ACP6<BR>ACTA1<BR>ACTN2<BR>AD026<BR>AD026<BR>AD158<BR>AD158<BR>AD7C-NTP<BR>ADAM15<BR>ADAM15<BR>ADAM15<BR>ADAM15<BR>ADAM15<BR>ADAM30<BR>ADAMTS4<BR>ADAMTS4<BR>ADAMTS4<BR>ADAMTS4">ABCA4<BR>ABCB10<BR>ABCD3<BR>ABHD7<BR>ABL2<BR>ACADM<BR>ACADM<BR>ACBD3<BR>ACBD6<BR>ACP6<BR>ACTA1<BR>ACTN2<BR>AD026<BR>AD026<BR>AD158<BR>AD158<BR>AD7C-NTP<BR>ADAM15<BR>ADAM15<BR>ADAM15<BR>ADAM15<BR>ADAM15<BR>ADAM30<BR>ADAMTS4<BR>ADAMTS4<BR>ADAMTS4<BR>ADAMTS4</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>email</TD>
+<TD originalHTML="glennje@mail.nih.gov">glennje@mail.nih.gov</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Return to Browse Data</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 6 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Breast Cancer WGAS (Illumina 550K)">label=CGEMS Breast Cancer WGAS (Illumina 550K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Breast Cancer WGAS (Illumina 550K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>hugoList</TD>
+<TD originalHTML="BRCA1">BRCA1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTitle</TD>
+<TD>CGEMS SNP Association Finding Report</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>exact:Study: CGEMS Breast Cancer WGAS (Illumina 550K) Version: Version 1.0</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (26 results)</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 7 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Breast Cancer WGAS (Illumina 550K)">label=CGEMS Breast Cancer WGAS (Illumina 550K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Breast Cancer WGAS (Illumina 550K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>hugoList</TD>
+<TD originalHTML="BRCA1<BR>BRCA2">BRCA1<BR>BRCA2</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>exact:Study: CGEMS Breast Cancer WGAS (Illumina 550K) Version: Version 1.0</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (88 results)</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 8 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Breast Cancer WGAS (Illumina 550K)">label=CGEMS Breast Cancer WGAS (Illumina 550K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Breast Cancer WGAS (Illumina 550K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=22">label=22</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>idList</TD>
+<TD originalHTML="rs806104<BR>rs10489451<BR>rs7537914<BR>rs556258<BR>rs561411<BR>rs278021<BR>rs10493000<BR>rs278020<BR>rs660423<BR>rs2743518<BR>rs2268172<BR>rs2359910<BR>rs2359909<BR>rs10489436<BR>rs10492969<BR>rs2314147<BR>rs9308447<BR>rs228724<BR>rs10492950<BR>rs2274000<BR>rs10492948<BR>rs1858588<BR>rs10492940">rs806104<BR>rs10489451<BR>rs7537914<BR>rs556258<BR>rs561411<BR>rs278021<BR>rs10493000<BR>rs278020<BR>rs660423<BR>rs2743518<BR>rs2268172<BR>rs2359910<BR>rs2359909<BR>rs10489436<BR>rs10492969<BR>rs2314147<BR>rs9308447<BR>rs228724<BR>rs10492950<BR>rs2274000<BR>rs10492948<BR>rs1858588<BR>rs10492940</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>exact:Study: CGEMS Breast Cancer WGAS (Illumina 550K) Version: Version 1.0</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Your search criteria produced no results</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 9 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Breast Cancer WGAS (Illumina 550K)">label=CGEMS Breast Cancer WGAS (Illumina 550K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Breast Cancer WGAS (Illumina 550K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>idList</TD>
+<TD originalHTML="rs806104<BR>rs10489451<BR>rs7537914<BR>rs556258<BR>rs561411<BR>rs278021<BR>rs10493000<BR>rs278020<BR>rs660423<BR>rs2743518<BR>rs2268172<BR>rs2359910<BR>rs2359909<BR>rs10489436<BR>rs10492969<BR>rs2314147<BR>rs9308447<BR>rs228724<BR>rs10492950<BR>rs2274000<BR>rs10492948<BR>rs1858588<BR>rs10492940">rs806104<BR>rs10489451<BR>rs7537914<BR>rs556258<BR>rs561411<BR>rs278021<BR>rs10493000<BR>rs278020<BR>rs660423<BR>rs2743518<BR>rs2268172<BR>rs2359910<BR>rs2359909<BR>rs10489436<BR>rs10492969<BR>rs2314147<BR>rs9308447<BR>rs228724<BR>rs10492950<BR>rs2274000<BR>rs10492948<BR>rs1858588<BR>rs10492940</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>exact:Study: CGEMS Breast Cancer WGAS (Illumina 550K) Version: Version 1.0</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (20 results)</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 10 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Breast Cancer WGAS (Illumina 550K)">label=CGEMS Breast Cancer WGAS (Illumina 550K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Breast Cancer WGAS (Illumina 550K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=1">label=1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="1">1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>fromUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="2">2</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>toUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>exact:Study: CGEMS Breast Cancer WGAS (Illumina 550K) Version: Version 1.0</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (110 results)</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 12 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Breast Cancer WGAS (Illumina 550K)">label=CGEMS Breast Cancer WGAS (Illumina 550K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Breast Cancer WGAS (Illumina 550K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=1">label=1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="1">1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="10">10</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>fromUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>toUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>idList</TD>
+<TD originalHTML="rs1998760<BR>rs1998760<BR>rs3762444<BR>rs3762444">rs1998760<BR>rs1998760<BR>rs3762444<BR>rs3762444</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>exact:Study: CGEMS Breast Cancer WGAS (Illumina 550K) Version: Version 1.0</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (4 results)</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 14 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Breast Cancer WGAS (Illumina 550K)">label=CGEMS Breast Cancer WGAS (Illumina 550K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Breast Cancer WGAS (Illumina 550K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=1">label=1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="1">1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="3000000">3000000</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>document.associationsForm.association[1]</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>rank</TD>
+<TD originalHTML="1000">1000</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTitle</TD>
+<TD>CGEMS SNP Association Finding Report</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>exact:Study: CGEMS Breast Cancer WGAS (Illumina 550K) Version: Version 1.0</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Your search criteria produced no results</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 15 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Breast Cancer WGAS (Illumina 550K)">label=CGEMS Breast Cancer WGAS (Illumina 550K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Breast Cancer WGAS (Illumina 550K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>panel</TD>
+<TD originalHTML="label=Illumina HumanHap550">label=Illumina HumanHap550</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>analysisMethod2</TD>
+<TD originalHTML="label=UNADJUSTED">label=UNADJUSTED</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=5">label=5</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="115">115</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>fromUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="116">116</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>toUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>exact:Study: CGEMS Breast Cancer WGAS (Illumina 550K) Version: Version 1.0</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>exact:Panel: Illumina HumanHap550</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (288 results)</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 16 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Breast Cancer WGAS (Illumina 550K)">label=CGEMS Breast Cancer WGAS (Illumina 550K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Breast Cancer WGAS (Illumina 550K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>analysisMethod2</TD>
+<TD originalHTML="label=UNADJUSTED">label=UNADJUSTED</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>panel</TD>
+<TD originalHTML="label=Illumina HumanHap550">label=Illumina HumanHap550</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=5">label=5</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="115">115</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>fromUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="116">116</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>toUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>hugoList</TD>
+<TD originalHTML="TSPAN-2<BR>NGFB<BR>VANGL1">TSPAN-2<BR>NGFB<BR>VANGL1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTitle</TD>
+<TD>CGEMS SNP Association Finding Report</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>exact:Study: CGEMS Breast Cancer WGAS (Illumina 550K) Version: Version 1.0</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>exact:Panel: Illumina HumanHap550</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Your search criteria produced no results</TD>
+<TD originalHTML></TD></TR></TBODY></TABLE></DIV></td>
+<td>&nbsp;</td>
+</tr><tr>
+<td><a name="testresult1">QA_tests/QA_baseline_SearchAssoc2.html</a><br/><DIV>
+<TABLE cellSpacing=1 cellPadding=1 border=1>
+<THEAD>
+<TR class="title status_failed">
+<TD colSpan=3>QA_baseline_SearchAssoc2</TD></TR></THEAD>
+<TBODY><!-- Public data, no login required --><!-- Begin individual test cases for Search Associations --><!-- Test Case 2 Data Set 17 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Breast Cancer WGAS (Illumina 550K)">label=CGEMS Breast Cancer WGAS (Illumina 550K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Breast Cancer WGAS (Illumina 550K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>analysisMethod2</TD>
+<TD originalHTML="label=UNADJUSTED">label=UNADJUSTED</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>panel</TD>
+<TD originalHTML="label=Illumina HumanHap550">label=Illumina HumanHap550</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=5">label=5</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="115">115</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>fromUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="116">116</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>toUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>idList</TD>
+<TD originalHTML="rrs953043<BR>rs1353130">rrs953043<BR>rs1353130</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_failed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>exact:Study: CGEMS Breast Cancer WGAS (Illumina 550K) Version: Version 1.0</TD>
+<TD originalHTML>false</TD></TR>
+<TR class="  status_failed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>exact:Panel: Illumina HumanHap550</TD>
+<TD originalHTML>false</TD></TR>
+<TR class="  status_failed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Your search criteria produced no results</TD>
+<TD originalHTML>false</TD></TR><!-- Test Case 2 Data Set 19 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Breast Cancer WGAS (Illumina 550K)">label=CGEMS Breast Cancer WGAS (Illumina 550K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Breast Cancer WGAS (Illumina 550K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>analysisMethod2</TD>
+<TD originalHTML="label=ADJUSTED">label=ADJUSTED</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=5">label=5</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="77275676">77275676</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="115950568">115950568</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>association</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>document.associationsForm.association[1]</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>rank</TD>
+<TD originalHTML="1000">1000</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (14 results)</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 20 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Breast Cancer WGAS (Illumina 550K)">label=CGEMS Breast Cancer WGAS (Illumina 550K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Breast Cancer WGAS (Illumina 550K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>association</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>analysisMethod2</TD>
+<TD originalHTML="label=ADJUSTED">label=ADJUSTED</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>pvalue</TD>
+<TD originalHTML="0.00009">0.00009</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>rank</TD>
+<TD originalHTML="10000">10000</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>email</TD>
+<TD originalHTML="glennje@mail.nih.gov">glennje@mail.nih.gov</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Return to Browse Data</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 21 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>analysisMethod1</TD>
+<TD originalHTML="label=INCIDENCE DENSITY">label=INCIDENCE DENSITY</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>document.associationsForm.association[1]</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>rank</TD>
+<TD originalHTML="100">100</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (200 results)</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 22 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>analysisMethod1</TD>
+<TD originalHTML="label=INCIDENCE DENSITY">label=INCIDENCE DENSITY</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>analysisMethod1</TD>
+<TD originalHTML="label=SINGLE SELECTION">label=SINGLE SELECTION</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>document.associationsForm.association[1]</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>rank</TD>
+<TD originalHTML="100">100</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (200 results)</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 25 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>panel</TD>
+<TD originalHTML="label=Illumina HumanHap300">label=Illumina HumanHap300</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=1">label=1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="1">1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>fromUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="10">10</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>toUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>idList</TD>
+<TD originalHTML="rs1998760<BR>rs1998760<BR>rs3762444<BR>rs3762444">rs1998760<BR>rs1998760<BR>rs3762444<BR>rs3762444</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Study: CGEMS Prostate Cancer WGAS (Illumina 317K)</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Version: Version 1.0</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Panel: Illumina HumanHap300</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (8 results)</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 26 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>panel</TD>
+<TD originalHTML="label=Illumina HumanHap300">label=Illumina HumanHap300</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=1">label=1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="1">1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="3000000">3000000</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>association</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>pvalue</TD>
+<TD originalHTML="0.1">0.1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Study: CGEMS Prostate Cancer WGAS (Illumina 317K)</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Version: Version 1.0</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Panel: Illumina HumanHap300</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (50 results)</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 27 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>panel</TD>
+<TD originalHTML="label=Illumina HumanHap300">label=Illumina HumanHap300</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=1">label=1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="1">1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="3000000">3000000</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>document.associationsForm.association[1]</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>rank</TD>
+<TD originalHTML="1000">1000</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Study: CGEMS Prostate Cancer WGAS (Illumina 317K)</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Version: Version 1.0</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Panel: Illumina HumanHap300</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Your search criteria produced no results</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 28 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=5">label=5</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="115">115</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="116">116</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>fromUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>toUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>hugoList</TD>
+<TD originalHTML="TSPAN-2<BR>NGFB<BR>VANGL1">TSPAN-2<BR>NGFB<BR>VANGL1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 31 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>association</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>pvalue</TD>
+<TD originalHTML="0.1">0.1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>document.associationsForm.association[1]</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>rank</TD>
+<TD originalHTML="1000">1000</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Your query returned more than 500 results.</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>email</TD>
+<TD originalHTML="glennje@mail.nih.gov">glennje@mail.nih.gov</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Return to Browse Data</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 32 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>analysisMethod1</TD>
+<TD originalHTML="label=INCIDENCE DENSITY">label=INCIDENCE DENSITY</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>analysisMethod2</TD>
+<TD originalHTML="label=UNADJUSTED">label=UNADJUSTED</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>document.associationsForm.association[1]</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>rank</TD>
+<TD originalHTML="50">50</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (50 results)</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 33 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>analysisMethod1</TD>
+<TD originalHTML="label=SINGLE SELECTION">label=SINGLE SELECTION</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>analysisMethod2</TD>
+<TD originalHTML="label=ADJUSTED">label=ADJUSTED</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>document.associationsForm.association[1]</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>rank</TD>
+<TD originalHTML="50">50</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (50 results)</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 35 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>analysisMethod1</TD>
+<TD originalHTML="label=SINGLE SELECTION">label=SINGLE SELECTION</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>panel</TD>
+<TD originalHTML="label=Illumina HumanHap300">label=Illumina HumanHap300</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=1">label=1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="1">1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>fromUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="200">200</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>toUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>hugoList</TD>
+<TD originalHTML="AF357532<BR>AF357533<BR>AKIP<BR>AKR1A1">AF357532<BR>AF357533<BR>AKIP<BR>AKR1A1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (26 results)</TD>
+<TD originalHTML></TD></TR></TBODY></TABLE></DIV></td>
+<td>&nbsp;</td>
+</tr><tr>
+<td><a name="testresult2">QA_tests/QA_baseline_SearchAssoc3.html</a><br/><DIV>
+<TABLE cellSpacing=1 cellPadding=1 border=1>
+<THEAD>
+<TR class="title status_passed">
+<TD colSpan=3>QA_baseline_SearchAssoc3</TD></TR></THEAD>
+<TBODY><!-- Public data, no login required --><!-- Begin individual test cases for Search Associations --><!-- Test Case 2 Data Set 36 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>analysisMethod2</TD>
+<TD originalHTML="label=UNADJUSTED">label=UNADJUSTED</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>panel</TD>
+<TD originalHTML="label=Illumina HumanHap300">label=Illumina HumanHap300</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=1">label=1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="1">1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>fromUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="10">10</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>toUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>idList</TD>
+<TD originalHTML="rs1998760<BR>rs1998760<BR>rs3762444<BR>rs3762444">rs1998760<BR>rs1998760<BR>rs3762444<BR>rs3762444</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Study: CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Version: Version 1.0</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Panel: Illumina HumanHap300</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (4 results)</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 37 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>analysisMethod2</TD>
+<TD originalHTML="label=ADJUSTED">label=ADJUSTED</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>panel</TD>
+<TD originalHTML="label=Illumina HumanHap300">label=Illumina HumanHap300</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=1">label=1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="1">1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>fromUnit</TD>
+<TD originalHTML="label=bp">label=bp</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="3000000">3000000</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>toUnit</TD>
+<TD originalHTML="label=bp">label=bp</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>association</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>pvalue</TD>
+<TD originalHTML="0.1">0.1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (24 results)</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 38 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>panel</TD>
+<TD originalHTML="label=Illumina HumanHap300">label=Illumina HumanHap300</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=1">label=1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="1">1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>fromUnit</TD>
+<TD originalHTML="label=bp">label=bp</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="3000000">3000000</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>toUnit</TD>
+<TD originalHTML="label=bp">label=bp</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>association</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>pvalue</TD>
+<TD originalHTML="0.1">0.1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (47 results)</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 39 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=5">label=5</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="115">115</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>fromUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="116">116</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>toUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>email</TD>
+<TD originalHTML="glennje@mail.nih.gov">glennje@mail.nih.gov</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Return to Browse Data</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 40 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=5">label=5</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="115">115</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>fromUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="116">116</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>toUnit</TD>
+<TD originalHTML="label=mb">label=mb</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>hugoList</TD>
+<TD originalHTML="TSPAN-2<BR>NGFB<BR>VANGL1">TSPAN-2<BR>NGFB<BR>VANGL1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>Your search criteria produced no results</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 41 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=5">label=5</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="77275676">77275676</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>fromUnit</TD>
+<TD originalHTML="label=bp">label=bp</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="115950568">115950568</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>toUnit</TD>
+<TD originalHTML="label=bp">label=bp</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>association</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>pvalue</TD>
+<TD originalHTML=".1">.1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>email</TD>
+<TD originalHTML="glennje@mail.nih.gov">glennje@mail.nih.gov</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Return to Browse Data</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 42 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>chromosome</TD>
+<TD originalHTML="label=5">label=5</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeFrom</TD>
+<TD originalHTML="77275676">77275676</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>fromUnit</TD>
+<TD originalHTML="label=bp">label=bp</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>chromosomeTo</TD>
+<TD originalHTML="115950568">115950568</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>toUnit</TD>
+<TD originalHTML="label=bp">label=bp</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>selectWindow</TD>
+<TD>null</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>document.associationsForm.association[1]</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>rank</TD>
+<TD originalHTML="1000">1000</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_passed" style="CURSOR: pointer">
+<TD>verifyTextPresent</TD>
+<TD>SNP Association Finding Report - (40 results)</TD>
+<TD originalHTML></TD></TR><!-- Test Case 2 Data Set 43 -->
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Browse Data</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>select</TD>
+<TD>studyName</TD>
+<TD originalHTML="label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)">label=CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>//option[@value='CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>association</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>pvalue</TD>
+<TD originalHTML=".1">.1</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>click</TD>
+<TD>document.associationsForm.association[1]</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>rank</TD>
+<TD originalHTML="10000">10000</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>type</TD>
+<TD>email</TD>
+<TD originalHTML="glennje@mail.nih.gov">glennje@mail.nih.gov</TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>//input[@value='Submit']</TD>
+<TD originalHTML></TD></TR>
+<TR class="  status_done" style="CURSOR: pointer">
+<TD>clickAndWait</TD>
+<TD>link=Return to Browse Data</TD>
+<TD originalHTML></TD></TR></TBODY></TABLE></DIV></td>
+<td>&nbsp;</td>
+</tr></table></body></html>

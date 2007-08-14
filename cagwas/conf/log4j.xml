@@ -1,0 +1,15 @@
+   <!-- Setup the configuration for the CGEMS log file -->
+   <appender name="CGEMS_LOG" class="org.apache.log4j.FileAppender">
+	<errorHandler class="org.jboss.logging.util.OnlyOnceErrorHandler"/>
+      <param name="File" value="${jboss.server.home.dir}/log/cgems.log"/>
+      <param name="Append" value="false"/>
+	<layout class="org.apache.log4j.PatternLayout">
+		<param name="ConversionPattern" value="%d{ABSOLUTE} %5p %c{1}:%L - %m%n" />
+	</layout>
+   </appender>
+
+   <!-- Set CGEMS logging level -->
+   <category name="gov.nih.nci.cgems">
+	<priority value="INFO"/>
+	<appender-ref ref="CGEMS_LOG"/>
+   </category>
