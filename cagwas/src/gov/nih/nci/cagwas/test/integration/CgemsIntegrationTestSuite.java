@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.test.integration;
+package gov.nih.nci.cagwas.test.integration;
 
 import gov.nih.nci.caintegrator.studyQueryService.dto.germline.SNPFrequencyFindingCriteriaDTO;
 import gov.nih.nci.caintegrator.studyQueryService.test.germline.ChromosomeLookupTest;
@@ -17,7 +17,7 @@ import gov.nih.nci.caintegrator.studyQueryService.test.germline.SubjectSearchTes
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
-public class CgemsIntegrationTestSuite {
+public class CagwasIntegrationTestSuite {
 
     /**
      * Assembles a test suite containing all known tests.

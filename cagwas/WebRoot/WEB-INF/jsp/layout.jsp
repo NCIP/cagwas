@@ -4,7 +4,7 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <%
 /*
- * This is the layout page for all CGEMS forms.  It includes the header images, the footer images,
+ * This is the layout page for all CaGWAS forms.  It includes the header images, the footer images,
  * a menubar and a sidebar along with a main page where the actual content should be placed.
  */
 %>

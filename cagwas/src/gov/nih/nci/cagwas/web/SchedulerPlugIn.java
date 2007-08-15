@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.web;
+package gov.nih.nci.cagwas.web;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

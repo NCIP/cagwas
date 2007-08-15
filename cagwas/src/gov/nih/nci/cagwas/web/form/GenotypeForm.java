@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.web.form;
+package gov.nih.nci.cagwas.web.form;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,7 +11,7 @@ import org.apache.struts.action.ActionMessage;
  * form.
  * <P>
  * @author mholck
- * @see gov.nih.nci.cgems.web.form.SNPSearchForm
+ * @see gov.nih.nci.cagwas.web.form.SNPSearchForm
  */
 public class GenotypeForm extends SNPSearchForm
 {

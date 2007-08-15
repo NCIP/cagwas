@@ -5,7 +5,7 @@
 
 <div id="middle" align="center">
 	<div id="content">
-		<h1>CGEMS Cite Data</h1>
+		<h1>CaGWAS Cite Data</h1>
 		<div id="copy">
 			
 			<%out.print(request.getAttribute("citeContent"));%>

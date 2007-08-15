@@ -1,0 +1,95 @@
+From: Glenn, Jenny (NIH/NCI) [C]
+Sent: Tuesday, July 31, 2007 12:16 PM
+To: NCI CB Mailbox
+Cc: Komatsoulis, George (NIH/NCI) [E]; Basu, Anand (NIH/NCI) [E]; Khan,
+Naveed (NIH/NCI) [C]; Sahni, Himanso (NIH/NCI) [C];
+'mholck@scenpro.com'; Schaefer, Carl (NIH/NCI) [E]; Madhavan, Subhashree
+(NIH/NCI) [E]; Yang, Liming (NIH/NCI) [E]
+Subject: RE: CaGWAS v1.3 Deployment to Staging - Build tag
+QA_CaGWAS_24JUL07_01
+
+Follow Up Flag: Follow up
+Flag Status: Yellow
+
+Attachments: CaGWASDeploymentRequest_v1.3.doc
+
+
+Please deploy the CaGWAS build tag QA_CaGWAS_24JUL07_01 to staging. 
+
+Deployment request is attached. 
+
+Build instructions are located in GForge at https://gforge.nci.nih.gov/plugins/scmcvs/cvsweb.php/cawgas/docs/BuildInstructions/?cvsroot=cawgas 
+
+Deployment instructions located in GForge at https://gforge.nci.nih.gov/plugins/scmcvs/cvsweb.php/~checkout~/cawgas/docs/DeploymentInstructions/CaGWASDeploymentInstructions.doc?rev=1.9;content-type=application%2Foctet-stream;cvsroot=cawgas 
+
+Jenny Glenn
+Project Manager (Contractor), NARTech Inc
+301-613-6432 (cell)
+
+-----Original Message-----
+From: Madhavan, Subhashree (NIH/NCI) [E]
+Sent: Tuesday, July 31, 2007 11:49 AM
+To: Glenn, Jenny (NIH/NCI) [C]; Yang, Liming (NIH/NCI) [E]
+Cc: Komatsoulis, George (NIH/NCI) [E]; Basu, Anand (NIH/NCI) [E]; Khan, Naveed (NIH/NCI) [C]; Sahni, Himanso (NIH/NCI) [C]; 'mholck@scenpro.com'; Schaefer, Carl (NIH/NCI) [E]
+Subject: Re: CaGWAS v1.3 Deployment to Staging - Build tag QA_CaGWAS_24JUL07_01
+
+Please proceed!
+
+
+----- Original Message -----
+From: Glenn, Jenny (NIH/NCI) [C]
+To: Yang, Liming (NIH/NCI) [E]; Madhavan, Subhashree (NIH/NCI) [E]
+Cc: Komatsoulis, George (NIH/NCI) [E]; Basu, Anand (NIH/NCI) [E]; Khan, Naveed (NIH/NCI) [C]; Sahni, Himanso (NIH/NCI) [C]; 'Michael Holck' <mholck@scenpro.com>; Schaefer, Carl (NIH/NCI) [E]
+Sent: Tue Jul 31 10:19:41 2007
+Subject: CaGWAS v1.3 Deployment to Staging  - Build tag QA_CaGWAS_24JUL07_01
+
+Good morning, Subha  - 
+
+ 
+
+Do you concur with submitting the release to Staging for this build of CaGWAS v1.3?
+
+ 
+
+CaGWAS v1.3 was built and installed on the QA server for build tags QA_CaGWAS_24JUL07_01 (all test cases). Testing was performed using IE7 and FireFox v2.x on Windows XP for the following test cases:
+
+ 
+
+·  Test Case 1:  Authenticate User - Pass
+
+·  Test Case 2:  SNP Association Finding Search by SNP Panel – Pass
+
+·  Test Case 3:  Population Frequency Findings Search by SNP Panel –  Pass 
+
+·  Test Case 4:  Study Participant (Subjects Data) Search – Pass
+
+·  Test Case 5:  Bulk Data Download – Fails on login for Subjects and Genotypes data files
+
+·  Test Case 6:  Secure Login and Data Access Process Verification - Fails 
+
+·  Test Case 7:  Defect retests – # 8092 (Study access is cached by the browser) is open; #7892 resolved; # 8057 resolved (Any LDAP account can access all bulk download files);
+
+·  Test Case 8: Selenium tests: Performed from the scripts in the \Individual_test_files folder
+
+ 
+
+No JMeter stress testing was performed during this testing cycle. Test results have been checked in to GForge.
+
+ 
+
+ 
+
+Jenny Glenn
+
+Project Manager (Contractor), NARTech Inc
+
+NCICB Quality Assurance and Software Testing
+
+301-451-2220 (office)
+
+301-613-6432 (cell)
+
+ 
+
+ 
+

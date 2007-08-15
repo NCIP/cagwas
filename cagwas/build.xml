@@ -1,4 +1,4 @@
-<project name="cgems" default="deploy" basedir=".">
+<project name="cagwas" default="deploy" basedir=".">
 	<property file="build.properties"/>
 	<!--
 	TARGET: build_war
@@ -9,10 +9,10 @@
 	<property name="classes" value="./WebRoot/WEB-INF/classes" />
 	
 	<!-- Class to  run for the framework integration tests -->
-	<property name="test.class.name" value="gov.nih.nci.cgems.test.integration.CgemsIntegrationTestSuite" />
+	<property name="test.class.name" value="gov.nih.nci.cagwas.test.integration.CagwasIntegrationTestSuite" />
 	
 	<!-- Class to  run for the selenium integration tests -->
-	<property name="test-selenium.class.name" value="gov.nih.nci.cgems.test.integration.CgemsUIIntegrationTest" />  
+	<property name="test-selenium.class.name" value="gov.nih.nci.cagwas.test.integration.CagwasUIIntegrationTest" />  
 	
 	<!-- Classpath to run the junit tests -->
 	<path id="test.classpath">
@@ -124,7 +124,7 @@
 		<copy todir="${webapp.classes.dir}">
 			<fileset dir="${build.source.dir}">
 				<include name="**/*.properties"/>
-				<include name="cgems-domain-hibernate.cfg.xml"/>
+				<include name="cagwas-domain-hibernate.cfg.xml"/>
 				<exclude name="zip.properties"/>
 				<exclude name="mail.properties"/>
 			</fileset>
@@ -139,7 +139,7 @@
 				<include name="caintegrator-spec.jar"/>
 			</zipfileset>
 		</war>
-		<copy file="cgems.war" todir="${anthill.artifacts.dir}"/>
+		<copy file="cagwas.war" todir="${anthill.artifacts.dir}"/>
 	</target>
 	
 	<!--
@@ -147,21 +147,21 @@
 	simply copies the war file to the jboss deployment directory
 	-->
 	<target name="deploy" depends="build_war_anthill">
-		<copy file="cgems.war" todir="${jboss.deploy.dir}"/>
+		<copy file="cagwas.war" todir="${jboss.deploy.dir}"/>
 	</target>
 	
 	<!--
 	TARGET: deploy_artifacts
 	Copies the configuration files to the anthill artifacts directory
 	-->
-	<target name="deploy_artifacts" depends="config_common_security_module, configure_cgems-properties-service">
+	<target name="deploy_artifacts" depends="config_common_security_module, configure_cagwas-properties-service">
 		<copy file="csm_deploy/oracle-ds.xml" todir="${anthill.artifacts.dir}"/>
-		<copy file="csm_deploy/cgems.hibernate.cfg.xml" todir="${anthill.artifacts.dir}"/>
+		<copy file="csm_deploy/cagwas.hibernate.cfg.xml" todir="${anthill.artifacts.dir}"/>
 		<copy file="csm_deploy/ApplicationSecurityConfig.xml" todir="${anthill.artifacts.dir}"/>
 		<copy file="csm_deploy/properties-service-csm.xml" todir="${anthill.artifacts.dir}"/>
 		<copy file="csm_deploy/login-config.xml" todir="${anthill.artifacts.dir}"/>
 		<copy file="caintegrator_deploy/caIntegratorConfig.xml" todir="${anthill.artifacts.dir}"/>
-		<copy file="caintegrator_deploy/cgems-domain-hibernate.cfg.xml" todir="${anthill.artifacts.dir}"/>
+		<copy file="caintegrator_deploy/cagwas-domain-hibernate.cfg.xml" todir="${anthill.artifacts.dir}"/>
 		<copy file="caintegrator_deploy/mail.properties" todir="${anthill.artifacts.dir}"/>
 		<copy file="caintegrator_deploy/properties-service.xml" todir="${anthill.artifacts.dir}"/>
 		<copy file="caintegrator_deploy/zip.properties" todir="${anthill.artifacts.dir}"/>
@@ -182,11 +182,11 @@
 		<replaceregexp file="csm_deploy/ApplicationSecurityConfig.xml" match="@CONTEXT_NAME@" replace="${module_name}" flags="g"/>
 		<replaceregexp file="csm_deploy/ApplicationSecurityConfig.xml" match="@HIBERNATE_CONFIG_FILE@" replace="${csm.hibernate.config.file}" flags="g"/>
 		
-		<!-- Configuring cgems.hibernate.cfg.xml -->
-		<echo message="Setting cgems.hibernate.cfg.xml"/>
-		<delete file="conf/csm/cgems.hibernate.cfg.xml"/>
-		<copy file="conf/csm/cgems.hibernate.cfg.xml.template" tofile="csm_deploy/cgems.hibernate.cfg.xml"/>
-		<replaceregexp file="csm_deploy/cgems.hibernate.cfg.xml" match="@DATASOURCE_JNDI@" replace="${csm.jndi.connection.datasource}" flags="g"/>
+		<!-- Configuring cagwas.hibernate.cfg.xml -->
+		<echo message="Setting cagwas.hibernate.cfg.xml"/>
+		<delete file="conf/csm/cagwas.hibernate.cfg.xml"/>
+		<copy file="conf/csm/cagwas.hibernate.cfg.xml.template" tofile="csm_deploy/cagwas.hibernate.cfg.xml"/>
+		<replaceregexp file="csm_deploy/cagwas.hibernate.cfg.xml" match="@DATASOURCE_JNDI@" replace="${csm.jndi.connection.datasource}" flags="g"/>
 		
 		<!-- Configuring oracle-ds.xml -->
 		<echo message="Configuring oracle-ds.xml"/>
@@ -224,35 +224,35 @@
 		<!-- Copy it to Jboss Deploy folder -->
 		<copy file="csm_deploy/oracle-ds.xml" todir="${jboss.deploy.dir}"/>
 		<!-- Copy it to Jboss Conf folder -->
-		<copy file="csm_deploy/cgems.hibernate.cfg.xml" todir="${jboss.conf.dir}"/>
+		<copy file="csm_deploy/cagwas.hibernate.cfg.xml" todir="${jboss.conf.dir}"/>
 		<!-- Copy it to Jboss Conf folder -->
 		<copy file="csm_deploy/ApplicationSecurityConfig.xml" todir="${jboss.conf.dir}"/>
 	</target>
 	
-	<target name="configure_cgems-properties-service">
+	<target name="configure_cagwas-properties-service">
 		<!-- Configuring caIntegratorConfig.xml -->
 		<echo message="Setting caIntegratorConfig.xml"/>
 		<delete file="caintegrator_deploy/caIntegratorConfig.xml"/>
 		<copy file="conf/caIntegratorConfig.xml.template" tofile="caintegrator_deploy/caIntegratorConfig.xml"/>
 		<replaceregexp file="caintegrator_deploy/caIntegratorConfig.xml" match="@CONTEXT_NAME@" replace="${module_name}" flags="g"/>
-		<replaceregexp file="caintegrator_deploy/caIntegratorConfig.xml" match="@HIBERNATE_CONFIG_FILE@" replace="${ncicb.configure.directory}cgems/config/${caintegrator.hibernate.config.file}" flags="g"/>
+		<replaceregexp file="caintegrator_deploy/caIntegratorConfig.xml" match="@HIBERNATE_CONFIG_FILE@" replace="${ncicb.configure.directory}cagwas/config/${caintegrator.hibernate.config.file}" flags="g"/>
 
-		<!-- Configuring cgems-properties-service.xml -->
+		<!-- Configuring cagwas-properties-service.xml -->
 		<echo message="Configuring properties-service.xml"/>
 		<delete file="caintegrator_deploy/properties-service.xml"/>
 		<copy file="conf/caintegrator-properties-service.xml" tofile="caintegrator_deploy/properties-service.xml"/>
-		<replaceregexp file="caintegrator_deploy/properties-service.xml" match="@CAINTEGRATOR_APPLICATION_CONFIG_PATH@" replace="${ncicb.configure.directory}cgems/config" flags="g"/>
+		<replaceregexp file="caintegrator_deploy/properties-service.xml" match="@CAINTEGRATOR_APPLICATION_CONFIG_PATH@" replace="${ncicb.configure.directory}cagwas/config" flags="g"/>
 		<copy file="${build.source.dir}/zip.properties" todir="caintegrator_deploy"/>
 		<copy file="${build.source.dir}/mail.properties" todir="caintegrator_deploy"/>
-		<copy file="${build.source.dir}/cgems-domain-hibernate.cfg.xml" todir="caintegrator_deploy"/>
+		<copy file="${build.source.dir}/cagwas-domain-hibernate.cfg.xml" todir="caintegrator_deploy"/>
 	</target>
 	
-	<target name="development_config_cgems_module" depends="configure_cgems-properties-service">
+	<target name="development_config_cagwas_module" depends="configure_cagwas-properties-service">
 		<!-- Copy it to Jboss Conf folder -->
-		<copy file="${build.source.dir}/zip.properties" todir="${ncicb.configure.directory}cgems/config"/>
-		<copy file="${build.source.dir}/mail.properties" todir="${ncicb.configure.directory}cgems/config"/>
-     	<copy file="${build.source.dir}/${caintegrator.hibernate.config.file}" todir="${ncicb.configure.directory}cgems/config"/>
-     	<copy file="caintegrator_deploy/caIntegratorConfig.xml" todir="${ncicb.configure.directory}cgems/config"/>
+		<copy file="${build.source.dir}/zip.properties" todir="${ncicb.configure.directory}cagwas/config"/>
+		<copy file="${build.source.dir}/mail.properties" todir="${ncicb.configure.directory}cagwas/config"/>
+     	<copy file="${build.source.dir}/${caintegrator.hibernate.config.file}" todir="${ncicb.configure.directory}cagwas/config"/>
+     	<copy file="caintegrator_deploy/caIntegratorConfig.xml" todir="${ncicb.configure.directory}cagwas/config"/>
 	</target>
 	
 	<target name="config_application_context">		
@@ -263,7 +263,7 @@
 	</target>
 	
 	<target name="build_strutstest" depends="build_war_anthill">
-		<javac srcdir="${build.source.dir}" destdir="${build.classes.dir}" source="1.5" excludes="**/CgemsIntegrationTestSuite.java" debug="true" debuglevel="lines,vars,source">
+		<javac srcdir="${build.source.dir}" destdir="${build.classes.dir}" source="1.5" excludes="**/CagwasIntegrationTestSuite.java" debug="true" debuglevel="lines,vars,source">
 			<classpath>
 				<fileset dir="${webapp.lib.dir}">
 					<include name="*.jar"/>
@@ -278,7 +278,7 @@
 				</fileset>
 			</classpath>
 		</javac>
-		<copy todir="${build.classes.dir}" file="${build.source.dir}/cgems-domain-hibernate.cfg.xml"/>
+		<copy todir="${build.classes.dir}" file="${build.source.dir}/cagwas-domain-hibernate.cfg.xml"/>
 		<copy todir="${webapp.dir}/WEB-INF/test">
 			<fileset dir="${basedir}/test">
 				<include name="applicationContext*.xml"/>
@@ -288,7 +288,7 @@
 	
 	<target name="run_strutstest" depends="build_strutstest">
 		<junit fork="yes" haltonfailure="yes">
-			<test name="gov.nih.nci.cgems.web.test.AllActionTests"/>
+			<test name="gov.nih.nci.cagwas.web.test.AllActionTests"/>
 		    <formatter type="plain" usefile="false"/>
 			<classpath>
 				<pathelement path="${build.classes.dir}"/>

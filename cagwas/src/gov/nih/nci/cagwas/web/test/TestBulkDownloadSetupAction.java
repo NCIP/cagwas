@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.web.test;
+package gov.nih.nci.cagwas.web.test;
 
 /**
  * Tests the BulkSetupAction
@@ -6,7 +6,7 @@ package gov.nih.nci.cgems.web.test;
  * @author achickerur
  *
  */
-public class TestBulkDownloadSetupAction extends CgemsActionTest
+public class TestBulkDownloadSetupAction extends CagwasActionTest
 {
 	public TestBulkDownloadSetupAction(String testName)
 	{
@@ -17,7 +17,7 @@ public class TestBulkDownloadSetupAction extends CgemsActionTest
     {
     	setRequestPathInfo("/downloadSetup");
     	actionPerform();
-    	//verifyTilesForward("success", "cgems.download"");
+    	//verifyTilesForward("success", "cagwas.download"");
         //assertNotNull(request.getAttribute("studies"));
         verifyNoActionErrors();
     }

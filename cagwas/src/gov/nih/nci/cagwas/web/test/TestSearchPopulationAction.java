@@ -1,6 +1,6 @@
-package gov.nih.nci.cgems.web.test;
+package gov.nih.nci.cagwas.web.test;
 
-import gov.nih.nci.cgems.reports.SNPFrequencyFindingReport;
+import gov.nih.nci.cagwas.reports.SNPFrequencyFindingReport;
 
 import java.util.ArrayList;
 
@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @author mholck
  *
  */
-public class TestSearchPopulationAction extends CgemsActionTest
+public class TestSearchPopulationAction extends CagwasActionTest
 {	
 	public TestSearchPopulationAction(String testName)
 	{
@@ -164,7 +164,7 @@ public class TestSearchPopulationAction extends CgemsActionTest
     	setRequestPathInfo("/searchPopulation");
     	request.getSession().setAttribute("studyId", studyId);
     	actionPerform();
-    	verifyTilesForward("success", "cgems.populationReport");
+    	verifyTilesForward("success", "cagwas.populationReport");
         ArrayList<SNPFrequencyFindingReport> results =
         	(ArrayList<SNPFrequencyFindingReport>)request.getSession().getAttribute("pop.results");
         assertNotNull(results);
@@ -192,7 +192,7 @@ public class TestSearchPopulationAction extends CgemsActionTest
     	setRequestPathInfo("/searchPopulation");
     	request.getSession().setAttribute("studyId", studyId);
     	actionPerform();
-    	verifyTilesForward("success", "cgems.populationReport");
+    	verifyTilesForward("success", "cagwas.populationReport");
         ArrayList<SNPFrequencyFindingReport> results =
         	(ArrayList<SNPFrequencyFindingReport>)request.getSession().getAttribute("pop.results");
         assertNotNull(results);
@@ -209,7 +209,7 @@ public class TestSearchPopulationAction extends CgemsActionTest
     	request.getSession().setAttribute("study", studyIds.get(0));
     	actionPerform();
     	verifyNoActionErrors();
-    	verifyTilesForward("download", "cgems.download");
+    	verifyTilesForward("download", "cagwas.download");
         assertNotNull(request.getSession().getAttribute("searchType"));
         assertNotNull(request.getSession().getAttribute("form"));
     }

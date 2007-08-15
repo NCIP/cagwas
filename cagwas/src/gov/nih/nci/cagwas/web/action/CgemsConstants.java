@@ -1,13 +1,13 @@
-package gov.nih.nci.cgems.web.action;
+package gov.nih.nci.cagwas.web.action;
 
 /**
- * The CgemsConstants class defines some constant values that are used
+ * The CagwasConstants class defines some constant values that are used
  * throughout the code.  They are defined here so they can easily be
  * changed in only one place.
  * <P>
  * @author mholck
  */
-public class CgemsConstants
+public class CagwasConstants
 {
 	// The maximum number of gene symbols allowed
 	public static int MAX_SYMBOLS = 100;

@@ -1,12 +1,12 @@
-package gov.nih.nci.cgems.web.job;
+package gov.nih.nci.cagwas.web.job;
 
 import gov.nih.nci.caintegrator.application.configuration.SpringContext;
 import gov.nih.nci.caintegrator.studyQueryService.dto.annotation.AnnotationCriteria;
 import gov.nih.nci.caintegrator.studyQueryService.dto.germline.GenotypeFindingCriteriaDTO;
-import gov.nih.nci.cgems.application.zip.ZipGenotypeFinding;
-import gov.nih.nci.cgems.web.action.AnnotationCriteriaHelper;
-import gov.nih.nci.cgems.web.action.SearchGenotypeHelper;
-import gov.nih.nci.cgems.web.form.GenotypeForm;
+import gov.nih.nci.cagwas.application.zip.ZipGenotypeFinding;
+import gov.nih.nci.cagwas.web.action.AnnotationCriteriaHelper;
+import gov.nih.nci.cagwas.web.action.SearchGenotypeHelper;
+import gov.nih.nci.cagwas.web.form.GenotypeForm;
 
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionMessages;

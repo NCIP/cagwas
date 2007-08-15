@@ -1,12 +1,12 @@
-package gov.nih.nci.cgems.web.job;
+package gov.nih.nci.cagwas.web.job;
 
 import gov.nih.nci.caintegrator.application.configuration.SpringContext;
 import gov.nih.nci.caintegrator.studyQueryService.dto.annotation.AnnotationCriteria;
 import gov.nih.nci.caintegrator.studyQueryService.dto.germline.SNPFrequencyFindingCriteriaDTO;
-import gov.nih.nci.cgems.application.zip.ZipSNPFrequencyFinding;
-import gov.nih.nci.cgems.web.action.AnnotationCriteriaHelper;
-import gov.nih.nci.cgems.web.action.SearchPopulationHelper;
-import gov.nih.nci.cgems.web.form.PopulationForm;
+import gov.nih.nci.cagwas.application.zip.ZipSNPFrequencyFinding;
+import gov.nih.nci.cagwas.web.action.AnnotationCriteriaHelper;
+import gov.nih.nci.cagwas.web.action.SearchPopulationHelper;
+import gov.nih.nci.cagwas.web.form.PopulationForm;
 
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionMessages;

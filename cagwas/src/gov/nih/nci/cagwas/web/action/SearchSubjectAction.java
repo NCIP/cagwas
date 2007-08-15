@@ -69,7 +69,7 @@ public class SearchSubjectAction extends Action
         FindingsManager manager = (FindingsManager)SpringContext.getBean("findingsManager");
         
 		// Execute the search
-		Collection<StudyParticipant> subjects = manager.getStudySubjects(spCrit, 0, CgemsConstants.MAX_RESULTS + 1);
+		Collection<StudyParticipant> subjects = manager.getStudySubjects(spCrit, 0, CagwasConstants.MAX_RESULTS + 1);
 		
 		// Create the SNPAssociation reports
 		ArrayList<StudyParticipantReport> results = new ArrayList<StudyParticipantReport>();
@@ -99,7 +99,7 @@ public class SearchSubjectAction extends Action
 	    else
 	    {
 	    	// If there were more results than we allow then forward to download page
-			if (subjects.size() > CgemsConstants.MAX_RESULTS)
+			if (subjects.size() > CagwasConstants.MAX_RESULTS)
 			{
 				// Put the type of search in the session
 				request.getSession().setAttribute("searchType", "Subject");

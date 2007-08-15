@@ -116,7 +116,7 @@ else
 		<th><bean:message key="table.header.genotype"/></th>
 		<th><bean:message key="table.header.genotype.count"/></th>
 	</tr>
-	<logic:iterate id="result" name="pop.results" type="gov.nih.nci.cgems.reports.SNPFrequencyFindingReport">
+	<logic:iterate id="result" name="pop.results" type="gov.nih.nci.cagwas.reports.SNPFrequencyFindingReport">
 		<tr>
 			<td>
 				<a href="<bean:message key="url.snps"/><bean:write name="result" property="dbsnpId"/>" target="_blank">

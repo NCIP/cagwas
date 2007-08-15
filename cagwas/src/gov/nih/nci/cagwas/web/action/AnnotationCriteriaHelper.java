@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.web.action;
+package gov.nih.nci.cagwas.web.action;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
-import gov.nih.nci.cgems.web.form.SNPSearchForm;
+import gov.nih.nci.cagwas.web.form.SNPSearchForm;
 import gov.nih.nci.caintegrator.studyQueryService.dto.annotation.AnnotationCriteria;
 import gov.nih.nci.caintegrator.studyQueryService.dto.annotation.PhysicalPositionCriteria;
 import gov.nih.nci.caintegrator.studyQueryService.dto.germline.PanelCriteria;
@@ -136,7 +136,7 @@ public class AnnotationCriteriaHelper
 
                     int count = 0;
                     
-                    while ((inputLine = inFile.readLine()) != null && count < CgemsConstants.MAX_SYMBOLS)
+                    while ((inputLine = inFile.readLine()) != null && count < CagwasConstants.MAX_SYMBOLS)
                     {
                     	inputLine = inputLine.trim();
                         count++;
@@ -204,7 +204,7 @@ public class AnnotationCriteriaHelper
 
                     int count = 0;
                     
-                    while ((inputLine = inFile.readLine()) != null && count < CgemsConstants.MAX_IDS)
+                    while ((inputLine = inFile.readLine()) != null && count < CagwasConstants.MAX_IDS)
                     {
                     	inputLine = inputLine.trim();
                         count++;

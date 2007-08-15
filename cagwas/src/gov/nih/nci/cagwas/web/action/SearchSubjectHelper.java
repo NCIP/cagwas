@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.web.action;
+package gov.nih.nci.cagwas.web.action;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,7 +7,7 @@ import gov.nih.nci.caintegrator.studyQueryService.dto.germline.AnalysisGroupCrit
 import gov.nih.nci.caintegrator.studyQueryService.dto.study.PopulationCriteria;
 import gov.nih.nci.caintegrator.studyQueryService.dto.study.StudyCriteria;
 import gov.nih.nci.caintegrator.studyQueryService.dto.study.StudyParticipantCriteria;
-import gov.nih.nci.cgems.web.form.SubjectForm;
+import gov.nih.nci.cagwas.web.form.SubjectForm;
 
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionMessages;

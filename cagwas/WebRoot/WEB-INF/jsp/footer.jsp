@@ -3,7 +3,7 @@
 	<a href="http://caintegrator-info.nci.nih.gov/" target="_blank"><img src="images/logo_cal.gif" border="0" class="view-images" alt="Powered by caIntegrator" /></a></div>
 </div>	
 <div id="footer" align="center">
-	<a href="/cgems">Home</a> | <%
+	<a href="/cagwas">Home</a> | <%
 		String view = (String)session.getAttribute("viewType");
 		if ((view == null) || (view.equals("image")))
 		{ %>

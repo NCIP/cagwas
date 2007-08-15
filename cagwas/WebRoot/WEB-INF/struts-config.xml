@@ -7,14 +7,14 @@
 
   <!-- ========== Form Bean Definitions ================================== -->
   <form-beans>
-   	<form-bean name="browseForm" type="gov.nih.nci.cgems.web.form.BrowseForm"/>
-	<form-bean name="loginForm" type="gov.nih.nci.cgems.web.form.LoginForm"/>
-      <form-bean name="associationsForm" type="gov.nih.nci.cgems.web.form.AssociationsForm"/>
-	<form-bean name="populationForm" type="gov.nih.nci.cgems.web.form.PopulationForm"/>
-	<form-bean name="downloadForm" type="gov.nih.nci.cgems.web.form.DownloadForm"/>
-	<form-bean name="genotypeForm" type="gov.nih.nci.cgems.web.form.GenotypeForm"/>
-	<form-bean name="subjectForm" type="gov.nih.nci.cgems.web.form.SubjectForm"/>
-      <form-bean name="feedbackForm" type="gov.nih.nci.cgems.web.form.FeedbackForm"/>
+   	<form-bean name="browseForm" type="gov.nih.nci.cagwas.web.form.BrowseForm"/>
+	<form-bean name="loginForm" type="gov.nih.nci.cagwas.web.form.LoginForm"/>
+      <form-bean name="associationsForm" type="gov.nih.nci.cagwas.web.form.AssociationsForm"/>
+	<form-bean name="populationForm" type="gov.nih.nci.cagwas.web.form.PopulationForm"/>
+	<form-bean name="downloadForm" type="gov.nih.nci.cagwas.web.form.DownloadForm"/>
+	<form-bean name="genotypeForm" type="gov.nih.nci.cagwas.web.form.GenotypeForm"/>
+	<form-bean name="subjectForm" type="gov.nih.nci.cagwas.web.form.SubjectForm"/>
+      <form-bean name="feedbackForm" type="gov.nih.nci.cagwas.web.form.FeedbackForm"/>
   </form-beans>
 
   <!-- ========== Global Exception Definitions ============================ -->
@@ -23,197 +23,197 @@
   <!-- ========== Global Forward Definitions ============================== -->
   <global-forwards>
     <forward name="error" path="/error.jsp"/>
-    <forward name="ploneError" path="cgems.ploneError"/>
-    <forward name="criteriaWarn" path="cgems.criteriaWarn"/>
+    <forward name="ploneError" path="cagwas.ploneError"/>
+    <forward name="criteriaWarn" path="cagwas.criteriaWarn"/>
   </global-forwards>
       
   <!-- ========== Action Mapping Definitions ============================ -->
   <action-mappings>
     
     <action path="/browseSetup"
-		type="gov.nih.nci.cgems.web.action.BrowseSetupAction"
+		type="gov.nih.nci.cagwas.web.action.BrowseSetupAction"
 		scope="request">
-    <forward name="success" path="cgems.browseData"/>
+    <forward name="success" path="cagwas.browseData"/>
     </action>
 
     <action path="/downloadSetup"
-		type="gov.nih.nci.cgems.web.action.BulkDownloadSetupAction"
+		type="gov.nih.nci.cagwas.web.action.BulkDownloadSetupAction"
 		scope="request">
-    <forward name="success" path="cgems.downloadData"/>
+    <forward name="success" path="cagwas.downloadData"/>
     </action>
 
     <action path="/browse"
-		type="gov.nih.nci.cgems.web.action.BrowseAction"
+		type="gov.nih.nci.cagwas.web.action.BrowseAction"
             name="browseForm"
 		scope="request"
-            input="cgems.browseData">
-    <forward name="association" path="cgems.searchAssociations"/>
-    <forward name="population" path="cgems.searchPopulation"/>
-    <forward name="subjects" path="cgems.searchSubject"/>
-    <forward name="genotypes" path="cgems.searchGenotype"/>
+            input="cagwas.browseData">
+    <forward name="association" path="cagwas.searchAssociations"/>
+    <forward name="population" path="cagwas.searchPopulation"/>
+    <forward name="subjects" path="cagwas.searchSubject"/>
+    <forward name="genotypes" path="cagwas.searchGenotype"/>
     <forward name="login" path="/login.jsp"/>
-    <forward name="accessWarning" path="cgems.accessWarn"/>
+    <forward name="accessWarning" path="cagwas.accessWarn"/>
     </action>
 
     <action path="/reset"
-		type="gov.nih.nci.cgems.web.action.ResetAction"
+		type="gov.nih.nci.cagwas.web.action.ResetAction"
 		scope="request">
-    <forward name="association" path="cgems.searchAssociations"/>
-    <forward name="population" path="cgems.searchPopulation"/>
-    <forward name="subjects" path="cgems.searchSubject"/>
-    <forward name="genotypes" path="cgems.searchGenotype"/>
+    <forward name="association" path="cagwas.searchAssociations"/>
+    <forward name="population" path="cagwas.searchPopulation"/>
+    <forward name="subjects" path="cagwas.searchSubject"/>
+    <forward name="genotypes" path="cagwas.searchGenotype"/>
     <forward name="login" path="/login.jsp"/>
     </action>
 
     <action path="/bulkDownload"
-		type="gov.nih.nci.cgems.web.action.BulkDownloadAction"
+		type="gov.nih.nci.cagwas.web.action.BulkDownloadAction"
             name="browseForm"
 		scope="request"
-            input="cgems.downloadData">
+            input="cagwas.downloadData">
     <forward name="login" path="/login.jsp"/>
     </action>
 
     <action path="/login"
-		type="gov.nih.nci.cgems.web.action.LoginAction"
+		type="gov.nih.nci.cagwas.web.action.LoginAction"
             name="loginForm"
 		scope="request"
             input="/login.jsp">
     <forward name="success" path="/browseSetup.do"/>
-    <forward name="accessWarning" path="cgems.accessWarn"/>
+    <forward name="accessWarning" path="cagwas.accessWarn"/>
     </action>
 
     <action path="/logout"
-		type="gov.nih.nci.cgems.web.action.LogoutAction"
+		type="gov.nih.nci.cagwas.web.action.LogoutAction"
 		scope="request">
     <forward name="success" path="/browseSetup.do"/>
     </action>
 
     <action path="/searchAssociations"
-		type="gov.nih.nci.cgems.web.action.SearchAssociationsAction"
+		type="gov.nih.nci.cagwas.web.action.SearchAssociationsAction"
             name="associationsForm"
 		scope="request"
-            input="cgems.searchAssociations">
-    <forward name="success" path="cgems.associationReport"/>
-    <forward name="download" path="cgems.download"/>
+            input="cagwas.searchAssociations">
+    <forward name="success" path="cagwas.associationReport"/>
+    <forward name="download" path="cagwas.download"/>
     </action>
 
     <action path="/saveAssociations"
-		type="gov.nih.nci.cgems.web.action.SaveAssociationsAction"
+		type="gov.nih.nci.cagwas.web.action.SaveAssociationsAction"
 		scope="request">
-    <forward name="success" path="cgems.associationReport"/>
+    <forward name="success" path="cagwas.associationReport"/>
     </action>
 
     <action path="/sortAssociations"
-		type="gov.nih.nci.cgems.web.action.SortAssociationsAction"
+		type="gov.nih.nci.cagwas.web.action.SortAssociationsAction"
 		scope="request">
-    <forward name="success" path="cgems.associationReport"/>
+    <forward name="success" path="cagwas.associationReport"/>
     </action>
 
     <action path="/searchPopulation"
-		type="gov.nih.nci.cgems.web.action.SearchPopulationAction"
+		type="gov.nih.nci.cagwas.web.action.SearchPopulationAction"
             name="populationForm"
 		scope="request"
-            input="cgems.searchPopulation">
-    <forward name="success" path="cgems.populationReport"/>
-    <forward name="download" path="cgems.download"/>
+            input="cagwas.searchPopulation">
+    <forward name="success" path="cagwas.populationReport"/>
+    <forward name="download" path="cagwas.download"/>
     </action>
 
     <action path="/savePopulation"
-		type="gov.nih.nci.cgems.web.action.SavePopulationAction"
+		type="gov.nih.nci.cagwas.web.action.SavePopulationAction"
 		scope="request">
-    <forward name="success" path="cgems.populationReport"/>
+    <forward name="success" path="cagwas.populationReport"/>
     </action>
 
     <action path="/sortPopulation"
-		type="gov.nih.nci.cgems.web.action.SortPopulationAction"
+		type="gov.nih.nci.cagwas.web.action.SortPopulationAction"
 		scope="request">
-    <forward name="success" path="cgems.populationReport"/>
+    <forward name="success" path="cagwas.populationReport"/>
     </action>
 
     <action path="/download"
-		type="gov.nih.nci.cgems.web.action.DownloadAction"
+		type="gov.nih.nci.cagwas.web.action.DownloadAction"
             name="downloadForm"
 		scope="request"
-            input="cgems.download">
-    <forward name="success" path="cgems.querySuccess"/>
+            input="cagwas.download">
+    <forward name="success" path="cagwas.querySuccess"/>
     </action>
 
     <action path="/searchGenotype"
-		type="gov.nih.nci.cgems.web.action.SearchGenotypeAction"
+		type="gov.nih.nci.cagwas.web.action.SearchGenotypeAction"
             name="genotypeForm"
 		scope="request"
-            input="cgems.searchGenotype">
-    <forward name="success" path="cgems.download"/>
+            input="cagwas.searchGenotype">
+    <forward name="success" path="cagwas.download"/>
     </action>
 
     <action path="/searchSubject"
-		type="gov.nih.nci.cgems.web.action.SearchSubjectAction"
+		type="gov.nih.nci.cagwas.web.action.SearchSubjectAction"
             name="subjectForm"
 		scope="request"
-            input="cgems.searchSubject">
-    <forward name="success" path="cgems.subjectReport"/>
-    <forward name="download" path="cgems.download"/>
+            input="cagwas.searchSubject">
+    <forward name="success" path="cagwas.subjectReport"/>
+    <forward name="download" path="cagwas.download"/>
     </action>
 
     <action path="/saveSubject"
-		type="gov.nih.nci.cgems.web.action.SaveSubjectAction"
+		type="gov.nih.nci.cagwas.web.action.SaveSubjectAction"
 		scope="request">
-    <forward name="success" path="cgems.subjectReport"/>
+    <forward name="success" path="cagwas.subjectReport"/>
     </action>
 
     <action path="/sortSubject"
-		type="gov.nih.nci.cgems.web.action.SortSubjectAction"
+		type="gov.nih.nci.cagwas.web.action.SortSubjectAction"
 		scope="request">
-    <forward name="success" path="cgems.subjectReport"/>
+    <forward name="success" path="cagwas.subjectReport"/>
     </action>
 
     <action path="/userRegistration"
-		type="gov.nih.nci.cgems.web.action.RegistrationAction"
+		type="gov.nih.nci.cagwas.web.action.RegistrationAction"
      		scope="request">
     <forward name="success" path="/registration.jsp"/>
     </action>
 
     <action path="/feedbackSetup"
-		type="gov.nih.nci.cgems.web.action.FeedbackSetupAction"
+		type="gov.nih.nci.cagwas.web.action.FeedbackSetupAction"
 		scope="request">
-    <forward name="success" path="cgems.feedback"/>
+    <forward name="success" path="cagwas.feedback"/>
     </action>
 
     <action path="/feedback"
-		type="gov.nih.nci.cgems.web.action.FeedbackAction"
+		type="gov.nih.nci.cagwas.web.action.FeedbackAction"
             name="feedbackForm"
 		scope="request"
-            input="cgems.feedback">
+            input="cagwas.feedback">
     <forward name="success" path="/browseSetup.do"/>
     </action>
 
     <action path="/aboutSetup"
-		type="gov.nih.nci.cgems.web.action.AboutSetupAction"
+		type="gov.nih.nci.cagwas.web.action.AboutSetupAction"
 		scope="request">
-    <forward name="success" path="cgems.about"/>
+    <forward name="success" path="cagwas.about"/>
     </action>
 
     <action path="/remoteSetup"
-		type="gov.nih.nci.cgems.web.action.RemoteSetupAction"
+		type="gov.nih.nci.cagwas.web.action.RemoteSetupAction"
 		scope="request">
-    <forward name="prostate" path="cgems.studyProstate"/>
-    <forward name="breast" path="cgems.studyBreast"/>
-    <forward name="glossary" path="cgems.glossary"/>
-    <forward name="contacts" path="cgems.contacts"/>
-    <forward name="cite" path="cgems.cite"/>
-    <forward name="citeExample" path="cgems.citeExample"/>
-    <forward name="access" path="cgems.access"/>
-    <forward name="openAccess" path="cgems.openAccess"/>
-    <forward name="controlledAccess" path="cgems.controlledAccess"/>
+    <forward name="prostate" path="cagwas.studyProstate"/>
+    <forward name="breast" path="cagwas.studyBreast"/>
+    <forward name="glossary" path="cagwas.glossary"/>
+    <forward name="contacts" path="cagwas.contacts"/>
+    <forward name="cite" path="cagwas.cite"/>
+    <forward name="citeExample" path="cagwas.citeExample"/>
+    <forward name="access" path="cagwas.access"/>
+    <forward name="openAccess" path="cagwas.openAccess"/>
+    <forward name="controlledAccess" path="cagwas.controlledAccess"/>
     </action>
 
     <action path="/getRemotePDF"
-		type="gov.nih.nci.cgems.web.action.GetRemotePDFAction"
+		type="gov.nih.nci.cagwas.web.action.GetRemotePDFAction"
 		scope="request">
     </action>
 
     <action path="/viewText"
-		type="gov.nih.nci.cgems.web.action.ViewTextAction"
+		type="gov.nih.nci.cagwas.web.action.ViewTextAction"
 		scope="request">
     </action>
 		
@@ -223,7 +223,7 @@
   <controller />
 
   <!-- ========== Message Resources Definitions ========================== -->
-  <message-resources parameter="cgemsResources" />
+  <message-resources parameter="cagwasResources" />
 
   <!-- ========== Plug Ins Configuration ================================= -->
   <plug-in className="org.apache.struts.tiles.TilesPlugin" >
@@ -234,7 +234,7 @@
 	   <set-property property="moduleAware" value="true" />
   </plug-in>
 
-  <plug-in className="gov.nih.nci.cgems.web.SchedulerPlugIn">
+  <plug-in className="gov.nih.nci.cagwas.web.SchedulerPlugIn">
      <set-property property="startOnLoad" value="true" />
   </plug-in>
 </struts-config>

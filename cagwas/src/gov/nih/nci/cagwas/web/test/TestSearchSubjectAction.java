@@ -1,6 +1,6 @@
-package gov.nih.nci.cgems.web.test;
+package gov.nih.nci.cagwas.web.test;
 
-import gov.nih.nci.cgems.reports.StudyParticipantReport;
+import gov.nih.nci.cagwas.reports.StudyParticipantReport;
 
 import java.util.ArrayList;
 
@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @author mholck
  *
  */
-public class TestSearchSubjectAction extends CgemsActionTest
+public class TestSearchSubjectAction extends CagwasActionTest
 {
 	public TestSearchSubjectAction(String testName)
 	{
@@ -40,7 +40,7 @@ public class TestSearchSubjectAction extends CgemsActionTest
     	setRequestPathInfo("/searchSubject");
     	request.getSession().setAttribute("study", studyId);
     	actionPerform();
-    	verifyTilesForward("success", "cgems.subjectReport");
+    	verifyTilesForward("success", "cagwas.subjectReport");
         ArrayList<StudyParticipantReport> results =
         	(ArrayList<StudyParticipantReport>)request.getSession().getAttribute("results");
         assertNotNull(results);
@@ -54,7 +54,7 @@ public class TestSearchSubjectAction extends CgemsActionTest
     	setRequestPathInfo("/searchSubject");
     	request.getSession().setAttribute("study", studyIds.get(0));
     	actionPerform();
-    	verifyTilesForward("download", "cgems.download");
+    	verifyTilesForward("download", "cagwas.download");
         assertNotNull(request.getSession().getAttribute("searchType"));
         assertNotNull(request.getSession().getAttribute("form"));
         verifyNoActionErrors();

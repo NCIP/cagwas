@@ -17,7 +17,7 @@
 	   	   { %>
 		<div class="view-text">
 			<div class="left">
-				<br /><a href="index.html" class="title">CGEMS Data Portal </a><br />
+				<br /><a href="index.html" class="title">CaGWAS Data Portal </a><br />
 				<a href="index.html">Cancer Genetic Markers of Susceptibility</a>			
 			</div>
 		</div>
@@ -26,10 +26,10 @@
 		   { %>
 		<!-- Utility Nav  -->
 		<div id="nav_util">
-			<a href="/cgems">Home</a> | <a href="login.jsp">Login</a> | <a href="remoteSetup.do?content=contacts">Contact Us</a> |	Visit the <a href="http://cgems.cancer.gov" target="_blank" class="util_nav_link"><strong>CGEMS Home Site</strong></a>	
+			<a href="/cagwas">Home</a> | <a href="login.jsp">Login</a> | <a href="remoteSetup.do?content=contacts">Contact Us</a> |	Visit the <a href="http://cagwas.cancer.gov" target="_blank" class="util_nav_link"><strong>CaGWAS Home Site</strong></a>	
 		</div>
 		<!-- END Utility Nav  -->
-		<img src="images/header.jpg" alt="CGEMS Banner" border="0" usemap="#header" class="main_header" />
+		<img src="images/header.jpg" alt="CaGWAS Banner" border="0" usemap="#header" class="main_header" />
 		<% } %>
 	</div>
 </div>
@@ -43,7 +43,7 @@
 
 <!-- Image Map for header  -->
 <map name="header">
-<area shape="rect" coords="1,12,326,78" href="/cgems" target="" alt="Cancer Genetic Markers of Susceptibility Data Portal">
+<area shape="rect" coords="1,12,326,78" href="/cagwas" target="" alt="Cancer Genetic Markers of Susceptibility Data Portal">
 <area shape="rect" coords="374,34,457,80" href="http://cgfweb.nci.nih.gov/" target=_blank"" alt="Core Genotyping Facility">
 <area shape="rect" coords="465,34,556,80" href="http://ocg.cancer.gov" target="_blank" alt="Office of Cancer Genomics">
 <area shape="rect" coords="563,34,646,81" href="http://dceg.cancer.gov" target="_blank" alt="Division of Cancer Epidemiology and Genetics">

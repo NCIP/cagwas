@@ -53,7 +53,7 @@ if(session.getAttribute("ref")==null)	{
 		
 <%/*
 		<div id="reg" style="padding:20px;">
-			Since the process for registered access to the raw genotype data and limited co-variates has not been formally approved by NIH, it is not yet possible currently to accept requests for registered access. We are working with the appropriate officials to resolve the issues. Please try back in the near future. If you want to send us your e-mail address to be notified when the solution is found, please send it to <a href="mailto:ncicb@pop.nci.nih.gov?subject=CGEMS Registration">ncicb@pop.nci.nih.gov</a>
+			Since the process for registered access to the raw genotype data and limited co-variates has not been formally approved by NIH, it is not yet possible currently to accept requests for registered access. We are working with the appropriate officials to resolve the issues. Please try back in the near future. If you want to send us your e-mail address to be notified when the solution is found, please send it to <a href="mailto:ncicb@pop.nci.nih.gov?subject=CaGWAS Registration">ncicb@pop.nci.nih.gov</a>
 		</div>
 */%>
 	</td>

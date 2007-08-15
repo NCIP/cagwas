@@ -24,7 +24,7 @@
 			</value>
 		</property>
 		<property name="user">
-			<value>cgemsdev</value>
+			<value>cagwasdev</value>
 		</property>
 		<property name="password">
 			<value>dev1234</value>
@@ -37,7 +37,7 @@
 				<prop key="c3p0.max_statements">0</prop>
 				<prop key="c3p0.min_size">1</prop>
 				<prop key="c3p0.timeout">100</prop>
-				<prop key="user">cgemsdev</prop>
+				<prop key="user">cagwasdev</prop>
 				<prop key="password">dev1234</prop>
 			</props>
 		</property>
@@ -47,7 +47,7 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<property name="configLocation">
-			<value>classpath:cgems-domain-hibernate.cfg.xml</value>
+			<value>classpath:cagwas-domain-hibernate.cfg.xml</value>
 		</property>
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
@@ -57,13 +57,13 @@
 	</bean>
 	
 	<!--  Spring managed beans for the helper classes that need criteria classes injected -->
-	<bean id="searchAssociationHelper" class="gov.nih.nci.cgems.web.action.SearchAssociationsHelper" scope="prototype">
+	<bean id="searchAssociationHelper" class="gov.nih.nci.cagwas.web.action.SearchAssociationsHelper" scope="prototype">
 		<property name="criteriaDto" ref="snpAssociationFindingsCriteria"/>
 	</bean>
-	<bean id="searchPopulationHelper" class="gov.nih.nci.cgems.web.action.SearchPopulationHelper" scope="prototype">
+	<bean id="searchPopulationHelper" class="gov.nih.nci.cagwas.web.action.SearchPopulationHelper" scope="prototype">
 		<property name="criteriaDto" ref="snpFrequencyFindingsCriteria"/>
 	</bean>
-	<bean id="searchGenotypeHelper" class="gov.nih.nci.cgems.web.action.SearchGenotypeHelper" scope="prototype">
+	<bean id="searchGenotypeHelper" class="gov.nih.nci.cagwas.web.action.SearchGenotypeHelper" scope="prototype">
 		<property name="criteriaDto" ref="genotypeFindingsCriteria"/>
 	</bean>
 

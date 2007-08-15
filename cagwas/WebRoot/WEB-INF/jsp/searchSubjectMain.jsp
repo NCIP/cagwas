@@ -131,6 +131,6 @@
 </html:form>
 </div>
 <div id="wait" align="center" style="DISPLAY:none">
-<img id="progress" src="images/cgems_loader_anim.gif"/>
+<img id="progress" src="images/cagwas_loader_anim.gif"/>
 <H3><bean:message key="label.wait"/></H3>
 </div>

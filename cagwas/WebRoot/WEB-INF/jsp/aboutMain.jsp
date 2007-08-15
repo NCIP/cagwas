@@ -8,13 +8,13 @@
 
 <div id="middle" align="center">
 	<div id="content">
-		<h1>CGEMS Data Portal</h1>
+		<h1>CaGWAS Data Portal</h1>
 		<div id="copy">
 			<div class="right_highlights">
 				<div class="spotlight">
 					<h1>Spotlight</h1>
 					<p>
-						<a href="#" onclick="Help.popHelpMain('');return false;">How to Use the CGEMS data portal</a>
+						<a href="#" onclick="Help.popHelpMain('');return false;">How to Use the CaGWAS data portal</a>
 					</p>
 					<% String regUrl = (String)session.getAttribute("registrationUrl"); %>
 					<p>
@@ -23,7 +23,7 @@
 				</div>
 				
 				<div class="spotlight">
-					<h1>CGEMS Updates</h1>
+					<h1>CaGWAS Updates</h1>
 					<%out.print(request.getAttribute("updateContent"));%>
 				</div>
 			</div>

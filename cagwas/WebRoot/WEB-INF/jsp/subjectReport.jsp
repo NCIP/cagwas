@@ -112,7 +112,7 @@ else
 			<th style="width:20%"><a href="sortSubject.do?column=population&order=ascending"><bean:message key="table.header.population"/></a></th>
 		<% } %>
 	</tr>
-	<logic:iterate id="subject" name="subj.results" type="gov.nih.nci.cgems.reports.StudyParticipantReport">
+	<logic:iterate id="subject" name="subj.results" type="gov.nih.nci.cagwas.reports.StudyParticipantReport">
 		<tr>
 			<td><bean:write name="subject" property="studySubjectIdentifier"/></td>
 			<td><bean:write name="subject" property="administrativeGenderCode"/></td>

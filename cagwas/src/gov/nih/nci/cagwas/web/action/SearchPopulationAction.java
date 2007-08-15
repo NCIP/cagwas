@@ -92,9 +92,9 @@ public class SearchPopulationAction extends Action
 		freqDTO.setAnnotationCriteria(annoCrit);
         
 		Collection<SNPFrequencyFinding> findings =
-			(Collection<SNPFrequencyFinding>)manager.getFindings(freqDTO, 0, CgemsConstants.MAX_RESULTS + 1);
+			(Collection<SNPFrequencyFinding>)manager.getFindings(freqDTO, 0, CagwasConstants.MAX_RESULTS + 1);
 		
-		if (findings.size() <= CgemsConstants.MAX_RESULTS)
+		if (findings.size() <= CagwasConstants.MAX_RESULTS)
 		{
 			// Create the SNPAssociation reports
 			ArrayList<SNPFrequencyFindingReport> results = new ArrayList<SNPFrequencyFindingReport>();
@@ -129,7 +129,7 @@ public class SearchPopulationAction extends Action
 	    else
 	    {
 	    	// If there were more results than we allow then forward to download page
-			if (findings.size() > CgemsConstants.MAX_RESULTS)
+			if (findings.size() > CagwasConstants.MAX_RESULTS)
 			{
 				// Put the type of search in the session
 				request.getSession().setAttribute("searchType", "Population");

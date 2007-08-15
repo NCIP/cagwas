@@ -10,7 +10,7 @@
 	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 	<META HTTP-EQUIV="Expires" CONTENT="-1">
  
-	<LINK href="css/cgems.css" rel="stylesheet" type="text/css">
+	<LINK href="css/cagwas.css" rel="stylesheet" type="text/css">
 	<LINK href="css/report.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -24,11 +24,11 @@
 		</tr>
 	</table>
 
-	<map name="cgemsMap">
-		<area alt="CGEMS Application Logo" coords="5,3,300,120" href="index.jsp">
+	<map name="cagwasMap">
+		<area alt="CaGWAS Application Logo" coords="5,3,300,120" href="index.jsp">
 	</map>
 
-	<div style="width:765px; height:130px; background-image: url(images/cgemsHeader.jpg); background-color:#00516B; background-repeat:no-repeat; padding:0px;border-bottom: 1px solid #000000; margin:0px;">
+	<div style="width:765px; height:130px; background-image: url(images/cagwasHeader.jpg); background-color:#00516B; background-repeat:no-repeat; padding:0px;border-bottom: 1px solid #000000; margin:0px;">
 	</div>
     </div>
     <div align="center">

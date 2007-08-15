@@ -1,6 +1,6 @@
-package gov.nih.nci.cgems.web.action;
+package gov.nih.nci.cagwas.web.action;
 
-import gov.nih.nci.cgems.reports.SNPFrequencyFindingReport;
+import gov.nih.nci.cagwas.reports.SNPFrequencyFindingReport;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

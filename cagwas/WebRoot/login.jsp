@@ -3,7 +3,7 @@
 <%@ taglib uri="/WEB-INF/struts-tiles.tld" prefix="tiles" %>
 
 <tiles:insert page="/WEB-INF/jsp/layoutNoSidebar.jsp" flush="true">
-  <tiles:put name="title" value="CGEMS Login Page"/>
+  <tiles:put name="title" value="CaGWAS Login Page"/>
   <tiles:put name="htmlHead" value="/WEB-INF/jsp/tiles/htmlHead_tile.jsp" /> 
   <tiles:put name="overlib" value="/WEB-INF/jsp/tiles/overlib_tile.jsp" /> 
   <tiles:put name="header" value="/WEB-INF/jsp/header.jsp" /> 
