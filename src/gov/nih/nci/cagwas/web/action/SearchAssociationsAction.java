@@ -53,7 +53,7 @@ public class SearchAssociationsAction extends Action
 		String studyName = (String)request.getSession().getAttribute("studyName");
 		String studyVersion = (String) request.getSession().getAttribute("studyVersion");
 		Long studyId = (Long)request.getSession().getAttribute("studyId");
-		String caseStudyName = "CGEMS Breast Cancer WGAS (Illumina 550K)";
+		String caseStudyName = "CaGWAS Breast Cancer WGAS (Illumina 550K)";
 		request.getSession().setAttribute("caseStudyName", caseStudyName);
 		String panelName = (String)assocForm.getPanelName();
 		
@@ -121,9 +121,9 @@ public class SearchAssociationsAction extends Action
         
 		Collection<SNPAssociationFinding> findings = 
 			(Collection<SNPAssociationFinding>)manager.getFindings(safDTO, 0,
-					CgemsConstants.MAX_RESULTS + 1);
+					CagwasConstants.MAX_RESULTS + 1);
 		
-		if (findings.size() <= CgemsConstants.MAX_RESULTS)
+		if (findings.size() <= CagwasConstants.MAX_RESULTS)
 		{
 			// Create the SNPAssociation reports
 			ArrayList<SNPAssociationFindingReport> results = new ArrayList<SNPAssociationFindingReport>();
@@ -158,7 +158,7 @@ public class SearchAssociationsAction extends Action
 	    else
 	    {
 	    	// If there were more results than we allow then forward to download page
-			if (findings.size() > CgemsConstants.MAX_RESULTS)
+			if (findings.size() > CagwasConstants.MAX_RESULTS)
 			{
 				// Put the type of search in the session
 				request.getSession().setAttribute("searchType", "Associations");

@@ -137,7 +137,7 @@ else
 		<th><bean:message key="table.header.homozygote.risk"/></th>
 	<%}%>
 	</tr>
-	<logic:iterate id="result" name="assoc.results" type="gov.nih.nci.cgems.reports.SNPAssociationFindingReport">
+	<logic:iterate id="result" name="assoc.results" type="gov.nih.nci.cagwas.reports.SNPAssociationFindingReport">
 		<tr>
 			<td>
 				<a href="<bean:message key="url.snps"/><bean:write name="result" property="dbsnpId"/>" target="_blank">

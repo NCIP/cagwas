@@ -14,7 +14,7 @@ import org.apache.struts.action.ActionMessage;
  * Findings form.
  * <P>
  * @author mholck
- * @see gov.nih.nci.cgems.web.form.SNPSearchForm
+ * @see gov.nih.nci.cagwas.web.form.SNPSearchForm
  */
 public class AssociationsForm extends SNPSearchForm
 {

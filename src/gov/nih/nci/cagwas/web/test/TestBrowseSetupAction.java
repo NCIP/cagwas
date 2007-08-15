@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.web.test;
+package gov.nih.nci.cagwas.web.test;
 
 /**
  * Tests the BrowseSetupAction
@@ -6,7 +6,7 @@ package gov.nih.nci.cgems.web.test;
  * @author mholck
  *
  */
-public class TestBrowseSetupAction extends CgemsActionTest
+public class TestBrowseSetupAction extends CagwasActionTest
 {
 	public TestBrowseSetupAction(String testName)
 	{
@@ -17,7 +17,7 @@ public class TestBrowseSetupAction extends CgemsActionTest
     {
     	setRequestPathInfo("/browseSetup");
     	actionPerform();
-    	verifyTilesForward("success", "cgems.browseData");
+    	verifyTilesForward("success", "cagwas.browseData");
         assertNotNull(request.getSession().getAttribute("studies"));
         assertNotNull(request.getSession().getAttribute("studyNames"));
         assertNotNull(request.getSession().getAttribute("studyVersionsMap"));

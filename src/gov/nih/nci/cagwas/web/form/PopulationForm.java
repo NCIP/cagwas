@@ -11,7 +11,7 @@ import org.apache.struts.action.ActionMessage;
  * Frequency form.
  * <P>
  * @author mholck
- * @see gov.nih.nci.cgems.web.form.SNPSearchForm
+ * @see gov.nih.nci.cagwas.web.form.SNPSearchForm
  */
 public class PopulationForm extends SNPSearchForm
 {

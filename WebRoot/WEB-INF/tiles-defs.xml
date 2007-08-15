@@ -6,7 +6,7 @@
 
 <tiles-definitions>
     <definition name="baseDef" path="/WEB-INF/jsp/layout.jsp">
-		<put name="title" value="CGEMS Portal" />
+		<put name="title" value="CaGWAS Portal" />
 		<!--  the common criteria  -->
 		<put name="htmlHead" value="/WEB-INF/jsp/tiles/htmlHead_tile.jsp" />
 		<put name="overlib" value="/WEB-INF/jsp/tiles/overlib_tile.jsp" />
@@ -19,7 +19,7 @@
 	</definition>
 	
 	<definition name="noSidebar" path="/WEB-INF/jsp/layoutNoSidebar.jsp">
-		<put name="title" value="CGEMS Data Portal" />
+		<put name="title" value="CaGWAS Data Portal" />
 		<!--  the common criteria  -->
 		<put name="htmlHead" value="/WEB-INF/jsp/tiles/htmlHead_tile.jsp" />
 		<put name="overlib" value="/WEB-INF/jsp/tiles/overlib_tile.jsp" />
@@ -31,7 +31,7 @@
 	</definition>
 
 	<definition name="noSidebarSecondNav" path="/WEB-INF/jsp/layoutNoSidebarSecondNav.jsp">
-		<put name="title" value="CGEMS Data Portal" />
+		<put name="title" value="CaGWAS Data Portal" />
 		<!--  the common criteria  -->
 		<put name="htmlHead" value="/WEB-INF/jsp/tiles/htmlHead_tile.jsp" />
 		<put name="overlib" value="/WEB-INF/jsp/tiles/overlib_tile.jsp" />
@@ -44,7 +44,7 @@
 	</definition>
 
 	<definition name="noSidebarThirdNav" path="/WEB-INF/jsp/layoutNoSidebarThirdNav.jsp">
-		<put name="title" value="CGEMS Data Portal" />
+		<put name="title" value="CaGWAS Data Portal" />
 		<!--  the common criteria  -->
 		<put name="htmlHead" value="/WEB-INF/jsp/tiles/htmlHead_tile.jsp" />
 		<put name="overlib" value="/WEB-INF/jsp/tiles/overlib_tile.jsp" />
@@ -57,139 +57,139 @@
 		<put name="mainForm" value="/WEB-INF/jsp/tiles/empty_tile.jsp" />		
 	</definition>
 		
-	<definition name="cgems.browseData" extends="noSidebar">
-		<put name="title" value="CGEMS Browse Data" />
+	<definition name="cagwas.browseData" extends="noSidebar">
+		<put name="title" value="CaGWAS Browse Data" />
 		<put name="mainForm" value="/WEB-INF/jsp/browseDataMain.jsp" />		
       </definition>
 
-	<definition name="cgems.downloadData" extends="noSidebar">
-		<put name="title" value="CGEMS Bulk Data Download" />
+	<definition name="cagwas.downloadData" extends="noSidebar">
+		<put name="title" value="CaGWAS Bulk Data Download" />
 		<put name="mainForm" value="/WEB-INF/jsp/bulkDownloadMain.jsp" />		
       </definition>
 
-	<definition name="cgems.searchAssociations" extends="noSidebar">
-		<put name="title" value="CGEMS Search Associations" />
+	<definition name="cagwas.searchAssociations" extends="noSidebar">
+		<put name="title" value="CaGWAS Search Associations" />
 		<put name="mainForm" value="/WEB-INF/jsp/searchAssociationsMain.jsp" />		
       </definition>
 
-	<definition name="cgems.associationReport" extends="noSidebar">
-		<put name="title" value="CGEMS SNP Association Finding Report" />
+	<definition name="cagwas.associationReport" extends="noSidebar">
+		<put name="title" value="CaGWAS SNP Association Finding Report" />
 		<put name="mainForm" value="/WEB-INF/jsp/associationFindingReport.jsp" />		
       </definition>
 
-	<definition name="cgems.download" extends="noSidebar">
-		<put name="title" value="CGEMS Download Page" />
+	<definition name="cagwas.download" extends="noSidebar">
+		<put name="title" value="CaGWAS Download Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/downloadMain.jsp" />		
       </definition>
 
-	<definition name="cgems.searchPopulation" extends="noSidebar">
-		<put name="title" value="CGEMS Search SNPs" />
+	<definition name="cagwas.searchPopulation" extends="noSidebar">
+		<put name="title" value="CaGWAS Search SNPs" />
 		<put name="mainForm" value="/WEB-INF/jsp/searchPopulationMain.jsp" />		
       </definition>
 
-	<definition name="cgems.populationReport" extends="noSidebar">
-		<put name="title" value="CGEMS SNP Population Frequency Report" />
+	<definition name="cagwas.populationReport" extends="noSidebar">
+		<put name="title" value="CaGWAS SNP Population Frequency Report" />
 		<put name="mainForm" value="/WEB-INF/jsp/populationFrequencyReport.jsp" />		
       </definition>
 
-	<definition name="cgems.searchGenotype" extends="noSidebar">
-		<put name="title" value="CGEMS Search Genotypes" />
+	<definition name="cagwas.searchGenotype" extends="noSidebar">
+		<put name="title" value="CaGWAS Search Genotypes" />
 		<put name="mainForm" value="/WEB-INF/jsp/searchGenotypeMain.jsp" />		
       </definition>
 
-	<definition name="cgems.searchSubject" extends="noSidebar">
-		<put name="title" value="CGEMS Search Subjects" />
+	<definition name="cagwas.searchSubject" extends="noSidebar">
+		<put name="title" value="CaGWAS Search Subjects" />
 		<put name="mainForm" value="/WEB-INF/jsp/searchSubjectMain.jsp" />		
       </definition>
 
-	<definition name="cgems.subjectReport" extends="noSidebar">
-		<put name="title" value="CGEMS SubjectReport" />
+	<definition name="cagwas.subjectReport" extends="noSidebar">
+		<put name="title" value="CaGWAS SubjectReport" />
 		<put name="mainForm" value="/WEB-INF/jsp/subjectReport.jsp" />		
       </definition>
 
-	<definition name="cgems.querySuccess" extends="noSidebar">
-		<put name="title" value="CGEMS Query Success Page" />
+	<definition name="cagwas.querySuccess" extends="noSidebar">
+		<put name="title" value="CaGWAS Query Success Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/querySuccessMain.jsp" />		
       </definition>
 
-	<definition name="cgems.feedback" extends="noSidebar">
-		<put name="title" value="CGEMS Feedback Page" />
+	<definition name="cagwas.feedback" extends="noSidebar">
+		<put name="title" value="CaGWAS Feedback Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/feedbackMain.jsp" />		
       </definition>
 
-	<definition name="cgems.ploneError" extends="noSidebar">
-		<put name="title" value="CGEMS Error Page" />
+	<definition name="cagwas.ploneError" extends="noSidebar">
+		<put name="title" value="CaGWAS Error Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/ploneErrorMain.jsp" />		
       </definition>
 
-	<definition name="cgems.criteriaWarn" extends="noSidebar">
-		<put name="title" value="CGEMS Criteria Warning Page" />
+	<definition name="cagwas.criteriaWarn" extends="noSidebar">
+		<put name="title" value="CaGWAS Criteria Warning Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/criteriaWarningMain.jsp" />		
       </definition>
 
-	<definition name="cgems.accessWarn" extends="noSidebar">
-		<put name="title" value="CGEMS Access Warning Page" />
+	<definition name="cagwas.accessWarn" extends="noSidebar">
+		<put name="title" value="CaGWAS Access Warning Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/accessWarningMain.jsp" />		
       </definition>
 
-	<definition name="cgems.about" extends="noSidebarSecondNav">
-		<put name="title" value="CGEMS About Overview Page" />
+	<definition name="cagwas.about" extends="noSidebarSecondNav">
+		<put name="title" value="CaGWAS About Overview Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/aboutMain.jsp" />
 		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
       </definition>
 
-	<definition name="cgems.studyProstate" extends="noSidebarThirdNav">
-		<put name="title" value="CGEMS About Prostate Data Page" />
+	<definition name="cagwas.studyProstate" extends="noSidebarThirdNav">
+		<put name="title" value="CaGWAS About Prostate Data Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/studyProstateMain.jsp" />
 		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />	
 		<put name="thirdNav" value="/WEB-INF/jsp/tiles/studiesThirdNav_tile.jsp" />	
       </definition>
 
-	<definition name="cgems.studyBreast" extends="noSidebarThirdNav">
-		<put name="title" value="CGEMS About Breast Data Page" />
+	<definition name="cagwas.studyBreast" extends="noSidebarThirdNav">
+		<put name="title" value="CaGWAS About Breast Data Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/studyBreastMain.jsp" />	
 		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
 		<put name="thirdNav" value="/WEB-INF/jsp/tiles/studiesThirdNav_tile.jsp" />	
       </definition>
 
-	<definition name="cgems.glossary" extends="noSidebarSecondNav">
-		<put name="title" value="CGEMS Glossary Page" />
+	<definition name="cagwas.glossary" extends="noSidebarSecondNav">
+		<put name="title" value="CaGWAS Glossary Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/glossaryMain.jsp" />
 		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
       </definition>
 
-	<definition name="cgems.contacts" extends="noSidebarSecondNav">
-		<put name="title" value="CGEMS Contacts Page" />
+	<definition name="cagwas.contacts" extends="noSidebarSecondNav">
+		<put name="title" value="CaGWAS Contacts Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/contactMain.jsp" />
 		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
       </definition>
 
-	<definition name="cgems.cite" extends="noSidebarSecondNav">
-		<put name="title" value="CGEMS Cite Overview Page" />
+	<definition name="cagwas.cite" extends="noSidebarSecondNav">
+		<put name="title" value="CaGWAS Cite Overview Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/citeOverviewMain.jsp" />
 		<put name="secondNav" value="/WEB-INF/jsp/tiles/citeSecondNav_tile.jsp" />
       </definition>
 
-	<definition name="cgems.citeExample" extends="noSidebarSecondNav">
-		<put name="title" value="CGEMS Cite Example Page" />
+	<definition name="cagwas.citeExample" extends="noSidebarSecondNav">
+		<put name="title" value="CaGWAS Cite Example Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/citeExamplesMain.jsp" />
 		<put name="secondNav" value="/WEB-INF/jsp/tiles/citeSecondNav_tile.jsp" />
       </definition>
 
-	<definition name="cgems.access" extends="noSidebarSecondNav">
-		<put name="title" value="CGEMS Data Access Overview Page" />
+	<definition name="cagwas.access" extends="noSidebarSecondNav">
+		<put name="title" value="CaGWAS Data Access Overview Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/accessOverviewMain.jsp" />
 		<put name="secondNav" value="/WEB-INF/jsp/tiles/accessSecondNav_tile.jsp" />
       </definition>
 
-	<definition name="cgems.openAccess" extends="noSidebarSecondNav">
-		<put name="title" value="CGEMS Open Access Page" />
+	<definition name="cagwas.openAccess" extends="noSidebarSecondNav">
+		<put name="title" value="CaGWAS Open Access Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/openAccessMain.jsp" />
 		<put name="secondNav" value="/WEB-INF/jsp/tiles/accessSecondNav_tile.jsp" />
       </definition>
 	
-	<definition name="cgems.controlledAccess" extends="noSidebarSecondNav">
-		<put name="title" value="CGEMS Controlled Access Page" />
+	<definition name="cagwas.controlledAccess" extends="noSidebarSecondNav">
+		<put name="title" value="CaGWAS Controlled Access Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/controlledAccessMain.jsp" />
 		<put name="secondNav" value="/WEB-INF/jsp/tiles/accessSecondNav_tile.jsp" />
       </definition>

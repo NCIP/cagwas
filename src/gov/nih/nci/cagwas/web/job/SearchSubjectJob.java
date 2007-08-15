@@ -1,9 +1,9 @@
-package gov.nih.nci.cgems.web.job;
+package gov.nih.nci.cagwas.web.job;
 
 import gov.nih.nci.caintegrator.studyQueryService.dto.study.StudyParticipantCriteria;
-import gov.nih.nci.cgems.application.zip.ZipSubjectFinding;
-import gov.nih.nci.cgems.web.action.SearchSubjectHelper;
-import gov.nih.nci.cgems.web.form.SubjectForm;
+import gov.nih.nci.cagwas.application.zip.ZipSubjectFinding;
+import gov.nih.nci.cagwas.web.action.SearchSubjectHelper;
+import gov.nih.nci.cagwas.web.form.SubjectForm;
 
 import org.apache.log4j.Logger;
 import org.apache.struts.action.ActionMessages;

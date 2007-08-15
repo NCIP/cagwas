@@ -1,7 +1,7 @@
-package gov.nih.nci.cgems.web.test;
+package gov.nih.nci.cagwas.web.test;
 
 import gov.nih.nci.caintegrator.domain.analysis.snp.bean.SNPAnalysisMethod;
-import gov.nih.nci.cgems.reports.SNPAssociationFindingReport;
+import gov.nih.nci.cagwas.reports.SNPAssociationFindingReport;
 
 import java.util.ArrayList;
 
@@ -13,7 +13,7 @@ import org.apache.struts.util.LabelValueBean;
  * @author mholck
  *
  */
-public class TestSearchAssociationsAction extends CgemsActionTest
+public class TestSearchAssociationsAction extends CagwasActionTest
 {	
 	public TestSearchAssociationsAction(String testName)
 	{
@@ -273,7 +273,7 @@ public class TestSearchAssociationsAction extends CgemsActionTest
     	request.getSession().setAttribute("studyId", studyId);
     	actionPerform();
     	verifyNoActionErrors();
-    	verifyTilesForward("success", "cgems.associationReport");
+    	verifyTilesForward("success", "cagwas.associationReport");
         ArrayList<SNPAssociationFindingReport> results =
         	(ArrayList<SNPAssociationFindingReport>)request.getSession().getAttribute("assoc.results");
         assertNotNull(results);
@@ -302,7 +302,7 @@ public class TestSearchAssociationsAction extends CgemsActionTest
     	request.getSession().setAttribute("studyId", studyId);
     	actionPerform();
     	verifyNoActionErrors();
-    	verifyTilesForward("success", "cgems.associationReport");
+    	verifyTilesForward("success", "cagwas.associationReport");
         ArrayList<SNPAssociationFindingReport> results =
         	(ArrayList<SNPAssociationFindingReport>)request.getSession().getAttribute("assoc.results");
         assertNotNull(results);
@@ -318,7 +318,7 @@ public class TestSearchAssociationsAction extends CgemsActionTest
     	request.getSession().setAttribute("study", studyIds.get(0));
     	actionPerform();
     	verifyNoActionErrors();
-    	verifyTilesForward("download", "cgems.download");
+    	verifyTilesForward("download", "cagwas.download");
         assertNotNull(request.getSession().getAttribute("searchType"));
         assertNotNull(request.getSession().getAttribute("form"));
     }

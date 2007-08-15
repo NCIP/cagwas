@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.web.test;
+package gov.nih.nci.cagwas.web.test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
  * @author mholck
  *
  */
-public class TestBrowseAction extends CgemsActionTest
+public class TestBrowseAction extends CagwasActionTest
 {
 	public TestBrowseAction(String testName)
 	{
@@ -28,7 +28,7 @@ public class TestBrowseAction extends CgemsActionTest
     	addRequestParameter("studyId", studyId.toString());
     	addRequestParameter("query", "Association");
     	actionPerform();
-    	verifyTilesForward("association", "cgems.searchAssociations");
+    	verifyTilesForward("association", "cagwas.searchAssociations");
         assertNotNull(request.getSession().getAttribute("methods1"));
         assertNotNull(request.getSession().getAttribute("chromosomes"));
         assertNotNull(request.getSession().getAttribute("panels"));
@@ -47,7 +47,7 @@ public class TestBrowseAction extends CgemsActionTest
     	addRequestParameter("studyId", studyId.toString());
     	addRequestParameter("query", "Population");
     	actionPerform();
-    	verifyTilesForward("population", "cgems.searchPopulation");
+    	verifyTilesForward("population", "cagwas.searchPopulation");
         assertNotNull(request.getSession().getAttribute("populationCol"));
         assertNotNull(request.getSession().getAttribute("chromosomes"));
         assertNotNull(request.getSession().getAttribute("panels"));
@@ -73,7 +73,7 @@ public class TestBrowseAction extends CgemsActionTest
     	request.getSession().setAttribute("studyIDList", studyIDList);
     	
     	actionPerform();
-    	verifyTilesForward("subjects", "cgems.searchSubject");
+    	verifyTilesForward("subjects", "cagwas.searchSubject");
         assertNotNull(request.getSession().getAttribute("populationCol"));
         assertNotNull(request.getSession().getAttribute("analysisGroups"));
         assertNotNull(request.getSession().getAttribute("lowerAges"));

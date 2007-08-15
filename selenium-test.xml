@@ -1,4 +1,4 @@
-<project name="cgems-test" default="selenese" basedir=".">
+<project name="cagwas-test" default="selenese" basedir=".">
 	<property file="build.properties" />
 	<property file="test.properties" />
 
@@ -9,7 +9,7 @@
 	    </classpath>
 	</taskdef>
 	<selenese 
-	    suite="test\selenium\cgemsTestSuite.html"
+	    suite="test\selenium\cagwasTestSuite.html"
 	    browser="${browser}"
 	    results="${result_file}"
 	    multiWindow="false"

@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.web.action;
+package gov.nih.nci.cagwas.web.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,7 +40,7 @@ public class ViewTextAction extends Action
 		request.getSession().setAttribute("viewType", view);
 		
 		String inputPage = request.getHeader("Referer");
-		inputPage = inputPage.substring(inputPage.indexOf("cgems") + 5);
+		inputPage = inputPage.substring(inputPage.indexOf("cagwas") + 5);
 		forward = new ActionForward(inputPage, true);
 		
 		logger.debug("Source page was " + inputPage);

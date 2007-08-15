@@ -7,8 +7,8 @@
 	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 	<META HTTP-EQUIV="Expires" CONTENT="-1">
  
-	<LINK href="css/cgems_data.css" rel="stylesheet" type="text/css">
-	<LINK href="css/cgems.css" rel="stylesheet" type="text/css">
+	<LINK href="css/cagwas_data.css" rel="stylesheet" type="text/css">
+	<LINK href="css/cagwas.css" rel="stylesheet" type="text/css">
 	<LINK href="css/report.css" rel="stylesheet" type="text/css">
 	<% String view = (String)session.getAttribute("viewType");
 	   if ((view != null) && (view.equals("text")))
@@ -18,7 +18,7 @@
 
 
 	<script language="javascript" src="js/caIntScript.js"></script>
-	<script language="javascript" src="js/cgems.js"></script>
+	<script language="javascript" src="js/cagwas.js"></script>
 	<script language="javascript" src="js/Help.js"></script>
 	
 	<script language="javascript" src="js/common/browserSniff.js"></script>

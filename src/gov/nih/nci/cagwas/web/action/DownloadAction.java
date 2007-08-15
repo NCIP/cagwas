@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.web.action;
+package gov.nih.nci.cagwas.web.action;
 
 import java.util.Date;
 
@@ -16,12 +16,12 @@ import org.quartz.JobDetail;
 import org.quartz.Trigger;
 import org.quartz.TriggerUtils;
 
-import gov.nih.nci.cgems.web.SchedulerPlugIn;
-import gov.nih.nci.cgems.web.form.DownloadForm;
-import gov.nih.nci.cgems.web.job.SearchAssociationsJob;
-import gov.nih.nci.cgems.web.job.SearchPopulationJob;
-import gov.nih.nci.cgems.web.job.SearchGenotypeJob;
-import gov.nih.nci.cgems.web.job.SearchSubjectJob;
+import gov.nih.nci.cagwas.web.SchedulerPlugIn;
+import gov.nih.nci.cagwas.web.form.DownloadForm;
+import gov.nih.nci.cagwas.web.job.SearchAssociationsJob;
+import gov.nih.nci.cagwas.web.job.SearchPopulationJob;
+import gov.nih.nci.cagwas.web.job.SearchGenotypeJob;
+import gov.nih.nci.cagwas.web.job.SearchSubjectJob;
 
 /**
  * The DownloadAction class is called when the Download form posts.

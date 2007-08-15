@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.web.action;
+package gov.nih.nci.cagwas.web.action;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,7 +16,7 @@ import org.apache.struts.action.ActionMessages;
 import org.apache.struts.action.ActionMessage;
 import org.apache.log4j.Logger;
 
-import gov.nih.nci.cgems.web.form.LoginForm;
+import gov.nih.nci.cagwas.web.form.LoginForm;
 import gov.nih.nci.caintegrator.security.SecurityManager;
 import gov.nih.nci.caintegrator.security.UserCredentials;
 import gov.nih.nci.security.authorization.domainobjects.ProtectionElement;
@@ -31,7 +31,7 @@ import gov.nih.nci.security.authorization.domainobjects.ProtectionElement;
 public class LoginAction extends Action
 {
 	private static Logger logger = Logger.getLogger(LoginAction.class);
-	private final String APPLICATION_CONTEXT = "cgems";
+	private final String APPLICATION_CONTEXT = "cagwas";
 	
 	/**
 	 * execute is called when this action is posted to
@@ -85,7 +85,7 @@ public class LoginAction extends Action
 				if(protectionElements != null  && !protectionElements.isEmpty()){
 					List<String> studyIDList = new ArrayList<String>();
 					for(ProtectionElement pe:protectionElements){
-						if(pe.getProtectionElementName().contains("CGEMS")){
+						if(pe.getProtectionElementName().contains("CaGWAS")){
 							studyIDList.add(pe.getObjectId());
 						}
 					}

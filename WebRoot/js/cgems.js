@@ -105,7 +105,7 @@ function openDescription()	{
 	//}
 	//else
 	//{
-		//url = "CGEMS_Analysis_Descriptions.pdf";
+		//url = "CaGWAS_Analysis_Descriptions.pdf";
 		url = document.associationsForm.description[0].value;
 		window.open(url, "Description", "menubar=no,toolbar=no");
 	//}
@@ -237,7 +237,7 @@ function showWait()
 {
 	document.all.wait.style.display='block';
 	document.all.searchForm.style.display='none';
-	setTimeout('document.images["progress"].src = "images/cgems_loader_anim.gif"', 200);
+	setTimeout('document.images["progress"].src = "images/cagwas_loader_anim.gif"', 200);
 }
 
 function changeAnalysisAbstract(combo, i, offset)

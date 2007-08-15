@@ -12,7 +12,7 @@
 			<li><a href="about.jsp"><b>About</b></a></li>
 			<li><a href="browseSetup.do"><b>Browse Data</b></a></li>
 			<li><a href="downloadSetup.do"><b>Bulk Data Download</b></a></li>
-			<li><a href="mailto:cgemsfeedback@mail.nih.gov"><b>Feedback</b></a></li>
+			<li><a href="mailto:cagwasfeedback@mail.nih.gov"><b>Feedback</b></a></li>
 		</ul>
 	</div>
 </div>

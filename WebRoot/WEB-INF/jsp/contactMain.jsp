@@ -8,7 +8,7 @@
 
 <div id="middle" align="center">
 	<div id="content">
-		<h1>CGEMS Contacts</h1>
+		<h1>CaGWAS Contacts</h1>
 		<div id="copy">
 			
 			<%out.print(request.getAttribute("contactContent"));%>

@@ -1,4 +1,4 @@
-package gov.nih.nci.cgems.application.zip.test;
+package gov.nih.nci.cagwas.application.zip.test;
 
 import gov.nih.nci.caintegrator.application.mail.MailManager;
 import gov.nih.nci.caintegrator.application.zip.ZipItem;
@@ -6,9 +6,9 @@ import gov.nih.nci.caintegrator.studyQueryService.dto.germline.SNPAssociationFin
 import gov.nih.nci.caintegrator.studyQueryService.dto.germline.SNPFrequencyFindingCriteriaDTO;
 import gov.nih.nci.caintegrator.studyQueryService.dto.study.StudyCriteria;
 import gov.nih.nci.caintegrator.util.ArithematicOperator;
-import gov.nih.nci.cgems.application.zip.ZipFindingsHelper;
-import gov.nih.nci.cgems.application.zip.ZipSNPAssociationFinding;
-import gov.nih.nci.cgems.application.zip.ZipSNPFrequencyFinding;
+import gov.nih.nci.cagwas.application.zip.ZipFindingsHelper;
+import gov.nih.nci.cagwas.application.zip.ZipSNPAssociationFinding;
+import gov.nih.nci.cagwas.application.zip.ZipSNPFrequencyFinding;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -18,12 +18,12 @@ import junit.framework.TestCase;
 public class ZipFindingsHelperTest extends TestCase {
 
 	/*
-	 * Test method for 'gov.nih.nci.cgems.application.zip.ZipFindingsHelper.zipSNPAssociationFindingCriteriaDTO(FindingCriteriaDTO)'
+	 * Test method for 'gov.nih.nci.cagwas.application.zip.ZipFindingsHelper.zipSNPAssociationFindingCriteriaDTO(FindingCriteriaDTO)'
 	 */
 	public void testZipSNPAssociationFindingCriteriaDTO()
 	{
 		String email="sahnih@mail.nih.gov";
-		String study="CGEMS Prostate Cancer WGAS Phase 1A";
+		String study="CaGWAS Prostate Cancer WGAS Phase 1A";
 		Long studyId = new Long(1);
 		
 		StudyCriteria studyCrit = new StudyCriteria();
@@ -55,7 +55,7 @@ public class ZipFindingsHelperTest extends TestCase {
 	}
 
 	/*
-	 * Test method for 'gov.nih.nci.cgems.application.zip.ZipFindingsHelper.zipGenotypeFindingCriteriaDTO(FindingCriteriaDTO)'
+	 * Test method for 'gov.nih.nci.cagwas.application.zip.ZipFindingsHelper.zipGenotypeFindingCriteriaDTO(FindingCriteriaDTO)'
 	 */
 	public void testZipGenotypeFindingCriteriaDTO() {
 		// TODO Auto-generated method stub
@@ -63,11 +63,11 @@ public class ZipFindingsHelperTest extends TestCase {
 	}
 
 	/*
-	 * Test method for 'gov.nih.nci.cgems.application.zip.ZipFindingsHelper.zipSNPFrequencyFindingCriteriaDTO(FindingCriteriaDTO)'
+	 * Test method for 'gov.nih.nci.cagwas.application.zip.ZipFindingsHelper.zipSNPFrequencyFindingCriteriaDTO(FindingCriteriaDTO)'
 	 */
 	public void testZipSNPFrequencyFindingCriteriaDTO()
 	{
-		String study="CGEMS Prostate Cancer WGAS Phase 1A";
+		String study="CaGWAS Prostate Cancer WGAS Phase 1A";
 		StudyCriteria studyCrit = new StudyCriteria();
 		
 		try

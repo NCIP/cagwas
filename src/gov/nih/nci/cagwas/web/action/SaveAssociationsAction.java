@@ -52,7 +52,7 @@ public class SaveAssociationsAction extends Action
 			PrintWriter out = response.getWriter();
 			
 			// First write out the headers
-			out.print(ZipFindingsHelper.getCgemsProperties("table.header.snpId")+"\t"+
+			out.print(ZipFindingsHelper.getCagwasProperties("table.header.snpId")+"\t"+
 			        ZipFindingsHelper.getCagwasProperties("table.header.chromosome")+"\t"+
 			        ZipFindingsHelper.getCagwasProperties("table.header.position")+"\t"+
 			        ZipFindingsHelper.getCagwasProperties("table.header.genes")+"\t"+
