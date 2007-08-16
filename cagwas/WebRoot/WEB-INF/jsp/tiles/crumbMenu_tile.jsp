@@ -13,7 +13,7 @@
 					<li id="accessTab"><a href="remoteSetup.do?content=access">Data Access</a></li>
 				</ul>
 			</div>
-		<div id="bottom"><img src="images/spacer.gif" border="0"  height="1" width="700"/></div>
+		<div id="bottom"><img src="images/spacer.gif" border="0"  height="1" width="800"/></div>
 	</div>
 </div>
 
