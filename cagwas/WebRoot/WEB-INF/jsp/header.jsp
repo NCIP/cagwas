@@ -43,7 +43,7 @@
 
 <!-- Image Map for header  -->
 <map name="studyheader">
-<area shape="rect" coords="1,12,348,78" href="/cagwas" target="" alt="Cancer Genetic Markers of Susceptibility Data Portal">
+<area shape="rect" coords="5,20,348,78" href="/cagwas" target="" alt="Cancer Genetic Markers of Susceptibility Data Portal">
 </map>
 <map name="logoheader">
 <area shape="rect" coords="25,36,117,80" href="http://cgfweb.nci.nih.gov/" target=_blank"" alt="Core Genotyping Facility">
