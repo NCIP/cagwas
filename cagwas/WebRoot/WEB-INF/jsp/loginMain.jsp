@@ -38,6 +38,9 @@ if(session.getAttribute("ref")==null)	{
 		<tr>
 			<td colspan="3"><span class="er"><html:errors property="password"/></span></td>
 		</tr>
+		<tr>
+			<td colspan="3"><a href="forgottenPassword.jsp" class="title">Forgotten Password</a></td>
+		</tr>
 	</table>
 	<div class="buttonsBar" style="text-align:left; margin-left:20px">
 		<html:button property="btnReset" onclick="clearLoginForm()"><bean:message key="button.reset"/></html:button>
