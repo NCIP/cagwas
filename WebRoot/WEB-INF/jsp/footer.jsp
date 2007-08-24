@@ -12,7 +12,7 @@
 		else
 		{%>
 		 	<a href="viewText.do?viewType=image">Image Version</a>
-		<%}%> | <a href="remoteSetup.do?content=contacts">Contact Us</a> | <a href="">Policies</a> | <a href="http://www3.cancer.gov/accessibility/nci508.htm">Accessibility</a> | <a href="">Site Map</a>
+		<%}%> | <a href="remoteSetup.do?content=contacts">Contact Us</a> | <a href="remoteSetup.do?content=policies">Policies</a> | <a href="http://www3.cancer.gov/accessibility/nci508.htm">Accessibility</a> | <a href="siteMap.jsp">Site Map</a>
 	<br /><br />
 	<a href="http://www.cancer.gov/" target="_blank"><img src="images/footer_logo_nci.jpg" alt="National Cancer Institute" width="63" height="39" border="0"></a>
 	<a href="http://www.genome.gov/" target="_blank"><img src="images/logo_nhgri.gif" alt="National Human Genome Research Institute" width="76" height="39" border="0"></a>
