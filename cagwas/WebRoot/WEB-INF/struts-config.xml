@@ -198,7 +198,7 @@
 		scope="request">
     <forward name="prostate" path="cagwas.studyProstate"/>
     <forward name="breast" path="cagwas.studyBreast"/>
-    <forward name="glossary" path="cagwas.glossary"/>
+    <forward name="policies" path="cgems.policies"/>
     <forward name="contacts" path="cagwas.contacts"/>
     <forward name="cite" path="cagwas.cite"/>
     <forward name="citeExample" path="cagwas.citeExample"/>

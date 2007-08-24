@@ -158,6 +158,24 @@
 		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
       </definition>
 
+	<definition name="cagwas.policies" extends="noSidebar">
+		<put name="title" value="CaGWAS Policies Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/policiesMain.jsp" />
+      </definition>
+
+      <definition name="cagwas.sitemap" extends="noSidebarSecondNav">
+		<put name="title" value="CaGWAS Data Portal site map Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/siteMapMain.jsp" />
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
+      </definition>
+	      
+	<definition name="cagwas.forgottenPassword" extends="noSidebarSecondNav">
+		<put name="title" value="Forgotten Password Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/forgottenPasswordMain.jsp" />
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
+      </definition>
+
+
 	<definition name="cagwas.contacts" extends="noSidebarSecondNav">
 		<put name="title" value="CaGWAS Contacts Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/contactMain.jsp" />
