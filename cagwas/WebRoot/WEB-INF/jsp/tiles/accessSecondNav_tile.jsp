@@ -8,7 +8,7 @@
 			<div id="secondary_bg" >
 				<div id="list_container">
 					<ul>
-						<li id="overview"><a href="remoteSetup.do?content=dataAccess">Overview</a></li>
+						<li id="overview"><a href="remoteSetup.do?content=access">Overview</a></li>
 						<li id="open"><a href="remoteSetup.do?content=openAccess">Open Access</a></li>
 						<% String regUrl = (String)session.getAttribute("registrationUrl"); %>
 						<li id="controlled"><a href="<%=regUrl%>" target="#">Controlled Access</a></li>
