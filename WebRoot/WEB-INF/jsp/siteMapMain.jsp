@@ -43,16 +43,16 @@
 <area shape="rect" coords="437,331,469,348" href="/cagwas" target="_blank" alt="Home">
 <area shape="rect" coords="506,330,536,348" href="login.jsp" target="_blank" alt="Login">
 <area shape="rect" coords="538,357,590,375" href="login.jsp" target="_blank" alt="Login Area">
-<area shape="rect" coords="539,380,596,397" href="login.jsp" target="_blank" alt="Registered Area">
-<area shape="rect" coords="537,405,627,422" href="login.jsp" target="_blank" alt="Forgotten Password">
+<area shape="rect" coords="539,380,596,397" href="http://cagwas-content-ut.nci.nih.gov/cagwas-data-access-policies/app_view" target="_blank" alt="Registered Area">
+<area shape="rect" coords="537,405,627,422" href="forgottenPassword.jsp" target="_blank" alt="Forgotten Password">
 <area shape="rect" coords="675,331,730,349" href="remoteSetup.do?content=contacts" target="_blank" alt="Contact Us">
 <area shape="rect" coords="720,354,761,372" href="support.jsp" target="_blank" alt="Support">
-<area shape="rect" coords="718,382,768,399" href="feedback.jsp" target="_blank" alt="Feedback">
+<area shape="rect" coords="718,382,768,399" href="feedbackSetup.do" target="_blank" alt="Feedback">
 <!--  Footer Navigation -->
-<area shape="rect" coords="431,560,466,579" href="http://www.cancer.gov/" target="_blank" alt="Home">
-<area shape="rect" coords="471,561,553,577" href="viewText.do?viewType=text" target="_blank" alt="Text Only Version">
+<area shape="rect" coords="431,560,466,579" href="/cagwas" target="_blank" alt="Home">
 <area shape="rect" coords="559,562,613,579" href="remoteSetup.do?content=contacts" target="_blank" alt="Contact Us">
 <area shape="rect" coords="618,560,659,577" href="remoteSetup.do?content=policies" target="_blank" alt="Policies">
 <area shape="rect" coords="664,560,722,578" href="http://www3.cancer.gov/accessibility/nci508.htm" target="_blank" alt="Accessibility">
 <area shape="rect" coords="728,560,772,579" href="siteMap.jsp" target="_blank" alt="Site Map">
 </map>	
+<!-- <area shape="rect" coords="471,561,553,577" href="viewText.do?viewType=text" target="_blank" alt="Text Only Version">-->
