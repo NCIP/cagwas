@@ -43,6 +43,11 @@
 		{
  			cur = "contact";
  		}
+ 		else if(top.document.title.toLowerCase().indexOf("cagwas support")!=-1 || top.document.title.toLowerCase().indexOf("cagwas feedback")!=-1)
+		{
+ 			cur = "contact";
+ 		}
+ 		
  		
   		try
 		{
