@@ -8,7 +8,7 @@
 			<div id="tert_bg" >
 				<div id="list_container">
 					<ul>
-						<li id="support"><a href="support.jsp">Support</a></li>
+						<li id="support"><a href="http://ncicb.nci.nih.gov/NCICB/support" target="_blank">Support</a></li>
 						<li id="feedback"><a href="feedbackSetup.do">Feedback</a></li>
 					</ul>
 				</div>

@@ -26,7 +26,7 @@
 <area shape="rect" coords="117,172,183,190" href="remoteSetup.do?content=breast" target="_blank" alt="Breast Cancer">
 <area shape="rect" coords="86,199,132,217" href="helpDocs/CaGWAS_Online_Help/CaGWAS Glossary.5.1.html" target="_blank" alt="Glossary">
 <area shape="rect" coords="77,232,132,250" href="remoteSetup.do?content=contacts" target="_blank" alt="Contact Us">
-<area shape="rect" coords="119,256,159,273" href="support.jsp" target="_blank" alt="Support">
+<area shape="rect" coords="119,256,159,273" href="http://ncicb.nci.nih.gov/NCICB/support" target="_blank" alt="Support">
 <area shape="rect" coords="118,284,166,301" href="feedbackSetup.do" target="_blank" alt="Feedback">
 
 <area shape="rect" coords="283,54,360,80" href="browseSetup.do" target="_blank" alt="Browse Data">
@@ -46,7 +46,7 @@
 <area shape="rect" coords="539,380,596,397" href="http://cagwas-content-ut.nci.nih.gov/cagwas-data-access-policies/app_view" target="_blank" alt="Registered Area">
 <area shape="rect" coords="537,405,627,422" href="forgottenPassword.jsp" target="_blank" alt="Forgotten Password">
 <area shape="rect" coords="675,331,730,349" href="remoteSetup.do?content=contacts" target="_blank" alt="Contact Us">
-<area shape="rect" coords="720,354,761,372" href="support.jsp" target="_blank" alt="Support">
+<area shape="rect" coords="720,354,761,372" href="http://ncicb.nci.nih.gov/NCICB/support" target="_blank" alt="Support">
 <area shape="rect" coords="718,382,768,399" href="feedbackSetup.do" target="_blank" alt="Feedback">
 <!--  Footer Navigation -->
 <area shape="rect" coords="431,560,466,579" href="/cagwas" target="_blank" alt="Home">
