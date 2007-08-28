@@ -11,7 +11,7 @@
 	<div id="content">
 		<h1>CaGWAS Data portal site map</h1>
 		<div id="copy">
-			<img src="images/sitemap.bmp" alt="Site Map" border="0" usemap="#sitemap"/>
+			<img src="images/sitemap.jpg" alt="Site Map" border="0" usemap="#sitemap"/>
 		</div>
 	</div>
 </div>		
