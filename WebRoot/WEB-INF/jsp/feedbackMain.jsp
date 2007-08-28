@@ -8,8 +8,6 @@
 </div>
 <div id="browseData">
 
-<script type="text/javascript">Help.insertHelp("feedback_help", "", "padding:8px;float:right;");</script>
-
 <span class="er"><html:errors/></span>
 
 <br>
