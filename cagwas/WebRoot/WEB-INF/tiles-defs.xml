@@ -112,9 +112,16 @@
 		<put name="mainForm" value="/WEB-INF/jsp/querySuccessMain.jsp" />		
       </definition>
 
-	<definition name="cagwas.feedback" extends="noSidebar">
+       <definition name="cagwas.feedback" extends="noSidebarThirdNav">
 		<put name="title" value="CaGWAS Feedback Page" />
-		<put name="mainForm" value="/WEB-INF/jsp/feedbackMain.jsp" />		
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
+		<put name="thirdNav" value="/WEB-INF/jsp/tiles/contactThirdNav_tile.jsp" />
+		<put name="mainForm" value="/WEB-INF/jsp/feedbackMain.jsp" />	
+		</definition>
+		
+      <definition name="cagwas.support" extends="noSidebarThirdNav">
+		<put name="title" value="CaGWAS Support Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/supportMain.jsp" />	
       </definition>
 
 	<definition name="cagwas.ploneError" extends="noSidebar">
@@ -176,10 +183,11 @@
       </definition>
 
 
-	<definition name="cagwas.contacts" extends="noSidebarSecondNav">
+	<definition name="cagwas.contacts" extends="noSidebarThirdNav">
 		<put name="title" value="CaGWAS Contacts Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/contactMain.jsp" />
 		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
+		<put name="thirdNav" value="/WEB-INF/jsp/tiles/contactThirdNav_tile.jsp" />	
       </definition>
 
 	<definition name="cagwas.cite" extends="noSidebarSecondNav">
