@@ -14,7 +14,7 @@
 <br>
 
 <div align="center">
-<h3>Thanks for using the CaGWAS Application</h3>
+<h3>Thanks for using the caGWAS Application</h3>
 <h3>Please provide us with any feedback you may have</h3>
 </div>
 

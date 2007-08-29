@@ -5,6 +5,6 @@
 
 <div align="center" class="er" style="padding:25px;border:2px dotted red; margin:20px;">
 	Our apologies, there has been an internal server error.<br/><br/>
-	<a href="javascript:history.back()">Go Back</a> | <a href="aboutSetup.do">CaGWAS Home</a>
+	<a href="javascript:history.back()">Go Back</a> | <a href="aboutSetup.do">caGWAS Home</a>
 </div>
 </div>

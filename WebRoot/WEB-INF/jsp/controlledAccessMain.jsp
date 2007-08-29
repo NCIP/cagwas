@@ -5,7 +5,7 @@
 
 <div id="middle" align="center">
 	<div id="content">
-		<h1>CaGWAS Controlled Access</h1>
+		<h1><bean:message key="header.controlledAccess"/></h1>
 		<div id="copy">
 			
 			<%out.print(request.getAttribute("controlledContent"));%>

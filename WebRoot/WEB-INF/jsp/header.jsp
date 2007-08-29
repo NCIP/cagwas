@@ -17,7 +17,7 @@
 	   	   { %>
 		<div class="view-text">
 			<div class="left">
-				<br /><a href="index.html" class="title">CaGWAS Data Portal </a><br />
+				<br /><a href="index.html" class="title">caGWAS Data Portal </a><br />
 				<a href="index.html">Cancer Genetic Markers of Susceptibility</a>			
 			</div>
 		</div>
@@ -26,10 +26,10 @@
 		   { %>
 		<!-- Utility Nav  -->
 		<div id="nav_util">
-			<a href="/cagwas">Home</a> | <a href="login.jsp">Login</a> | <a href="remoteSetup.do?content=contacts">Contact Us</a> |	Visit the <a href="http://cagwas.cancer.gov" target="_blank" class="util_nav_link"><strong>CaGWAS Home Site</strong></a>	
+			<a href="/cagwas">Home</a> | <a href="login.jsp">Login</a> | <a href="remoteSetup.do?content=contacts">Contact Us</a> |	Visit the <a href="http://cagwas.cancer.gov" target="_blank" class="util_nav_link"><strong>caGWAS Home Site</strong></a>	
 		</div>
 		<!-- END Utility Nav  -->
-		<img src="images/study_header.jpg" alt="CaGWAS Banner/Your study logo" border="0" usemap="#studyheader" class="main_header" /><img src="images/logo_header.jpg" alt="CaGWAS Banner/Related logo" border="0" usemap="#logoheader" class="main_header" />
+		<img src="images/study_header.jpg" alt="caGWAS Banner/Your study logo" border="0" usemap="#studyheader" class="main_header" /><img src="images/logo_header.jpg" alt="caGWAS Banner/Related logo" border="0" usemap="#logoheader" class="main_header" />
 		<% } %>
 	</div>
 </div>

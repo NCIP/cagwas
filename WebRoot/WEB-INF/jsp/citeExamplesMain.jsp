@@ -5,7 +5,7 @@
 
 <div id="middle" align="center">
 	<div id="content">
-		<h1>CaGWAS Cite Data Examples</h1>
+		<h1><bean:message key="header.citeDataExamples"/></h1>
 		<div id="copy">
 			
 			<%out.print(request.getAttribute("citeExampleContent"));%>
