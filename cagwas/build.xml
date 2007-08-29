@@ -14,6 +14,24 @@
 	<!-- Class to  run for the selenium integration tests -->
 	<property name="test-selenium.class.name" value="gov.nih.nci.cagwas.test.integration.CagwasUIIntegrationTest" />  
 	
+	<!-- filtering properties -->
+	<echo>properties ...
+		project_name = ${project_name}
+		project_title = ${project_title}
+	</echo>
+	<filter token="project_name" value="${project_name}" />
+	<filter token="project_title" value="${project_title}" />
+	<delete>
+		<fileset file="./WebRoot/WEB-INF/tiles-defs.xml" />
+		<fileset file="./WebRoot/WEB-INF/struts-config.xml" />
+	</delete>	
+	<copy tofile="./WebRoot/WEB-INF/tiles-defs.xml" filtering="true">
+		<fileset file="conf/tiles-defs.template.xml" />
+	</copy>
+	<copy tofile="./WebRoot/WEB-INF/struts-config.xml" filtering="true">
+			<fileset file="conf/struts-config.template.xml" />
+		</copy>
+	
 	<!-- Classpath to run the junit tests -->
 	<path id="test.classpath">
 	  <pathelement location="${build.classes.dir}" />
