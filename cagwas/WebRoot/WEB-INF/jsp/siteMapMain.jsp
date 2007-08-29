@@ -9,7 +9,7 @@
 
 <div id="middle" align="left">
 	<div id="content">
-		<h1>CaGWAS Data portal site map</h1>
+		<h1><bean:message key="header.siteMap"/></h1>
 		<div id="copy">
 			<img src="images/sitemap.jpg" alt="Site Map" border="0" usemap="#sitemap"/>
 		</div>
