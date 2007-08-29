@@ -85,7 +85,7 @@ public class LoginAction extends Action
 				if(protectionElements != null  && !protectionElements.isEmpty()){
 					List<String> studyIDList = new ArrayList<String>();
 					for(ProtectionElement pe:protectionElements){
-						if(pe.getProtectionElementName().contains("CaGWAS")){
+						if(pe.getProtectionElementName().contains("caGWAS")){
 							studyIDList.add(pe.getObjectId());
 						}
 					}

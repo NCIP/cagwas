@@ -9,7 +9,7 @@ import gov.nih.nci.caintegrator.application.zip.ZipItem;
  * @author sahnih
  *
  */
-public class CaGWASZipItemImpl implements ZipItem
+public class caGWASZipItemImpl implements ZipItem
 {
 	private String filePath;
 	private String fileName;

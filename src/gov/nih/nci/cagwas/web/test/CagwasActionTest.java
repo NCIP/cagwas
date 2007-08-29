@@ -69,7 +69,7 @@ public class CagwasActionTest extends MockStrutsTestCase
 	}
 	
 	/**
-	 * Uses the CaGWAS DTO to retrieve the list of available studies. These are
+	 * Uses the caGWAS DTO to retrieve the list of available studies. These are
 	 * used in the tests to make sure every study is searched.
 	 */
 	private static void populateStudies()
@@ -125,7 +125,7 @@ public class CagwasActionTest extends MockStrutsTestCase
 	}
 	
 	/**
-	 * Uses the CaGWAS DTO to retrieve the list of available chromosomes. These are
+	 * Uses the caGWAS DTO to retrieve the list of available chromosomes. These are
 	 * used in the tests to make sure every chromosome can be searched.
 	 */
 	private static void populateChromosomes()
@@ -176,7 +176,7 @@ public class CagwasActionTest extends MockStrutsTestCase
 	}
 	
 	/**
-	 * Uses the CaGWAS DTO to retrieve the list of available populations for a specific
+	 * Uses the caGWAS DTO to retrieve the list of available populations for a specific
 	 * study. These are used in the tests to make sure every population for every
 	 * study is searched.
 	 * <P>

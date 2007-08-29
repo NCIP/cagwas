@@ -6,7 +6,7 @@ import junit.framework.TestSuite;
 import com.thoughtworks.selenium.DefaultSelenium;
 import com.thoughtworks.selenium.SeleneseTestCase;
 
-public class CagwasUIIntegrationTest extends SeleneseTestCase {
+public class caGWASUIIntegrationTest extends SeleneseTestCase {
     public void setUp() {
         selenium = new DefaultSelenium("localhost", 4446, "*firefox",
                 "http://localhost:8080");
@@ -49,16 +49,16 @@ public class CagwasUIIntegrationTest extends SeleneseTestCase {
 //    }
 
 	/**
-	 * SNP Association Finding Search by SNP Panel for CaGWAS Breast Cancer WGAS Phase 1
+	 * SNP Association Finding Search by SNP Panel for caGWAS Breast Cancer WGAS Phase 1
 	 * 
 	 * @throws Exception
 	 * 
 	 */
-	public void testSelenium_CaGWAS_TC2_6_Breast() throws Exception {	
+	public void testSelenium_caGWAS_TC2_6_Breast() throws Exception {	
 		selenium.open("/cagwas/");
 		selenium.click("link=Browse Data");
 		selenium.waitForPageToLoad("30000");
-		selenium.select("study", "label=CaGWAS Breast Cancer WGAS Phase 1");
+		selenium.select("study", "label=caGWAS Breast Cancer WGAS Phase 1");
 		selenium.click("//input[@value='Submit']");
 		selenium.waitForPageToLoad("30000");
 		selenium.select("panel", "label=Illumina HumanHap550");
@@ -92,17 +92,17 @@ public class CagwasUIIntegrationTest extends SeleneseTestCase {
 
 	 /**
 	  * SNP Association Finding Search by SNP Panel
-	  *     for CaGWAS Breast Cancer WGAS Phase 1
+	  *     for caGWAS Breast Cancer WGAS Phase 1
  	  * Test Case 2 Test data set 2.7
 	  * 	 
 	  * @throws Exception
 	  *
 	  */
-	public void testSelenium_CaGWAS_TC2_7_Breast() throws Exception {
-			selenium.open("/cagwas/");
+	public void testSelenium_caGWAS_TC2_7_Breast() throws Exception {
+			selenium.open("/caGWAS/");
 			selenium.click("link=Browse Data");
 			selenium.waitForPageToLoad("30000");
-			selenium.select("study", "label=CaGWAS Breast Cancer WGAS Phase 1");
+			selenium.select("study", "label=caGWAS Breast Cancer WGAS Phase 1");
 			selenium.click("//input[@value='Submit']");
 			selenium.waitForPageToLoad("30000");
 			selenium.select("panel", "label=Illumina HumanHap550");
@@ -115,17 +115,17 @@ public class CagwasUIIntegrationTest extends SeleneseTestCase {
 	
 	 /**
 	  * SNP Association Finding Search by SNP Panel
-	  *     for CaGWAS Breast Cancer WGAS Phase 1
+	  *     for caGWAS Breast Cancer WGAS Phase 1
 	  * Test Case 2 Test data set 2.10
 	  * 	 
 	  * @throws Exception
 	  *
 	  */
-	public void testSelenium_CaGWAS_TC2_10_Breast() throws Exception {
+	public void testSelenium_caGWAS_TC2_10_Breast() throws Exception {
 			selenium.open("/cagwas/");
 			selenium.click("link=Browse Data");
 			selenium.waitForPageToLoad("30000");
-			selenium.select("study", "label=CaGWAS Breast Cancer WGAS Phase 1");
+			selenium.select("study", "label=caGWAS Breast Cancer WGAS Phase 1");
 			selenium.click("//input[@value='Submit']");
 			selenium.waitForPageToLoad("30000");
 			selenium.select("chromosome", "label=1");
@@ -135,24 +135,24 @@ public class CagwasUIIntegrationTest extends SeleneseTestCase {
 			selenium.select("toUnit", "label=mb");
 			selenium.click("//input[@value='Submit']");
 			selenium.waitForPageToLoad("30000");
-			verifyEquals("Study: CaGWAS Breast Cancer WGAS Phase 1", selenium.getText("//h3"));
-			verifyEquals("CaGWAS SNP Association Finding Report", selenium.getTitle());
+			verifyEquals("Study: caGWAS Breast Cancer WGAS Phase 1", selenium.getText("//h3"));
+			verifyEquals("caGWAS SNP Association Finding Report", selenium.getTitle());
 			verifyTrue(selenium.isTextPresent("SNP Association Finding Report - (110 results)"));
 			checkForVerificationErrors();
 		}
 	 
 	/**
 	  * SNP Association Finding Search by SNP Panel
-	  *     for CaGWAS Breast Cancer WGAS Phase 1
+	  *     for caGWAS Breast Cancer WGAS Phase 1
 	  * Test Case 2 Test data set 2.12
 	  * 	 
 	  * @throws Exception
 	  *
 	  */
-	public void testSelenium_CaGWAS_TC2_12_Breast() throws Exception {
+	public void testSelenium_caGWAS_TC2_12_Breast() throws Exception {
 			selenium.open("/cagwas/");
 			selenium.click("//input[@value='Browse Data']");
-			selenium.select("study", "label=CaGWAS Breast Cancer WGAS Phase 1");
+			selenium.select("study", "label=caGWAS Breast Cancer WGAS Phase 1");
 			selenium.click("//input[@value='Submit']");
 			selenium.waitForPageToLoad("30000");
 			selenium.select("chromosome", "label=1");
@@ -163,7 +163,7 @@ public class CagwasUIIntegrationTest extends SeleneseTestCase {
 			selenium.type("idList", "rs1998760\nrs1998760\nrs3762444\nrs3762444");
 			selenium.click("//input[@value='Submit']");
 			selenium.waitForPageToLoad("30000");
-			verifyTrue(selenium.isTextPresent("exact:Study: CaGWAS Breast Cancer WGAS Phase 1"));
+			verifyTrue(selenium.isTextPresent("exact:Study: caGWAS Breast Cancer WGAS Phase 1"));
 			verifyTrue(selenium.isTextPresent("SNP Association Finding Report - (4 results)   Save Results"));
 			verifyTrue(selenium.isElementPresent("link=dbSNP ID"));
 			verifyTrue(selenium.isTextPresent("rs1998760"));
@@ -177,16 +177,16 @@ public class CagwasUIIntegrationTest extends SeleneseTestCase {
 
 	/**
 	  * SNP Association Finding Search by SNP Panel
-	  *     for CaGWAS Breast Cancer WGAS Phase 1
+	  *     for caGWAS Breast Cancer WGAS Phase 1
 	  * Test Case 2 Test data set 2.13
 	  * 	 
 	  * @throws Exception
 	  *
 	  */
-	public void testSelenium_CaGWAS_TC2_13_Breast() throws Exception {
+	public void testSelenium_caGWAS_TC2_13_Breast() throws Exception {
 			selenium.open("/cagwas/");
 			selenium.click("//input[@value='Browse Data']");
-			selenium.select("study", "label=CaGWAS Breast Cancer WGAS Phase 1");
+			selenium.select("study", "label=caGWAS Breast Cancer WGAS Phase 1");
 			selenium.click("//input[@value='Submit']");
 			selenium.waitForPageToLoad("30000");
 			selenium.select("chromosome", "label=1");
@@ -196,55 +196,55 @@ public class CagwasUIIntegrationTest extends SeleneseTestCase {
 			selenium.type("pvalue", "0.1");
 			selenium.click("//input[@value='Submit']");
 			selenium.waitForPageToLoad("30000");
-			verifyTrue(selenium.isTextPresent("exact:Study: CaGWAS Breast Cancer WGAS Phase 1"));
+			verifyTrue(selenium.isTextPresent("exact:Study: caGWAS Breast Cancer WGAS Phase 1"));
 			verifyTrue(selenium.isTextPresent("SNP Association Finding Report - (33 results)   Save Results"));
 			checkForVerificationErrors();
 		}
 
 	/**
-	  * Population Frequency Report for CaGWAS Breast Cancer WGAS Phase 1
+	  * Population Frequency Report for caGWAS Breast Cancer WGAS Phase 1
 	  * Test Case 3 Test data set 3.1
 	  * 	 
 	  * @throws Exception
 	  *
 	  */
-	public void testSelenium_CaGWAS_TC3_1_Breast() throws Exception {
+	public void testSelenium_caGWAS_TC3_1_Breast() throws Exception {
 			selenium.open("/cagwas/");
 			selenium.click("link=Browse Data");
 			selenium.waitForPageToLoad("30000");
-			selenium.select("study", "label=CaGWAS Breast Cancer WGAS Phase 1");
+			selenium.select("study", "label=caGWAS Breast Cancer WGAS Phase 1");
 			selenium.click("document.browseForm.query[1]");
 			selenium.click("//input[@value='Submit']");
 			selenium.waitForPageToLoad("30000");
 			selenium.select("chromosome", "label=Y");
 			selenium.click("//input[@value='Submit']");
 			selenium.waitForPageToLoad("30000");
-			verifyTrue(selenium.isTextPresent("exact:Study: CaGWAS Breast Cancer WGAS Phase 1"));
-			verifyEquals("CaGWAS SNP Population Frequency Report", selenium.getTitle());
+			verifyTrue(selenium.isTextPresent("exact:Study: caGWAS Breast Cancer WGAS Phase 1"));
+			verifyEquals("caGWAS SNP Population Frequency Report", selenium.getTitle());
 			verifyTrue(selenium.isTextPresent("Your search criteria produced no results"));
 			checkForVerificationErrors();
 		}
 
 	/**
-	  * Population Frequency Report for CaGWAS Breast Cancer WGAS Phase 1
+	  * Population Frequency Report for caGWAS Breast Cancer WGAS Phase 1
 	  * Test Case 3 Test data set 3.2
 	  * 	 
 	  * @throws Exception
 	  *
 	  */
-	public void testSelenium_CaGWAS_TC3_2_Breast() throws Exception {
+	public void testSelenium_caGWAS_TC3_2_Breast() throws Exception {
 			selenium.open("/cagwas/about.jsp");
 			selenium.click("link=Browse Data");
 			selenium.waitForPageToLoad("30000");
-			selenium.select("study", "label=CaGWAS Breast Cancer WGAS Phase 1");
+			selenium.select("study", "label=caGWAS Breast Cancer WGAS Phase 1");
 			selenium.click("document.browseForm.query[1]");
 			selenium.click("//input[@value='Submit']");
 			selenium.waitForPageToLoad("30000");
 			selenium.select("chromosome", "label=XY");
 			selenium.click("//input[@value='Submit']");
 			selenium.waitForPageToLoad("30000");
-			verifyEquals("CaGWAS SNP Population Frequency Report", selenium.getTitle());
-			verifyTrue(selenium.isTextPresent("exact:Study: CaGWAS Breast Cancer WGAS Phase 1"));
+			verifyEquals("caGWAS SNP Population Frequency Report", selenium.getTitle());
+			verifyTrue(selenium.isTextPresent("exact:Study: caGWAS Breast Cancer WGAS Phase 1"));
 			verifyTrue(selenium.isTextPresent("SNP Frequency Report - (30 results)   Save Results"));
 			verifyTrue(selenium.isTextPresent("dbSNP ID"));
 			verifyTrue(selenium.isTextPresent("Chromosome"));
@@ -261,24 +261,24 @@ public class CagwasUIIntegrationTest extends SeleneseTestCase {
 		}
 	
 	/**
-	  * Population Frequency Report for CaGWAS Breast Cancer WGAS Phase 1
+	  * Population Frequency Report for caGWAS Breast Cancer WGAS Phase 1
 	  * Test Case 3 Test data set 3.3 and 3.3a
 	  * 	 
 	  * @throws Exception
 	  *
 	  */
-	public void testSelenium_CaGWAS_TC3_3_Breast() throws Exception {
+	public void testSelenium_caGWAS_TC3_3_Breast() throws Exception {
 			selenium.open("/cagwas/");
 			selenium.click("link=Browse Data");
 			selenium.waitForPageToLoad("30000");
-			selenium.select("study", "label=CaGWAS Breast Cancer WGAS Phase 1");
+			selenium.select("study", "label=caGWAS Breast Cancer WGAS Phase 1");
 			selenium.click("document.browseForm.query[1]");
 			selenium.click("//input[@value='Submit']");
 			selenium.waitForPageToLoad("30000");
 			selenium.select("chromosome", "label=X");
 			selenium.click("//input[@value='Submit']");
 			selenium.waitForPageToLoad("30000");
-			verifyEquals("CaGWAS Download Page", selenium.getTitle());
+			verifyEquals("caGWAS Download Page", selenium.getTitle());
 			verifyTrue(selenium.isTextPresent("Your query returned more than 500 results."));
 			selenium.click("//input[@value='Back']");
 			selenium.waitForPageToLoad("30000");
@@ -287,7 +287,7 @@ public class CagwasUIIntegrationTest extends SeleneseTestCase {
 			selenium.select("chromosome", "label=X");
 			selenium.click("//input[@value='Submit']");
 			selenium.waitForPageToLoad("30000");
-			verifyEquals("CaGWAS Download Page", selenium.getTitle());
+			verifyEquals("caGWAS Download Page", selenium.getTitle());
 			verifyTrue(selenium.isTextPresent("Your query returned more than 500 results."));
 			selenium.click("//input[@value='Back']");
 			selenium.waitForPageToLoad("30000");
@@ -295,17 +295,17 @@ public class CagwasUIIntegrationTest extends SeleneseTestCase {
 		}
 	
 	/**
-	  * Population Frequency Report for CaGWAS Breast Cancer WGAS Phase 1
+	  * Population Frequency Report for caGWAS Breast Cancer WGAS Phase 1
 	  * Test Case 4 Test data set 3.4 and 3.4a
 	  * 	 
 	  * @throws Exception
 	  *
 	  */
-	public void testSelenium_CaGWAS_TC3_4_Breast() throws Exception {
+	public void testSelenium_caGWAS_TC3_4_Breast() throws Exception {
 			selenium.open("/cagwas/");
 			selenium.click("link=Browse Data");
 			selenium.waitForPageToLoad("30000");
-			selenium.select("study", "label=CaGWAS Breast Cancer WGAS Phase 1");
+			selenium.select("study", "label=caGWAS Breast Cancer WGAS Phase 1");
 			selenium.click("document.browseForm.query[1]");
 			selenium.click("//input[@value='Submit']");
 			selenium.waitForPageToLoad("30000");
@@ -315,8 +315,8 @@ public class CagwasUIIntegrationTest extends SeleneseTestCase {
 			selenium.select("chromosome", "label=X");
 			selenium.click("//input[@value='Submit']");
 			selenium.waitForPageToLoad("30000");
-			verifyEquals("CaGWAS Download Page", selenium.getTitle());
-			verifyTrue(selenium.isTextPresent("exact:Study: CaGWAS Breast Cancer WGAS Phase 1"));
+			verifyEquals("caGWAS Download Page", selenium.getTitle());
+			verifyTrue(selenium.isTextPresent("exact:Study: caGWAS Breast Cancer WGAS Phase 1"));
 			verifyTrue(selenium.isTextPresent("Your query returned more than 500 results."));
 			selenium.click("//input[@value='Back']");
 			selenium.waitForPageToLoad("30000");
@@ -326,8 +326,8 @@ public class CagwasUIIntegrationTest extends SeleneseTestCase {
 			selenium.select("chromosome", "label=X");
 			selenium.click("//input[@value='Submit']");
 			selenium.waitForPageToLoad("30000");
-			verifyEquals("CaGWAS Download Page", selenium.getTitle());
-			verifyTrue(selenium.isTextPresent("exact:Study: CaGWAS Breast Cancer WGAS Phase 1"));
+			verifyEquals("caGWAS Download Page", selenium.getTitle());
+			verifyTrue(selenium.isTextPresent("exact:Study: caGWAS Breast Cancer WGAS Phase 1"));
 			verifyTrue(selenium.isTextPresent("Your query returned more than 500 results."));
 			checkForVerificationErrors();
 		}

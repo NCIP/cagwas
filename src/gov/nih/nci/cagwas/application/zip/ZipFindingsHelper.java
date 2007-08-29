@@ -8,7 +8,7 @@ import gov.nih.nci.caintegrator.application.zip.ZipItem;
 import gov.nih.nci.caintegrator.application.zip.ZipManager;
 import gov.nih.nci.caintegrator.domain.annotation.gene.bean.GeneBiomarker;
 import gov.nih.nci.caintegrator.domain.study.bean.Population;
-import gov.nih.nci.cagwas.application.zip.CaGWASZipItemImpl;
+import gov.nih.nci.cagwas.application.zip.caGWASZipItemImpl;
 
 import java.io.File;
 import java.io.IOException;
@@ -107,7 +107,7 @@ public class ZipFindingsHelper {
 		String filePath = getInputZipDirectory()+File.separator+targetFileName;
 	    File f = new File(filePath);
 	    if (f.exists()) {
-	    	zipItem = new CaGWASZipItemImpl();
+	    	zipItem = new caGWASZipItemImpl();
 	        zipItem.setFileName(targetZipFileName);
 	        zipItem.setFilePath(filePath);
 	        zipItem.setDirectoryInZip(directoryInZip);
