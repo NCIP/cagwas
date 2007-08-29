@@ -17,7 +17,7 @@ import gov.nih.nci.caintegrator.studyQueryService.test.germline.SubjectSearchTes
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
-public class CagwasIntegrationTestSuite {
+public class caGWASIntegrationTestSuite {
 
     /**
      * Assembles a test suite containing all known tests.

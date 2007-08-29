@@ -23,7 +23,7 @@ public class ZipFindingsHelperTest extends TestCase {
 	public void testZipSNPAssociationFindingCriteriaDTO()
 	{
 		String email="sahnih@mail.nih.gov";
-		String study="CaGWAS Prostate Cancer WGAS Phase 1A";
+		String study="caGWAS Prostate Cancer WGAS Phase 1A";
 		Long studyId = new Long(1);
 		
 		StudyCriteria studyCrit = new StudyCriteria();
@@ -67,7 +67,7 @@ public class ZipFindingsHelperTest extends TestCase {
 	 */
 	public void testZipSNPFrequencyFindingCriteriaDTO()
 	{
-		String study="CaGWAS Prostate Cancer WGAS Phase 1A";
+		String study="caGWAS Prostate Cancer WGAS Phase 1A";
 		StudyCriteria studyCrit = new StudyCriteria();
 		
 		try
