@@ -105,7 +105,7 @@ function openDescription()	{
 	//}
 	//else
 	//{
-		//url = "CaGWAS_Analysis_Descriptions.pdf";
+		//url = "caGWAS_Analysis_Descriptions.pdf";
 		url = document.associationsForm.description[0].value;
 		window.open(url, "Description", "menubar=no,toolbar=no");
 	//}

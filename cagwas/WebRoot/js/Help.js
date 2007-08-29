@@ -1,5 +1,5 @@
 var Help = {
-	url : "helpDocs/CaGWAS_Online_Help/index.html?context=CaGWAS_Online_Help&topic=",
+	url : "helpDocs/caGWAS_Online_Help/index.html?context=caGWAS_Online_Help&topic=",
 	popHelp: function(topic) {
 		window.open (Help.url+topic, "Help", "status,scrollbars,resizable,width=800,height=500");  
 		//alert(Help.url+topic);
@@ -11,8 +11,8 @@ var Help = {
 		document.write(htm);
 	},
 	popHelpMain: function(topic) {
-		var _url = "helpDocs/CaGWAS_Online_Help/index.html?context=CaGWAS_Online_Help&topic=";
-		_url = "helpDocs/CaGWAS_Online_Help/WelcometoCaGWASOnlineHelp.1.1.html";
+		var _url = "helpDocs/caGWAS_Online_Help/index.html?context=caGWAS_Online_Help&topic=";
+		_url = "helpDocs/caGWAS_Online_Help/WelcometocaGWASOnlineHelp.1.1.html";
 		window.open (_url+topic, "Help", "status,scrollbars,resizable,width=800,height=500");  
 		//window.open (_url+topic, "Help", "alwaysRaised,dependent,status,scrollbars,resizable,width=800,height=500");  
 		//alert(Help.url+topic);
