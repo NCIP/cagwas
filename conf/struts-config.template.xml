@@ -223,7 +223,7 @@
   <controller />
 
   <!-- ========== Message Resources Definitions ========================== -->
-  <message-resources parameter="@project_name@Resources" />
+  <message-resources parameter="cagwasResources" />
 
   <!-- ========== Plug Ins Configuration ================================= -->
   <plug-in className="org.apache.struts.tiles.TilesPlugin" >
