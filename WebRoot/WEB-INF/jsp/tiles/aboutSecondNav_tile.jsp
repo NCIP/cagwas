@@ -1,6 +1,6 @@
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/struts-tiles.tld" prefix="tiles" %>
-
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <!-- Second tier nav -->
 <div id="container" align="center">
 	<div id="nav">
@@ -10,7 +10,7 @@
 					<ul>
 						<li id="overview"><a href="aboutSetup.do">Overview</a></li>
 						<li id="studies"><a href="remoteSetup.do?content=prostate">Studies</a></li>
-						<li id="glossary"><a href="helpDocs/CaGWAS_Online_Help/CaGWAS Glossary.5.1.html" target="_blank">Glossary</a></li>
+						<li id="glossary"><a href="helpDocs/<bean:message key="project.title"/>_Online_Help/<bean:message key="project.title"/> Glossary.5.1.html" target="_blank">Glossary</a></li>
 						<li id="contact"><a href="remoteSetup.do?content=contacts">Contact Us</a></li>
 					</ul>
 				</div>

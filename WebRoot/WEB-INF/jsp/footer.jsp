@@ -1,9 +1,10 @@
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <!-- Start Footer-->
 <div class="right">
 	<a href="http://caintegrator-info.nci.nih.gov/" target="_blank"><img src="images/logo_cal.gif" border="0" class="view-images" alt="Powered by caIntegrator" /></a></div>
 </div>	
 <div id="footer" align="center">
-	<a href="/cagwas">Home</a> | <%
+	<a href="/<bean:message key="href.home"/>">Home</a> | <%
 		String view = (String)session.getAttribute("viewType");
 		if ((view == null) || (view.equals("image")))
 		{ %>

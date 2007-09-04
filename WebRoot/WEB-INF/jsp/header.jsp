@@ -1,4 +1,6 @@
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <div id="container" align="center">
+
 	<div id="top_header" align="center">
 		<% String view = (String)session.getAttribute("viewType");
 	   	   if ((view != null) && (view.equals("text")))
@@ -17,7 +19,7 @@
 	   	   { %>
 		<div class="view-text">
 			<div class="left">
-				<br /><a href="index.html" class="title">caGWAS Data Portal </a><br />
+				<br /><a href="index.html" class="title"><bean:message key="project.title"/> Data Portal </a><br />
 				<a href="index.html">Cancer Genetic Markers of Susceptibility</a>			
 			</div>
 		</div>
@@ -26,10 +28,10 @@
 		   { %>
 		<!-- Utility Nav  -->
 		<div id="nav_util">
-			<a href="/cagwas">Home</a> | <a href="login.jsp">Login</a> | <a href="remoteSetup.do?content=contacts">Contact Us</a> |	Visit the <a href="http://cagwas.cancer.gov" target="_blank" class="util_nav_link"><strong>caGWAS Home Site</strong></a>	
+			<a href="/<bean:message key="href.home"/>">Home</a> | <a href="login.jsp">Login</a> | <a href="remoteSetup.do?content=contacts">Contact Us</a> |	Visit the <a href="http://<bean:message key="href.home"/>.cancer.gov" target="_blank" class="util_nav_link"><strong><bean:message key="project.title"/> Home Site</strong></a>	
 		</div>
 		<!-- END Utility Nav  -->
-		<img src="images/study_header.jpg" alt="caGWAS Banner/Your study logo" border="0" usemap="#studyheader" class="main_header" /><img src="images/logo_header.jpg" alt="caGWAS Banner/Related logo" border="0" usemap="#logoheader" class="main_header" />
+		<img src="images/study_header.jpg" alt="<bean:message key="project.title"/> Banner/Your study logo" border="0" usemap="#studyheader" class="main_header" /><img src="images/logo_header.jpg" alt="<bean:message key="project.title"/> Banner/Related logo" border="0" usemap="#logoheader" class="main_header" />
 		<% } %>
 	</div>
 </div>
@@ -43,7 +45,7 @@
 
 <!-- Image Map for header  -->
 <map name="studyheader">
-<area shape="rect" coords="5,20,348,78" href="/cagwas" target="" alt="Cancer Genetic Markers of Susceptibility Data Portal">
+<area shape="rect" coords="5,20,348,78" href="/<bean:message key="href.home"/>" target="" alt="Cancer Genetic Markers of Susceptibility Data Portal">
 </map>
 <map name="logoheader">
 <area shape="rect" coords="25,36,117,80" href="http://cgfweb.nci.nih.gov/" target=_blank"" alt="Core Genotyping Facility">
