@@ -14,7 +14,7 @@
 				<div class="spotlight">
 					<h1>Spotlight</h1>
 					<p>
-						<a href="#" onclick="Help.popHelpMain('');return false;">How to Use the caGWAS data portal</a>
+						<a href="#" onclick="Help.popHelpMain('');return false;">How to Use the <bean:message key="project.title"/> data portal</a>
 					</p>
 					<% String regUrl = (String)session.getAttribute("registrationUrl"); %>
 					<p>

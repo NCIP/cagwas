@@ -18,13 +18,13 @@
 
 <!-- Image Map for site map  -->
 <map name="sitemap">
-<area shape="rect" coords="490,0,566,46" href="/cagwas" target="_blank" alt="CgGWAS Data Portal">
-<area shape="rect" coords="49,59,162,83" href="aboutSetup.do" target="_blank" alt="About CaGWAS">
+<area shape="rect" coords="490,0,566,46" href="/<bean:message key="href.home"/>" target="_blank" alt="Data Portal">
+<area shape="rect" coords="49,59,162,83" href="aboutSetup.do" target="_blank" alt="About @project_title@">
 <area shape="rect" coords="84,93,131,111" href="aboutSetup.do" target="_blank" alt="Overview">
 <area shape="rect" coords="81,122,121,141" href="remoteSetup.do?content=prostate" target="_blank" alt="Studies">
 <area shape="rect" coords="117,51,193,168" href="remoteSetup.do?content=prostate" target="_blank" alt="Prostate Cancer">
 <area shape="rect" coords="117,172,183,190" href="remoteSetup.do?content=breast" target="_blank" alt="Breast Cancer">
-<area shape="rect" coords="86,199,132,217" href="helpDocs/CaGWAS_Online_Help/CaGWAS Glossary.5.1.html" target="_blank" alt="Glossary">
+<area shape="rect" coords="86,199,132,217" href="helpDocs/<bean:message key="project.title"/>_Online_Help/<bean:message key="project.title"/> Glossary.5.1.html" target="_blank" alt="Glossary">
 <area shape="rect" coords="77,232,132,250" href="remoteSetup.do?content=contacts" target="_blank" alt="Contact Us">
 <area shape="rect" coords="119,256,159,273" href="http://ncicb.nci.nih.gov/NCICB/support" target="_blank" alt="Support">
 <area shape="rect" coords="118,284,166,301" href="feedbackSetup.do" target="_blank" alt="Feedback">
@@ -40,7 +40,7 @@
 <area shape="rect" coords="884,109,951,126" href="remoteSetup.do?content=openAccess" target="_blank" alt="Data Access Public Access">
 <area shape="rect" coords="884,129,970,148" href="http://cagwas-content-ut.nci.nih.gov/cagwas-data-access-policies/app_view" target="_blank" alt="Data access Protected Access">
 <!--  Utility Navigation -->
-<area shape="rect" coords="437,331,469,348" href="/cagwas" target="_blank" alt="Home">
+<area shape="rect" coords="437,331,469,348" href="/<bean:message key="href.home"/>" target="_blank" alt="Home">
 <area shape="rect" coords="506,330,536,348" href="login.jsp" target="_blank" alt="Login">
 <area shape="rect" coords="538,357,590,375" href="login.jsp" target="_blank" alt="Login Area">
 <area shape="rect" coords="539,380,596,397" href="http://cagwas-content-ut.nci.nih.gov/cagwas-data-access-policies/app_view" target="_blank" alt="Registered Area">
@@ -49,7 +49,7 @@
 <area shape="rect" coords="720,354,761,372" href="http://ncicb.nci.nih.gov/NCICB/support" target="_blank" alt="Support">
 <area shape="rect" coords="718,382,768,399" href="feedbackSetup.do" target="_blank" alt="Feedback">
 <!--  Footer Navigation -->
-<area shape="rect" coords="431,560,466,579" href="/cagwas" target="_blank" alt="Home">
+<area shape="rect" coords="431,560,466,579" href="/<bean:message key="href.home"/>" target="_blank" alt="Home">
 <area shape="rect" coords="559,562,613,579" href="remoteSetup.do?content=contacts" target="_blank" alt="Contact Us">
 <area shape="rect" coords="618,560,659,577" href="remoteSetup.do?content=policies" target="_blank" alt="Policies">
 <area shape="rect" coords="664,560,722,578" href="http://www3.cancer.gov/accessibility/nci508.htm" target="_blank" alt="Accessibility">

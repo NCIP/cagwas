@@ -1,12 +1,13 @@
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/struts-tiles.tld" prefix="tiles" %>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 
 <div id="container" align="center">
 	<div id="nav">
 		<div id="top"><img src="images/spacer.gif" border="0"  height="1" width="700"/></div>
 			<div id="middle">
 				<ul>
-					<li id="homeTab"><a href="aboutSetup.do">About caGWAS Data</a></li>
+					<li id="homeTab"><a href="aboutSetup.do">About <bean:message key="project.title"/> Data</a></li>
 					<li id="browseTab"><a href="browseSetup.do">Browse Data</a></li>
 					<li id="bulkTab"><a href="downloadSetup.do">Bulk Data Downloads</a></li>
 					<li id="citeTab"><a href="remoteSetup.do?content=cite">Cite Data</a></li>
