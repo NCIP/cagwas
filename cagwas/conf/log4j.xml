@@ -1,5 +1,5 @@
-   <!-- Setup the configuration for the CaGWAS log file -->
-   <appender name="CaGWAS_LOG" class="org.apache.log4j.FileAppender">
+   <!-- Setup the configuration for the caGWAS log file -->
+   <appender name="caGWAS_LOG" class="org.apache.log4j.FileAppender">
 	<errorHandler class="org.jboss.logging.util.OnlyOnceErrorHandler"/>
       <param name="File" value="${jboss.server.home.dir}/log/cagwas.log"/>
       <param name="Append" value="false"/>
@@ -8,8 +8,8 @@
 	</layout>
    </appender>
 
-   <!-- Set CaGWAS logging level -->
+   <!-- Set caGWAS logging level -->
    <category name="gov.nih.nci.cagwas">
 	<priority value="INFO"/>
-	<appender-ref ref="CaGWAS_LOG"/>
+	<appender-ref ref="caGWAS_LOG"/>
    </category>
