@@ -1,5 +1,5 @@
 <project name="cagwas" default="deploy" basedir=".">
-	<property file="build.properties"/>
+	<property file="build.properties" />
 	<!--
 	TARGET: build_war
 	Will compile the java code and build the war file
@@ -7,13 +7,13 @@
 	<property name="src" value="./src" />
 	<property name="lib" value="./WebRoot/WEB-INF/lib" />
 	<property name="classes" value="./WebRoot/WEB-INF/classes" />
-	
+
 	<!-- Class to  run for the framework integration tests -->
 	<property name="test.class.name" value="gov.nih.nci.cagwas.test.integration.CagwasIntegrationTestSuite" />
-	
+
 	<!-- Class to  run for the selenium integration tests -->
-	<property name="test-selenium.class.name" value="gov.nih.nci.cagwas.test.integration.CagwasUIIntegrationTest" />  
-	
+	<property name="test-selenium.class.name" value="gov.nih.nci.cagwas.test.integration.CagwasUIIntegrationTest" />
+    <target name="filter">
 	<!-- filtering properties -->
 	<echo>properties ...
 		project_name = ${project_name}
@@ -21,217 +21,240 @@
 	</echo>
 	<filter token="project_name" value="${project_name}" />
 	<filter token="project_title" value="${project_title}" />
-	<delete>
-		<fileset file="./WebRoot/WEB-INF/tiles-defs.xml" />
-		<fileset file="./WebRoot/WEB-INF/struts-config.xml" />
-	</delete>	
+    	  <delete>
+    			<fileset file="./WebRoot/WEB-INF/tiles-defs.xml" />
+    			<fileset file="./WebRoot/WEB-INF/struts-config.xml" />
+    			<fileset file="${src}/zip.properties" />
+    			<fileset file="${src}/mail.properties" />
+    			<fileset file="${src}/cagwas-domain-hibernate.cfg.xml" />
+    		</delete>	
+	        <echo message="Configuring cagwas-domain-hibernate-cfg.xml" />
+		   	<copy file="conf/cagwas-domain-hibernate.cfg.xml.template" toFile="${src}/cagwas-domain-hibernate.cfg.xml" filtering="true">
+    			<filterset begintoken="@" endtoken="@">
+    				<filtersfile file="build.properties" />
+    			</filterset>
+            </copy>  
 	<copy tofile="./WebRoot/WEB-INF/tiles-defs.xml" filtering="true">
 		<fileset file="conf/tiles-defs.template.xml" />
 	</copy>
 	<copy tofile="./WebRoot/WEB-INF/struts-config.xml" filtering="true">
-			<fileset file="conf/struts-config.template.xml" />
-		</copy>
-	
+		<fileset file="conf/struts-config.template.xml" />
+	</copy>
+
+	<echo>filter mail and zip properties ...</echo>
+	<copy file="conf/zip.properties.template" toFile="${src}/zip.properties" filtering="true">
+		<filterset begintoken="@" endtoken="@">
+			<filtersfile file="mailzip.properties" />
+		</filterset>
+	</copy>
+	<copy file="conf/mail.properties.template" toFile="${src}/mail.properties" filtering="true">
+		<filterset begintoken="@" endtoken="@">
+			<filtersfile file="mailzip.properties" />
+		</filterset>
+	</copy>
+   </target> 	
 	<!-- Classpath to run the junit tests -->
 	<path id="test.classpath">
-	  <pathelement location="${build.classes.dir}" />
-	  <pathelement location="${lib}/junit-3.8.1.jar" />
-	  	<fileset dir="${lib}">
-	    	<include name="**/*.jar"/>
-	  	</fileset>
+		<pathelement location="${build.classes.dir}" />
+		<pathelement location="${lib}/junit-3.8.1.jar" />
+		<fileset dir="${lib}">
+			<include name="**/*.jar" />
+		</fileset>
 		<fileset dir="${not.deployed.jarFiles}">
-			<include name="*.jar"/>
+			<include name="*.jar" />
 		</fileset>
 		<fileset dir="${anthill.dependency.artifacts.dir}">
-			<include name="*.jar"/>
+			<include name="*.jar" />
 		</fileset>
 	</path>
-	
+
 	<!-- Runs the selenium tests -->
-    <target name="run_test" description="Start Selenmium Server ; Run JUnit Tests ; Stop Selenium Server">
-        <parallel>
-            <antcall target="start-server"></antcall>
-            <sequential>	
-                <echo taskname="waitfor" message="Wait selenium server to launch" />
-                <waitfor maxwait="2" maxwaitunit="minute" checkevery="100">
-                    <http url="http://localhost:4446/selenium-server/driver/?cmd=testComplete"/>
-                </waitfor>
-                    <antcall target="test-selenium"></antcall>
-                    <antcall target="stop-server"></antcall>
-            </sequential>
-        </parallel>
-    </target>
-	
+	<target name="run_test" description="Start Selenmium Server ; Run JUnit Tests ; Stop Selenium Server">
+		<parallel>
+			<antcall target="start-server">
+			</antcall>
+			<sequential>
+				<echo taskname="waitfor" message="Wait selenium server to launch" />
+				<waitfor maxwait="2" maxwaitunit="minute" checkevery="100">
+					<http url="http://localhost:4446/selenium-server/driver/?cmd=testComplete" />
+				</waitfor>
+				<antcall target="test-selenium">
+				</antcall>
+				<antcall target="stop-server">
+				</antcall>
+			</sequential>
+		</parallel>
+	</target>
+
 	<!-- Starts the selenium server in the background to run the tests against -->
-    <target name="start-server" depends="stop-server">
-    	<parallel>
-	        <java jar="${lib}/selenium-server.jar" spawn="yes" fork="true">
-	        	<arg line="-port 4446"/>
-	        </java>
-    	</parallel>
-    </target>
-	
+	<target name="start-server" depends="stop-server">
+		<parallel>
+			<java jar="${lib}/selenium-server.jar" spawn="yes" fork="true">
+				<arg line="-port 4446" />
+			</java>
+		</parallel>
+	</target>
+
 	<!-- stops the selenuim server -->
-    <target name="stop-server">
-        <get taskname="selenium-shutdown" 
-            src="http://localhost:4446/selenium-server/driver/?cmd=shutDown"	
-            dest="result.txt" ignoreerrors="true" />
-        <echo taskname="selenium-shutdown" message="DGF Errors during shutdown are expected" />
-    </target>
-	
+	<target name="stop-server">
+		<get taskname="selenium-shutdown" src="http://localhost:4446/selenium-server/driver/?cmd=shutDown" dest="result.txt" ignoreerrors="true" />
+		<echo taskname="selenium-shutdown" message="DGF Errors during shutdown are expected" />
+	</target>
+
 	<!-- Runs the framework integration tests -->
 	<target name="test-framework" depends="compile">
-	  <junit fork="yes" haltonfailure="yes">
-	    <test name="${test.class.name}" />
-	    <formatter type="plain" usefile="false" />
-	    <classpath refid="test.classpath" />
-	  </junit>
+		<junit fork="yes" haltonfailure="yes">
+			<test name="${test.class.name}" />
+			<formatter type="plain" usefile="false" />
+			<classpath refid="test.classpath" />
+		</junit>
 	</target>
-	
+
 	<!-- Runs the selenium integration tests -->
 	<target name="test-selenium" depends="compile">
-	  <junit fork="yes" haltonfailure="yes">
-	    <test name="${test-selenium.class.name}" />
-	    <formatter type="plain" usefile="false" />
-	    <classpath refid="test.classpath" />
-	  </junit>
+		<junit fork="yes" haltonfailure="yes">
+			<test name="${test-selenium.class.name}" />
+			<formatter type="plain" usefile="false" />
+			<classpath refid="test.classpath" />
+		</junit>
 	</target>
-	
+
 	<target name="compile">
 		<javac srcdir="${build.source.dir}" destdir="${build.classes.dir}" source="1.5" debug="true" debuglevel="lines,vars,source">
-			<classpath >
+			<classpath>
 				<fileset dir="${webapp.lib.dir}">
-					<include name="*.jar"/>
+					<include name="*.jar" />
 				</fileset>
 
 				<fileset dir="${not.deployed.jarFiles}">
-					<include name="*.jar"/>
+					<include name="*.jar" />
 				</fileset>
-				
+
 				<fileset dir="${anthill.dependency.artifacts.dir}">
-					<include name="*.jar"/>
-				</fileset>	
+					<include name="*.jar" />
+				</fileset>
 			</classpath>
 		</javac>
 	</target>
 
 	<target name="build_war_anthill" depends="config_application_context, deploy_artifacts">
-		<delete dir="${build.classes.dir}" failonerror="false"/>
-		<delete file="${module_name}.war" failonerror="false"/>
-		<mkdir dir="${build.classes.dir}"/>
+		<delete dir="${build.classes.dir}" failonerror="false" />
+		<delete file="${module_name}.war" failonerror="false" />
+		<mkdir dir="${build.classes.dir}" />
 		<javac srcdir="${build.source.dir}" destdir="${build.classes.dir}" source="1.5" debug="true" excludes="**/test/**" debuglevel="lines,vars,source">
 			<classpath>
 				<fileset dir="${webapp.lib.dir}">
-					<include name="*.jar"/>
+					<include name="*.jar" />
 				</fileset>
 
 				<fileset dir="${not.deployed.jarFiles}">
-					<include name="*.jar"/>
+					<include name="*.jar" />
 				</fileset>
 
 				<fileset dir="${anthill.dependency.artifacts.dir}">
-					<include name="*.jar"/>
+					<include name="*.jar" />
 				</fileset>
 			</classpath>
 		</javac>
 		<copy todir="${webapp.classes.dir}">
 			<fileset dir="${build.classes.dir}">
-				<include name="**/*.class"/>
+				<include name="**/*.class" />
 			</fileset>
 		</copy>
 		<copy todir="${webapp.classes.dir}">
 			<fileset dir="${build.source.dir}">
-				<include name="**/*.properties"/>
-				<include name="cagwas-domain-hibernate.cfg.xml"/>
-				<exclude name="zip.properties"/>
-				<exclude name="mail.properties"/>
+				<include name="**/*.properties" />
+				<include name="cagwas-domain-hibernate.cfg.xml" />
+				<exclude name="zip.properties" />
+				<exclude name="mail.properties" />
 			</fileset>
 		</copy>
 		<war destfile="${module_name}.war" webxml="${webapp.dir}/WEB-INF/web.xml">
 			<fileset dir="${webapp.dir}">
-				<exclude name="${webapp.lib.dir}/log4*.jar"/>
+				<exclude name="${webapp.lib.dir}/log4*.jar" />
 			</fileset>
 			<zipfileset dir="${anthill.dependency.artifacts.dir}" prefix="WEB-INF/lib">
-				<include name="caintegrator-analysis-commons.jar"/>
-				<include name="caintegrator-application-commons.jar"/>
-				<include name="caintegrator-spec.jar"/>
+				<include name="caintegrator-analysis-commons.jar" />
+				<include name="caintegrator-application-commons.jar" />
+				<include name="caintegrator-spec.jar" />
 			</zipfileset>
 		</war>
-		<copy file="cagwas.war" todir="${anthill.artifacts.dir}"/>
+		<copy file="${module_name}.war" todir="${anthill.artifacts.dir}" />
 	</target>
-	
+
 	<!--
 	TARGET: deploy
 	simply copies the war file to the jboss deployment directory
 	-->
-	<target name="deploy" depends="build_war_anthill">
-		<copy file="cagwas.war" todir="${jboss.deploy.dir}"/>
+	<target name="deploy" depends="filter,build_war_anthill">
+		<copy file="${module_name}.war" todir="${jboss.deploy.dir}"/>
 	</target>
-	
+
 	<!--
 	TARGET: deploy_artifacts
 	Copies the configuration files to the anthill artifacts directory
 	-->
 	<target name="deploy_artifacts" depends="config_common_security_module, configure_cagwas-properties-service">
-		<copy file="csm_deploy/oracle-ds.xml" todir="${anthill.artifacts.dir}"/>
-		<copy file="csm_deploy/cagwas.hibernate.cfg.xml" todir="${anthill.artifacts.dir}"/>
-		<copy file="csm_deploy/ApplicationSecurityConfig.xml" todir="${anthill.artifacts.dir}"/>
-		<copy file="csm_deploy/properties-service-csm.xml" todir="${anthill.artifacts.dir}"/>
-		<copy file="csm_deploy/login-config.xml" todir="${anthill.artifacts.dir}"/>
-		<copy file="caintegrator_deploy/caIntegratorConfig.xml" todir="${anthill.artifacts.dir}"/>
-		<copy file="caintegrator_deploy/cagwas-domain-hibernate.cfg.xml" todir="${anthill.artifacts.dir}"/>
-		<copy file="caintegrator_deploy/mail.properties" todir="${anthill.artifacts.dir}"/>
-		<copy file="caintegrator_deploy/properties-service.xml" todir="${anthill.artifacts.dir}"/>
-		<copy file="caintegrator_deploy/zip.properties" todir="${anthill.artifacts.dir}"/>
+		<copy file="csm_deploy/oracle-ds.xml" todir="${anthill.artifacts.dir}" />
+		<copy file="csm_deploy/cagwas.hibernate.cfg.xml" todir="${anthill.artifacts.dir}" />
+		<copy file="csm_deploy/ApplicationSecurityConfig.xml" todir="${anthill.artifacts.dir}" />
+		<copy file="csm_deploy/properties-service-csm.xml" todir="${anthill.artifacts.dir}" />
+		<copy file="csm_deploy/login-config.xml" todir="${anthill.artifacts.dir}" />
+		<copy file="caintegrator_deploy/caIntegratorConfig.xml" todir="${anthill.artifacts.dir}" />
+		<copy file="caintegrator_deploy/cagwas-domain-hibernate.cfg.xml" todir="${anthill.artifacts.dir}" />
+		<copy file="caintegrator_deploy/mail.properties" todir="${anthill.artifacts.dir}" />
+		<copy file="caintegrator_deploy/properties-service.xml" todir="${anthill.artifacts.dir}" />
+		<copy file="caintegrator_deploy/zip.properties" todir="${anthill.artifacts.dir}" />
 	</target>
-	
+
 	<!--
 	TARGET: config_common_security_module
 	Configures the common security module creating the necessary files
 	for Authentication and Authorization
 	-->
 	<target name="config_common_security_module">
-		<echo message="Configuring Common Security Module"/>
-		
+		<echo message="Configuring Common Security Module" />
+
 		<!-- Configuring ApplicationSecurityConfig.xml -->
-		<echo message="Setting ApplicationSecurityConfig.xml"/>
-		<delete file="csm_deploy/ApplicationSecurityConfig.xml"/>
-		<copy file="conf/csm/ApplicationSecurityConfig.xml.template" tofile="csm_deploy/ApplicationSecurityConfig.xml"/>
-		<replaceregexp file="csm_deploy/ApplicationSecurityConfig.xml" match="@CONTEXT_NAME@" replace="${module_name}" flags="g"/>
-		<replaceregexp file="csm_deploy/ApplicationSecurityConfig.xml" match="@HIBERNATE_CONFIG_FILE@" replace="${csm.hibernate.config.file}" flags="g"/>
-		
+		<echo message="Setting ApplicationSecurityConfig.xml" />
+		<delete file="csm_deploy/ApplicationSecurityConfig.xml" />
+		<copy file="conf/csm/ApplicationSecurityConfig.xml.template" tofile="csm_deploy/ApplicationSecurityConfig.xml" />
+		<replaceregexp file="csm_deploy/ApplicationSecurityConfig.xml" match="@CONTEXT_NAME@" replace="${module_name}" flags="g" />
+		<replaceregexp file="csm_deploy/ApplicationSecurityConfig.xml" match="@HIBERNATE_CONFIG_FILE@" replace="${csm.hibernate.config.file}" flags="g" />
+
 		<!-- Configuring cagwas.hibernate.cfg.xml -->
-		<echo message="Setting cagwas.hibernate.cfg.xml"/>
-		<delete file="conf/csm/cagwas.hibernate.cfg.xml"/>
-		<copy file="conf/csm/cagwas.hibernate.cfg.xml.template" tofile="csm_deploy/cagwas.hibernate.cfg.xml"/>
-		<replaceregexp file="csm_deploy/cagwas.hibernate.cfg.xml" match="@DATASOURCE_JNDI@" replace="${csm.jndi.connection.datasource}" flags="g"/>
-		
+		<echo message="Setting cagwas.hibernate.cfg.xml" />
+		<delete file="conf/csm/cagwas.hibernate.cfg.xml" />
+		<copy file="conf/csm/cagwas.hibernate.cfg.xml.template" tofile="csm_deploy/cagwas.hibernate.cfg.xml" />
+		<replaceregexp file="csm_deploy/cagwas.hibernate.cfg.xml" match="@DATASOURCE_JNDI@" replace="${csm.jndi.connection.datasource}" flags="g" />
+
 		<!-- Configuring oracle-ds.xml -->
-		<echo message="Configuring oracle-ds.xml"/>
-		<delete file="csm_deploy/oracle-ds.xml"/>
-		<copy file="conf/csm/oracle-ds.xml.template" tofile="csm_deploy/oracle-ds.xml"/>
-		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@DATASOURCE_JNDI@" replace="${csm.jndi.connection.datasource}" flags="g"/>
-		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@DB_CONNECTION_URL@" replace="jdbc:oracle:${urlDbalias}" flags="g"/>
-		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@DB_USERNAME@" replace="${databaseUser}" flags="g"/>
-		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@DB_PASSWORD@" replace="${databasePassword}" flags="g"/>
-		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@ORACLE_DRIVER_CLASS@" replace="${jdbcRuntimeDriver}" flags="g"/>
-		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@EXCEPTION_SORTER_CLASS@" replace="${csm.exception.sorter.class}" flags="g"/>
-		
+		<echo message="Configuring oracle-ds.xml" />
+		<delete file="csm_deploy/oracle-ds.xml" />
+		<copy file="conf/csm/oracle-ds.xml.template" tofile="csm_deploy/oracle-ds.xml" />
+		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@DATASOURCE_JNDI@" replace="${db.jndi.connection}" flags="g" />
+		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@DB_CONNECTION_URL@" replace="jdbc:oracle:${urlDbalias}" flags="g" />
+		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@DB_USERNAME@" replace="${databaseUser}" flags="g" />
+		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@DB_PASSWORD@" replace="${databasePassword}" flags="g" />
+		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@ORACLE_DRIVER_CLASS@" replace="${jdbcRuntimeDriver}" flags="g" />
+		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@EXCEPTION_SORTER_CLASS@" replace="${csm.exception.sorter.class}" flags="g" />
+
 		<!-- Configuring properties-service.xml -->
-		<echo message="Configuring properties-service.xml"/>
-		<delete file="csm_deploy/properties-service.xml"/>
-		<copy file="conf/csm/properties-service.xml.template" tofile="csm_deploy/properties-service-csm.xml"/>
-		<replaceregexp file="csm_deploy/properties-service.xml" match="@CSM_APPLICATION_CONFIG_FILE@" replace="${csm.application.config.file}" flags="g"/>
-		
+		<echo message="Configuring properties-service.xml" />
+		<delete file="csm_deploy/properties-service-csm.xml" />
+		<copy file="conf/csm/properties-service.xml.template" tofile="csm_deploy/properties-service-csm.xml" />
+		<replaceregexp file="csm_deploy/properties-service-csm.xml" match="@CSM_APPLICATION_CONFIG_FILE@" replace="${csm.application.config.file}" flags="g" />
+		<replaceregexp file="csm_deploy/properties-service-csm.xml" match="@ncicb.configure.directory@" replace="${ncicb.configure.directory}" flags="g" />
+
 		<!-- Configuring login-config.xml -->
-		<echo message="Configuring login-config.xml"/>
-		<delete file="csm_deploy/login-config.xml"/>
-		<copy file="conf/csm/login-config.xml.template" tofile="csm_deploy/login-config.xml"/>
-		<replaceregexp file="csm_deploy/login-config.xml" match="@MODULE_NAME@" replace="${module_name}" flags="g"/>
-		<replaceregexp file="csm_deploy/login-config.xml" match="@LDAP_HOST@" replace="${ldap.provider.url}" flags="g"/>
-		<replaceregexp file="csm_deploy/login-config.xml" match="@LDAP_CONTEXT@" replace="${ldap.context}" flags="g"/>
+		<echo message="Configuring login-config.xml" />
+		<delete file="csm_deploy/login-config.xml" />
+		<copy file="conf/csm/login-config.xml.template" tofile="csm_deploy/login-config.xml" />
+		<replaceregexp file="csm_deploy/login-config.xml" match="@MODULE_NAME@" replace="${module_name}" flags="g" />
+		<replaceregexp file="csm_deploy/login-config.xml" match="@LDAP_HOST@" replace="${ldap.provider.url}" flags="g" />
+		<replaceregexp file="csm_deploy/login-config.xml" match="@LDAP_CONTEXT@" replace="${ldap.context}" flags="g" />
 	</target>
-	
+
 	<!--
 	TARGET: development_config_common_security_module
 	Will create and configure the CSM for the current local development
@@ -240,90 +263,95 @@
 	-->
 	<target name="development_config_common_security_module" depends="config_common_security_module">
 		<!-- Copy it to Jboss Deploy folder -->
-		<copy file="csm_deploy/oracle-ds.xml" todir="${jboss.deploy.dir}"/>
+		<copy file="csm_deploy/oracle-ds.xml" todir="${jboss.deploy.dir}" />
 		<!-- Copy it to Jboss Conf folder -->
-		<copy file="csm_deploy/cagwas.hibernate.cfg.xml" todir="${jboss.conf.dir}"/>
+		<copy file="csm_deploy/cagwas.hibernate.cfg.xml" todir="${jboss.conf.dir}" />
 		<!-- Copy it to Jboss Conf folder -->
-		<copy file="csm_deploy/ApplicationSecurityConfig.xml" todir="${jboss.conf.dir}"/>
+		<copy file="csm_deploy/ApplicationSecurityConfig.xml" todir="${jboss.conf.dir}" />
 	</target>
-	
+
 	<target name="configure_cagwas-properties-service">
 		<!-- Configuring caIntegratorConfig.xml -->
-		<echo message="Setting caIntegratorConfig.xml"/>
-		<delete file="caintegrator_deploy/caIntegratorConfig.xml"/>
-		<copy file="conf/caIntegratorConfig.xml.template" tofile="caintegrator_deploy/caIntegratorConfig.xml"/>
-		<replaceregexp file="caintegrator_deploy/caIntegratorConfig.xml" match="@CONTEXT_NAME@" replace="${module_name}" flags="g"/>
-		<replaceregexp file="caintegrator_deploy/caIntegratorConfig.xml" match="@HIBERNATE_CONFIG_FILE@" replace="${ncicb.configure.directory}cagwas/config/${caintegrator.hibernate.config.file}" flags="g"/>
+		<echo message="Setting caIntegratorConfig.xml" />
+		<delete file="caintegrator_deploy/caIntegratorConfig.xml" />
+		<copy file="conf/caIntegratorConfig.xml.template" tofile="caintegrator_deploy/caIntegratorConfig.xml" />
+		<replaceregexp file="caintegrator_deploy/caIntegratorConfig.xml" match="@CONTEXT_NAME@" replace="${module_name}" flags="g" />
+		<replaceregexp file="caintegrator_deploy/caIntegratorConfig.xml" match="@HIBERNATE_CONFIG_FILE@" replace="${ncicb.configure.directory}/${caintegrator.hibernate.config.file}" flags="g" />
 
 		<!-- Configuring cagwas-properties-service.xml -->
-		<echo message="Configuring properties-service.xml"/>
-		<delete file="caintegrator_deploy/properties-service.xml"/>
-		<copy file="conf/caintegrator-properties-service.xml" tofile="caintegrator_deploy/properties-service.xml"/>
-		<replaceregexp file="caintegrator_deploy/properties-service.xml" match="@CAINTEGRATOR_APPLICATION_CONFIG_PATH@" replace="${ncicb.configure.directory}cagwas/config" flags="g"/>
-		<copy file="${build.source.dir}/zip.properties" todir="caintegrator_deploy"/>
-		<copy file="${build.source.dir}/mail.properties" todir="caintegrator_deploy"/>
-		<copy file="${build.source.dir}/cagwas-domain-hibernate.cfg.xml" todir="caintegrator_deploy"/>
+		<echo message="Configuring properties-service.xml" />
+		<delete file="caintegrator_deploy/properties-service.xml" />
+		<copy file="conf/caintegrator-properties-service.xml" tofile="caintegrator_deploy/properties-service.xml" />
+		<replaceregexp file="caintegrator_deploy/properties-service.xml" match="@CSM_APPLICATION_CONFIG_FILE@" replace="${csm.application.config.file}" flags="g" />
+		<replaceregexp file="caintegrator_deploy/properties-service.xml" match="@ncicb.configure.directory@" replace="${ncicb.configure.directory}" flags="g" />
+		<copy file="${build.source.dir}/zip.properties" todir="caintegrator_deploy" />
+		<copy file="${build.source.dir}/mail.properties" todir="caintegrator_deploy" />
+		<copy file="${build.source.dir}/cagwas-domain-hibernate.cfg.xml" todir="caintegrator_deploy" />
 	</target>
-	
+
 	<target name="development_config_cagwas_module" depends="configure_cagwas-properties-service">
 		<!-- Copy it to Jboss Conf folder -->
-		<copy file="${build.source.dir}/zip.properties" todir="${ncicb.configure.directory}cagwas/config"/>
-		<copy file="${build.source.dir}/mail.properties" todir="${ncicb.configure.directory}cagwas/config"/>
-     	<copy file="${build.source.dir}/${caintegrator.hibernate.config.file}" todir="${ncicb.configure.directory}cagwas/config"/>
-     	<copy file="caintegrator_deploy/caIntegratorConfig.xml" todir="${ncicb.configure.directory}cagwas/config"/>
+		<echo> Moving files to external folder</echo>
+		<delete>
+			<fileset dir="${ncicb.configure.directory}" includes="*.*"/>
+		</delete>
+		<copy file="${build.source.dir}/zip.properties" todir="${ncicb.configure.directory}" />
+		<copy file="${build.source.dir}/mail.properties" todir="${ncicb.configure.directory}" />
+		<copy file="${build.source.dir}/${caintegrator.hibernate.config.file}" todir="${ncicb.configure.directory}" />
+		<copy file="caintegrator_deploy/caIntegratorConfig.xml" todir="${ncicb.configure.directory}" />
 	</target>
-	
-	<target name="config_application_context">		
-		<delete file="DataSourceContext.properties"/>
-		<copy file="conf/DataSourceContext.properties.template" tofile="DataSourceContext.properties"/>
-		<replaceregexp file="DataSourceContext.properties" match="__APPLICATION_NAME__" replace="${project_name}" flags="g"/>
-		<move file="DataSourceContext.properties" todir="${build.source.dir}"/>
+
+	<target name="config_application_context">
+		<delete file="DataSourceContext.properties" />
+		<copy file="conf/DataSourceContext.properties.template" tofile="DataSourceContext.properties" />
+		<replaceregexp file="DataSourceContext.properties" match="__APPLICATION_NAME__" replace="${project_name}" flags="g" />
+		<move file="DataSourceContext.properties" todir="${build.source.dir}" />
 	</target>
-	
+
 	<target name="build_strutstest" depends="build_war_anthill">
 		<javac srcdir="${build.source.dir}" destdir="${build.classes.dir}" source="1.5" excludes="**/CagwasIntegrationTestSuite.java" debug="true" debuglevel="lines,vars,source">
 			<classpath>
 				<fileset dir="${webapp.lib.dir}">
-					<include name="*.jar"/>
+					<include name="*.jar" />
 				</fileset>
 
 				<fileset dir="${not.deployed.jarFiles}">
-					<include name="*.jar"/>
+					<include name="*.jar" />
 				</fileset>
 
 				<fileset dir="${anthill.dependency.artifacts.dir}">
-					<include name="*.jar"/>
+					<include name="*.jar" />
 				</fileset>
 			</classpath>
 		</javac>
-		<copy todir="${build.classes.dir}" file="${build.source.dir}/cagwas-domain-hibernate.cfg.xml"/>
+		<copy todir="${build.classes.dir}" file="${build.source.dir}/cagwas-domain-hibernate.cfg.xml" />
 		<copy todir="${webapp.dir}/WEB-INF/test">
 			<fileset dir="${basedir}/test">
-				<include name="applicationContext*.xml"/>
+				<include name="applicationContext*.xml" />
 			</fileset>
 		</copy>
 	</target>
-	
+
 	<target name="run_strutstest" depends="build_strutstest">
 		<junit fork="yes" haltonfailure="yes">
-			<test name="gov.nih.nci.cagwas.web.test.AllActionTests"/>
-		    <formatter type="plain" usefile="false"/>
+			<test name="gov.nih.nci.cagwas.web.test.AllActionTests" />
+			<formatter type="plain" usefile="false" />
 			<classpath>
-				<pathelement path="${build.classes.dir}"/>
-				<pathelement path="${webapp.dir}"/>
+				<pathelement path="${build.classes.dir}" />
+				<pathelement path="${webapp.dir}" />
 				<fileset dir="${webapp.lib.dir}">
-					<include name="*.jar"/>
+					<include name="*.jar" />
 				</fileset>
 
 				<fileset dir="${not.deployed.jarFiles}">
-					<include name="*.jar"/>
+					<include name="*.jar" />
 				</fileset>
 
 				<fileset dir="${anthill.dependency.artifacts.dir}">
-					<include name="*.jar"/>
+					<include name="*.jar" />
 				</fileset>
 			</classpath>
 		</junit>
 	</target>
-	
+
 </project>
