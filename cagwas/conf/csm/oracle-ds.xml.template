@@ -6,12 +6,12 @@
 <!--                                                                       -->
 <!-- ===================================================================== -->
 
-<!-- $Id: oracle-ds.xml.template,v 1.1 2007-08-14 13:30:29 mholck Exp $ -->
+<!-- $Id: oracle-ds.xml.template,v 1.2 2007-09-05 17:22:46 chickerura Exp $ -->
 <!-- ==================================================================== -->
 <!--  Datasource config for Oracle                                        -->
 <!-- ==================================================================== -->
 <datasources>
-   <local-tx-datasource>
+  <local-tx-datasource>
                <jndi-name>@DATASOURCE_JNDI@</jndi-name>
                <connection-url>@DB_CONNECTION_URL@</connection-url>
                <user-name>@DB_USERNAME@</user-name>
