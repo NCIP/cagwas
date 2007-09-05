@@ -13,46 +13,7 @@
 
 	<!-- Class to  run for the selenium integration tests -->
 	<property name="test-selenium.class.name" value="gov.nih.nci.cagwas.test.integration.CagwasUIIntegrationTest" />
-    <target name="filter">
-	<!-- filtering properties -->
-	<echo>properties ...
-		project_name = ${project_name}
-		project_title = ${project_title}
-	</echo>
-	<filter token="project_name" value="${project_name}" />
-	<filter token="project_title" value="${project_title}" />
-    	  <delete>
-    			<fileset file="./WebRoot/WEB-INF/tiles-defs.xml" />
-    			<fileset file="./WebRoot/WEB-INF/struts-config.xml" />
-    			<fileset file="${src}/zip.properties" />
-    			<fileset file="${src}/mail.properties" />
-    			<fileset file="${src}/cagwas-domain-hibernate.cfg.xml" />
-    		</delete>	
-	        <echo message="Configuring cagwas-domain-hibernate-cfg.xml" />
-		   	<copy file="conf/cagwas-domain-hibernate.cfg.xml.template" toFile="${src}/cagwas-domain-hibernate.cfg.xml" filtering="true">
-    			<filterset begintoken="@" endtoken="@">
-    				<filtersfile file="build.properties" />
-    			</filterset>
-            </copy>  
-	<copy tofile="./WebRoot/WEB-INF/tiles-defs.xml" filtering="true">
-		<fileset file="conf/tiles-defs.template.xml" />
-	</copy>
-	<copy tofile="./WebRoot/WEB-INF/struts-config.xml" filtering="true">
-		<fileset file="conf/struts-config.template.xml" />
-	</copy>
 
-	<echo>filter mail and zip properties ...</echo>
-	<copy file="conf/zip.properties.template" toFile="${src}/zip.properties" filtering="true">
-		<filterset begintoken="@" endtoken="@">
-			<filtersfile file="mailzip.properties" />
-		</filterset>
-	</copy>
-	<copy file="conf/mail.properties.template" toFile="${src}/mail.properties" filtering="true">
-		<filterset begintoken="@" endtoken="@">
-			<filtersfile file="mailzip.properties" />
-		</filterset>
-	</copy>
-   </target> 	
 	<!-- Classpath to run the junit tests -->
 	<path id="test.classpath">
 		<pathelement location="${build.classes.dir}" />
@@ -186,6 +147,46 @@
 	TARGET: deploy
 	simply copies the war file to the jboss deployment directory
 	-->
+	<target name="filter">
+		<!-- filtering properties -->
+		<echo>properties ...
+		project_name = ${project_name}
+		project_title = ${project_title}
+	</echo>
+		<filter token="project_name" value="${project_name}" />
+		<filter token="project_title" value="${project_title}" />
+		<delete>
+			<fileset file="./WebRoot/WEB-INF/tiles-defs.xml" />
+			<fileset file="./WebRoot/WEB-INF/struts-config.xml" />
+			<fileset file="caintegrator_deploy/zip.properties" />
+			<fileset file="caintegrator_deploy/mail.properties" />
+			<fileset file="caintegrator_deploy/cagwas-domain-hibernate.cfg.xml" />
+		</delete>
+		<echo message="Configuring cagwas-domain-hibernate-cfg.xml" />
+		<copy file="conf/cagwas-domain-hibernate.cfg.xml.template" toFile="caintegrator_deploy/cagwas-domain-hibernate.cfg.xml" filtering="true">
+			<filterset begintoken="@" endtoken="@">
+				<filtersfile file="build.properties" />
+			</filterset>
+		</copy>
+		<copy tofile="./WebRoot/WEB-INF/tiles-defs.xml" filtering="true">
+			<fileset file="conf/tiles-defs.template.xml" />
+		</copy>
+		<copy tofile="./WebRoot/WEB-INF/struts-config.xml" filtering="true">
+			<fileset file="conf/struts-config.template.xml" />
+		</copy>
+
+		<echo>filter mail and zip properties ...</echo>
+		<copy file="conf/zip.properties.template" toFile="caintegrator_deploy/zip.properties" filtering="true">
+			<filterset begintoken="@" endtoken="@">
+				<filtersfile file="mailzip.properties" />
+			</filterset>
+		</copy>
+		<copy file="conf/mail.properties.template" toFile="caintegrator_deploy/mail.properties" filtering="true">
+			<filterset begintoken="@" endtoken="@">
+				<filtersfile file="mailzip.properties" />
+			</filterset>
+		</copy>
+	</target>
 	<target name="deploy" depends="filter,build_war_anthill">
 		<copy file="${module_name}.war" todir="${jboss.deploy.dir}"/>
 	</target>
@@ -196,6 +197,7 @@
 	-->
 	<target name="deploy_artifacts" depends="config_common_security_module, configure_cagwas-properties-service">
 		<copy file="csm_deploy/oracle-ds.xml" todir="${anthill.artifacts.dir}" />
+		<copy file="csm_deploy/oracle-ds-csm.xml" todir="${anthill.artifacts.dir}" />
 		<copy file="csm_deploy/cagwas.hibernate.cfg.xml" todir="${anthill.artifacts.dir}" />
 		<copy file="csm_deploy/ApplicationSecurityConfig.xml" todir="${anthill.artifacts.dir}" />
 		<copy file="csm_deploy/properties-service-csm.xml" todir="${anthill.artifacts.dir}" />
@@ -233,11 +235,22 @@
 		<delete file="csm_deploy/oracle-ds.xml" />
 		<copy file="conf/csm/oracle-ds.xml.template" tofile="csm_deploy/oracle-ds.xml" />
 		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@DATASOURCE_JNDI@" replace="${db.jndi.connection}" flags="g" />
-		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@DB_CONNECTION_URL@" replace="jdbc:oracle:${urlDbalias}" flags="g" />
+		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@DB_CONNECTION_URL@" replace="${urlDbalias}" flags="g" />
 		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@DB_USERNAME@" replace="${databaseUser}" flags="g" />
 		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@DB_PASSWORD@" replace="${databasePassword}" flags="g" />
 		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@ORACLE_DRIVER_CLASS@" replace="${jdbcRuntimeDriver}" flags="g" />
 		<replaceregexp file="csm_deploy/oracle-ds.xml" match="@EXCEPTION_SORTER_CLASS@" replace="${csm.exception.sorter.class}" flags="g" />
+
+		<!-- Configuring oracle-ds-csm.xml -->
+		<echo message="Configuring oracle-ds-csm.xml" />
+		<delete file="csm_deploy/oracle-ds-csm.xml" />
+		<copy file="conf/csm/oracle-ds.xml.template" tofile="csm_deploy/oracle-ds-csm.xml" />
+		<replaceregexp file="csm_deploy/oracle-ds-csm.xml" match="@DATASOURCE_JNDI@" replace="${csm.jndi.connection.datasource}" flags="g" />
+		<replaceregexp file="csm_deploy/oracle-ds-csm.xml" match="@DB_CONNECTION_URL@" replace="${csm.urlDbalias}" flags="g" />
+		<replaceregexp file="csm_deploy/oracle-ds-csm.xml" match="@DB_USERNAME@" replace="${csm.databaseUser}" flags="g" />
+		<replaceregexp file="csm_deploy/oracle-ds-csm.xml" match="@DB_PASSWORD@" replace="${csm.databasePassword}" flags="g" />
+	    <replaceregexp file="csm_deploy/oracle-ds-csm.xml" match="@ORACLE_DRIVER_CLASS@" replace="${jdbcRuntimeDriver}" flags="g" />
+		<replaceregexp file="csm_deploy/oracle-ds-csm.xml" match="@EXCEPTION_SORTER_CLASS@" replace="${csm.exception.sorter.class}" flags="g" />
 
 		<!-- Configuring properties-service.xml -->
 		<echo message="Configuring properties-service.xml" />
@@ -284,9 +297,9 @@
 		<copy file="conf/caintegrator-properties-service.xml" tofile="caintegrator_deploy/properties-service.xml" />
 		<replaceregexp file="caintegrator_deploy/properties-service.xml" match="@CSM_APPLICATION_CONFIG_FILE@" replace="${csm.application.config.file}" flags="g" />
 		<replaceregexp file="caintegrator_deploy/properties-service.xml" match="@ncicb.configure.directory@" replace="${ncicb.configure.directory}" flags="g" />
-		<copy file="${build.source.dir}/zip.properties" todir="caintegrator_deploy" />
+		<!--<copy file="${build.source.dir}/zip.properties" todir="caintegrator_deploy" />
 		<copy file="${build.source.dir}/mail.properties" todir="caintegrator_deploy" />
-		<copy file="${build.source.dir}/cagwas-domain-hibernate.cfg.xml" todir="caintegrator_deploy" />
+		<copy file="${build.source.dir}/cagwas-domain-hibernate.cfg.xml" todir="caintegrator_deploy" />-->
 	</target>
 
 	<target name="development_config_cagwas_module" depends="configure_cagwas-properties-service">
@@ -295,9 +308,9 @@
 		<delete>
 			<fileset dir="${ncicb.configure.directory}" includes="*.*"/>
 		</delete>
-		<copy file="${build.source.dir}/zip.properties" todir="${ncicb.configure.directory}" />
-		<copy file="${build.source.dir}/mail.properties" todir="${ncicb.configure.directory}" />
-		<copy file="${build.source.dir}/${caintegrator.hibernate.config.file}" todir="${ncicb.configure.directory}" />
+		<copy file="caintegrator_deploy/zip.properties" todir="${ncicb.configure.directory}" />
+		<copy file="caintegrator_deploy/mail.properties" todir="${ncicb.configure.directory}" />
+		<copy file="caintegrator_deploy/${caintegrator.hibernate.config.file}" todir="${ncicb.configure.directory}" />
 		<copy file="caintegrator_deploy/caIntegratorConfig.xml" todir="${ncicb.configure.directory}" />
 	</target>
 
