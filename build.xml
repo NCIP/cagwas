@@ -101,6 +101,7 @@
 	<target name="build_war_anthill" depends="config_application_context, deploy_artifacts">
 		<delete dir="${build.classes.dir}" failonerror="false" />
 		<delete file="${module_name}.war" failonerror="false" />
+		<delete file="${webapp.classes.dir}/cagwasResources.properties" failonerror="false" />
 		<mkdir dir="${build.classes.dir}" />
 		<javac srcdir="${build.source.dir}" destdir="${build.classes.dir}" source="1.5" debug="true" excludes="**/test/**" debuglevel="lines,vars,source">
 			<classpath>
@@ -125,6 +126,7 @@
 		<copy todir="${webapp.classes.dir}">
 			<fileset dir="${build.source.dir}">
 				<include name="**/*.properties" />
+				<include name="cagwasResources.properties" />
 				<include name="cagwas-domain-hibernate.cfg.xml" />
 				<exclude name="zip.properties" />
 				<exclude name="mail.properties" />
