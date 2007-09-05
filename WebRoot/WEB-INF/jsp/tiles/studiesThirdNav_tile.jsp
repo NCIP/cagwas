@@ -1,20 +1,24 @@
-<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
-<%@ taglib uri="/WEB-INF/struts-tiles.tld" prefix="tiles" %>
-
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/struts-tiles.tld" prefix="tiles"%>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
 <!-- Third tier nav -->
 <div id="container" align="center">
-	<div id="nav">
-		<div id="tert_nav">
-			<div id="tert_bg" >
-				<div id="list_container">
-					<ul>
-						<li id="prostate"><a href="remoteSetup.do?content=prostate">Prostate Cancer</a></li>
-						<li id="breast"><a href="remoteSetup.do?content=breast">Breast Cancer</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+<div id="nav">
+<div id="tert_nav">
+<div id="tert_bg">
+<div id="list_container">
+<ul>
+	<li id="study1"><a
+		href="remoteSetup.do?content=<bean:message key="study1.title"/>"><bean:message
+		key="study1.title" /> Cancer</a></li>
+	<li id="study2"><a
+		href="remoteSetup.do?content=<bean:message key="study2.title"/>"><bean:message
+		key="study2.title" /> Cancer</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 <script type="text/javascript">
@@ -25,13 +29,13 @@
  		//alert(wht);
  		//alert(top.document.title);
 	
- 		if(top.document.title.toLowerCase().indexOf("about prostate data")!=-1 )
+ 		if(top.document.title.toLowerCase().indexOf("about <bean:message key="study1.title"/> data")!=-1 )
 		{
- 			cur = "prostate";
+ 			cur = "<bean:message key="study1.title"/>";
  		}
- 		else if(top.document.title.toLowerCase().indexOf("about breast data")!=-1)
+ 		else if(top.document.title.toLowerCase().indexOf("about <bean:message key="study2.title"/> data")!=-1)
 		{
- 			cur = "breast";
+ 			cur = "<bean:message key="study2.title"/>";
  		}
 		 		
   		try
