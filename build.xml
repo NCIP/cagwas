@@ -232,7 +232,7 @@
 
 		<!-- Configuring cagwas.hibernate.cfg.xml -->
 		<echo message="Setting cagwas.hibernate.cfg.xml" />
-		<delete file="conf/csm/cagwas.hibernate.cfg.xml" />
+		<delete file="csm_deploy/cagwas.hibernate.cfg.xml" />
 		<copy file="conf/csm/cagwas.hibernate.cfg.xml.template" tofile="csm_deploy/cagwas.hibernate.cfg.xml" />
 		<replaceregexp file="csm_deploy/cagwas.hibernate.cfg.xml" match="@DATASOURCE_JNDI@" replace="${csm.jndi.connection.datasource}" flags="g" />
 
