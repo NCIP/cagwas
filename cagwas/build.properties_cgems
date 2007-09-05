@@ -37,7 +37,7 @@ csm.hibernate.config.file=${jboss.install.dir}server/${jboss.server.name}/conf/c
 csm.application.config.file=${jboss.install.dir}server/${jboss.server.name}/conf/ApplicationSecurityConfig.xml
 
 # CSM universal settings
-csm.jndi.connection.datasource=cagwascsm
+csm.jndi.connection.datasource=cgemscsm
 csm.exception.sorter.class=org.jboss.resource.adapter.jdbc.vendor.OracleExceptionSorter
 csm.databaseUser=CSM_CAINTEGRATOR
 csm.databasePassword=csm#951
