@@ -161,13 +161,19 @@
 			<fileset file="caintegrator_deploy/zip.properties" />
 			<fileset file="caintegrator_deploy/mail.properties" />
 			<fileset file="caintegrator_deploy/cagwas-domain-hibernate.cfg.xml" />
+			<fileset file="${src}/cagwas-domain-hibernate.cfg.xml" />
 		</delete>
 		<echo message="Configuring cagwas-domain-hibernate-cfg.xml" />
 		<copy file="conf/cagwas-domain-hibernate.cfg.xml.template" toFile="caintegrator_deploy/cagwas-domain-hibernate.cfg.xml" filtering="true">
-			<filterset begintoken="@" endtoken="@">
+		<filterset begintoken="@" endtoken="@">
 				<filtersfile file="build.properties" />
-			</filterset>
+		</filterset>
 		</copy>
+		<copy file="conf/cagwas-domain-hibernate.cfg.xml.template" toFile="${src}/cagwas-domain-hibernate.cfg.xml" filtering="true">
+		  <filterset begintoken="@" endtoken="@">
+			<filtersfile file="build.properties" />
+			</filterset>
+			</copy>	
 		<copy tofile="./WebRoot/WEB-INF/tiles-defs.xml" filtering="true">
 			<fileset file="conf/tiles-defs.template.xml" />
 		</copy>
