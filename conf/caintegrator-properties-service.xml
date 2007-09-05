@@ -1,5 +1,5 @@
 <attribute name="Properties">
-      gov.nih.nci.cagwas.zip.properties=@ncicb.configure.directory@
-	  gov.nih.nci.cagwas.mail.properties=@ncicb.configure.directory@
+      gov.nih.nci.cagwas.zip.properties=@ncicb.configure.directory@/zip.properties
+	  gov.nih.nci.cagwas.mail.properties=@ncicb.configure.directory@/mail.properties
       gov.nih.nci.caintegrator.configFile=@CSM_APPLICATION_CONFIG_FILE@
 </attribute>
