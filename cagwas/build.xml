@@ -208,7 +208,6 @@
 		<copy file="csm_deploy/oracle-ds-csm.xml" todir="${anthill.artifacts.dir}" />
 		<copy file="csm_deploy/cagwas.hibernate.cfg.xml" todir="${anthill.artifacts.dir}" />
 		<copy file="csm_deploy/ApplicationSecurityConfig.xml" todir="${anthill.artifacts.dir}" />
-		<copy file="csm_deploy/properties-service-csm.xml" todir="${anthill.artifacts.dir}" />
 		<copy file="csm_deploy/login-config.xml" todir="${anthill.artifacts.dir}" />
 		<copy file="caintegrator_deploy/caIntegratorConfig.xml" todir="${anthill.artifacts.dir}" />
 		<copy file="caintegrator_deploy/cagwas-domain-hibernate.cfg.xml" todir="${anthill.artifacts.dir}" />

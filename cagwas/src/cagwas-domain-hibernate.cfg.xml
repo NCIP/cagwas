@@ -3,14 +3,14 @@
     "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
-	<session-factory name="cgems">
+	<session-factory name="cagwas">
 
           <!-- Database connection settings -->
-          <property name="connection.datasource">java:/cgems</property>
+          <property name="connection.datasource">java:/cagwas</property>
           <!-- property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-          <property name="connection.url">jdbc:oracle:thin:@cbiodb20.nci.nih.gov:1521:CPSTG</property>
-          <property name="connection.username">Cgemsmaint</property>
-          <property name="connection.password">stg1234</property-->
+          <property name="connection.url">jdbc:oracle:thin:@cbiodb2-d.nci.nih.gov:1521:CPDEV</property>
+          <property name="connection.username">cgemsdev</property>
+          <property name="connection.password">dev1234</property-->
 
           <!-- JDBC connection pool (use the built-in) -->
           <property name="connection.pool_size">50</property>

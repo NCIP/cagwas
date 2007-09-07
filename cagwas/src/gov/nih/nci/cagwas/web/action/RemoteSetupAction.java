@@ -35,26 +35,26 @@ public class RemoteSetupAction extends Action
 		RemoteContentHelper rcHelp = new RemoteContentHelper();
 		
 		// Get the remote static content
-		if ((content != null) && (content.equalsIgnoreCase("prostate")))
+		if ((content != null) && (content.equalsIgnoreCase("study1")))
 		{
-			remoteContent = rcHelp.getRemoteContent("remote.prostate");
+			remoteContent = rcHelp.getRemoteContent("remote.study1");
 			
 			if (remoteContent != null)
 			{
-				request.setAttribute("prostateContent", remoteContent);
-				forward = mapping.findForward("prostate");
+				request.setAttribute("study1Content", remoteContent);
+				forward = mapping.findForward("study1");
 			}
 			else
 				forward = mapping.findForward("ploneError");
 		}
-		else if ((content != null) && (content.equalsIgnoreCase("breast")))
+		else if ((content != null) && (content.equalsIgnoreCase("study2")))
 		{
-			remoteContent = rcHelp.getRemoteContent("remote.breast");
+			remoteContent = rcHelp.getRemoteContent("remote.study2");
 			
 			if (remoteContent != null)
 			{
-				request.setAttribute("breastContent", remoteContent);
-				forward = mapping.findForward("breast");
+				request.setAttribute("study2Content", remoteContent);
+				forward = mapping.findForward("study2");
 			}
 			else
 				forward = mapping.findForward("ploneError");

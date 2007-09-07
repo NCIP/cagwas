@@ -9,10 +9,10 @@
 <div id="list_container">
 <ul>
 	<li id="study1"><a
-		href="remoteSetup.do?content=<bean:message key="study1.title"/>"><bean:message
+		href="remoteSetup.do?content=study1"><bean:message
 		key="study1.title" /> Cancer</a></li>
 	<li id="study2"><a
-		href="remoteSetup.do?content=<bean:message key="study2.title"/>"><bean:message
+		href="remoteSetup.do?content=study2"><bean:message
 		key="study2.title" /> Cancer</a></li>
 </ul>
 </div>
