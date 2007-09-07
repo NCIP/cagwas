@@ -198,7 +198,7 @@
 		scope="request">
     <forward name="study1" path="cagwas.study1"/>
     <forward name="study2" path="cagwas.study2"/>
-    <forward name="policies" path="cgems.policies"/>
+    <forward name="policies" path="cagwas.policies"/>
     <forward name="contacts" path="cagwas.contacts"/>
     <forward name="cite" path="cagwas.cite"/>
     <forward name="citeExample" path="cagwas.citeExample"/>

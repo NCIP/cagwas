@@ -159,7 +159,6 @@
 		<filter token="project_title" value="${project_title}" />
 		<delete>
 			<fileset file="./WebRoot/WEB-INF/tiles-defs.xml" />
-			<fileset file="./WebRoot/WEB-INF/struts-config.xml" />
 			<fileset file="caintegrator_deploy/zip.properties" />
 			<fileset file="caintegrator_deploy/mail.properties" />
 			<fileset file="caintegrator_deploy/cagwas-domain-hibernate.cfg.xml" />
@@ -179,10 +178,7 @@
 		<copy tofile="./WebRoot/WEB-INF/tiles-defs.xml" filtering="true">
 			<fileset file="conf/tiles-defs.template.xml" />
 		</copy>
-		<copy tofile="./WebRoot/WEB-INF/struts-config.xml" filtering="true">
-			<fileset file="conf/struts-config.template.xml" />
-		</copy>
-
+		
 		<echo>filter mail and zip properties ...</echo>
 		<copy file="conf/zip.properties.template" toFile="caintegrator_deploy/zip.properties" filtering="true">
 			<filterset begintoken="@" endtoken="@">
