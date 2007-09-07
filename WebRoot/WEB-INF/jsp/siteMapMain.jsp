@@ -21,9 +21,9 @@
 <area shape="rect" coords="490,0,566,46" href="/<bean:message key="href.home"/>" target="_blank" alt="Data Portal">
 <area shape="rect" coords="49,59,162,83" href="aboutSetup.do" target="_blank" alt="About @project_title@">
 <area shape="rect" coords="84,93,131,111" href="aboutSetup.do" target="_blank" alt="Overview">
-<area shape="rect" coords="81,122,121,141" href="remoteSetup.do?content=prostate" target="_blank" alt="Studies">
-<area shape="rect" coords="117,51,193,168" href="remoteSetup.do?content=prostate" target="_blank" alt="Prostate Cancer">
-<area shape="rect" coords="117,172,183,190" href="remoteSetup.do?content=breast" target="_blank" alt="Breast Cancer">
+<area shape="rect" coords="81,122,121,141" href="remoteSetup.do?content=study1" target="_blank" alt="Studies">
+<area shape="rect" coords="117,51,193,168" href="remoteSetup.do?content=study1" target="_blank" alt="Prostate Cancer">
+<area shape="rect" coords="117,172,183,190" href="remoteSetup.do?content=study2" target="_blank" alt="Breast Cancer">
 <area shape="rect" coords="86,199,132,217" href="helpDocs/<bean:message key="project.title"/>_Online_Help/<bean:message key="project.title"/> Glossary.5.1.html" target="_blank" alt="Glossary">
 <area shape="rect" coords="77,232,132,250" href="remoteSetup.do?content=contacts" target="_blank" alt="Contact Us">
 <area shape="rect" coords="119,256,159,273" href="http://ncicb.nci.nih.gov/NCICB/support" target="_blank" alt="Support">

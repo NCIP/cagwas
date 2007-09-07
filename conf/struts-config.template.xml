@@ -196,8 +196,8 @@
     <action path="/remoteSetup"
 		type="gov.nih.nci.cagwas.web.action.RemoteSetupAction"
 		scope="request">
-    <forward name="prostate" path="@project_name@.studyProstate"/>
-    <forward name="breast" path="@project_name@.studyBreast"/>
+    <forward name="study1" path="@project_name@.study1"/>
+    <forward name="study2" path="@project_name@.study2"/>
     <forward name="policies" path="cgems.policies"/>
     <forward name="contacts" path="@project_name@.contacts"/>
     <forward name="cite" path="@project_name@.cite"/>

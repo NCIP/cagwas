@@ -9,7 +9,7 @@
 				<div id="list_container">
 					<ul>
 						<li id="overview"><a href="aboutSetup.do">Overview</a></li>
-						<li id="studies"><a href="remoteSetup.do?content=prostate">Studies</a></li>
+						<li id="studies"><a href="remoteSetup.do?content=study1">Studies</a></li>
 						<li id="glossary"><a href="helpDocs/<bean:message key="project.title"/>_Online_Help/<bean:message key="project.title"/> Glossary.5.1.html" target="_blank">Glossary</a></li>
 						<li id="contact"><a href="remoteSetup.do?content=contacts">Contact Us</a></li>
 					</ul>
@@ -31,7 +31,7 @@
 		{
  			cur = "overview";
  		}
- 		else if(top.document.title.toLowerCase().indexOf("about prostate data")!=-1 || top.document.title.toLowerCase().indexOf("about breast data")!=-1)
+ 		else if(top.document.title.toLowerCase().indexOf("about <bean:message key="study1.title"/> data")!=-1 || top.document.title.toLowerCase().indexOf("about breast data")!=-1)
 		{
  			cur = "studies";
  		}

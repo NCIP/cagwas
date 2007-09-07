@@ -145,15 +145,15 @@
 		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
       </definition>
 
-	<definition name="@project_name@.studyProstate" extends="noSidebarThirdNav">
-		<put name="title" value="@project_title@ About Prostate Data Page" />
+	<definition name="@project_name@.study1" extends="noSidebarThirdNav">
+		<put name="title" value="@project_title@ About Study Data Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/studyProstateMain.jsp" />
 		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />	
 		<put name="thirdNav" value="/WEB-INF/jsp/tiles/studiesThirdNav_tile.jsp" />	
       </definition>
 
-	<definition name="@project_name@.studyBreast" extends="noSidebarThirdNav">
-		<put name="title" value="@project_title@ About Breast Data Page" />
+	<definition name="@project_name@.study2" extends="noSidebarThirdNav">
+		<put name="title" value="@project_title@ About Study Data Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/studyBreastMain.jsp" />	
 		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
 		<put name="thirdNav" value="/WEB-INF/jsp/tiles/studiesThirdNav_tile.jsp" />	
