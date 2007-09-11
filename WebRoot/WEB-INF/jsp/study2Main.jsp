@@ -8,10 +8,10 @@
 
 <div id="middle" align="center">
 	<div id="content">
-		<h1><bean:message key="header.breastCancerData"/></h1>
+		<h1><bean:message key="header.study2CancerData"/></h1>
 		<div id="copy">
 			
-			<%out.print(request.getAttribute("breastContent"));%>
+			<%out.print(request.getAttribute("study2Content"));%>
 
 		</div>
 	</div>
