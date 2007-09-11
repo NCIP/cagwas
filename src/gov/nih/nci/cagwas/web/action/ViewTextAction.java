@@ -40,7 +40,7 @@ public class ViewTextAction extends Action
 		request.getSession().setAttribute("viewType", view);
 		
 		String inputPage = request.getHeader("Referer");
-		inputPage = inputPage.substring(inputPage.indexOf("cagwas") + 5);
+		inputPage = inputPage.substring(inputPage.indexOf("cagwas") + 6);
 		forward = new ActionForward(inputPage, true);
 		
 		logger.debug("Source page was " + inputPage);
