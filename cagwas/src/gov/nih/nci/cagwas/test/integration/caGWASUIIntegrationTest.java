@@ -336,7 +336,7 @@ public class caGWASUIIntegrationTest extends SeleneseTestCase {
 	
     public static Test suite() {
         TestSuite suit = new TestSuite();
-        suit.addTest(new TestSuite(CagwasUIIntegrationTest.class));
+        suit.addTest(new TestSuite(caGWASUIIntegrationTest.class));
         return suit;
     }
 }
