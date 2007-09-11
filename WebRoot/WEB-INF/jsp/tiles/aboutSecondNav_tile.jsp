@@ -10,7 +10,7 @@
 					<ul>
 						<li id="overview"><a href="aboutSetup.do">Overview</a></li>
 						<li id="studies"><a href="remoteSetup.do?content=study1">Studies</a></li>
-						<li id="glossary"><a href="helpDocs/<bean:message key="project.title"/>_Online_Help/<bean:message key="project.title"/> Glossary.5.1.html" target="_blank">Glossary</a></li>
+						<li id="glossary"><a href="remoteSetup.do?content=glossary">Glossary</a></li>
 						<li id="contact"><a href="remoteSetup.do?content=contacts">Contact Us</a></li>
 					</ul>
 				</div>
