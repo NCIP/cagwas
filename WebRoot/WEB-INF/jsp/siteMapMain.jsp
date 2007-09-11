@@ -22,9 +22,9 @@
 <area shape="rect" coords="49,59,162,83" href="aboutSetup.do" target="_blank" alt="About @project_title@">
 <area shape="rect" coords="84,93,131,111" href="aboutSetup.do" target="_blank" alt="Overview">
 <area shape="rect" coords="81,122,121,141" href="remoteSetup.do?content=study1" target="_blank" alt="Studies">
-<area shape="rect" coords="117,51,193,168" href="remoteSetup.do?content=study1" target="_blank" alt="Prostate Cancer">
-<area shape="rect" coords="117,172,183,190" href="remoteSetup.do?content=study2" target="_blank" alt="Breast Cancer">
-<area shape="rect" coords="86,199,132,217" href="helpDocs/<bean:message key="project.title"/>_Online_Help/<bean:message key="project.title"/> Glossary.5.1.html" target="_blank" alt="Glossary">
+<area shape="rect" coords="117,51,193,168" href="remoteSetup.do?content=study1" target="_blank" alt="Study1">
+<area shape="rect" coords="117,172,183,190" href="remoteSetup.do?content=study2" target="_blank" alt="Study2">
+<area shape="rect" coords="86,199,132,217" href="remoteSetup.do?content=glossary" target="_blank" alt="Glossary">
 <area shape="rect" coords="77,232,132,250" href="remoteSetup.do?content=contacts" target="_blank" alt="Contact Us">
 <area shape="rect" coords="119,256,159,273" href="http://ncicb.nci.nih.gov/NCICB/support" target="_blank" alt="Support">
 <area shape="rect" coords="118,284,166,301" href="feedbackSetup.do" target="_blank" alt="Feedback">
@@ -38,7 +38,7 @@
 <area shape="rect" coords="856,54,933,80" href="remoteSetup.do?content=access" target="_blank" alt="Data Access">
 <area shape="rect" coords="891,89,940,107" href="remoteSetup.do?content=access" target="_blank" alt="Data Access Overview">
 <area shape="rect" coords="884,109,951,126" href="remoteSetup.do?content=openAccess" target="_blank" alt="Data Access Public Access">
-<area shape="rect" coords="884,129,970,148" href="http://cagwas-content-ut.nci.nih.gov/cagwas-data-access-policies/app_view" target="_blank" alt="Data access Protected Access">
+<area shape="rect" coords="884,129,970,148" href="remoteSetup.do?content=controlledAccess" target="_blank" alt="Data access Protected Access">
 <!--  Utility Navigation -->
 <area shape="rect" coords="437,331,469,348" href="/<bean:message key="href.home"/>" target="_blank" alt="Home">
 <area shape="rect" coords="506,330,536,348" href="login.jsp" target="_blank" alt="Login">
