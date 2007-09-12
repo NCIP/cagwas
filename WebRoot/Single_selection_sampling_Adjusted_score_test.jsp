@@ -28,7 +28,7 @@
 		<area alt="caGWAS Application Logo" coords="5,3,300,120" href="index.jsp">
 	</map>
 
-	<div style="width:765px; height:130px; background-image: url(images/cagwasHeader.jpg); background-color:#00516B; background-repeat:no-repeat; padding:0px;border-bottom: 1px solid #000000; margin:0px;">
+	<div style="width:762px; height:90px; background-image: url(images/cagwasHeader.jpg); background-color:#00516B; background-repeat:no-repeat; padding:0px;border-bottom: 1px solid #000000; margin:0px;">
 	</div>
     </div>
     <div align="center">
