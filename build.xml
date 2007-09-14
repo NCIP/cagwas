@@ -154,7 +154,7 @@
 		<echo>properties ...
 		project_name = ${project_name}
 		project_title = ${project_title}
-	</echo>
+		</echo>
 		<filter token="project_name" value="${project_name}" />
 		<filter token="project_title" value="${project_title}" />
 		<delete>
