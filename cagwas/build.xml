@@ -157,14 +157,15 @@
 		</echo>
 		<filter token="project_name" value="${project_name}" />
 		<filter token="project_title" value="${project_title}" />
-		<delete>
+        <mkdir dir="./caintegrator_deploy"></mkdir>
+        <delete>
 			<fileset file="./WebRoot/WEB-INF/tiles-defs.xml" />
 			<fileset file="caintegrator_deploy/zip.properties" />
 			<fileset file="caintegrator_deploy/mail.properties" />
 			<fileset file="caintegrator_deploy/cagwas-domain-hibernate.cfg.xml" />
 			<fileset file="${src}/cagwas-domain-hibernate.cfg.xml" />
 		</delete>
-		<echo message="Configuring cagwas-domain-hibernate-cfg.xml" />
+        <echo message="Configuring cagwas-domain-hibernate-cfg.xml" />
 		<copy file="conf/cagwas-domain-hibernate.cfg.xml.template" toFile="caintegrator_deploy/cagwas-domain-hibernate.cfg.xml" filtering="true">
 		<filterset begintoken="@" endtoken="@">
 				<filtersfile file="build.properties" />
