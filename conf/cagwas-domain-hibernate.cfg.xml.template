@@ -3,20 +3,16 @@
     "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
-	<session-factory name="@module_name@">
+	<session-factory name="@MODULE_NAME@">
 
           <!-- Database connection settings -->
-          <property name="connection.datasource">java:/@db.jndi.connection@</property>
-          <!-- property name="connection.driver_class">@jdbcRuntimeDriver@</property>
-          <property name="connection.url">@urlDbalias@</property>
-          <property name="connection.username">@databaseUser@</property>
-          <property name="connection.password">@databasePassword@</property-->
+          <property name="connection.datasource">java:/@DB_JNDI_CONNECTION@</property>
 
           <!-- JDBC connection pool (use the built-in) -->
           <property name="connection.pool_size">50</property>
 
           <!-- SQL dialect -->
-          <property name="dialect">org.hibernate.dialect.Oracle9Dialect</property>
+          <property name="dialect">@DB_DIALECT@</property>
 
           <!-- Enable Hibernate's automatic session context management -->
           <property name="current_session_context_class">thread</property>
