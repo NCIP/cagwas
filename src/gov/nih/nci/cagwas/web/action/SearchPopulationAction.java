@@ -88,6 +88,14 @@ public class SearchPopulationAction extends Action
 		AnnotationCriteriaHelper helper = new AnnotationCriteriaHelper();
 		AnnotationCriteria annoCrit = helper.buildCriteria(popForm, errors);
 		
+		// If there were errors then return to the input page else go on
+	    if (!errors.isEmpty())
+	    {
+	      addErrors(request, errors);
+	      forward = new ActionForward(mapping.getInput());
+	      return forward;
+	    }
+	    
 		// Set the annotation criteria and execute the search
 		freqDTO.setAnnotationCriteria(annoCrit);
         
@@ -120,29 +128,22 @@ public class SearchPopulationAction extends Action
 			request.setAttribute("sortOrder", "ascending");
 		}
 		
-		// If there were errors then return to the input page else go on
-	    if (!errors.isEmpty())
-	    {
-	      addErrors(request, errors);
-	      forward = new ActionForward(mapping.getInput());
-	    }
-	    else
-	    {
-	    	// If there were more results than we allow then forward to download page
-			if (findings.size() > CagwasConstants.MAX_RESULTS)
-			{
-				// Put the type of search in the session
-				request.getSession().setAttribute("searchType", "Population");
-				
-				// Put the form in the session to be passed to the job for scheduling
-				request.getSession().setAttribute("form", form);
-				
-				// Set the forward to the download page
-				forward = mapping.findForward("download");
-			}
-			else
-				forward = mapping.findForward("success");
-	    }
+
+    	// If there were more results than we allow then forward to download page
+		if (findings.size() > CagwasConstants.MAX_RESULTS)
+		{
+			// Put the type of search in the session
+			request.getSession().setAttribute("searchType", "Population");
+			
+			// Put the form in the session to be passed to the job for scheduling
+			request.getSession().setAttribute("form", form);
+			
+			// Set the forward to the download page
+			forward = mapping.findForward("download");
+		}
+		else
+			forward = mapping.findForward("success");
+
 		
 		return forward;
 	}

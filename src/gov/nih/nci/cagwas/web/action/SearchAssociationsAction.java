@@ -116,6 +116,12 @@ public class SearchAssociationsAction extends Action
 		AnnotationCriteriaHelper helper = new AnnotationCriteriaHelper();
 		annoCrit = helper.buildCriteria(assocForm, errors);
 		
+	    if (!errors.isEmpty())
+	    {
+	      addErrors(request, errors);
+	      forward = new ActionForward(mapping.getInput());
+	      return forward;
+	    }
 		// Set the annotation criteria and execute the search
 		safDTO.setAnnotationCriteria(annoCrit);
         
@@ -150,28 +156,22 @@ public class SearchAssociationsAction extends Action
 		}
 		
 		// If there were errors then return to the input page else go on
-	    if (!errors.isEmpty())
-	    {
-	      addErrors(request, errors);
-	      forward = new ActionForward(mapping.getInput());
-	    }
-	    else
-	    {
-	    	// If there were more results than we allow then forward to download page
-			if (findings.size() > CagwasConstants.MAX_RESULTS)
-			{
-				// Put the type of search in the session
-				request.getSession().setAttribute("searchType", "Associations");
-				
-				// Put the form in the session to be passed to the job for scheduling
-				request.getSession().setAttribute("form", form);
-				
-				// Set the forward to the download page
-				forward = mapping.findForward("download");
-			}
-			else
-				forward = mapping.findForward("success");
-	    }
+
+    	// If there were more results than we allow then forward to download page
+		if (findings.size() > CagwasConstants.MAX_RESULTS)
+		{
+			// Put the type of search in the session
+			request.getSession().setAttribute("searchType", "Associations");
+			
+			// Put the form in the session to be passed to the job for scheduling
+			request.getSession().setAttribute("form", form);
+			
+			// Set the forward to the download page
+			forward = mapping.findForward("download");
+		}
+		else
+			forward = mapping.findForward("success");
+
 		
 		return forward;
 	}
