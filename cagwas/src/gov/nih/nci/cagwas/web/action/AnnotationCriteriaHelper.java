@@ -136,16 +136,24 @@ public class AnnotationCriteriaHelper
 
                     int count = 0;
                     
-                    while ((inputLine = inFile.readLine()) != null && count < CagwasConstants.MAX_SYMBOLS)
+                    while ((inputLine = inFile.readLine()) != null)
                     {
                     	inputLine = inputLine.trim();
                         count++;
                         logger.debug(inputLine.toUpperCase());
-                        geneSymbols.add(inputLine.toUpperCase());
+                        if(!inputLine.matches("")){
+                        	geneSymbols.add(inputLine.toUpperCase());
+    			    	}
                     }
 
                     inFile.close();
-                    annoCrit.setGeneSymbols(geneSymbols);
+                    if(geneSymbols.size() <= CagwasConstants.MAX_SYMBOLS){
+    					annoCrit.setGeneSymbols(geneSymbols);
+    				}
+    				else
+    				{
+    					errors.add("hugoFile", new ActionMessage("error.hugo.count"));
+    				}
                 }
 				catch (IOException ex)
 				{
@@ -179,10 +187,18 @@ public class AnnotationCriteriaHelper
 			    {
 			    	String gene = geneList[i].trim();
 			    	logger.debug(gene.toUpperCase());
-			    	geneSymbols.add(gene.toUpperCase());
+			    	if(!gene.matches("")){
+			    		geneSymbols.add(gene.toUpperCase());
+			    	}
 			    }
 				
-				annoCrit.setGeneSymbols(geneSymbols);
+				if(geneSymbols.size() <= CagwasConstants.MAX_SYMBOLS){
+					annoCrit.setGeneSymbols(geneSymbols);
+				}
+				else
+				{
+					errors.add("hugoFile", new ActionMessage("error.hugo.count"));
+				}
 		    }
 		}
 		
@@ -204,16 +220,24 @@ public class AnnotationCriteriaHelper
 
                     int count = 0;
                     
-                    while ((inputLine = inFile.readLine()) != null && count < CagwasConstants.MAX_IDS)
+                    while ((inputLine = inFile.readLine()) != null)
                     {
                     	inputLine = inputLine.trim();
                         count++;
                         logger.debug(inputLine.toLowerCase());
-                        dbSNPIds.add(inputLine.toLowerCase());
+                        if(!inputLine.matches("")){
+                        	dbSNPIds.add(inputLine.toLowerCase());
+    			    	}
                     }
 
                     inFile.close();
-                    annoCrit.setSnpIdentifiers(dbSNPIds);
+    				if(dbSNPIds.size() <= CagwasConstants.MAX_IDS){
+    					annoCrit.setSnpIdentifiers(dbSNPIds);
+    				}
+    				else
+    				{
+    					errors.add("idFile", new ActionMessage("error.id.count"));
+    				}
                 }
 				catch (IOException ex)
 				{
@@ -247,10 +271,18 @@ public class AnnotationCriteriaHelper
 			    {
 			    	String id = idList[i].trim();
 			    	logger.debug(id.toLowerCase());
-			    	dbSNPIds.add(id.toLowerCase());
+			    	if(!id.matches("")){
+			    		dbSNPIds.add(id.toLowerCase());
+			    	}
 			    }
-				
-			    annoCrit.setSnpIdentifiers(dbSNPIds);
+				if(dbSNPIds.size() <= CagwasConstants.MAX_IDS){
+					annoCrit.setSnpIdentifiers(dbSNPIds);
+				}
+				else
+				{
+					errors.add("idFile", new ActionMessage("error.id.count"));
+				}
+					
 		    }
 		}
 		

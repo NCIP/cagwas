@@ -125,8 +125,8 @@ public class SNPAssociationFindingReport implements Comparable
 		if(oddsRatioCollection != null){
 			for(OddsRatio oddsRatio:oddsRatioCollection){
 				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(NON_AGGRESSIVE_VS_CONTROL)){
-					return (oddsRatio.getHetrozygoteOddsRatio() != null  ?
-							oddsRatio.getHetrozygoteOddsRatio().toString():
+					return (oddsRatio.getHeterozygoteOddsRatio() != null  ?
+							oddsRatio.getHeterozygoteOddsRatio().toString():
 								nonBlankWhiteSpace)	;
 				}
 			}
@@ -163,8 +163,8 @@ public class SNPAssociationFindingReport implements Comparable
 		if(oddsRatioCollection != null){
 			for(OddsRatio oddsRatio:oddsRatioCollection){
 				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(AGGRESSIVE_VS_CONTROL)){
-					return (oddsRatio.getHetrozygoteOddsRatio() != null  ?
-							oddsRatio.getHetrozygoteOddsRatio().toString():
+					return (oddsRatio.getHeterozygoteOddsRatio() != null  ?
+							oddsRatio.getHeterozygoteOddsRatio().toString():
 								nonBlankWhiteSpace)	;
 				}
 			}
@@ -201,8 +201,8 @@ public class SNPAssociationFindingReport implements Comparable
 		if(oddsRatioCollection != null){
 			for(OddsRatio oddsRatio:oddsRatioCollection){
 				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(CASE_VS_CONTROL)){
-					return (oddsRatio.getHetrozygoteOddsRatio() != null  ?
-							oddsRatio.getHetrozygoteOddsRatio().toString():
+					return (oddsRatio.getHeterozygoteOddsRatio() != null  ?
+							oddsRatio.getHeterozygoteOddsRatio().toString():
 								nonBlankWhiteSpace)	;
 				}
 			}
