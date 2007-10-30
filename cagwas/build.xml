@@ -433,13 +433,13 @@
 	<!-- check DB type -->
 	<target name="configure.database.type.asMySQL" depends="check.database.type" if="isMySQL" description="configure the build for MySQL">
 		    <echo message="Configures CSM Data Source as mySQL" />
-		 	<property name="DB_DIALECT" value="${db.jdbcRuntimeDriver.mysql}" />
+		 	<property name="DB_DIALECT" value="${db.dialect.mysql}" />
 		 	<property name="DB_DRIVER_CLASS" value="${db.jdbcRuntimeDriver.mysql}" />
 		 	<property name="DB_EXCEPTION_SORTER_CLASS" value="${db.exception.sorter.class.mysql}" />
 	</target>
 	<target name="configure.database.type.asOracle" depends="check.database.type" unless="isMySQL" description="configure the build for Oracle">
 		<echo message="Configures CSM Data Source as Oracle" />
-	 	<property name="DB_DIALECT" value="${db.jdbcRuntimeDriver.oracle}" />
+	 	<property name="DB_DIALECT" value="${db.dialect.oracle}" />
 	 	<property name="DB_DRIVER_CLASS" value="${db.jdbcRuntimeDriver.oracle}" />
 	 	<property name="DB_EXCEPTION_SORTER_CLASS" value="${db.exception.sorter.class.oracle}" />
 	</target>
