@@ -11,7 +11,6 @@
 			<zipfileset dir="${build.source.dir}" prefix="${project_name}/${build.source.dir}" />
 			<zipfileset dir="${webapp.dir}" prefix="${project_name}/${webapp.dir}">
 				<exclude name="*/classes/**" />
-				<exclude name="**/web.xml" />
 			</zipfileset>
 			<zipfileset dir="${webapp.lib.dir}" prefix="${project_name}/${webapp.lib.dir}">
 				<include name="*.jar" />
@@ -37,6 +36,7 @@
 			<zipfileset dir="${dependency.artifacts.dir}" prefix="${project_name}/${webapp.lib.dir}">
 				<include name="*caintegrator-spec.jar" />
 			</zipfileset>
+			<zipfileset dir="${dependency.artifacts.dir}" prefix="${project_name}/${dependency.artifacts.dir}"/>
 			</zip>
 	</target>
 	<target name="noop" />
