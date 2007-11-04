@@ -192,6 +192,7 @@
 			</zipfileset>
 		</war>
 		<copy file="${module_name}.war" todir="${artifacts.dir}" />
+		<copy file="${build.source.dir}/cagwas-domain-hibernate.cfg.xml" todir="${artifacts.dir}" />
 	</target>
 
 	<!--
@@ -221,13 +222,20 @@
 				<filter token="DB_DIALECT" value="${DB_DIALECT}" />
 			</filterset>
 		</copy>
+		<echo message="Configuring caIntegratorConfig.xml" />
+				<copy file="conf/caIntegratorConfig.xml.template" toFile="${artifacts.dir}/caIntegratorConfig.xml" filtering="true">
+					<filterset begintoken="@" endtoken="@">
+						<filter token="CONTEXT_NAME" value="${context_name}" />
+						<filter token="HIBERNATE_CONFIG_FILE" value="${hibernate_config_file}" />
+					</filterset>
+				</copy>
 		<copy tofile="./WebRoot/WEB-INF/tiles-defs.xml" filtering="true">
 			<fileset file="conf/tiles-defs.template.xml" />
 		</copy>
 
 
 	</target>
-	<target name="deploy">
+	<target name="deploy" depends="build-all,deploy_artifacts,development_config_cagwas_module">
 		<copy file="${module_name}.war" todir="${JBOSS.DEPLOY.DIR}" />
 	</target>
 
@@ -235,7 +243,7 @@
 	TARGET: deploy_artifacts
 	Copies the configuration files to the deployment-artifacts directory
     -->
-	<target name="deploy_artifacts" depends="config_common_security_module, configure_cagwas-properties-service">
+	<target name="deploy_artifacts" depends="configure.data.source,configure_cagwas-properties-service,config_common_security_module">
 		<echo>filter mail and zip properties ...</echo>
 		<copy file="conf/zip.properties.template" toFile="${artifacts.dir}/zip.properties" filtering="true">
 			<filterset begintoken="@" endtoken="@">
@@ -248,7 +256,7 @@
 			</filterset>
 		</copy>
 		<copy file="${artifacts.dir}/oracle-ds.xml" todir="${artifacts.dir}" />
-		<copy file="${artifacts.dir}/oracle-ds-csm.xml" todir="${artifacts.dir}" />
+		<!--	<copy file="${artifacts.dir}/oracle-ds-csm.xml" todir="${artifacts.dir}" /> -->
 		<copy file="${artifacts.dir}/cagwas.hibernate.cfg.xml" todir="${artifacts.dir}" />
 		<copy file="${artifacts.dir}/ApplicationSecurityConfig.xml" todir="${artifacts.dir}" />
 		<copy file="${artifacts.dir}/login-config.xml" todir="${artifacts.dir}" />
@@ -311,8 +319,9 @@
 	to create the necessary files
 	-->
 	<target name="development_config_common_security_module" depends="config_common_security_module">
-		<!-- Copy it to Jboss Deploy folder -->
-		<copy file="${artifacts.dir}/oracle-ds.xml" todir="${JBOSS.DEPLOY.DIR}" />
+		<!-- Copy it to Jboss Deploy folder 
+		<copy file="${artifacts.dir}/oracle-ds.xml" todir="${JBOSS.DEPLOY.DIR}" /> -->
+		<copy file="${artifacts.dir}/${module_name}-ds.xml" todir="${JBOSS.DEPLOY.DIR}" />
 		<!-- Copy it to Jboss Conf folder -->
 		<copy file="${artifacts.dir}/cagwas.hibernate.cfg.xml" todir="${JBOSS.CONF.DIR}" />
 		<!-- Copy it to Jboss Conf folder -->
@@ -339,7 +348,8 @@
 		</delete>
 		<copy file="${artifacts.dir}/zip.properties" todir="${EXTERNAL.CONFIG.DIR}" />
 		<copy file="${artifacts.dir}/mail.properties" todir="${EXTERNAL.CONFIG.DIR}" />
-		<copy file="${artifacts.dir}/${caintegrator.hibernate.config.file}" todir="${EXTERNAL.CONFIG.DIR}" />
+		<!--<copy file="${artifacts.dir}/${caintegrator.hibernate.config.file}" todir="${EXTERNAL.CONFIG.DIR}" />-->
+		<copy file="${artifacts.dir}/cagwas-domain-hibernate.cfg.xml" todir="${EXTERNAL.CONFIG.DIR}" />
 		<copy file="${artifacts.dir}/caIntegratorConfig.xml" todir="${EXTERNAL.CONFIG.DIR}" />
 	</target>
 
