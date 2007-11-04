@@ -25,6 +25,7 @@
 			<zipfileset dir="." prefix="${project_name}/.">
 				<include name="build.xml" />
 				<include name="build.properties" />
+				<include name="mailzip.properties" />
 				<include name="${module_name}.jar" />
 			</zipfileset>
 			<zipfileset dir="${dependency.artifacts.dir}" prefix="${project_name}/${webapp.lib.dir}">
