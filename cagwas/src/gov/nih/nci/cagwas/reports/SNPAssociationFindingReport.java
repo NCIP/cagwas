@@ -124,7 +124,8 @@ public class SNPAssociationFindingReport implements Comparable
 	public String getNonaggressiveHeterozygote() {
 		if(oddsRatioCollection != null){
 			for(OddsRatio oddsRatio:oddsRatioCollection){
-				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(NON_AGGRESSIVE_VS_CONTROL)){
+				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(NON_AGGRESSIVE_VS_CONTROL))
+				{
 					return (oddsRatio.getHeterozygoteOddsRatio() != null  ?
 							oddsRatio.getHeterozygoteOddsRatio().toString():
 								nonBlankWhiteSpace)	;
@@ -213,6 +214,151 @@ public class SNPAssociationFindingReport implements Comparable
 //					snpAssociationFinding.getOrCaseHeterozygote().toString():
 //					nonBlankWhiteSpace)	;
 	}
+	
+	/* (non-Javadoc)
+	 * @see gov.nih.nci.caintegrator.domain.analysis.snp.bean.SNPAssociationFinding#get()
+	 */
+	public String getNonaggressiveHomozygoteConfidence()
+	{
+		if(oddsRatioCollection != null)
+		{
+			for(OddsRatio oddsRatio:oddsRatioCollection)
+			{
+				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(NON_AGGRESSIVE_VS_CONTROL))
+				{
+					String lowerConfidence = (oddsRatio.getHomozygoteLowerConfidenceBound() != null  ?
+							oddsRatio.getHomozygoteLowerConfidenceBound().toString():
+								nonBlankWhiteSpace);
+					String upperConfidence = (oddsRatio.getHomozygoteUpperConfidenceBound() != null  ?
+							oddsRatio.getHomozygoteUpperConfidenceBound().toString():
+								nonBlankWhiteSpace);
+					return "(" + lowerConfidence + "-" + "upperConfidence" + ")";
+				}
+			}
+		}
+		return nonBlankWhiteSpace;
+	}
+	
+	/* (non-Javadoc)
+	 * @see gov.nih.nci.caintegrator.domain.analysis.snp.bean.SNPAssociationFinding#get()
+	 */
+	public String getAggressiveHomozygoteConfidence()
+	{
+		if(oddsRatioCollection != null)
+		{
+			for(OddsRatio oddsRatio:oddsRatioCollection)
+			{
+				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(AGGRESSIVE_VS_CONTROL))
+				{
+					String lowerConfidence = (oddsRatio.getHomozygoteLowerConfidenceBound() != null  ?
+							oddsRatio.getHomozygoteLowerConfidenceBound().toString():
+								nonBlankWhiteSpace);
+					String upperConfidence = (oddsRatio.getHomozygoteUpperConfidenceBound() != null  ?
+							oddsRatio.getHomozygoteUpperConfidenceBound().toString():
+								nonBlankWhiteSpace);
+					return "(" + lowerConfidence + "-" + "upperConfidence" + ")";
+				}
+			}
+		}
+		return nonBlankWhiteSpace;
+	}
+	
+	/* (non-Javadoc)
+	 * @see gov.nih.nci.caintegrator.domain.analysis.snp.bean.SNPAssociationFinding#get()
+	 */
+	public String getNonaggressiveHeterozygoteConfidence()
+	{
+		if(oddsRatioCollection != null)
+		{
+			for(OddsRatio oddsRatio:oddsRatioCollection)
+			{
+				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(NON_AGGRESSIVE_VS_CONTROL))
+				{
+					String lowerConfidence = (oddsRatio.getHeterozygoteLowerConfidenceBound() != null  ?
+							oddsRatio.getHeterozygoteLowerConfidenceBound().toString():
+								nonBlankWhiteSpace);
+					String upperConfidence = (oddsRatio.getHeterozygoteUpperConfidenceBound() != null  ?
+							oddsRatio.getHeterozygoteUpperConfidenceBound().toString():
+								nonBlankWhiteSpace);
+					return "(" + lowerConfidence + "-" + "upperConfidence" + ")";
+				}
+			}
+		}
+		return nonBlankWhiteSpace;
+	}
+	
+	/* (non-Javadoc)
+	 * @see gov.nih.nci.caintegrator.domain.analysis.snp.bean.SNPAssociationFinding#get()
+	 */
+	public String getAggressiveHeterozygoteConfidence()
+	{
+		if(oddsRatioCollection != null)
+		{
+			for(OddsRatio oddsRatio:oddsRatioCollection)
+			{
+				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(AGGRESSIVE_VS_CONTROL))
+				{
+					String lowerConfidence = (oddsRatio.getHeterozygoteLowerConfidenceBound() != null  ?
+							oddsRatio.getHeterozygoteLowerConfidenceBound().toString():
+								nonBlankWhiteSpace);
+					String upperConfidence = (oddsRatio.getHeterozygoteUpperConfidenceBound() != null  ?
+							oddsRatio.getHeterozygoteLowerConfidenceBound().toString():
+								nonBlankWhiteSpace);
+					return "(" + lowerConfidence + "-" + "upperConfidence" + ")";
+				}
+			}
+		}
+		return nonBlankWhiteSpace;
+	}
+	
+	/* (non-Javadoc)
+	 * @see gov.nih.nci.caintegrator.domain.analysis.snp.bean.SNPAssociationFinding#get()
+	 */
+	public String getCaseHomozygoteConfidence()
+	{
+		if(oddsRatioCollection != null)
+		{
+			for(OddsRatio oddsRatio:oddsRatioCollection)
+			{
+				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(CASE_VS_CONTROL))
+				{
+					String lowerConfidence = (oddsRatio.getHomozygoteLowerConfidenceBound() != null  ?
+							oddsRatio.getHomozygoteLowerConfidenceBound().toString():
+								nonBlankWhiteSpace);
+					String upperConfidence = (oddsRatio.getHomozygoteUpperConfidenceBound() != null  ?
+							oddsRatio.getHomozygoteUpperConfidenceBound().toString():
+								nonBlankWhiteSpace);
+					return "(" + lowerConfidence + "-" + "upperConfidence" + ")";
+				}
+			}
+		}
+		return nonBlankWhiteSpace;
+	}
+	
+	/* (non-Javadoc)
+	 * @see gov.nih.nci.caintegrator.domain.analysis.snp.bean.SNPAssociationFinding#get()
+	 */
+	public String getCaseHeterozygoteConfidence()
+	{
+		if(oddsRatioCollection != null)
+		{
+			for(OddsRatio oddsRatio:oddsRatioCollection)
+			{
+				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(CASE_VS_CONTROL))
+				{
+					String lowerConfidence = (oddsRatio.getHeterozygoteLowerConfidenceBound() != null  ?
+							oddsRatio.getHeterozygoteLowerConfidenceBound().toString():
+								nonBlankWhiteSpace);
+					String upperConfidence = (oddsRatio.getHeterozygoteUpperConfidenceBound() != null  ?
+							oddsRatio.getHeterozygoteLowerConfidenceBound().toString():
+								nonBlankWhiteSpace);
+					return "(" + lowerConfidence + "-" + "upperConfidence" + ")";
+				}
+			}
+		}
+		return nonBlankWhiteSpace;
+	}
+	
 	/* (non-Javadoc)
 	 * @see gov.nih.nci.caintegrator.domain.annotation.snp.bean.SNPAnnotation#getGeneBiomarkerCollection()
 	 */
