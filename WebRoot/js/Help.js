@@ -1,7 +1,9 @@
 var Help = {
 	url : "helpDocs/caGWAS_Online_Help/index.html?context=caGWAS_Online_Help&topic=",
-	popHelp: function(topic) {
-		window.open (Help.url+topic, "Help", "status,scrollbars,resizable,width=800,height=500");  
+	popHelp: function(topic)
+	{
+		WWHAPI_Object("helpDocs/CGEMS_Online_Help", null);
+		WWHAPI_DisplayHelpWithNavigation("CGEMS_Online_Help", topic); 
 		//alert(Help.url+topic);
 	},
 	insertHelp: function(topic)	{
@@ -11,10 +13,9 @@ var Help = {
 		document.write(htm);
 	},
 	popHelpMain: function(topic) {
-		var _url = "helpDocs/caGWAS_Online_Help/index.html?context=caGWAS_Online_Help&topic=";
-		_url = "helpDocs/caGWAS_Online_Help/WelcometocaGWASOnlineHelp.1.1.html";
-		window.open (_url+topic, "Help", "status,scrollbars,resizable,width=800,height=500");  
-		//window.open (_url+topic, "Help", "alwaysRaised,dependent,status,scrollbars,resizable,width=800,height=500");  
+		var topic = "Welcome";
+		WWHAPI_Object("helpDocs/caGWAS_Online_Help", null);
+		WWHAPI_DisplayHelpWithNavigation("caGWAS_Online_Help", topic);
 		//alert(Help.url+topic);
 	}
 }

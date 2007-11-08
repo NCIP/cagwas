@@ -1,0 +1,25 @@
+function FileData_Pairs(x)
+{
+x.t("download","bulk");
+x.t("download","cagwas");
+x.t("500","records");
+x.t("bulk","data");
+x.t("access","privileges");
+x.t("via","ftp");
+x.t("requesting","data");
+x.t("allow","download");
+x.t("portal","access");
+x.t("may","allow");
+x.t("ftp","requesting");
+x.t("ftp","information");
+x.t("data","download");
+x.t("data","500");
+x.t("data","via");
+x.t("data","portal");
+x.t("cagwas","data");
+x.t("privileges","may");
+x.t("information","following");
+x.t("topics","downloading");
+x.t("downloading","bulk");
+x.t("following","topics");
+}
