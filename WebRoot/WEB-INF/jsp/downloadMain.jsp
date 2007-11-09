@@ -11,7 +11,7 @@
 
 <div id="bulkMain">
 
-<script type="text/javascript">Help.insertHelp("asynchronized_data_request_help", "", "padding:8px;float:right;");</script>
+<script type="text/javascript">Help.insertHelp("cagwas_asynchronized_data_request_help", "", "padding:8px;float:right;");</script>
 
 <% String searchType = (String)session.getAttribute("searchType");
 if (searchType.equals("Genotype"))

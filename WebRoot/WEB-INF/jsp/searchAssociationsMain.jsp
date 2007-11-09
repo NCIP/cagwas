@@ -16,7 +16,7 @@
 <div id="searchForm">
 <div id="searchAssocMain">
 
-<script type="text/javascript">Help.insertHelp("search_association_help", "", "padding:8px;float:right;");</script>
+<script type="text/javascript">Help.insertHelp("cagwas_search_association_help", "", "padding:8px;float:right;");</script>
 
 <html:form action="searchAssociations.do" styleId="searchAssocForm" method="post" enctype="multipart/form-data">
 	

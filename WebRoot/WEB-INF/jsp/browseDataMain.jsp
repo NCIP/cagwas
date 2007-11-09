@@ -1,4 +1,3 @@
-
 <jsp:directive.page import="org.apache.struts.util.LabelValueBean"/>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
 <%@ taglib uri="/WEB-INF/struts-tiles.tld" prefix="tiles" %>
@@ -11,7 +10,7 @@
 </div>
 <div id="browseData">
 
-<script type="text/javascript">Help.insertHelp("browse_data_help", "", "padding:8px;float:right;");</script>
+<script type="text/javascript">Help.insertHelp("cagwas_browse_data_help", "", "padding:8px;float:right;");</script>
 
 <span class="er"><html:errors/></span>
 

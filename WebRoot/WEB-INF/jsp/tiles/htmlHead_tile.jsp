@@ -20,6 +20,8 @@
 	<script language="javascript" src="js/caIntScript.js"></script>
 	<script language="javascript" src="js/cagwas.js"></script>
 	<script language="javascript" src="js/Help.js"></script>
+	<script language="javascript" src="js/wwhapi.js"></script>
+	<script language="javascript" src="js/wwhbaseurl.js"></script>
 	
 	<script language="javascript" src="js/common/browserSniff.js"></script>
 	<script language="javascript" src="js/common/stripeScript.js"></script>

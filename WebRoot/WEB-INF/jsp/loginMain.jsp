@@ -20,7 +20,7 @@ if(session.getAttribute("ref")==null)	{
 <html:form action="login.do">
 <table cellpadding="15">
 	<tr><td style="width:350px;vertical-align:top;">
-	<script type="text/javascript">Help.insertHelp("login_help", "", "padding:8px;float:right;");</script>
+	<script type="text/javascript">Help.insertHelp("cagwas_login_help", "", "padding:8px;float:right;");</script>
 	
 	<b>Registered Users:</b><br/>
 	<table style="margin-left:20px;">
@@ -48,7 +48,7 @@ if(session.getAttribute("ref")==null)	{
 	</div>
 	</td>
 	<td style="padding-left:20px;border-left:1px dashed black;vertical-align:top;">
-	<script type="text/javascript">Help.insertHelp("registration_help", "", "padding:8px;float:right;");</script>
+	<script type="text/javascript">Help.insertHelp("cagwas_login_help", "", "padding:8px;float:right;");</script>
 	
 	<b>New Users:</b><br/><br/>
 		<% String regUrl = (String)session.getAttribute("registrationUrl"); %>

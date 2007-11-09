@@ -15,7 +15,7 @@
 
 <div id="searchForm">
 <div id="searchPopMain">
-<script type="text/javascript">Help.insertHelp("search_population_help", "", "padding:8px;float:right;");</script>
+<script type="text/javascript">Help.insertHelp("cagwas_search_population_help", "", "padding:8px;float:right;");</script>
 <html:form action="searchPopulation.do" method="post" enctype="multipart/form-data" styleId="searchPopForm">
 
 	<table>
