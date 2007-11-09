@@ -10,7 +10,7 @@
 </div>
 <div id="bulkMain">
 
-<script type="text/javascript">Help.insertHelp("FTP_bulk_download_help", "", "padding:8px;float:right;");</script>
+<script type="text/javascript">Help.insertHelp("cagwas_FTP_bulk_download_help", "", "padding:8px;float:right;");</script>
 
 <span class="er"><html:errors/></span>
 

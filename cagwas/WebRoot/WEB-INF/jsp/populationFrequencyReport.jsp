@@ -9,7 +9,7 @@
 <%@ page import="java.text.FieldPosition" %>
 <%@ page import="java.text.DecimalFormat" %>
 <br clear="both"/>
-<script type="text/javascript">Help.insertHelp("population_report_help", "", "padding:8px;float:right;");</script>
+<script type="text/javascript">Help.insertHelp("cagwas_population_report_help", "", "padding:8px;float:right;");</script>
 <h3 align="left">Study: <% out.println(session.getAttribute("study")); %></h3>
 <%
 String panel = (String)session.getAttribute("pop.panel");

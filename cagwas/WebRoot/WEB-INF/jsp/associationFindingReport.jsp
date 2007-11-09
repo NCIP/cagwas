@@ -8,7 +8,7 @@
 <%@ page import="gov.nih.nci.caintegrator.domain.annotation.gene.bean.GeneBiomarker" %>
 <%@ page import="java.util.Set" %>
 <br clear="both"/>
-<script type="text/javascript">Help.insertHelp("association_report_help", "", "padding:8px;float:right;");</script>
+<script type="text/javascript">Help.insertHelp("cagwas_association_report_help", "", "padding:8px;float:right;");</script>
 <h3 align="left">Study: <% out.println(session.getAttribute("study")); %></h3>
 <%
 		String studyName = (String)request.getSession().getAttribute("studyName");

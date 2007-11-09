@@ -6,7 +6,7 @@
 <%@ page import="gov.nih.nci.caintegrator.domain.common.bean.NumericMeasurement" %>
 <%@ page import="java.util.Set" %>
 <br clear="both"/>
-<script type="text/javascript">Help.insertHelp("subject_data_report_help", "", "padding:8px;float:right;");</script><br clear="left"/>
+<script type="text/javascript">Help.insertHelp("cagwas_subject_data_report_help", "", "padding:8px;float:right;");</script><br clear="left"/>
 <h3 align="left">Study: <% out.println(session.getAttribute("study")); %></h3>
 
 <%

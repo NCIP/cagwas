@@ -8,7 +8,7 @@
 </div>
 
 <div id="searchForm" class="divMain">
-<script type="text/javascript">Help.insertHelp("search_genotype_help", "", "padding:8px;float:right;");</script>
+<script type="text/javascript">Help.insertHelp("cagwas_search_genotype_help", "", "padding:8px;float:right;");</script>
 
 <html:form action="searchGenotype.do" method="post" enctype="multipart/form-data" styleId="searchGenoForm">
 	<logic:iterate id="analysisGroup" name="analysisGroups" type="gov.nih.nci.caintegrator.domain.analysis.snp.bean.SNPAnalysisGroup">
