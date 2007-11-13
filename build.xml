@@ -235,7 +235,7 @@
 
 
 	</target>
-	<target name="deploy" depends="build-all,deploy_artifacts,development_config_cagwas_module">
+	<target name="deploy" depends="deploy_artifacts,development_config_cagwas_module">
 		<copy file="${module_name}.war" todir="${JBOSS.DEPLOY.DIR}" />
 	</target>
 
