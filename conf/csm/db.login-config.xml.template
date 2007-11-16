@@ -1,4 +1,4 @@
-    <application-policy name="@DB_JNDI_CONNECTION@">
+    <application-policy name="@MODULE_NAME@">
 	 <authentication>
         <login-module code = "gov.nih.nci.security.authentication.loginmodules.RDBMSLoginModule" flag = "required" >
          <module-option name="driver">@DB_DRIVER_CLASS@</module-option>
