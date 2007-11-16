@@ -177,7 +177,7 @@
 				<include name="**/*.properties" />
 				<include name="cagwasResources.properties" />
 				<include name="cagwas-domain-hibernate.cfg.xml" />
-				<include name="cagwascsm.hibernate.cfg.xm" />
+				<include name="${module_name}.csm.new.hibernate.cfg.xml" />
 				<exclude name="zip.properties" />
 				<exclude name="mail.properties" />
 			</fileset>
@@ -217,6 +217,15 @@
 			<filterset begintoken="@" endtoken="@">
 				<filter token="MODULE_NAME" value="${module_name}" />
 				<filter token="DB_JNDI_CONNECTION" value="${cagwas.jndi.connection}" />
+				<filter token="DB_DIALECT" value="${DB_DIALECT}" />
+			</filterset>
+		</copy>
+		<!-- Configuring cagwas.csm.new.hibernate.cfg.xml -->
+		<echo message="Setting cagwas.hibernate.cfg.xml" />
+		<delete file="${src}/${module_name}.csm.new.hibernate.cfg.xml" />
+		<copy file="conf/csm/csm.new.hibernate.cfg.xml.template" tofile="${src}/${module_name}.csm.new.hibernate.cfg.xml" >
+				<filterset begintoken="@" endtoken="@">
+				<filter token="DB_JNDI_CONNECTION" value="${csm.jndi.connection}" />
 				<filter token="DB_DIALECT" value="${DB_DIALECT}" />
 			</filterset>
 		</copy>
@@ -281,7 +290,7 @@
 		  			<copy path="//application-policy[1]" buffer="loginBufer" append="false"/>  			
 		  		</xmltask>	
 				<xmltask source="${JBOSS.CONF.DIR}/login-config.xml" dest="${JBOSS.CONF.DIR}/login-config.xml">
-					<remove path="//application-policy[@name='${csm.jndi.connection}']"/>
+					<remove path="//application-policy[@name='${module_name}']"/>
 				 	<insert path="//application-policy[1]" buffer="loginBufer" position="after" /> 				
 				</xmltask>			
 		</target>
@@ -295,7 +304,7 @@
 					  			<copy path="//attribute" buffer="psBuffer" append="false"/>  			
 					</xmltask>
 					<xmltask source="${JBOSS.DEPLOY.DIR}/properties-service.xml" dest="${JBOSS.DEPLOY.DIR}/properties-service.xml">
-						<remove path="//application-policy[@name='Properties/text() = 'gov.nih.nci.cagwas.zip.properties']"  />
+						<!-- <remove path="//attribute[@name='Properties']/text()='gov.nih.nci.cagwas.zip.properties=C:/local/content/cagwas/config/zip.properties'"  />-->
 						<insert path="//mbean[2]" buffer="psBuffer"/>
 					</xmltask>
 		</target>
@@ -320,15 +329,6 @@
 					<filter token="DB_EXCEPTION_SORTER_CLASS" value="${DB_EXCEPTION_SORTER_CLASS}" />
 				</filterset>
 		</copy>
-		<!-- Configuring cagwascsm.hibernate.cfg.xml -->
-		<echo message="Setting cagwas.hibernate.cfg.xml" />
-		<delete file="${src}/cagwascsm.hibernate.cfg.xml" />
-		<copy file="conf/csm/cagwascsm.hibernate.cfg.xml.template" tofile="${src}/cagwascsm.hibernate.cfg.xml" >
-				<filterset begintoken="@" endtoken="@">
-				<filter token="DB_JNDI_CONNECTION" value="${csm.jndi.connection}" />
-				<filter token="DB_DIALECT" value="${DB_DIALECT}" />
-			</filterset>
-		</copy>
 	</target>
 	<!-- configure login-config type -->
 	<target name="configure.login-config.asDB" depends="check.csm.authentication.type,configure.database.type.asMySQL, configure.database.type.asOracle" if="isCSM_DB" description="configure the login-config for DB">
@@ -336,7 +336,7 @@
 		<delete file="${artifacts.dir}/login-config.xml" />
 		<copy file="conf/csm/db.login-config.xml.template" tofile="${artifacts.dir}/login-config.xml" >
 				<filterset begintoken="@" endtoken="@">
-					<filter token="DB_JNDI_CONNECTION" value="${csm.jndi.connection}" />
+					<filter token="MODULE_NAME" value="${module_name}" />
 					<filter token="DB_CONNECTION_URL" value="${csm.urlDbalias}" />
 					<filter token="DB_USERNAME" value="${csm.databaseUser}" />
 					<filter token="DB_PASSWORD" value="${csm.databasePassword}" />
