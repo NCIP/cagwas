@@ -177,6 +177,7 @@
 				<include name="**/*.properties" />
 				<include name="cagwasResources.properties" />
 				<include name="cagwas-domain-hibernate.cfg.xml" />
+				<include name="cagwascsm.hibernate.cfg.xm" />
 				<exclude name="zip.properties" />
 				<exclude name="mail.properties" />
 			</fileset>
@@ -191,8 +192,6 @@
 				<include name="caintegrator-spec.jar" />
 			</zipfileset>
 		</war>
-		<copy file="${module_name}.war" todir="${artifacts.dir}" />
-		<copy file="${build.source.dir}/cagwas-domain-hibernate.cfg.xml" todir="${artifacts.dir}" />
 	</target>
 
 	<!--
@@ -211,7 +210,6 @@
 		</mkdir>
 		<delete>
 			<fileset file="./WebRoot/WEB-INF/tiles-defs.xml" />
-			<fileset file="${artifacts.dir}/*.*" />
 			<fileset file="${src}/cagwas-domain-hibernate.cfg.xml" />
 		</delete>
 		<echo message="Configuring cagwas-domain-hibernate-cfg.xml" />
@@ -222,21 +220,18 @@
 				<filter token="DB_DIALECT" value="${DB_DIALECT}" />
 			</filterset>
 		</copy>
-		<echo message="Configuring caIntegratorConfig.xml" />
-				<copy file="conf/caIntegratorConfig.xml.template" toFile="${artifacts.dir}/caIntegratorConfig.xml" filtering="true">
-					<filterset begintoken="@" endtoken="@">
-						<filter token="CONTEXT_NAME" value="${context_name}" />
-						<filter token="HIBERNATE_CONFIG_FILE" value="${hibernate_config_file}" />
-					</filterset>
-				</copy>
 		<copy tofile="./WebRoot/WEB-INF/tiles-defs.xml" filtering="true">
 			<fileset file="conf/tiles-defs.template.xml" />
 		</copy>
 
 
 	</target>
-	<target name="deploy" depends="deploy_artifacts,development_config_cagwas_module">
-		<copy file="${module_name}.war" todir="${JBOSS.DEPLOY.DIR}" />
+	<target name="deploy" depends="deploy_artifacts,appendPropertyService,appendLoginConfig">
+		<copy file="${artifacts.dir}/${module_name}.war" todir="${JBOSS.DEPLOY.DIR}" />
+		<copy file="${artifacts.dir}/zip.properties" todir="${EXTERNAL.CONFIG.DIR}"/>
+		<copy file="${artifacts.dir}/mail.properties" todir="${EXTERNAL.CONFIG.DIR}"/>
+     	<copy file="${artifacts.dir}/${module_name}-csm-ds.xml" todir="${JBOSS.DEPLOY.DIR}"/>
+		<copy file="${artifacts.dir}/${module_name}-ds.xml" todir="${JBOSS.DEPLOY.DIR}"/>
 	</target>
 
 	<!--
@@ -244,6 +239,7 @@
 	Copies the configuration files to the deployment-artifacts directory
     -->
 	<target name="deploy_artifacts" depends="configure.data.source,configure_cagwas-properties-service,config_common_security_module">
+		<copy file="${module_name}.war" todir="${artifacts.dir}" />
 		<echo>filter mail and zip properties ...</echo>
 		<copy file="conf/zip.properties.template" toFile="${artifacts.dir}/zip.properties" filtering="true">
 			<filterset begintoken="@" endtoken="@">
@@ -255,77 +251,106 @@
 				<filtersfile file="${MAILZIP.FILE}" />
 			</filterset>
 		</copy>
-		<copy file="${artifacts.dir}/oracle-ds.xml" todir="${artifacts.dir}" />
-		<!--	<copy file="${artifacts.dir}/oracle-ds-csm.xml" todir="${artifacts.dir}" /> -->
-		<copy file="${artifacts.dir}/cagwas.hibernate.cfg.xml" todir="${artifacts.dir}" />
-		<copy file="${artifacts.dir}/ApplicationSecurityConfig.xml" todir="${artifacts.dir}" />
-		<copy file="${artifacts.dir}/login-config.xml" todir="${artifacts.dir}" />
 		<copy file="${artifacts.dir}/properties-service.xml" todir="${artifacts.dir}" />
 	</target>
 
+	
+		<!--checks if login-config.xml exists-->	
+		<target name="login_check">
+						<property name="login.xml" value="${JBOSS.CONF.DIR}/login-config.xml"/>
+						<available file="${login.xml}" property="login.xml.present"/>
+						<condition property="login.xml.not.present">
+							<not>
+								<istrue value="${login.xml.present}"/>
+							</not>
+						</condition>			
+		</target>
+		
+		<!--adds login-config.xml if it does not already exist-->
+		<target name="addLoginConfig" if="login.xml.not.present" depends="login_check,appendLoginConfig">
+			<echo message="No login-config file exists, copy over from csmdeploy dir"/>		
+			<copy file="csm_deploy/login-config.xml" todir="${JBOSS.CONF.DIR}"/>		
+		</target>
+		
+		<!--appends section to login-config.xml if it does already exist-->
+		<target name="appendLoginConfig" if="login.xml.present" depends="login_check">
+			<echo message="There is a login-config.xml present, copy and paste needed sections"/>				
+			<taskdef name="xmltask" classpath="${not.deployed.jarFiles}/xmltask-v1.15.1.jar" classname="com.oopsconsultancy.xmltask.ant.XmlTask"/>			
+				<!--copy and insert new login configs to jboss file-->
+		  		<xmltask source="${artifacts.dir}/login-config.xml" clearBuffers="loginBuffer">
+		  			<copy path="//application-policy[1]" buffer="loginBufer" append="false"/>  			
+		  		</xmltask>	
+				<xmltask source="${JBOSS.CONF.DIR}/login-config.xml" dest="${JBOSS.CONF.DIR}/login-config.xml">
+					<remove path="//application-policy[@name='${csm.jndi.connection}']"/>
+				 	<insert path="//application-policy[1]" buffer="loginBufer" position="after" /> 				
+				</xmltask>			
+		</target>
+	
+	<!--appends section to properties-service.xml -->
+		<target name="appendPropertyService">
+				<echo message="Copy and paste needed sections to properties-service in JBOSS"/>					
+				<taskdef name="xmltask" classpath="${not.deployed.jarFiles}/xmltask-v1.15.1.jar" classname="com.oopsconsultancy.xmltask.ant.XmlTask"/>		
+					<!--copy and insert new property to jboss file-->
+					<xmltask source="${artifacts.dir}/properties-service.xml" clearBuffers="psBuffer">
+					  			<copy path="//attribute" buffer="psBuffer" append="false"/>  			
+					</xmltask>
+					<xmltask source="${JBOSS.DEPLOY.DIR}/properties-service.xml" dest="${JBOSS.DEPLOY.DIR}/properties-service.xml">
+						<remove path="//application-policy[@name='Properties/text() = 'gov.nih.nci.cagwas.zip.properties']"  />
+						<insert path="//mbean[2]" buffer="psBuffer"/>
+					</xmltask>
+		</target>
 
 	<!--
 	TARGET: config_common_security_module
 	Configures the common security module creating the necessary files
-	for Authentication and Authorization
+	for Authentication 
 	-->
-	<target name="config_common_security_module">
+	<target name="config_common_security_module" depends="configure.database.type.asMySQL, configure.database.type.asOracle,configure.login-config.asDB,configure.login-config.asLDAP">
 		<echo message="Configuring Common Security Module" />
-
-		<!-- Configuring ApplicationSecurityConfig.xml -->
-		<echo message="Setting ApplicationSecurityConfig.xml" />
-		<delete file="${artifacts.dir}/ApplicationSecurityConfig.xml" />
-		<copy file="conf/csm/ApplicationSecurityConfig.xml.template" tofile="${artifacts.dir}/ApplicationSecurityConfig.xml" />
-		<replaceregexp file="${artifacts.dir}/ApplicationSecurityConfig.xml" match="@CONTEXT_NAME@" replace="${module_name}" flags="g" />
-		<replaceregexp file="${artifacts.dir}/ApplicationSecurityConfig.xml" match="@HIBERNATE_CONFIG_FILE@" replace="${csm.hibernate.config.file}" flags="g" />
-
-		<!-- Configuring cagwas.hibernate.cfg.xml -->
+		<!-- Configures CSM Data Source for mySQL or Oracle -->
+		<delete file="${artifacts.dir}/${module_name}-csm-ds.xml" />
+		<copy file="conf/ds.xml.template" tofile="${artifacts.dir}/${module_name}-csm-ds.xml">
+				<filterset begintoken="@" endtoken="@">
+					<filter token="DB_JNDI_CONNECTION" value="${csm.jndi.connection}" />
+					<filter token="DB_DIALECT" value="${DB_DIALECT}" />
+					<filter token="DB_CONNECTION_URL" value="${csm.urlDbalias}" />
+					<filter token="DB_USERNAME" value="${csm.databaseUser}" />
+					<filter token="DB_PASSWORD" value="${csm.databasePassword}" />
+					<filter token="DB_DRIVER_CLASS" value="${DB_DRIVER_CLASS}" />
+					<filter token="DB_EXCEPTION_SORTER_CLASS" value="${DB_EXCEPTION_SORTER_CLASS}" />
+				</filterset>
+		</copy>
+		<!-- Configuring cagwascsm.hibernate.cfg.xml -->
 		<echo message="Setting cagwas.hibernate.cfg.xml" />
-		<delete file="${artifacts.dir}/cagwas.hibernate.cfg.xml" />
-		<copy file="conf/csm/cagwas.hibernate.cfg.xml.template" tofile="${artifacts.dir}/cagwas.hibernate.cfg.xml" />
-		<replaceregexp file="${artifacts.dir}/cagwas.hibernate.cfg.xml" match="@DATASOURCE_JNDI@" replace="${csm.jndi.connection.datasource}" flags="g" />
-
-		<!-- Configuring oracle-ds.xml -->
-		<echo message="Configuring oracle-ds.xml" />
-		<delete file="${artifacts.dir}/oracle-ds.xml" />
-		<copy file="conf/csm/oracle-ds.xml.template" tofile="${artifacts.dir}/oracle-ds.xml" />
-		<replaceregexp file="${artifacts.dir}/oracle-ds.xml" match="@DATASOURCE_JNDI@" replace="${cagwas.jndi.connection}" flags="g" />
-		<replaceregexp file="${artifacts.dir}/oracle-ds.xml" match="@DB_CONNECTION_URL@" replace="${cagwas.urlDbalias}" flags="g" />
-		<replaceregexp file="${artifacts.dir}/oracle-ds.xml" match="@DB_USERNAME@" replace="${cagwas.databaseUser}" flags="g" />
-		<replaceregexp file="${artifacts.dir}/oracle-ds.xml" match="@DB_PASSWORD@" replace="${cagwas.databasePassword}" flags="g" />
-		<replaceregexp file="${artifacts.dir}/oracle-ds.xml" match="@ORACLE_DRIVER_CLASS@" replace="${db.jdbcRuntimeDriver.oracle}" flags="g" />
-		<replaceregexp file="${artifacts.dir}/oracle-ds.xml" match="@EXCEPTION_SORTER_CLASS@" replace="${db.exception.sorter.class.oracle}" flags="g" />
-
-		<!-- Configuring properties-service.xml -->
-		<echo message="Configuring properties-service.xml" />
-		<delete file="${artifacts.dir}/properties-service-csm.xml" />
-		<copy file="conf/csm/properties-service.xml.template" tofile="${artifacts.dir}/properties-service-csm.xml" />
-		<replaceregexp file="${artifacts.dir}/properties-service-csm.xml" match="@CSM_APPLICATION_CONFIG_FILE@" replace="${csm.application.config.file}" flags="g" />
-		<replaceregexp file="${artifacts.dir}/properties-service-csm.xml" match="@EXTERNAL.CONFIG.DIR@" replace="${EXTERNAL.CONFIG.DIR}" flags="g" />
-
-		<!-- Configuring login-config.xml -->
-		<echo message="Configuring login-config.xml" />
+		<delete file="${src}/cagwascsm.hibernate.cfg.xml" />
+		<copy file="conf/csm/cagwascsm.hibernate.cfg.xml.template" tofile="${src}/cagwascsm.hibernate.cfg.xml" >
+				<filterset begintoken="@" endtoken="@">
+				<filter token="DB_JNDI_CONNECTION" value="${csm.jndi.connection}" />
+				<filter token="DB_DIALECT" value="${DB_DIALECT}" />
+			</filterset>
+		</copy>
+	</target>
+	<!-- configure login-config type -->
+	<target name="configure.login-config.asDB" depends="check.csm.authentication.type,configure.database.type.asMySQL, configure.database.type.asOracle" if="isCSM_DB" description="configure the login-config for DB">
+		<echo message="Configuring configure.login-config.asDB" />
 		<delete file="${artifacts.dir}/login-config.xml" />
-		<copy file="conf/csm/login-config.xml.template" tofile="${artifacts.dir}/login-config.xml" />
-		<replaceregexp file="${artifacts.dir}/login-config.xml" match="@MODULE_NAME@" replace="${module_name}" flags="g" />
+		<copy file="conf/csm/db.login-config.xml.template" tofile="${artifacts.dir}/login-config.xml" >
+				<filterset begintoken="@" endtoken="@">
+					<filter token="DB_JNDI_CONNECTION" value="${csm.jndi.connection}" />
+					<filter token="DB_CONNECTION_URL" value="${csm.urlDbalias}" />
+					<filter token="DB_USERNAME" value="${csm.databaseUser}" />
+					<filter token="DB_PASSWORD" value="${csm.databasePassword}" />
+					<filter token="DB_DRIVER_CLASS" value="${DB_DRIVER_CLASS}" />
+				</filterset>
+		</copy>	
+	</target>
+	<target name="configure.login-config.asLDAP" depends="check.csm.authentication.type" unless="isCSM_DB" description="configure the login-config for LDAP">
+		<echo message="Configuring configure.login-config.asLDAP" />
+		<delete file="${artifacts.dir}/login-config.xml" />
+		<copy file="conf/csm/ldap.login-config.xml.template" tofile="${artifacts.dir}/login-config.xml" />
+		<replaceregexp file="${artifacts.dir}/login-config.xml" match="@MODULE_NAME@" replace="${csm.jndi.connection}" flags="g" />
 		<replaceregexp file="${artifacts.dir}/login-config.xml" match="@LDAP_HOST@" replace="${ldap.provider.url}" flags="g" />
 		<replaceregexp file="${artifacts.dir}/login-config.xml" match="@LDAP_CONTEXT@" replace="${ldap.context}" flags="g" />
-	</target>
-
-	<!--
-	TARGET: development_config_common_security_module
-	Will create and configure the CSM for the current local development
-	environments. Depends on the "config_common_security_module"
-	to create the necessary files
-	-->
-	<target name="development_config_common_security_module" depends="config_common_security_module">
-		<!-- Copy it to Jboss Deploy folder 
-		<copy file="${artifacts.dir}/oracle-ds.xml" todir="${JBOSS.DEPLOY.DIR}" /> -->
-		<copy file="${artifacts.dir}/${module_name}-ds.xml" todir="${JBOSS.DEPLOY.DIR}" />
-		<!-- Copy it to Jboss Conf folder -->
-		<copy file="${artifacts.dir}/cagwas.hibernate.cfg.xml" todir="${JBOSS.CONF.DIR}" />
-		<!-- Copy it to Jboss Conf folder -->
-		<copy file="${artifacts.dir}/ApplicationSecurityConfig.xml" todir="${JBOSS.CONF.DIR}" />
 	</target>
 
 	<target name="configure_cagwas-properties-service">
@@ -333,24 +358,7 @@
 		<echo message="Configuring properties-service.xml" />
 		<delete file="${artifacts.dir}/properties-service.xml" />
 		<copy file="conf/caintegrator-properties-service.xml" tofile="${artifacts.dir}/properties-service.xml" />
-		<replaceregexp file="${artifacts.dir}/properties-service.xml" match="@CSM_APPLICATION_CONFIG_FILE@" replace="${csm.application.config.file}" flags="g" />
 		<replaceregexp file="${artifacts.dir}/properties-service.xml" match="@EXTERNAL.CONFIG.DIR@" replace="${EXTERNAL.CONFIG.DIR}" flags="g" />
-		<!--<copy file="${build.source.dir}/zip.properties" todir="${artifacts.dir}" />
-		<copy file="${build.source.dir}/mail.properties" todir="${artifacts.dir}" />
-		<copy file="${build.source.dir}/cagwas-domain-hibernate.cfg.xml" todir="${artifacts.dir}" />-->
-	</target>
-
-	<target name="development_config_cagwas_module" depends="configure_cagwas-properties-service">
-		<!-- Copy it to Jboss Conf folder -->
-		<echo> Moving files to external folder</echo>
-		<delete>
-			<fileset dir="${EXTERNAL.CONFIG.DIR}" includes="*.*" />
-		</delete>
-		<copy file="${artifacts.dir}/zip.properties" todir="${EXTERNAL.CONFIG.DIR}" />
-		<copy file="${artifacts.dir}/mail.properties" todir="${EXTERNAL.CONFIG.DIR}" />
-		<!--<copy file="${artifacts.dir}/${caintegrator.hibernate.config.file}" todir="${EXTERNAL.CONFIG.DIR}" />-->
-		<copy file="${artifacts.dir}/cagwas-domain-hibernate.cfg.xml" todir="${EXTERNAL.CONFIG.DIR}" />
-		<copy file="${artifacts.dir}/caIntegratorConfig.xml" todir="${EXTERNAL.CONFIG.DIR}" />
 	</target>
 
 	<target name="build_strutstest" depends="build-all">
@@ -415,14 +423,25 @@
 		<javadoc sourcepath="${build.source.dir}" packagenames="gov.nih.nci.cagwas.*" destdir="${javadoc.dir}" excludepackagenames="**/web/test" Windowtitle="${project_title}" Header="${project_title}" />
 	</target>
 	<!-- Validation -->
-	<target name="check.ant.version" description="Ensure that we're running ant 1.6">
-		<fail message="Please install using ant 1.6">
+	<target name="check.ant.version" description="Ensure that we're running ant 1.7">
+		<fail message="Please install using ant 1.7">
 			<condition>
 				<not>
-					<contains string="${ant.version}" substring="1.6" />
+					<contains string="${ant.version}" substring="1.7" />
 				</not>
 			</condition>
 		</fail>
+	</target>
+	<!-- check CSM authentication type -->
+	<target name="check.csm.authentication.type" description="check if we are using ldap or db CSM authentication">
+		<condition property="isCSM_DB">
+			<matches pattern="db" string="${csm.authentication.type}" />
+		</condition>
+		<condition property="isCSM_LDAP">
+			<matches pattern="ldap" string="${csm.authentication.type}" />
+		</condition>
+		<echo> isCSM_DB="${isCSM_DB}" </echo>
+		<echo> isCSM_LDAP="${isCSM_LDAP}" </echo>
 	</target>
 	<!-- check DB type -->
 	<target name="check.database.type" description="check if we are build for Oracle or mySQL">
@@ -433,47 +452,22 @@
 			<matches pattern="oracle" string="${db.type}" />
 		</condition>
 		<echo> isMySQL="${isMySQL}" </echo>
+		<echo> isOracle="${isOracle}" </echo>
 	</target>
-	<!-- check DB type -->
+	<!-- configure DB type -->
 	<target name="configure.database.type.asMySQL" depends="check.database.type" if="isMySQL" description="configure the build for MySQL">
-		<echo message="Configures CSM Data Source as mySQL" />
+		<echo message="Configures Data Source as mySQL" />
 		<property name="DB_DIALECT" value="${db.dialect.mysql}" />
 		<property name="DB_DRIVER_CLASS" value="${db.jdbcRuntimeDriver.mysql}" />
 		<property name="DB_EXCEPTION_SORTER_CLASS" value="${db.exception.sorter.class.mysql}" />
 	</target>
 	<target name="configure.database.type.asOracle" depends="check.database.type" unless="isMySQL" description="configure the build for Oracle">
-		<echo message="Configures CSM Data Source as Oracle" />
+		<echo message="Configures Data Source as Oracle" />
 		<property name="DB_DIALECT" value="${db.dialect.oracle}" />
 		<property name="DB_DRIVER_CLASS" value="${db.jdbcRuntimeDriver.oracle}" />
 		<property name="DB_EXCEPTION_SORTER_CLASS" value="${db.exception.sorter.class.oracle}" />
 	</target>
-	<!-- Configures CSM Data Source for mySQL or Oracle -->
-	<target name="configure.csm.data.source.type" description="Configures Data Source for mySQL or Oracle">
-		<delete file="${artifacts.dir}/{$module_name}-ds-csm.xml" />
-		<copy file="conf/ds.xml.template" tofile="${artifacts.dir}/{$module_name}-ds-csm.xml" />
-		<replaceregexp file="${artifacts.dir}/{$module_name}-ds-csm.xml" match="@DATASOURCE_JNDI@" replace="${csm.jndi.connection.datasource}" flags="g" />
-		<replaceregexp file="${artifacts.dir}/{$module_name}-ds-csm.xml" match="@DB_CONNECTION_URL@" replace="${csm.urlDbalias}" flags="g" />
-		<replaceregexp file="${artifacts.dir}/{$module_name}-ds-csm.xml" match="@DB_USERNAME@" replace="${csm.databaseUser}" flags="g" />
-		<replaceregexp file="${artifacts.dir}/{$module_name}-ds-csm.xml" match="@DB_PASSWORD@" replace="${csm.databasePassword}" flags="g" />
-		<if>
-			<equals arg1="${db.type}" arg2="mysql" />
-			<then>
-				<replaceregexp file="${artifacts.dir}/{$module_name}-ds-csm.xml" match="@DRIVER_CLASS@" replace="${db.jdbcRuntimeDriver.mysql}" flags="g" />
-				<replaceregexp file="${artifacts.dir}/{$module_name}-ds-csm.xml" match="@EXCEPTION_SORTER_CLASS@" replace="${db.exception.sorter.class.mysql}" flags="g" />
-			</then>
-			<elseif>
-				<equals arg1="${db.type}" arg2="oracle" />
-				<then>
-					<replaceregexp file="${artifacts.dir}/{$module_name}-ds-csm.xml" match="@ORACLE_DRIVER_CLASS@" replace="${db.jdbcRuntimeDriver.oracle}" flags="g" />
-					<replaceregexp file="${artifacts.dir}/{$module_name}-ds-csm.xml" match="@EXCEPTION_SORTER_CLASS@" replace="${db.exception.sorter.class.oracle}" flags="g" />
-				</then>
-			</elseif>
-			<else>
-				<replaceregexp file="${artifacts.dir}/{$module_name}-ds-csm.xml" match="@DRIVER_CLASS@" replace="${db.jdbcRuntimeDriver.mysql}" flags="g" />
-				<replaceregexp file="${artifacts.dir}/{$module_name}-ds-csm.xml" match="@EXCEPTION_SORTER_CLASS@" replace="${db.exception.sorter.class.mysql}" flags="g" />
-			</else>
-		</if>
-	</target>
+
 	<!-- Configures App Data Source -->
 	<target name="configure.data.source" depends="configure.database.type.asMySQL, configure.database.type.asOracle" description="Configures Data Source for mySQL or Oracle">
 		<delete file="${artifacts.dir}/${module_name}-ds.xml" />
