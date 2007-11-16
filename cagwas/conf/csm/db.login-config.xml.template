@@ -1,0 +1,11 @@
+    <application-policy name="@DB_JNDI_CONNECTION@">
+	 <authentication>
+        <login-module code = "gov.nih.nci.security.authentication.loginmodules.RDBMSLoginModule" flag = "required" >
+         <module-option name="driver">@DB_DRIVER_CLASS@</module-option>
+         <module-option name="url">@DB_CONNECTION_URL@</module-option>
+         <module-option name="user">@DB_USERNAME@</module-option> <module-option name="passwd">@DB_PASSWORD@</module-option>
+         <module-option name="query">SELECT * FROM csm_user WHERE login_name=? and password=?</module-option>
+         <module-option name="encryption-enabled">YES</module-option>
+        </login-module>
+      </authentication>
+    </application-policy>
