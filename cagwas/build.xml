@@ -320,7 +320,10 @@
 		<delete file="${artifacts.dir}/${module_name}-csm-ds.xml" />
 		<copy file="conf/ds.xml.template" tofile="${artifacts.dir}/${module_name}-csm-ds.xml">
 				<filterset begintoken="@" endtoken="@">
-					<filter token="DB_JNDI_CONNECTION" value="${csm.jndi.connection}" />
+					<filter token="DB_TYPE" value="${DB_TYPE}" />
+					<filter token="DB_URL" value="${csm.databaseServerURL}" />
+					<filter token="DB_PORT" value="${csm.databaseServerPort}" />
+					<filter token="DB_SCHEMA_NAME" value="${csm.databaseSchemaNam}" />
 					<filter token="DB_DIALECT" value="${DB_DIALECT}" />
 					<filter token="DB_CONNECTION_URL" value="${csm.urlDbalias}" />
 					<filter token="DB_USERNAME" value="${csm.databaseUser}" />
@@ -337,10 +340,13 @@
 		<copy file="conf/csm/db.login-config.xml.template" tofile="${artifacts.dir}/login-config.xml" >
 				<filterset begintoken="@" endtoken="@">
 					<filter token="MODULE_NAME" value="${module_name}" />
-					<filter token="DB_CONNECTION_URL" value="${csm.urlDbalias}" />
+					<filter token="DB_TYPE" value="${DB_TYPE}" />
+					<filter token="DB_URL" value="${csm.databaseServerURL}" />
+					<filter token="DB_PORT" value="${csm.databaseServerPort}" />
+					<filter token="DB_SCHEMA_NAME" value="${csm.databaseSchemaNam}" />
 					<filter token="DB_USERNAME" value="${csm.databaseUser}" />
 					<filter token="DB_PASSWORD" value="${csm.databasePassword}" />
-					<filter token="DB_DRIVER_CLASS" value="${DB_DRIVER_CLASS}" />
+					<filter token="DB_DRIVER_CLASS" value="${DB_DRIVER_CLASS}" />					
 				</filterset>
 		</copy>	
 	</target>
@@ -460,12 +466,15 @@
 		<property name="DB_DIALECT" value="${db.dialect.mysql}" />
 		<property name="DB_DRIVER_CLASS" value="${db.jdbcRuntimeDriver.mysql}" />
 		<property name="DB_EXCEPTION_SORTER_CLASS" value="${db.exception.sorter.class.mysql}" />
+		<property name="DB_TYPE" value="${db.type}:"/>
+
 	</target>
 	<target name="configure.database.type.asOracle" depends="check.database.type" unless="isMySQL" description="configure the build for Oracle">
 		<echo message="Configures Data Source as Oracle" />
 		<property name="DB_DIALECT" value="${db.dialect.oracle}" />
 		<property name="DB_DRIVER_CLASS" value="${db.jdbcRuntimeDriver.oracle}" />
 		<property name="DB_EXCEPTION_SORTER_CLASS" value="${db.exception.sorter.class.oracle}" />
+		<property name="DB_TYPE" value="${db.type}:thin:@"/>
 	</target>
 
 	<!-- Configures App Data Source -->
@@ -473,7 +482,10 @@
 		<delete file="${artifacts.dir}/${module_name}-ds.xml" />
 		<copy file="conf/ds.xml.template" tofile="${artifacts.dir}/${module_name}-ds.xml">
 			<filterset begintoken="@" endtoken="@">
-				<filter token="DB_JNDI_CONNECTION" value="${cagwas.jndi.connection}" />
+				<filter token="DB_TYPE" value="${DB_TYPE}" />
+				<filter token="DB_URL" value="${cagwas.databaseServerURL}" />
+				<filter token="DB_PORT" value="${cagwas.databaseServerPort}" />
+				<filter token="DB_SCHEMA_NAME" value="${cagwas.databaseSchemaNam}" />
 				<filter token="DB_DIALECT" value="${DB_DIALECT}" />
 				<filter token="DB_CONNECTION_URL" value="${cagwas.urlDbalias}" />
 				<filter token="DB_USERNAME" value="${cagwas.databaseUser}" />
