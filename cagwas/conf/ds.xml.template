@@ -4,7 +4,7 @@
 <!--                                                                       -->
 <!-- ===================================================================== -->
 
-<!-- $Id: ds.xml.template,v 1.2 2007-11-17 12:04:01 sahnih Exp $           -->
+<!-- $Id: ds.xml.template,v 1.3 2007-11-19 12:14:07 sahnih Exp $           -->
 <!-- ====================================================================  -->
 <!--  Datasource config                                                    -->
 <!-- ====================================================================  -->
@@ -12,7 +12,7 @@
   <local-tx-datasource>
                <jndi-name>@DB_JNDI_CONNECTION@</jndi-name>
                <!-- [jdbc: url for use with Driver class]-->
-               <connection-url>jdbc:@DB_TYPE@@DB_URL@:@DB_PORT@:@DB_SCHEMA_NAME@</connection-url>
+               <connection-url>jdbc:@DB_TYPE@@DB_URL@:@DB_PORT@@DB_SCHEMA_SEPERATOR@@DB_SCHEMA_NAME@</connection-url>
                <user-name>@DB_USERNAME@</user-name>
                <password>@DB_PASSWORD@</password>
                <!-- [fully qualified class name of java.sql.Driver implementation] -->
