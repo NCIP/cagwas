@@ -35,19 +35,6 @@
 		<equals arg1="${DEPLOY.LOCATION}" arg2="remote" />
 	</condition>
 
-	<filter token="CADSR.DS.URL" value="${CADSR.DS.URL}" />
-	<filter token="CADSR.DS.USER" value="${CADSR.DS.USER}" />
-	<filter token="CADSR.DS.PSWD" value="${CADSR.DS.PSWD}" />
-	<filter token="TEST.VALID.USER" value="${TEST.VALID.USER}" />
-	<filter token="TEST.VALID.PSWD" value="${TEST.VALID.PSWD}" />
-	<filter token="TEST.BAD.USER" value="${TEST.BAD.USER}" />
-	<filter token="TEST.BAD.PSWD" value="${TEST.BAD.PSWD}" />
-	<filter token="TIER" value="${TIER}" />
-	<filter token="TIER.UPPER" value="${TIER.UPPER}" />
-	<filter token="TIER.NAME" value="${TIER.NAME}" />
-	<filter token="WEBLOG.DIR" value="${WEBLOG.DIR}" />
-
-
 
 	<!--
 	TARGET: build_war
@@ -321,9 +308,10 @@
 		<copy file="conf/ds.xml.template" tofile="${artifacts.dir}/${module_name}-csm-ds.xml">
 				<filterset begintoken="@" endtoken="@">
 					<filter token="DB_TYPE" value="${DB_TYPE}" />
+					<filter token="DB_JNDI_CONNECTION" value="${csm.jndi.connection}" />
 					<filter token="DB_URL" value="${csm.databaseServerURL}" />
 					<filter token="DB_PORT" value="${csm.databaseServerPort}" />
-					<filter token="DB_SCHEMA_NAME" value="${csm.databaseSchemaNam}" />
+					<filter token="DB_SCHEMA_NAME" value="${csm.databaseSchemaName}" />
 					<filter token="DB_DIALECT" value="${DB_DIALECT}" />
 					<filter token="DB_CONNECTION_URL" value="${csm.urlDbalias}" />
 					<filter token="DB_USERNAME" value="${csm.databaseUser}" />
@@ -343,7 +331,7 @@
 					<filter token="DB_TYPE" value="${DB_TYPE}" />
 					<filter token="DB_URL" value="${csm.databaseServerURL}" />
 					<filter token="DB_PORT" value="${csm.databaseServerPort}" />
-					<filter token="DB_SCHEMA_NAME" value="${csm.databaseSchemaNam}" />
+					<filter token="DB_SCHEMA_NAME" value="${csm.databaseSchemaName}" />
 					<filter token="DB_USERNAME" value="${csm.databaseUser}" />
 					<filter token="DB_PASSWORD" value="${csm.databasePassword}" />
 					<filter token="DB_DRIVER_CLASS" value="${DB_DRIVER_CLASS}" />					
@@ -354,7 +342,7 @@
 		<echo message="Configuring configure.login-config.asLDAP" />
 		<delete file="${artifacts.dir}/login-config.xml" />
 		<copy file="conf/csm/ldap.login-config.xml.template" tofile="${artifacts.dir}/login-config.xml" />
-		<replaceregexp file="${artifacts.dir}/login-config.xml" match="@MODULE_NAME@" replace="${csm.jndi.connection}" flags="g" />
+		<replaceregexp file="${artifacts.dir}/login-config.xml" match="@MODULE_NAME@" replace="${module_name}" flags="g" />
 		<replaceregexp file="${artifacts.dir}/login-config.xml" match="@LDAP_HOST@" replace="${ldap.provider.url}" flags="g" />
 		<replaceregexp file="${artifacts.dir}/login-config.xml" match="@LDAP_CONTEXT@" replace="${ldap.context}" flags="g" />
 	</target>
@@ -483,9 +471,10 @@
 		<copy file="conf/ds.xml.template" tofile="${artifacts.dir}/${module_name}-ds.xml">
 			<filterset begintoken="@" endtoken="@">
 				<filter token="DB_TYPE" value="${DB_TYPE}" />
+				<filter token="DB_JNDI_CONNECTION" value="${cagwas.jndi.connection}" />
 				<filter token="DB_URL" value="${cagwas.databaseServerURL}" />
 				<filter token="DB_PORT" value="${cagwas.databaseServerPort}" />
-				<filter token="DB_SCHEMA_NAME" value="${cagwas.databaseSchemaNam}" />
+				<filter token="DB_SCHEMA_NAME" value="${cagwas.databaseSchemaName}" />
 				<filter token="DB_DIALECT" value="${DB_DIALECT}" />
 				<filter token="DB_CONNECTION_URL" value="${cagwas.urlDbalias}" />
 				<filter token="DB_USERNAME" value="${cagwas.databaseUser}" />
