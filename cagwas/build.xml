@@ -134,7 +134,7 @@
 		</javac>
 	</target>
 
-	<target name="build-all" depends="init, clean, -filter">
+	<target name="build-all" depends="init,  -filter">
 		<delete dir="${build.classes.dir}" failonerror="false" />
 		<delete file="${module_name}.war" failonerror="false" />
 		<delete file="${webapp.classes.dir}/cagwasResources.properties" failonerror="false" />
