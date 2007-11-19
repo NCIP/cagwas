@@ -43,6 +43,8 @@
 	<property name="src" value="./src" />
 	<property name="lib" value="./WebRoot/WEB-INF/lib" />
 	<property name="classes" value="./WebRoot/WEB-INF/classes" />
+	<property name="cagwas.jndi.connection" value="cagwas-app" />
+	<property name="csm.jndi.connection" value="cagwas" />
 
 	<!-- Class to  run for the framework integration tests -->
 	<property name="test.class.name" value="gov.nih.nci.cagwas.test.integration.CagwasIntegrationTestSuite" />
@@ -329,6 +331,7 @@
 		<copy file="conf/csm/db.login-config.xml.template" tofile="${artifacts.dir}/login-config.xml" >
 				<filterset begintoken="@" endtoken="@">
 					<filter token="MODULE_NAME" value="${module_name}" />
+					<filter token="DB_SCHEMA_SEPERATOR" value="${DB_SCHEMA_SEPERATOR}" />
 					<filter token="DB_TYPE" value="${DB_TYPE}" />
 					<filter token="DB_URL" value="${csm.databaseServerURL}" />
 					<filter token="DB_PORT" value="${csm.databaseServerPort}" />
