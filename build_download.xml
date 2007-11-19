@@ -1,4 +1,4 @@
-<project name="cagwas" default="build_zip_file" basedir=".">
+<project name="cagwas" default="anthill_zip_file" basedir=".">
 	<property file="build.properties" />
 
 	<!--
@@ -53,7 +53,9 @@
 					</zipfileset>
 					<zipfileset dir="${build.conf.dir}" prefix="${project_name}/${build.conf.dir}"/>
 					<zipfileset dir="${build.docs.dir}" prefix="${project_name}/${build.docs.dir}"/>
-						
+					<zipfileset dir="${not.deployed.jarFiles}" prefix="${project_name}/${not.deployed.jarFiles}">
+						<include name="xmltask-v1.15.1.jar" />
+					</zipfileset>
 					<zipfileset dir="." prefix="${project_name}/.">
 						<include name="build.xml" />
 						<include name="build.properties" />
