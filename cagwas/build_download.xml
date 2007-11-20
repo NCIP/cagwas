@@ -1,51 +1,16 @@
-<project name="cagwas" default="anthill_zip_file" basedir=".">
+<project name="cagwas" default="build_zip" basedir=".">
 	<property file="build.properties" />
 
 	<!--
 	TARGET: Zip
 		Zip the source code and compiled caintegrator-analysis-commons.jar,caintegrator-applications-commons.jar,caintegrator-spec.jar, 
 	-->
-	<target name="build_zip_file">
-		<delete file="${module_name}.zip" />
-		<zip destfile="${module_name}.zip">
-			<zipfileset dir="${build.source.dir}" prefix="${project_name}/${build.source.dir}" />
-			<zipfileset dir="${webapp.dir}" prefix="${project_name}/${webapp.dir}">
-				<exclude name="*/classes/**" />
-			</zipfileset>
-			<zipfileset dir="${webapp.lib.dir}" prefix="${project_name}/${webapp.lib.dir}">
-				<include name="*.jar" />
-				<include name="readme.txt" />
-				</zipfileset>
-			<zipfileset dir="${not.deployed.jarFiles}" prefix="${project_name}/${not.deployed.jarFiles}">
-				<include name="*.jar" />
-			</zipfileset>
-			<zipfileset dir="${build.conf.dir}" prefix="${project_name}/${build.conf.dir}"/>
-			<zipfileset dir="${build.docs.dir}" prefix="${project_name}/${build.docs.dir}"/>
-				
-			<zipfileset dir="." prefix="${project_name}/.">
-				<include name="build.xml" />
-				<include name="build.properties" />
-				<include name="mailzip.properties" />
-				<include name="${module_name}.jar" />
-			</zipfileset>
-			<zipfileset dir="${dependency.artifacts.dir}" prefix="${project_name}/${webapp.lib.dir}">
-				<include name="*caintegrator-analysis-commons.jar" />
-			</zipfileset>
-			<zipfileset dir="${dependency.artifacts.dir}" prefix="${project_name}/${webapp.lib.dir}">
-				<include name="*caintegrator-application-commons.jar" />
-			</zipfileset>
-			<zipfileset dir="${dependency.artifacts.dir}" prefix="${project_name}/${webapp.lib.dir}">
-				<include name="*caintegrator-spec.jar" />
-			</zipfileset>
-			<zipfileset dir="${dependency.artifacts.dir}" prefix="${project_name}/${dependency.artifacts.dir}"/>
-			</zip>
-	</target>
 	
 	<target name="-build_war">
 		<ant antfile="build.xml" target="build-all"/>
 	</target>
 
-	<target name="anthill_zip_file" depends="-build_war">
+	<target name="build_zip" depends="-build_war">
 		<delete file="${module_name}.zip" />
 				<zip destfile="${module_name}.zip">
 					<zipfileset dir="${artifacts.dir}" prefix="${project_name}/${artifacts.dir}">
