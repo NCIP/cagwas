@@ -56,6 +56,7 @@ remote.study1=@remote.study1@
 remote.study2=@remote.study2@
 remote.glossary=@remote.glossary@
 remote.contacts=@remote.contacts@
+remote.policies=@remote.policies@
 remote.cite=@remote.cite@
 remote.citeExample=@remote.citeExample@
 remote.access=@remote.access@
