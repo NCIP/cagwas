@@ -83,6 +83,18 @@ public class RemoteSetupAction extends Action
 			else
 				forward = mapping.findForward("ploneError");
 		}
+		else if ((content != null) && (content.equalsIgnoreCase("policies")))
+		{
+			remoteContent = rcHelp.getRemoteContent("remote.policies");
+			
+			if (remoteContent != null)
+			{
+				request.setAttribute("policiesContent", remoteContent);
+				forward = mapping.findForward("policies");
+			}
+			else
+				forward = mapping.findForward("ploneError");
+		}
 		else if ((content != null) && (content.equalsIgnoreCase("cite")))
 		{
 			remoteContent = rcHelp.getRemoteContent("remote.cite");

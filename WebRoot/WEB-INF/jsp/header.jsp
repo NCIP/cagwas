@@ -28,7 +28,7 @@
 		   { %>
 		<!-- Utility Nav  -->
 		<div id="nav_util">
-			<a href="/<bean:message key="href.home"/>">Home</a> | <a href="login.jsp">Login</a> | <a href="remoteSetup.do?content=contacts">Contact Us</a> |	Visit the <a href="http://<bean:message key="href.home"/>.cancer.gov" target="_blank" class="util_nav_link"><strong><bean:message key="project.title"/> Home Site</strong></a>	
+			<a href="/<bean:message key="href.home"/>">Home</a> | <a href="login.jsp">Login</a> | <a href="remoteSetup.do?content=contacts">Contact Us</a> |	Visit the <a href="http://<bean:message key="external.study.url"/>" target="_blank" class="util_nav_link"><strong><bean:message key="project.title"/> Home Site</strong></a>	
 		</div>
 		<!-- END Utility Nav  -->
 		<img src="images/study_header.jpg" alt="<bean:message key="project.title"/> Banner/Your study logo" border="0" usemap="#studyheader" class="main_header" /><img src="images/logo_header.jpg" alt="<bean:message key="project.title"/> Banner/Related logo" border="0" usemap="#logoheader" class="main_header" />
