@@ -1,8 +1,7 @@
 package gov.nih.nci.cagwas.web.action;
 
-import gov.nih.nci.caintegrator.application.util.URLChecker;
 import gov.nih.nci.cagwas.application.zip.ZipFindingsHelper;
-
+import gov.nih.nci.cagwas.web.action.RemoteContentHelper;
 import java.io.FileInputStream;
 import java.util.Properties;
 
@@ -45,16 +44,19 @@ public class GetRemotePDFAction extends Action
 		mailProperties.load(in);
 		
 		String remoteUrl = mailProperties.getProperty("remote.url");
+		String remoteContent = null;
+		RemoteContentHelper rcHelp = new RemoteContentHelper();
+		remoteContent = rcHelp.getRemoteContent(remoteUrl + "/" + pdfFilename);
 		
-		if (URLChecker.exists(remoteUrl))
+		if (remoteContent != null)
 		{
 			forward = new ActionForward();
 			forward.setPath(remoteUrl + "/" + pdfFilename);
 			forward.setRedirect(true);
 		}
-		else
+		else{
 			forward = mapping.findForward("ploneError");
-		
+		}
 		return forward;
 	}
 
