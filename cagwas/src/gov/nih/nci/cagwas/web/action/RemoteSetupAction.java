@@ -155,7 +155,20 @@ public class RemoteSetupAction extends Action
 			else
 				forward = mapping.findForward("ploneError");
 		}
-		
+		else if ((content != null) && (content.equalsIgnoreCase("studyHome")))
+		{
+			remoteContent = rcHelp.getProperty("remote.study.url");
+			
+			if (remoteContent != null)
+			{
+				forward = new ActionForward();
+				forward.setPath(remoteContent);
+				forward.setRedirect(true);
+			}
+			else{
+				forward = mapping.findForward("ploneError");
+			}
+		}
 		return forward;
 	}
 
