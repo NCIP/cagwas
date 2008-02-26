@@ -48,10 +48,10 @@ feedback.features=@feedback.features@
 feedback.template=You have received new feedback from a user.\n\nGeneral Feedback:\n{0}\n\nUsed Most:\n{1}\n\nUsed Least:\n{2} 
 
 
-#your_study_site_url example: http://cgems.cancer.gov
+#remote.study.url example: http://cgems.cancer.gov
+remote.study.url=@remote.study.url@ 
 
 # Remote Plone Documents or localhost 
-remote.study.url=@your_study_site_url@   
 remote.url=@remote.url@
 remote.about=@remote.about@
 remote.update=@remote.update@
