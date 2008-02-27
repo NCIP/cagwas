@@ -9,11 +9,11 @@
 	    </classpath>
 	</taskdef>
 	<selenese 
-	    suite="test\selenium\cagwasTestSuite.html"
+	    suite="test\selenium\QA_cagwasTestSuite.html"
 	    browser="${browser}"
 	    results="${result_file}"
 	    multiWindow="false"
-	    timeoutInSeconds="120"
+	    timeoutInSeconds="200"
 		port="${server_port}"
 	    startURL="${test_url}"  />	
 </project>
