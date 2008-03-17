@@ -50,23 +50,23 @@ a {
 <table>
 <tr>
 <td>result:</td>
-<td>passed</td>
+<td>failed</td>
 </tr>
 <tr>
 <td>totalTime:</td>
-<td>3</td>
-</tr>
-<tr>
-<td>numTestPasses:</td>
-<td>1</td>
-</tr>
-<tr>
-<td>numTestFailures:</td>
 <td>0</td>
 </tr>
 <tr>
-<td>numCommandPasses:</td>
+<td>numTestPasses:</td>
+<td>0</td>
+</tr>
+<tr>
+<td>numTestFailures:</td>
 <td>1</td>
+</tr>
+<tr>
+<td>numCommandPasses:</td>
+<td>0</td>
 </tr>
 <tr>
 <td>numCommandFailures:</td>
@@ -74,7 +74,7 @@ a {
 </tr>
 <tr>
 <td>numCommandErrors:</td>
-<td>0</td>
+<td>1</td>
 </tr>
 <tr>
 <td>Selenium Version:</td>
@@ -87,27 +87,39 @@ a {
 <tr>
 <td><table>
 
-	<tbody><tr class="title status_passed">
+	<tbody><tr class="title status_failed">
 		<td>
 			Test suite for the CaGWAS application
 		</td>
 	</tr>
-	<tr class="status_passed">
+	
+	<tr class="status_failed">
 		<td>
 			<a href="#testresult0">Search Association</a>
 		</td>
 	</tr>
-<!--
+	<!--
+	<tr>
+		<td>
+			<a href="QA_tests/QA_baseline_SearchAssoc.html">Search Association</a>
+		</td>
+	</tr>
+-->
+<!-- works partly -some issues
 	<tr>
 		<td>
 			<a href="QA_tests/QA_baseline_UI_tests.html">General UI</a>
 		</td>
 	</tr>
+-->	
+	<!--
 	<tr>
 		<td>
 			<a href="QA_tests/QA_baseline_PopulationFreq.html">Population Frequency</a>
 		</td>
 	</tr>
+	-->
+	<!--
 	<tr>
 		<td>
 			<a href="QA_tests/QA_baseline_AccessControl.html">Login and Study Access Control</a>
@@ -152,44 +164,104 @@ a {
 <td>&nbsp;</td>
 </tr>
 </table><table><tr>
-<td><a name="testresult0">QA_tests/QA_baseline_SearchAssoc.html</a><br/><div>
+<td><a name="testresult0">QA_tests/cagwas-all-links.html</a><br/><div>
 <table border="1" cellpadding="1" cellspacing="1">
 <thead>
-<tr class="title status_passed"><td rowspan="1" colspan="3">QA_baseline_SearchAssoc</td></tr>
+<tr class="title status_failed"><td rowspan="1" colspan="3">cagwas-all-links</td></tr>
 </thead><tbody>
 <tr class="status_done" style="cursor: pointer;">
 	<td>open</td>
 	<td>/cagwas/</td>
 	<td></td>
 </tr>
-<tr class="status_done" style="cursor: pointer;">
+<tr class="status_failed" style="cursor: pointer;">
+	<td>clickAndWait</td>
+	<td>link=About caGWAS Data</td>
+	<td>Element&nbsp;link=About&nbsp;caGWAS&nbsp;Data&nbsp;not&nbsp;found</td>
+</tr>
+<tr class="" style="cursor: pointer;">
 	<td>clickAndWait</td>
 	<td>link=Browse Data</td>
 	<td></td>
 </tr>
-<tr class="status_done" style="cursor: pointer;">
-	<td>select</td>
-	<td>studyName</td>
-	<td>label=GWAS STUDY I</td>
+<tr class="" style="cursor: pointer;">
+	<td>clickAndWait</td>
+	<td>link=Bulk Data Downloads</td>
+	<td></td>
 </tr>
-<tr class="status_done" style="cursor: pointer;">
+<tr class="" style="cursor: pointer;">
+	<td>clickAndWait</td>
+	<td>link=Cite Data</td>
+	<td></td>
+</tr>
+<tr class="" style="cursor: pointer;">
+	<td>clickAndWait</td>
+	<td>link=Data Access</td>
+	<td></td>
+</tr>
+<tr class="" style="cursor: pointer;">
+	<td>clickAndWait</td>
+	<td>link=Home</td>
+	<td></td>
+</tr>
+<tr class="" style="cursor: pointer;">
+	<td>clickAndWait</td>
+	<td>link=Login</td>
+	<td></td>
+</tr>
+<tr class="" style="cursor: pointer;">
+	<td>clickAndWait</td>
+	<td>link=Contact Us</td>
+	<td></td>
+</tr>
+<tr class="" style="cursor: pointer;">
 	<td>click</td>
-	<td>//option[@value='GWAS STUDY I']</td>
+	<td>//strong</td>
 	<td></td>
 </tr>
-<tr class="status_done" style="cursor: pointer;">
+<tr class="" style="cursor: pointer;">
+	<td>click</td>
+	<td>//area[2]</td>
+	<td></td>
+</tr>
+<tr class="" style="cursor: pointer;">
+	<td>click</td>
+	<td>//area[3]</td>
+	<td></td>
+</tr>
+<tr class="" style="cursor: pointer;">
 	<td>clickAndWait</td>
-	<td>//input[@value='Submit']</td>
+	<td>//div[6]/div[2]/a[1]</td>
 	<td></td>
 </tr>
-<tr class="status_done" style="cursor: pointer;">
+<tr class="" style="cursor: pointer;">
 	<td>clickAndWait</td>
-	<td>//input[@value='Submit']</td>
+	<td>link=Text-Only Version</td>
 	<td></td>
 </tr>
-<tr class="status_passed" style="cursor: pointer;">
-	<td>verifyTextPresent</td>
-	<td>SNP Association Finding Report - (12 results)</td>
+<tr class="" style="cursor: pointer;">
+	<td>clickAndWait</td>
+	<td>//a[3]</td>
+	<td></td>
+</tr>
+<tr class="" style="cursor: pointer;">
+	<td>clickAndWait</td>
+	<td>link=Policies</td>
+	<td></td>
+</tr>
+<tr class="" style="cursor: pointer;">
+	<td>clickAndWait</td>
+	<td>link=Site Map</td>
+	<td></td>
+</tr>
+<tr class="" style="cursor: pointer;">
+	<td>clickAndWait</td>
+	<td>link=About caGWAS Data</td>
+	<td></td>
+</tr>
+<tr class="" style="cursor: pointer;">
+	<td>clickAndWait</td>
+	<td>link=Image Version</td>
 	<td></td>
 </tr>
 
