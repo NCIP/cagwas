@@ -53,7 +53,7 @@ public class SearchAssociationsAction extends Action
 		String studyName = (String)request.getSession().getAttribute("studyName");
 		String studyVersion = (String) request.getSession().getAttribute("studyVersion");
 		Long studyId = (Long)request.getSession().getAttribute("studyId");
-		String caseStudyName = "caGWAS Breast Cancer WGAS (Illumina 550K)";
+		String caseStudyName = "GWAS STUDY III";
 		request.getSession().setAttribute("caseStudyName", caseStudyName);
 		String panelName = (String)assocForm.getPanelName();
 		
