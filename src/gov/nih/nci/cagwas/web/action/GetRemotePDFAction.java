@@ -2,6 +2,8 @@ package gov.nih.nci.cagwas.web.action;
 
 import gov.nih.nci.cagwas.application.zip.ZipFindingsHelper;
 import gov.nih.nci.cagwas.web.action.RemoteContentHelper;
+import gov.nih.nci.caintegrator.application.util.SafeHTMLUtil;
+
 import java.io.FileInputStream;
 import java.util.Properties;
 
@@ -35,7 +37,9 @@ public class GetRemotePDFAction extends Action
 	{
 		ActionForward forward = null;
 		String pdfFilename = request.getParameter("file");
-		
+		if(pdfFilename != null){
+			pdfFilename =  SafeHTMLUtil.clean(pdfFilename);
+		}
 		// Load the properties files
 		Properties mailProperties = new Properties();
 		String fileName = System.getProperty(ZipFindingsHelper.getMailPropertiesFilename());

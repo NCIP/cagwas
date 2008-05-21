@@ -17,8 +17,11 @@ import gov.nih.nci.cagwas.web.form.BrowseForm;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -296,8 +299,12 @@ public class BrowseAction extends Action
         for (String type : methodTypes)
         {
         	Long order = new Long(0);
+        	Double typeOrder = null;
+        	boolean flag=false;
+        	Map map = new TreeMap();
+        	Map mapsorted = new TreeMap();
         	ArrayList<LabelValueBean> methodList = new ArrayList<LabelValueBean>();
-        	
+        	       	
         	// Then get the methods for each type
         	logger.debug("Method type is " + type);
         	Collection<SNPAnalysisMethod> methods = manager.getSNPAnalysisMethods(studyCrit, type);
@@ -306,27 +313,46 @@ public class BrowseAction extends Action
         	{
         		logger.debug("Method name is " + method.getMethodName());
         		logger.debug("Method code is " + method.getRepresensitiveCode());
-        		order = method.getDisplayOrder();
-        		if (method.getMethodName() == null)
+        		logger.debug("Method type order is " + method.getMethodTypeOrder());
+           		order = method.getDisplayOrder();
+           		typeOrder = method.getMethodTypeOrder();
+           		if (method.getMethodName() == null)
         		{
         			sortedMethods.add(0, method);
         			methodList.add(0, new LabelValueBean("", ""));
         		}
         		else
         		{
-        			sortedMethods.add(method);
-        			methodList.add(new LabelValueBean(method.getMethodName(), method.getRepresensitiveCode()));
+        			
+        			//to sort & display in the typeOrder 
+        			if(typeOrder!= null)
+        			{
+        				map.put(typeOrder.intValue(), new LabelValueBean(method.getMethodName(), method.getRepresensitiveCode()));
+        				mapsorted.put(typeOrder.intValue(), method);
+        				flag=true;       				
+        			}
+        			else
+        			{   sortedMethods.add(method);
+        				methodList.add(new LabelValueBean(method.getMethodName(), method.getRepresensitiveCode()));
+        			}
         		}
         	}
+        	    	
+        	if(flag)
+        		{
+        		getSortedMethodList(methodList,map);
+        		getSortedMethods(sortedMethods,mapsorted);
+        		}
         	
-        	// Get the first selection description to set on load
+        	 // Get the first selection description to set on load
         	SNPAnalysisMethod method = sortedMethods.get(0);
-        	request.getSession().setAttribute("methodDesc" + order.toString(), method.getMethodDescription());
-        	
+        	request.getSession().setAttribute("methodDesc" + order.toString(), method.getMethodDescription());	
+        	      	
         	// Store the type, and list of selections and descriptions in the session
         	request.getSession().setAttribute("methodType" + order.toString(), type);
         	request.getSession().setAttribute("methodList" + order.toString(), methodList);
         	request.getSession().setAttribute("methods" + order.toString(), sortedMethods);
+        	
         }
         
         // Then get the analysis description document from the old objects
@@ -497,5 +523,33 @@ public class BrowseAction extends Action
 			request.getSession().setAttribute("study", study.getName()+" Version: "+study.getVersion());
 		}
 	}
-
+	
+	/**
+	 * Get the sorted Method List - ordered by TypeOrder
+	 * @param methodList The sorted methodList
+	 * @param map The map of methodList inserted ordered by TypeOrder
+	 */
+	private void getSortedMethodList(ArrayList methodList,Map map )
+	{
+		Iterator it = map.keySet().iterator();
+		while (it.hasNext()) {
+			Integer obj = (Integer)it.next();
+	    	methodList.add(map.get(obj.intValue()));
+	    }
+	}
+    
+	/**
+	 * Get the sorted Methods- ordered by TypeOrder
+	 * @param sortedMethods The sorted methods
+	 * @param mapsorted The map of methods inserted ordered by TypeOrder
+	 */
+	private void getSortedMethods(ArrayList sortedMethods,Map mapsorted )
+	{
+		Iterator it = mapsorted.keySet().iterator();
+		while (it.hasNext()) {
+			Integer obj = (Integer)it.next();
+			sortedMethods.add(mapsorted.get(obj.intValue()));
+	    }
+	}
+	
 }

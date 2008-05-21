@@ -63,10 +63,14 @@ public class SaveAssociationsAction extends Action
 			// Handle the case study specific case
 			if (studyName.equals(caseStudyName))
 			{
-				out.print(ZipFindingsHelper.getCagwasProperties("table.header.eor")+" "+
+				out.print(ZipFindingsHelper.getCagwasProperties("table.header.or1")+" "+
 						ZipFindingsHelper.getCagwasProperties("table.header.heterozygote.risk")+"\t"+
-						ZipFindingsHelper.getCagwasProperties("table.header.eor")+" "+
-				        ZipFindingsHelper.getCagwasProperties("table.header.homozygote.risk")+"\n");
+						ZipFindingsHelper.getCagwasProperties("table.header.or1")+" "+
+						ZipFindingsHelper.getCagwasProperties("table.header.homozygote.risk")+"\t"+
+						ZipFindingsHelper.getCagwasProperties("table.header.or2")+" "+
+						ZipFindingsHelper.getCagwasProperties("table.header.heterozygote.risk")+"\t"+
+						ZipFindingsHelper.getCagwasProperties("table.header.or2")+" "+
+						ZipFindingsHelper.getCagwasProperties("table.header.homozygote.risk")+"\n");
 			}
 			else
 			{

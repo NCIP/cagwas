@@ -133,6 +133,7 @@ public class SearchAssociationsAction extends Action
 		{
 			// Create the SNPAssociation reports
 			ArrayList<SNPAssociationFindingReport> results = new ArrayList<SNPAssociationFindingReport>();
+			String noOfCategories = null;
 			for(SNPAssociationFinding snpAssociationFinding : findings)
 			{
 	        	if(snpAssociationFinding != null)
@@ -140,6 +141,12 @@ public class SearchAssociationsAction extends Action
 	        		SNPAssociationFindingReport report =
 	        			new SNPAssociationFindingReport(snpAssociationFinding);
 	        		results.add(report);
+	        		if(snpAssociationFinding.getSnpAssociationAnalysis()!= null){//checking if numberofcategories is null
+	        			if(snpAssociationFinding.getSnpAssociationAnalysis().getNumberOfCategories()!=null)
+	        			{	
+	        			 noOfCategories= snpAssociationFinding.getSnpAssociationAnalysis().getNumberOfCategories().toString();
+	        			}
+	        		}
 	        	}
 			}
 			
@@ -153,6 +160,9 @@ public class SearchAssociationsAction extends Action
 			request.setAttribute("numberFindings", results.size());
 			request.setAttribute("sortedColumn", "chromosome");
 			request.setAttribute("sortOrder", "ascending");
+			if(noOfCategories != null){				
+			request.setAttribute("NoOfCategories", noOfCategories);
+			}
 		}
 		
 		// If there were errors then return to the input page else go on

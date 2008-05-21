@@ -14,6 +14,7 @@
 		String studyName = (String)request.getSession().getAttribute("studyName");
 		String caseStudyName = (String)request.getSession().getAttribute("caseStudyName");
 		String panel = (String)session.getAttribute("assoc.panel");
+		String noOfCategories = (String)request.getAttribute("NoOfCategories");
 if (panel != null)
 {%>
 	<h3 align="left">Panel: <% out.println(panel); %></h3>
@@ -111,18 +112,16 @@ else
 			<th><a href="sortAssociations.do?column=rank&order=ascending"><bean:message key="table.header.rank"/></a></th>
 		<% } %>
 		
-		<% if (studyName.equals(caseStudyName))
+		<% if (noOfCategories != null && noOfCategories.equals("2"))
 		{%>
-			<th colspan="2"><bean:message key="table.header.eor"/></th>
-		<%}
-		else
-		{%>
+			<th colspan="2"><bean:message key="table.header.eor"/></th>		
+		<%} else{%>
 			<th colspan="2"><bean:message key="table.header.nonaggressive"/></th>
 			<th colspan="2"><bean:message key="table.header.aggressive"/></th>
-		<%}%>
+		<% }%>
 	</tr>
 	<tr id="searchAssocTableHeader">
-	<% if (studyName.equals(caseStudyName))
+	<% if (noOfCategories != null && noOfCategories.equals("2"))
 	{%>
 		<th colspan="7"></th>
 		<th><bean:message key="table.header.heterozygote.risk"/></th>
@@ -159,17 +158,37 @@ else
 			<td><bean:write name="result" property="snpAssociationAnalysisName"/></td>
 			<td><bean:write name="result" property="pvalue"/></td>
 			<td><bean:write name="result" property="rank"/></td>
-			<% if (studyName.equals(caseStudyName))
+			
+			<% if (noOfCategories != null && noOfCategories.equals("2"))
 			{%>
-				<td><bean:write name="result" property="caseHeterozygote"/></td>
-				<td><bean:write name="result" property="caseHomozygote"/></td>
+				<td>
+				<bean:write name="result" property="caseHeterozygote"/>
+				<bean:write name="result" property="caseHeterozygoteConfidence"/>
+				</td>
+				<td>
+				<bean:write name="result" property="caseHomozygote"/>
+				<bean:write name="result" property="caseHomozygoteConfidence"/>
+				</td>
 			<%}
 			else
 			{%>
-				<td><bean:write name="result" property="nonaggressiveHeterozygote"/></td>
-				<td><bean:write name="result" property="nonaggressiveHomozygote"/></td>
-				<td><bean:write name="result" property="aggressiveHeterozygote"/></td>
-				<td><bean:write name="result" property="aggressiveHomozygote"/></td>
+				<td>
+					<bean:write name="result" property="nonaggressiveHeterozygote"/>
+					<bean:write name="result" property="nonaggressiveHeterozygoteConfidence"/>	
+				</td>
+				<td>
+					<bean:write name="result" property="nonaggressiveHomozygote"/>
+					<bean:write name="result" property="nonaggressiveHomozygoteConfidence"/>	
+				</td>
+				<td>
+					<bean:write name="result" property="aggressiveHeterozygote"/>
+					<bean:write name="result" property="aggressiveHeterozygoteConfidence"/>
+				
+				</td>
+				<td>
+					<bean:write name="result" property="aggressiveHomozygote"/>
+					<bean:write name="result" property="aggressiveHomozygoteConfidence"/>
+				</td>
 			<%}%>
 		</tr>
 	</logic:iterate>
