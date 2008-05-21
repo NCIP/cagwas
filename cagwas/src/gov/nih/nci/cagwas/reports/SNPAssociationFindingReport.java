@@ -20,6 +20,8 @@ public class SNPAssociationFindingReport implements Comparable
 	private static final String CASE_VS_CONTROL = "CASE_VS_CONTROL";
 	private static final String AGGRESSIVE_VS_CONTROL = "AGGRESSIVE_VS_CONTROL";
 	private static final String NON_AGGRESSIVE_VS_CONTROL = "NON_AGGRESSIVE_VS_CONTROL";
+	private static final String OR1 = "OR1";
+	private static final String OR2 = "OR2";
 	private SNPAssociationFinding snpAssociationFinding = null;
 	private String nonBlankWhiteSpace = " "; //default
 	private SNPAnnotation snpAnnotation = null;
@@ -105,7 +107,9 @@ public class SNPAssociationFindingReport implements Comparable
 	public String getNonaggressiveHomozygote() {
 		if(oddsRatioCollection != null){
 			for(OddsRatio oddsRatio:oddsRatioCollection){
-				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(NON_AGGRESSIVE_VS_CONTROL)){
+				if(oddsRatio.getName()!= null && 
+						oddsRatio.getName().equals(NON_AGGRESSIVE_VS_CONTROL)||
+						oddsRatio.getName().equals(OR1)){
 					return (oddsRatio.getHomozygoteOddsRatio() != null  ?
 							oddsRatio.getHomozygoteOddsRatio().toString():
 								nonBlankWhiteSpace)	;
@@ -124,8 +128,9 @@ public class SNPAssociationFindingReport implements Comparable
 	public String getNonaggressiveHeterozygote() {
 		if(oddsRatioCollection != null){
 			for(OddsRatio oddsRatio:oddsRatioCollection){
-				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(NON_AGGRESSIVE_VS_CONTROL))
-				{
+				if(oddsRatio.getName()!= null && 
+						oddsRatio.getName().equals(NON_AGGRESSIVE_VS_CONTROL)||
+						oddsRatio.getName().equals(OR1)){
 					return (oddsRatio.getHeterozygoteOddsRatio() != null  ?
 							oddsRatio.getHeterozygoteOddsRatio().toString():
 								nonBlankWhiteSpace)	;
@@ -144,7 +149,9 @@ public class SNPAssociationFindingReport implements Comparable
 	public String getAggressiveHomozygote() {
 		if(oddsRatioCollection != null){
 			for(OddsRatio oddsRatio:oddsRatioCollection){
-				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(AGGRESSIVE_VS_CONTROL)){
+				if(oddsRatio.getName()!= null &&
+						oddsRatio.getName().equals(AGGRESSIVE_VS_CONTROL)||
+						oddsRatio.getName().equals(OR2)){
 					return (oddsRatio.getHomozygoteOddsRatio() != null  ?
 							oddsRatio.getHomozygoteOddsRatio().toString():
 								nonBlankWhiteSpace)	;
@@ -163,7 +170,8 @@ public class SNPAssociationFindingReport implements Comparable
 	public String getAggressiveHeterozygote() {
 		if(oddsRatioCollection != null){
 			for(OddsRatio oddsRatio:oddsRatioCollection){
-				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(AGGRESSIVE_VS_CONTROL)){
+				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(AGGRESSIVE_VS_CONTROL)||
+						oddsRatio.getName().equals(OR2)){
 					return (oddsRatio.getHeterozygoteOddsRatio() != null  ?
 							oddsRatio.getHeterozygoteOddsRatio().toString():
 								nonBlankWhiteSpace)	;
@@ -182,7 +190,8 @@ public class SNPAssociationFindingReport implements Comparable
 	public String getCaseHomozygote() {
 		if(oddsRatioCollection != null){
 			for(OddsRatio oddsRatio:oddsRatioCollection){
-				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(CASE_VS_CONTROL)){
+				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(CASE_VS_CONTROL)||
+					oddsRatio.getName().equals(OR1)){
 					return (oddsRatio.getHomozygoteOddsRatio() != null  ?
 							oddsRatio.getHomozygoteOddsRatio().toString():
 								nonBlankWhiteSpace)	;
@@ -201,7 +210,8 @@ public class SNPAssociationFindingReport implements Comparable
 	public String getCaseHeterozygote() {
 		if(oddsRatioCollection != null){
 			for(OddsRatio oddsRatio:oddsRatioCollection){
-				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(CASE_VS_CONTROL)){
+				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(CASE_VS_CONTROL)||
+						oddsRatio.getName().equals(OR1)){
 					return (oddsRatio.getHeterozygoteOddsRatio() != null  ?
 							oddsRatio.getHeterozygoteOddsRatio().toString():
 								nonBlankWhiteSpace)	;
@@ -224,15 +234,21 @@ public class SNPAssociationFindingReport implements Comparable
 		{
 			for(OddsRatio oddsRatio:oddsRatioCollection)
 			{
-				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(NON_AGGRESSIVE_VS_CONTROL))
-				{
+				if(oddsRatio.getName()!= null &&
+						oddsRatio.getName().equals(NON_AGGRESSIVE_VS_CONTROL)||
+						oddsRatio.getName().equals(OR1)){
 					String lowerConfidence = (oddsRatio.getHomozygoteLowerConfidenceBound() != null  ?
 							oddsRatio.getHomozygoteLowerConfidenceBound().toString():
 								nonBlankWhiteSpace);
 					String upperConfidence = (oddsRatio.getHomozygoteUpperConfidenceBound() != null  ?
 							oddsRatio.getHomozygoteUpperConfidenceBound().toString():
 								nonBlankWhiteSpace);
-					return "(" + lowerConfidence + "-" + "upperConfidence" + ")";
+					String standardError = (oddsRatio.getHomozygoteStandardError() != null  ?
+							oddsRatio.getHomozygoteStandardError().toString():
+								nonBlankWhiteSpace);
+					if(!lowerConfidence.equals(nonBlankWhiteSpace)&& !upperConfidence.equals(nonBlankWhiteSpace)){
+						return "(" + lowerConfidence + "-" + upperConfidence + ")";//["+standardError+"]";
+					}
 				}
 			}
 		}
@@ -248,15 +264,21 @@ public class SNPAssociationFindingReport implements Comparable
 		{
 			for(OddsRatio oddsRatio:oddsRatioCollection)
 			{
-				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(AGGRESSIVE_VS_CONTROL))
-				{
+				if(oddsRatio.getName()!= null && 
+						oddsRatio.getName().equals(AGGRESSIVE_VS_CONTROL)||
+						oddsRatio.getName().equals(OR2)){
 					String lowerConfidence = (oddsRatio.getHomozygoteLowerConfidenceBound() != null  ?
 							oddsRatio.getHomozygoteLowerConfidenceBound().toString():
 								nonBlankWhiteSpace);
 					String upperConfidence = (oddsRatio.getHomozygoteUpperConfidenceBound() != null  ?
 							oddsRatio.getHomozygoteUpperConfidenceBound().toString():
 								nonBlankWhiteSpace);
-					return "(" + lowerConfidence + "-" + "upperConfidence" + ")";
+					String standardError = (oddsRatio.getHomozygoteStandardError() != null  ?
+							oddsRatio.getHomozygoteStandardError().toString():
+								nonBlankWhiteSpace);
+					if(!lowerConfidence.equals(nonBlankWhiteSpace)&& !upperConfidence.equals(nonBlankWhiteSpace)){
+						return "(" + lowerConfidence + "-" + upperConfidence + ")";//["+standardError+"]";
+					}
 				}
 			}
 		}
@@ -272,15 +294,21 @@ public class SNPAssociationFindingReport implements Comparable
 		{
 			for(OddsRatio oddsRatio:oddsRatioCollection)
 			{
-				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(NON_AGGRESSIVE_VS_CONTROL))
-				{
+				if(oddsRatio.getName()!= null && 
+						oddsRatio.getName().equals(NON_AGGRESSIVE_VS_CONTROL)||
+						oddsRatio.getName().equals(OR1)){
 					String lowerConfidence = (oddsRatio.getHeterozygoteLowerConfidenceBound() != null  ?
 							oddsRatio.getHeterozygoteLowerConfidenceBound().toString():
 								nonBlankWhiteSpace);
 					String upperConfidence = (oddsRatio.getHeterozygoteUpperConfidenceBound() != null  ?
 							oddsRatio.getHeterozygoteUpperConfidenceBound().toString():
 								nonBlankWhiteSpace);
-					return "(" + lowerConfidence + "-" + "upperConfidence" + ")";
+					String standardError = (oddsRatio.getHeterozygoteStandardError() != null  ?
+							oddsRatio.getHeterozygoteStandardError().toString():
+								nonBlankWhiteSpace);
+					if(!lowerConfidence.equals(nonBlankWhiteSpace)&& !upperConfidence.equals(nonBlankWhiteSpace)){
+						return "(" + lowerConfidence + "-" + upperConfidence + ")";//["+standardError+"]";
+					}
 				}
 			}
 		}
@@ -296,15 +324,21 @@ public class SNPAssociationFindingReport implements Comparable
 		{
 			for(OddsRatio oddsRatio:oddsRatioCollection)
 			{
-				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(AGGRESSIVE_VS_CONTROL))
-				{
+				if(oddsRatio.getName()!= null && 
+						oddsRatio.getName().equals(AGGRESSIVE_VS_CONTROL)||
+						oddsRatio.getName().equals(OR2)){
 					String lowerConfidence = (oddsRatio.getHeterozygoteLowerConfidenceBound() != null  ?
 							oddsRatio.getHeterozygoteLowerConfidenceBound().toString():
 								nonBlankWhiteSpace);
 					String upperConfidence = (oddsRatio.getHeterozygoteUpperConfidenceBound() != null  ?
-							oddsRatio.getHeterozygoteLowerConfidenceBound().toString():
+							oddsRatio.getHeterozygoteUpperConfidenceBound().toString():
 								nonBlankWhiteSpace);
-					return "(" + lowerConfidence + "-" + "upperConfidence" + ")";
+					String standardError = (oddsRatio.getHeterozygoteStandardError() != null  ?
+							oddsRatio.getHeterozygoteStandardError().toString():
+								nonBlankWhiteSpace);
+					if(!lowerConfidence.equals(nonBlankWhiteSpace)&& !upperConfidence.equals(nonBlankWhiteSpace)){
+						return "(" + lowerConfidence + "-" + upperConfidence + ")";//["+standardError+"]";
+					}
 				}
 			}
 		}
@@ -320,15 +354,20 @@ public class SNPAssociationFindingReport implements Comparable
 		{
 			for(OddsRatio oddsRatio:oddsRatioCollection)
 			{
-				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(CASE_VS_CONTROL))
-				{
+				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(CASE_VS_CONTROL)||
+						oddsRatio.getName().equals(OR1)){
 					String lowerConfidence = (oddsRatio.getHomozygoteLowerConfidenceBound() != null  ?
 							oddsRatio.getHomozygoteLowerConfidenceBound().toString():
 								nonBlankWhiteSpace);
 					String upperConfidence = (oddsRatio.getHomozygoteUpperConfidenceBound() != null  ?
 							oddsRatio.getHomozygoteUpperConfidenceBound().toString():
 								nonBlankWhiteSpace);
-					return "(" + lowerConfidence + "-" + "upperConfidence" + ")";
+					String standardError = (oddsRatio.getHomozygoteStandardError() != null  ?
+							oddsRatio.getHomozygoteStandardError().toString():
+								nonBlankWhiteSpace);
+					if(!lowerConfidence.equals(nonBlankWhiteSpace)&& !upperConfidence.equals(nonBlankWhiteSpace)){
+						return "(" + lowerConfidence + "-" + upperConfidence + ")";//["+standardError+"]";
+					}
 				}
 			}
 		}
@@ -344,15 +383,20 @@ public class SNPAssociationFindingReport implements Comparable
 		{
 			for(OddsRatio oddsRatio:oddsRatioCollection)
 			{
-				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(CASE_VS_CONTROL))
-				{
+				if(oddsRatio.getName()!= null && oddsRatio.getName().equals(CASE_VS_CONTROL)||
+				oddsRatio.getName().equals(OR1)){
 					String lowerConfidence = (oddsRatio.getHeterozygoteLowerConfidenceBound() != null  ?
 							oddsRatio.getHeterozygoteLowerConfidenceBound().toString():
 								nonBlankWhiteSpace);
 					String upperConfidence = (oddsRatio.getHeterozygoteUpperConfidenceBound() != null  ?
-							oddsRatio.getHeterozygoteLowerConfidenceBound().toString():
+							oddsRatio.getHeterozygoteUpperConfidenceBound().toString():
 								nonBlankWhiteSpace);
-					return "(" + lowerConfidence + "-" + "upperConfidence" + ")";
+					String standardError = (oddsRatio.getHeterozygoteStandardError() != null  ?
+							oddsRatio.getHeterozygoteStandardError().toString():
+								nonBlankWhiteSpace);
+					if(!lowerConfidence.equals(nonBlankWhiteSpace)&& !upperConfidence.equals(nonBlankWhiteSpace)){
+						return "(" + lowerConfidence + "-" + upperConfidence + ")";//["+standardError+"]";
+					}
 				}
 			}
 		}
