@@ -14,7 +14,7 @@
 
 <datasources>
 	<local-tx-datasource>
-		<jndi-name>cagwas-app</jndi-name>
+		<jndi-name>cagwas</jndi-name>
 		<connection-url>@database.url@</connection-url>
 		<user-name>@database.user@</user-name>
 		<password>@database.password@</password>
