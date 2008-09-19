@@ -282,9 +282,23 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 			antfile="${cagwas.build.file}" 
 			target="${cagwas.build.target}" 
 			dir="${cagwas.base.dir}">
-			<property name="artifacts.dir.dir" value="${cagwas.dist.dir}" />
+			<property name="artifacts.dir" value="${cagwas.dist.dir}" />
 			<property name="JBOSS.HOME.DIR" value="${jboss.home}" />
 		</ant>
+		<ant inheritAll="false" inheritRefs="false" 
+			antfile="${cagwas.build.file}" 
+			dir="${cagwas.base.dir}"
+			target="deploy_artifacts" >
+			<property name="artifacts.dir" value="${cagwas.dist.dir}" />
+			<property name="JBOSS.HOME.DIR" value="${jboss.home}" />
+		</ant>
+		<copy todir="${cagwas.dist.dir}">
+			<fileset dir="${cagwas.base.dir}/conf">
+				<include name="**/zip.properties.template"/>
+				<include name="**/mail.properties.template"/>
+			</fileset>
+		</copy>
+		<copy todir="${cagwas.dist.dir}" file="${cagwas.base.dir}/mailzip.properties"/>
 	</target>
 
 	<target name="dist" description="Makes all distributions: installer, upgrader and source" depends="
@@ -322,14 +336,43 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 		<!-- Copy db-install and db-upgrade scripts from source into distribution area. The db files need to be under db-[install/upgard]/${database.type}. -->
 		<copy todir="${db-install.dist.dir}" overwrite="true">
 			<fileset dir="${db-install.src.dir}">
-				<include name="**/*.sql" />
+				<include name="**/*" />
 			</fileset>
 		</copy>
 		<copy todir="${db-upgrade.dist.dir}" overwrite="true">
 			<fileset dir="${db-upgrade.src.dir}">
-				<include name="**/*.sql" />
+				<include name="**/*" />
 			</fileset>
 		</copy>
+		<!-- Clean up spaces at the end of line -->
+		<replaceregexp 
+			byline="true" flags="i" 
+			match="^(CREATE DATABASE.*)$"
+			replace="-- \1">
+			<fileset dir="${db-install.dist.dir}">
+				<include name="**/*.sql"/>
+				<include name="**/*.dmp"/>
+			</fileset>
+		</replaceregexp>
+		<replaceregexp 
+			byline="true" flags="i" 
+			match="^(USE.*)$"
+			replace="-- \1">
+			<fileset dir="${db-install.dist.dir}">
+				<include name="**/*.sql"/>
+				<include name="**/*.dmp"/>
+			</fileset>
+		</replaceregexp>
+		<replaceregexp 
+			byline="true" flags="i" 
+			match="ALGORITHM.*VIEW"
+			replace="VIEW">
+			<fileset dir="${db-install.dist.dir}">
+				<include name="**/*.sql"/>
+				<include name="**/*.dmp"/>
+			</fileset>
+		</replaceregexp>
+
 
 		<!-- Copy install related xml and properties files -->
 		<copy todir="${dist.exploded.dir}" overwrite="true">
@@ -597,11 +640,33 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 		<report-grand 
 			build.file.location="build.xml" 
 			output.file.dir="${grand.rpt.dir}" 
-			output.file.name="generic-root-build.xml" />
+			output.file.name="master-build.xml" />
 		<report-grand 
-			build.file.location="${dist.exploded.dir}/install.xml" 
+			build.file.location="${dist.exploded.dir}/build.xml" 
 			output.file.dir="${grand.rpt.dir}"
-			output.file.name="generic-root-install.xml" />
+			output.file.name="master-install.xml" />
+		<report-grand 
+			build.file.location="${cagwas.base.dir}/build.xml"
+			output.file.dir="${grand.rpt.dir}"
+			output.file.name="cagwas-build.xml" />
+		<report-grand 
+			build.file.location="${cagwas.base.dir}/build_download.xml"
+			output.file.dir="${grand.rpt.dir}"
+			output.file.name="cagwas-build_download.xml" />
+		<!-- These don't work because they are trying to run firefox 
+		<report-grand 
+			build.file.location="${cagwas.base.dir}/selenium-bulk-test.xml"
+			output.file.dir="${grand.rpt.dir}"
+			output.file.name="cagwas-selenium-bulk-test.xml"/>
+		<report-grand 
+			build.file.location="${cagwas.base.dir}/selenium_PF_test.xml"
+			output.file.dir="${grand.rpt.dir}"
+			output.file.name="cagwas-selenium_PF_test.xml"/>
+		<report-grand 
+			build.file.location="${cagwas.base.dir}/selenium-test.xml"
+			output.file.dir="${grand.rpt.dir}"
+			output.file.name="cagwas-selenium-test.xml"/>
+		-->
 	</target>
 
 	<!--

@@ -3,7 +3,7 @@
 $Id: install.xml 4757 2008-05-15 20:43:31Z zengje $
 $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 -->
-<project name="bda-blueprints-installer" default="upgrade" basedir="." 
+<project name="cagwas-installer" default="upgrade" basedir="." 
 	xmlns:ivy="antlib:org.apache.ivy.ant"
 	>
 	<description>
@@ -68,7 +68,8 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 
 	<!-- *-ds.xml and WAR -->
 	<property name="cagwas.dir.dist" value="${basedir}/${cagwas.dist.relative.dir}" />
-	<property name="cagwas.ds.file" value="bda-blueprints-ds.xml" />
+	<property name="cagwas.ds.file" value="cagwas-ds.xml" />
+	<property name="cagwas-csm.ds.file" value="cagwas-csm-ds.xml" />
 	<property name="cagwas.war.file" value="cagwas.war" />
 
 	<!-- Grid related properties -->
@@ -321,14 +322,24 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 	</target>
 
 	<target name="install:jboss:cagwas:configure" description="Configure cagwas application, copies over externalized properties or configurations that are not part of the jboss configuration" unless="exclude.jboss">
-		<!-- copy over any other files you may need to configure your application -->
-		
-		<!-- copy datasource file -->
 		<copy file="${jboss-conf.dir.dest}/${cagwas.ds.file}" todir="${jboss.home}/server/${jboss.server.name}/deploy" overwrite="true" />
-		<!-- copy JBoss-web.xml file -->
-		<!--
-		<copy file="${jboss-conf.dir.dest}/${jboss.web.xml.file}" todir="${jboss.home}/server/${jboss.server.name}/deploy" overwrite="true" />
-		-->
+		<copy file="${jboss-conf.dir.dest}/${cagwas-csm.ds.file}" todir="${jboss.home}/server/${jboss.server.name}/deploy" overwrite="true" />
+		
+		<!-- Insert proeprties service xml stuff -->
+		<copy todir="${jboss.home}/server/${jboss.server.name}/deploy" file="${jboss-conf.dir.dest}/properties-service.xml"/>
+		<mkdir dir="${jboss.home}/server/${jboss.server.name}/conf/cagwas"/>
+		<copy todir="${jboss.home}/server/${jboss.server.name}/conf/cagwas">
+			<fileset dir="${cagwas.dir.dist}">
+				<include name="mail.properties"/>
+				<include name="zip.properties"/>
+			</fileset>
+			<filterset>
+				<filtersfile file="${cagwas.dir.dist}/mailzip.properties"/>
+
+			</filterset>
+		</copy>
+
+
 	</target>
 
 	<target name="install:jboss:configure" description="Configure JBoss (bindings, login-config.xml, ect)" unless="exclude.jboss"
@@ -476,6 +487,8 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 
 	<target name="install:jboss:cagwas:re-configure" description="Update contents of artifacts if not all properties have been externalized, by extracting artifact, modify it as needed and re-archive it." unless="exclude.jboss">
 		<!-- This is only required if configuration files are not externalized, below is a sample of what you may do.
+		deploy/cagwas.war/WEB-INF/classes/cagwas-domain-hibernate.cfg.xml
+
 		<delete dir="${working.dir}/cagwas"/>
 		<unzip src="${cagwas.dir.dist}/${cagwas.war.file}" dest="${working.dir}/cagwas"/>
 		<copy todir="${working.dir}/cagwas/WEB-INF/classes" file="${jboss-conf.dir.dest}/hibernate.cfg.xml"/>
