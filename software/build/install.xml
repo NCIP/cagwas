@@ -35,13 +35,28 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 	<property file="local.properties"/>
 	<property file="project.properties"/>
 	<property name="properties.file" value="${basedir}/install.properties"/>
+	<property name="properties.template.file" value="properties.template"/>
 	<echo message="Using properties file of ${properties.file}."/>
 	<available file="${properties.file}" property="properties.file.exists" />
 	<fail unless="properties.file.exists" message="The properties.file ${properties.file} does not exist, please make sure that you pass in an accurate file name with the 'ant -Dproperties.file=somepath/somefile', otherwise the build will fail."/>
 	<replaceregexp file="${properties.file}" byline="true" match="^([\w\d.]+)=(.*[\w\d\/\{\}\\]+)[ \t]+\r*$" replace="\1=\2"/>
 	<replaceregexp file="${properties.file}" byline="true" match="^([\w\d.]+)=[ \t]+(.*[\w\d\/\{\}\\]+)\r*$" replace="\1=\2"/>
 	<property file="${properties.file}" />
-	
+	<!-- Set application.base.path based on platform -->
+	<condition property="application.base.path" value="${application.base.path.linux}">
+		<or>
+			<os family="unix" />
+			<os family="mac" />
+		</or>
+	</condition>
+
+	<condition property="application.base.path" value="${application.base.path.windows}">
+		<os family="windows" />
+	</condition>
+	<property name="jboss.home" value="${application.base.path}/${jboss.relative.path}"/>
+	<property name="tomcat.home" value="${application.base.path}/${tomcat.relative.path}"/>
+
+
 	<!-- Generic properties -->
 	<property name="log.dir" value="${basedir}/logs" />
 	<property name="working.dir" value="${basedir}/working" />
@@ -135,31 +150,8 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 		<pathelement location="${database.driver.file}"/>
 	</path>
 
-	<!-- figure out whether to use install-properties.template or upgrade-proprties.template based on the name of the properties file -->
-	<propertyregex property="properties.file.type"
-		input="${properties.file}"
-		regexp=".*(install|upgrade).*"
-		select="\1"
-		/>
-	<echo message="Properties file type = ${properties.file.type}"/>
-	<switch value="${properties.file.type}">
-		<case value="install">
-			<property name="properties.template.file" value="install-properties.template" />
-		</case>
-		<case value="upgrade">
-			<property name="properties.template.file" value="upgrade-properties.template" />
-		</case>
-		<default>
-			<fail message="Property file name must include 'install' or 'upgrade' so it can be determined which properties template should be used. If you are not certain include 'upgrade' in the name of your proeprties file."/>
-		</default>
-	</switch>
-
 	<!-- Includes-->
 	<import file="${bda-utils.dir}/bda-build-utils-${bda.version}.xml" />
-
-	<!-- Generated and used by database incremental build process, copied deploy:*:prep of build.xml
-	<import file="db-integrate.xml" />
-	-->
 
 	<!-- Read db configs from existing ds.xml if it exists for use in upgrade installs, if already set in properties file values from properties file will be used -->
 	<available file="${jboss.home}/server/${jboss.server.name}/deploy/${cagwas.ds.file}" property="ds.exists"/>
@@ -457,7 +449,6 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 	<!-- Wrapper target to deploy JBOSS container -->
 	<target name="install:jboss" description="Wrapper scripts that calls all required targets to install the jboss container" unless="exclude.jboss"
 		depends="
-		install:check,
 		install:validation:pre-install,
 		install:jboss:stop,
 		install:validation:pre-install:ports,
@@ -473,7 +464,6 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 
 	<target name="install" description="Installs and configures JBOSS, creates database, and deploys application" 
 		depends="
-		install:check,
 		install:validation:pre-install,
 		install:jboss:stop,
 		install:validation:pre-install:ports,
@@ -505,7 +495,6 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 	<!-- Wrapper target to upgrade jboss container. Does not install or configure binaries -->
 	<target name="upgrade:jboss" description="Wrapper target to call all targets required to upgrade jboss container." unless="exclude.jboss"
 		depends="
-		upgrade:check,
 		install:validation:pre-install,
 		install:jboss:stop,
 		install:init,
@@ -517,7 +506,6 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 
 	<target name="upgrade" description="Upgrades JBoss and Database"
 		depends="
-		upgrade:check,
 		upgrade:init,
 		install:validation:pre-install,
 		install:jboss:stop,
@@ -561,29 +549,6 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 		<property name="db.prop.list" value="database.url,database.user,database.password,database.name"/>
 		<properties-exist properties.list="${db.prop.list}"/>
 	</target>
-	<target name="install:check">
-		<if>
-			<not>   
-				<contains string="${properties.file}" substring="install"/>
-			</not>  
-			<then>  
-				<fail message="When calling install targets the properties.file property, '${properties.file}', must contain 'install' in the name."/>
-			</then> 
-		</if>   
-	</target>
-	<target name="upgrade:check">
-		<if>
-			<not>   
-				<contains string="${properties.file}" substring="upgrade"/>
-			</not>  
-			<then>  
-				<fail message="When calling install targets the properties.file property, '${properties.file}', must contain 'upgrade' in the name."/>
-			</then> 
-		</if>   
-	</target>
-
-	<!-- Targets below are provided to handle tomcat and grid installations, however many projects do not use either of these so they have been moved to the end of the script. -->
-	<!-- tomcat targets -->
 
 	<target name="install:jboss:grid" description="Deploy  to jboss" unless="exclude.jboss">
 		<mkdir dir="${jboss.home}/webapps/${.dir.target}"/>
