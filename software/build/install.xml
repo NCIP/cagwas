@@ -90,7 +90,7 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 	<!-- Grid related properties -->
 	<property name="grid.artifact.file" value="wsrf.war.zip" />
 	<property name="grid.dir.dest" value="wsrf.war" />
-	<property name="grid.application.name" value="cagrid_CAGWAS" />
+	<property name="grid.application.name" value="CAGWAS" />
 
 	<!-- Paths -->
 	<path id="bda-utils.classpath">
@@ -558,6 +558,7 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 	</target>
 
 	<target name="install:jboss:grid:configure" description="Configure tomcat-application" unless="exclude.jboss">
+		<!--
 		<replace dir="${jboss.home}/server/${jboss.server.name}/deploy/${grid.dir.dest}" token="localhost:8080" value="${jboss.server.hostname}:${jboss.server.port}">
 			<include name="**/*.wsdl" />
 		</replace>
@@ -571,5 +572,7 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 			match="(\s+.wsa:Address.).*(.\/wsa:Address.)" 
 			replace="\1${grid.index.url}\2"
 			flags="g"/>
+		-->
+		<grid-jboss-configure/>
 	</target>
 </project>
