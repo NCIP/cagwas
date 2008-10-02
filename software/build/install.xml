@@ -67,7 +67,7 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 	<property name="bda-utils.dir" value="bda-utils" />
 	<property name="tools.dir" value="${basedir}/${tools.dist.relative.dir}" />
 	<property name="common.dir.src" value="${basedir}/${common.dist.relative.dir}" />
-	<property name="grid.resource.dir" value="${working.dir}/${grid.dist.relative.dir}" />
+	<property name="grid.resource.dir" value="${basedir}/${grid.dist.relative.dir}" />
 	<property name="grid.application.dir" value="${working.dir}/grid-application" />
 	<property name="common.dir.dest" value="${working.dir}/${common.dist.relative.dir}" />
 	<property name="db.dir.src" value="${basedir}/${db.dist.relative.dir}" />
@@ -331,16 +331,70 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 		<copy file="${jboss-conf.dir.dest}/${cagwas-csm.ds.file}" todir="${jboss.home}/server/${jboss.server.name}/deploy" overwrite="true" />
 		
 		<!-- Insert proeprties service xml stuff -->
-		<copy todir="${jboss.home}/server/${jboss.server.name}/deploy" file="${jboss-conf.dir.dest}/properties-service.xml"/>
+		<copy todir="${jboss.home}/server/${jboss.server.name}/deploy" file="${jboss-conf.dir.dest}/properties-service.xml">
+			<filterset>
+				<filter token="jboss.home" value="${jboss.home}"/>
+				<filter token="jboss.server.name" value="${jboss.server.name}"/>
+			</filterset>
+		</copy>
+		<!-- -->
+		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
+			match="^(host)=(.*)"
+			replace="\1=${mail.smtp.host}"/>
+
+		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
+			match="^(techSupportURL)=(.*)"
+			replace="\1=${support.url}"/>
+		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
+			match="^(techSupportMail)=(.*)"
+			replace="\1=${email.support}"/>
+		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
+			match="^(userRequestMail)=(.*)"
+			replace="\1=${email.request}"/>
+		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
+			match="^(userRequestCC)=(.*)"
+			replace="\1="/>
+		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
+			match="^(feedback.mailTo)=(.*)"
+			replace="\1=${email.support}"/>
+		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
+			match="^(remote.url)=(.*)"
+			replace="\1=${external.url}"/>
+
+		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
+			match="^(zip_location)=\/cagwas\/(.*)"
+			replace="\1=\/${file.transfer.base.dir}\/hid_download_cagwas"/>
+		<!-- ftp_locationftp_location is where generated files go -->
+		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
+			match="^(ftp_location)=\/cagwas\/(.*)"
+			replace="\1=\/${file.transfer.base.dir}\/hid_download_cagwas"/>
+		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
+			match="^(genotype_location)=\/cagwas\/(.*)"
+			replace="\1=\/${file.transfer.base.dir}\/\2"/>
+		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
+			match="^(ftpHostnameAndPort)=(.*)"
+			replace="\1=${apache.virtual.name}:${apache.virtual.port}"/>
+		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
+			match="^(ftp_anonBrowse_URL)=(.*)"
+			replace="\1=${file.transfer.external.base.url.anon}"/>
+		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
+			match="^(ftp_secure_URL)=(.*)"
+			replace="\1=${file.transfer.external.base.url.secure}"/>
+
+		<!-- new propety added for url in line to external project page -->
+		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
+			match="^(remote.study.url)=.*"
+			replace="\1=${remote.study.url}"/>
+
 		<mkdir dir="${jboss.home}/server/${jboss.server.name}/conf/cagwas"/>
-		<copy todir="${jboss.home}/server/${jboss.server.name}/conf/cagwas">
-			<fileset dir="${cagwas.dir.dist}">
-				<include name="mail.properties"/>
-				<include name="zip.properties"/>
-			</fileset>
+		<copy tofile="${jboss.home}/server/${jboss.server.name}/conf/cagwas/mail.properties" file="${cagwas.dir.dist}/mail.properties.template">
 			<filterset>
 				<filtersfile file="${cagwas.dir.dist}/mailzip.properties"/>
-
+			</filterset>
+		</copy>
+		<copy tofile="${jboss.home}/server/${jboss.server.name}/conf/cagwas/zip.properties" file="${cagwas.dir.dist}/zip.properties.template">
+			<filterset>
+				<filtersfile file="${cagwas.dir.dist}/mailzip.properties"/>
 			</filterset>
 		</copy>
 
@@ -471,6 +525,8 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 		install:jboss:cagwas:re-configure,
 		install:jboss:cagwas,
 		install:jboss:cagwas:configure,
+		install:jboss:grid,
+		install:jboss:grid:configure,
 		install:jboss:configure,
 		install:jboss:start
 		" />
@@ -564,9 +620,9 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 	</target>
 
 	<target name="install:jboss:grid" description="Deploy  to jboss" unless="exclude.jboss">
-		<mkdir dir="${jboss.home}/server/${jboss.server.name}/deploy/${grid.dir.test}"/>
+		<mkdir dir="${jboss.home}/server/${jboss.server.name}/deploy/${grid.dir.dest}"/>
 		<unzip dest="${jboss.home}/server/${jboss.server.name}/lib" src="${grid.resource.dir}/jboss-globus-libs-cagrid1_1.zip" />
-		<unzip dest="${jboss.home}/server/${jboss.server.name}/deploy/${grid.dir.test}" src="${grid.resource.dir}/${grid.artifact.file}"/>
+		<unzip dest="${jboss.home}/server/${jboss.server.name}/deploy/${grid.dir.dest}" src="${grid.resource.dir}/${grid.artifact.file}"/>
 	</target>
 
 	<target name="install:jboss:grid:configure" description="Configure tomcat-application" unless="exclude.jboss">
