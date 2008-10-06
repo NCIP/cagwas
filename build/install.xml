@@ -645,6 +645,6 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 			replace="\1${grid.index.url}\2"
 			flags="g"/>
 		-->
-		<grid-jboss-configure/>
+		<grid-appserver-configure/>
 	</target>
 </project>
