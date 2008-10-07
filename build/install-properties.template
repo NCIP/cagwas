@@ -47,8 +47,6 @@ jboss.server.name=
 jboss.web.password=
 # have to add support for this
 jboss.java.opts=
-jboss.cluster.port=
-jboss.cluster.rmi.port=
 jboss.cobraorb.port=
 jboss.ejbinvoker.port=
 jboss.hajndi.port=
@@ -58,7 +56,6 @@ jboss.jmx-rmi.port=
 jboss.messaging.port=
 jboss.pooledha.port=
 jboss.remoting.port=
-jboss.server.ajp.port=
 jboss.server.bind.port=
 jboss.server.jndi.port=
 jboss.server.port=
