@@ -102,6 +102,9 @@
 			</spec>
 			<validator class="com.izforge.izpack.util.PasswordEqualityValidator" txt="Passwords Must Match." id="key for the error text"/>
 		</field>
+		<field type="text" variable="jboss.java.opts">						
+			<spec txt="JBoss Server JAVA_OPTS:" id="text.label" size="135" set="-server -Xms2048m -Xmx2048m -XX:ThreadStackSize=128 -XX:SurvivorRatio=10 -XX:PermSize=128m -XX:MaxPermSize=128m -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djava.awt.headless=true"/>
+		</field>
 	
 
 		<field type="text" variable="jboss.server.port">			
@@ -314,7 +317,7 @@
 		</field>		
 		<field type="text" variable="database.name">
 			<spec txt="Database Name:"
-				id="text.label" size="25" set="bda"/>
+				id="text.label" size="25" set="cagwas"/>
 		</field>		
 		<field type="text" variable="database.system.user">
 			<spec txt="Database Privileged User (enhanced rights):" id="text.label"
@@ -330,8 +333,7 @@
 			</validator>
 		</field>
 		<field type="text" variable="database.user">
-			<spec txt="Database Application User:" id="text.label"
-				size="25" set="bda_user"/>
+			<spec txt="Database Application User:" id="text.label" size="25" set="cagwasuser"/>
 		</field>		
 		<field type="password" allign="left" variable="database.password">
 			<spec>
@@ -449,52 +451,53 @@
 
 	<panel order="14">
 	
-		<field type="title" txt="MIRC Configuration (Tomcat) " bold="true" size="1" />
+		<field type="title" txt="CAGWAS Custom Properties " bold="true" size="1" />
 		<field type="divider" align="top"/>
 	
-		<field type="text" align="left" variable="tomcat.relative.path">
-			<spec txt="Relative Directory for Tomcat (relative from ${UserPathPanelVariable}):" size="25" set="mirc/${tomcat.binaries.relative.dir}"/>
+		<field type="text" align="left" variable="email.support">
+			<spec txt="Support Eail:" size="25" set=""/>
 		</field>
-		<field type="text" align="left" variable="tomcat.hostname">
-			<spec txt="Hostname of this Server:" size="20" set="localhost"/>
-			<validator
-				class="com.izforge.izpack.util.HostNameValidator" txt="Enter a valid Host name or the Host is not reachable" id="jbosshostname.label">
-			</validator>
-		</field>	
-		<field type="text" variable="tomcat.port.http">			
-			<spec txt="Tomcat HTTP port:" id="text.label" size="5" set="21080"/>
-			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The http port number is already in use" id="error.label">
-			</validator>
-		</field>		
-		<field type="text" variable="tomcat.port.ajp">			
-			<spec txt="Tomcat AJP port:" id="text.label" size="5" set="21009"/>
-			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The port number is already in use" id="error.label">
-			</validator>
-		</field>		
-		<field type="text" variable="tomcat.port.ssl">			
-			<spec txt="Tomcat Re-direct port:" id="text.label" size="5" set="21443"/>
-			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The http port number is already in use" id="error.label">
-			</validator>
-		</field>		
-		<field type="text" variable="tomcat.port.shutdown">			
-			<spec txt="Tomcat Shutdown port:" id="text.label" size="5" set="21005"/>
-			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The http port number is already in use" id="error.label">
-			</validator>
-		</field>		
-		<field type="text" variable="tomcat.web.user">
-			<spec txt="Mirc WebApp User:" id="text.label"
-				size="25" set="admin"/>
-		</field>		
-		<field type="password" align="left" variable="tomcat.web.pass">
-			<spec>
-				<pwd txt="Mirc WebApp Password:" size="25" set=""/>
-				<pwd txt="Confirm Password:" size="25" set=""/>
-			</spec>
-			<validator class="com.izforge.izpack.util.PasswordEqualityValidator" txt="Passwords Must Match." id="key for the error text"/>
+		<field type="text" align="left" variable="email.request">
+			<spec txt="Request Eail:" size="25" set=""/>
+		</field>
+		<field type="text" variable="support.url">						
+			<spec txt="URL for Customer Support:" id="text.label" size="35" set=""/>
+		</field>
+		<field type="text" variable="external.url">						
+			<spec txt="External URL:" id="text.label" size="35" set=""/>
+		</field>
+		<field type="text" variable="remote.study.url">						
+			<spec txt="URL of remote machine hosting Study:" id="text.label" size="35" set=""/>
+		</field>
+		<field type="text" align="left" variable="log4j.log.level">
+			<spec txt="Log4J level:" size="25" set="WARN"/>
 		</field>
 	</panel>
+	<panel order="15">
+		<field type="title" txt="CAGWAS Apache  Properties " bold="true" size="1" />
+		<field type="divider" align="top"/>
+
+		<field type="text" align="left" variable="apache.virtual.ip">
+			<spec txt="Apache Virtual Server IP:" size="25" set=""/>
+		</field>
+		<field type="text" align="left" variable="apache.virtual.name">
+			<spec txt="Apache Virtual Server Name:" size="25" set=""/>
+		</field>
+		<field type="text" align="left" variable="apache.virtual.port">
+			<spec txt="Apache Virtual Server Port:" size="25" set=""/>
+		</field>
+		<field type="text" align="left" variable="file.transfer.base.dir">
+			<spec txt="Base directory for Files Retrieved via Apache:" size="25" set=""/>
+		</field>
+		<field type="text" align="left" variable="file.transfer.external.base.url.hid">
+			<spec txt="URL for retrieving Hidden files:" size="25" set=""/>
+		</field>
+		<field type="text" align="left" variable="file.transfer.external.base.url.anon">
+			<spec txt="URL for retrieving Anonymous files:" size="25" set=""/>
+		</field>
+		<field type="text" align="left" variable="file.transfer.external.base.url.secure">
+			<spec txt="URL for retrieving password protected files:" size="25" set=""/>
+		</field>
+	</panel>
+	
 </userInput>
