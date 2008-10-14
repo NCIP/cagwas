@@ -198,9 +198,9 @@
 					<!-- Grid Science Contact -->
 					<panel classname="UserInputPanel"  id="UserInputPanel.13" />
 					<!-- Cagwas Properties -->
-					<panel classname="UserInputPanel"  id="UserInputPanel.14" condition="install.custom|upgrade" />
+					<panel classname="UserInputPanel"  id="UserInputPanel.14" />
 					<!-- CAGWAS Apache Properties -->
-					<panel classname="UserInputPanel"  id="UserInputPanel.15" condition="install.custom|upgrade" />
+					<panel classname="UserInputPanel"  id="UserInputPanel.15" />
 					<panel classname="InstallationGroupPanel"/>
 					<panel classname="SummaryPanel"/>
 					<panel classname="ExtendedInstallPanel"/>

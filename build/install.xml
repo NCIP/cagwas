@@ -550,11 +550,21 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 
 	<target name="install:jboss:cagwas:re-configure" description="Update contents of artifacts if not all properties have been externalized, by extracting artifact, modify it as needed and re-archive it." unless="exclude.jboss">
 		<!-- This is only required if configuration files are not externalized, below is a sample of what you may do.
-		deploy/cagwas.war/WEB-INF/classes/cagwas-domain-hibernate.cfg.xml
+		deploy/cagwas.war/WEB-INF/classes/cagwas-domain-hibernate.cfg.xml 
+		./WEB-INF/classes/cagwas.csm.new.hibernate.cfg.xml-->
 
 		<delete dir="${working.dir}/cagwas"/>
 		<unzip src="${cagwas.dir.dist}/${cagwas.war.file}" dest="${working.dir}/cagwas"/>
-		<copy todir="${working.dir}/cagwas/WEB-INF/classes" file="${jboss-conf.dir.dest}/hibernate.cfg.xml"/>
+
+		<replaceregexp file="${working.dir}/cagwas/WEB-INF/classes/cagwas-domain-hibernate.cfg.xml"
+			match="(&lt;property name=&quot;dialect&quot;&gt;).*(&lt;\/property&gt;)"
+			replace="\1${database.dialect}\2"
+			flags="sg"/>
+
+		<replaceregexp file="${working.dir}/cagwas/WEB-INF/classes/cagwas.csm.new.hibernate.cfg.xml"
+			match="(&lt;property name=&quot;dialect&quot;&gt;).*(&lt;\/property&gt;)"
+			replace="\1${database.dialect}\2"
+			flags="sg"/>
 		
 		<move file="${cagwas.dir.dist}/${cagwas.war.file}" tofile="${cagwas.dir.dist}/${cagwas.war.file}.orig"/>
 		<war destfile="${cagwas.dir.dist}/${cagwas.war.file}" compress="false" webxml="${working.dir}/cagwas/WEB-INF/web.xml" >
@@ -562,7 +572,6 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 				<include name="*/**" />
 			</fileset>
 		</war>  
-		-->
 	</target>
 
 	<!-- Wrapper target to upgrade jboss container. Does not install or configure binaries -->

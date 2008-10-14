@@ -37,15 +37,6 @@
 			</spec>
 			<validator class="com.izforge.izpack.util.PasswordEqualityValidator" txt="Passwords Must Match." id="key for the error text"/>
 		</field>
-		<field type="space"/>
-		<field type="password" align="left" variable="tomcat.web.pass">
-			<spec>
-				<pwd txt="Mirc WebAdmin Password:" size="25" set=""/>
-				<pwd txt="Confirm Password:" size="25" set=""/>
-			</spec>
-			<validator class="com.izforge.izpack.util.PasswordEqualityValidator" txt="Passwords Must Match." id="key for the error text"/>
-		</field>
-	
 		<variable name="authentication.type" value="db"/>
 		<variable name="grid.external.host" value=""/>
 		<variable name="grid.external.port" value=""/>
@@ -73,13 +64,8 @@
 		<variable name="ldap.basedn" value=""/>
 		<variable name="ldap.url" value=""/>
 		<variable name="mail.smtp.server" value="localhost"/>
-		<variable name="tomcat.hostname" value="localhost"/>
-		<variable name="tomcat.port.ajp" value="21009"/>
-		<variable name="tomcat.port.http" value="21080"/>
-		<variable name="tomcat.port.shutdown" value="21005"/>
-		<variable name="tomcat.port.ssl" value="21443"/>
-		<variable name="tomcat.relative.path" value="${tomcat.binaries.relative.dir}"/>
-		<variable name="tomcat.web.user" value="admin"/>
+		<variable name="jboss.java.opts" value="-server -Xms2048m -Xmx2048m -XX:ThreadStackSize=128 -XX:SurvivorRatio=10 -XX:PermSize=128m -XX:MaxPermSize=128m -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djava.awt.headless=true"/>
+		
 	</panel>
 	<panel order="3">
 		<field type="title" txt="JBoss Installation Options" bold="true" size="1" />
