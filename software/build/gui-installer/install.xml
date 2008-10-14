@@ -33,7 +33,16 @@
 	</target>
 	
 	<target name="build:installer" depends="prepare:installer">
-		<IzPack output="${dist.location}/${cagwas.install.name}${cagwas.version}.jar"
+		<delete>
+			<fileset dir="${dist.location}">
+				<include name="${cagwas.install.name}${cagwas.version}*.jar"/>
+			</fileset>
+		</delete>
+	        <tstamp>
+			<format property="build.time" pattern="yyyyMMddHHmm" />
+		</tstamp>
+
+		<IzPack output="${dist.location}/${cagwas.install.name}${cagwas.version}-${build.time}.jar"
 			installerType="standard"
 			basedir="."
 			IzPackDir="${compile.jar.dir}/">
@@ -190,13 +199,13 @@
 					<!-- Global Configuraiton Options -->
 					<panel classname="UserInputPanel"  id="UserInputPanel.9" condition="install.custom|upgrade"/>
 					<!-- Grid Global Configuration -->
-					<panel classname="UserInputPanel"  id="UserInputPanel.10" condition="install.custom|upgrade"/>
+					<panel classname="UserInputPanel"  id="UserInputPanel.10" condition="never"/>
 					<!-- Grid Research Center -->
-					<panel classname="UserInputPanel"  id="UserInputPanel.11" />
+					<panel classname="UserInputPanel"  id="UserInputPanel.11" condition="never" />
 					<!-- Grid Tech Contact -->
-					<panel classname="UserInputPanel"  id="UserInputPanel.12" />
+					<panel classname="UserInputPanel"  id="UserInputPanel.12" condition="never" />
 					<!-- Grid Science Contact -->
-					<panel classname="UserInputPanel"  id="UserInputPanel.13" />
+					<panel classname="UserInputPanel"  id="UserInputPanel.13" condition="never" />
 					<!-- Cagwas Properties -->
 					<panel classname="UserInputPanel"  id="UserInputPanel.14" />
 					<!-- CAGWAS Apache Properties -->
