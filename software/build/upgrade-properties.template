@@ -9,9 +9,7 @@
 ##############################
 ###  APPLICATION SETTINGS  ###
 ##############################
-application.base.path.linux=
-application.base.path.windows=
-authentication.type=
+application.base.path=
 application.url=
 # Have to add support for this
 project.name=
@@ -31,16 +29,12 @@ log4j.log.level=
 # Required for local installs
 # Require for all installs
 database.type=
-database.server=
-database.port=
 ########################
 ###  JBOSS SETTINGS  ###
 ########################
-# jboss.home will be generated as ${application.base.path}/${jboss.relateive.path}
-jboss.relative.path=
+jboss.home=
 jboss.server.hostname=
 jboss.server.name=
-jboss.web.password=
 jboss.server.port=
 jboss.server.jndi.port=
 #########################
@@ -57,11 +51,6 @@ file.transfer.base.dir=
 file.transfer.external.base.url.hid=
 file.transfer.external.base.url.anon=
 file.transfer.external.base.url.secure=
-##############
-###  LDAP  ###
-##############
-ldap.url=
-ldap.basedn=
 ##################################
 #  Grid Service registration URL #
 ##################################
