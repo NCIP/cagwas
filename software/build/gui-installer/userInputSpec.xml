@@ -1,7 +1,8 @@
 <userInput>
 	<!-- Install -->
 	<panel order="0">
-		<field type="title" txt="Choose Install if you haven't installed caGWAS on this machine before. Choose Upgrade if caGWAS has previously been installed. WARNING: When choosing Install, the installer will remove any previous application server or databases installed based on the information you provide." bold="true" size="1" />
+		<field type="title" txt="Choose Install if you haven't installed caGWAS on this machine before. \r Choose Upgrade if caGWAS has previously been installed. \r
+		WARNING: When choosing Install, the installer will remove any previous application server or databases installed based on the information you provide." bold="true" size="1" />
 		<field type="divider" align="top"/>
 		<field type="radio" variable="setup.type">
 			<description align="left" txt="Select the type of installation"
