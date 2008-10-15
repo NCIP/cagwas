@@ -41,26 +41,26 @@
 		<variable name="grid.external.host" value=""/>
 		<variable name="grid.external.port" value=""/>
 		<variable name="grid.index.url" value="http://training03.cagrid.org:6080/wsrf/services/DefaultIndexService"/>
-		<variable name="jboss.cobraorb.port" value="45280"/>
-		<variable name="jboss.ejbinvoker.port" value="45150"/>
-		<variable name="jboss.hajndi.port" value="45160"/>
-		<variable name="jboss.hajrmi.port" value="45260"/>
-		<variable name="jboss.jms.port" value="45170"/>
-		<variable name="jboss.jmx-rmi.port" value="45290"/>
-		<variable name="jboss.messaging.port" value="45330"/>
-		<variable name="jboss.pooledha.port" value="45270"/>
-		<variable name="jboss.remoting.port" value="45320"/>
-		<variable name="jboss.server.bind.port" value="45190"/>
+		<variable name="jboss.cobraorb.port" value="42280"/>
+		<variable name="jboss.ejbinvoker.port" value="42150"/>
+		<variable name="jboss.hajndi.port" value="42160"/>
+		<variable name="jboss.hajrmi.port" value="42260"/>
+		<variable name="jboss.jms.port" value="42170"/>
+		<variable name="jboss.jmx-rmi.port" value="42290"/>
+		<variable name="jboss.messaging.port" value="42330"/>
+		<variable name="jboss.pooledha.port" value="42270"/>
+		<variable name="jboss.remoting.port" value="42320"/>
+		<variable name="jboss.server.bind.port" value="42190"/>
 		<variable name="jboss.server.hostname" value="localhost"/>
-		<variable name="jboss.server.jndi.port" value="45200"/>
+		<variable name="jboss.server.jndi.port" value="42200"/>
 		<variable name="jboss.server.name" value="default"/>
-		<variable name="jboss.server.port" value="45210"/>
-		<variable name="jboss.server.redirect.port" value="45220"/>
-		<variable name="jboss.server.rmi.port" value="45230"/>
-		<variable name="jboss.service.rmiobject.port" value="45240"/>
-		<variable name="jboss.snmp.port" value="45310"/>
-		<variable name="jboss.snmp-trapd.port" value="45300"/>
-		<variable name="jboss.web.service.port" value="45250"/>
+		<variable name="jboss.server.port" value="42210"/>
+		<variable name="jboss.server.redirect.port" value="42220"/>
+		<variable name="jboss.server.rmi.port" value="42230"/>
+		<variable name="jboss.service.rmiobject.port" value="42240"/>
+		<variable name="jboss.snmp.port" value="42310"/>
+		<variable name="jboss.snmp-trapd.port" value="42300"/>
+		<variable name="jboss.web.service.port" value="42250"/>
 		<variable name="ldap.basedn" value=""/>
 		<variable name="ldap.url" value=""/>
 		<variable name="mail.smtp.server" value="localhost"/>
@@ -94,54 +94,54 @@
 	
 
 		<field type="text" variable="jboss.server.port">			
-			<spec txt="JBoss HTTP Port:" id="text.label" size="5" set="45210"/>
+			<spec txt="JBoss HTTP Port:" id="text.label" size="5" set="42210"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The http port number is already in use" id="error.label">
 			</validator>
 		</field>		
 		<field type="text" variable="jboss.server.jndi.port">						
-			<spec txt="JBoss JNDI Port:" id="text.label" size="5" set="45200"/>
+			<spec txt="JBoss JNDI Port:" id="text.label" size="5" set="42200"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The jndi port number is already in use" id="error.label">
 			</validator>			
 		</field>
 		<field type="text" variable="jboss.server.rmi.port">						
-			<spec txt="JBoss RMI Port:" id="text.label" size="5" set="45230"/>
+			<spec txt="JBoss RMI Port:" id="text.label" size="5" set="42230"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The jndi port number is already in use" id="error.label">
 			</validator>			
 		</field>
 
 		<field type="text" variable="jboss.ejbinvoker.port">						
-			<spec txt="JBoss EJBInvoker Port:" id="text.label" size="5" set="45150"/>
+			<spec txt="JBoss EJBInvoker Port:" id="text.label" size="5" set="42150"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The ejbinvoker port number is already in use" id="error.label">
 			</validator>			
 		</field>
 		
 		<field type="text" variable="jboss.cobraorb.port">						
-			<spec txt="JBoss CORBAORG port:" id="text.label" size="5" set="45280"/>
+			<spec txt="JBoss CORBAORG port:" id="text.label" size="5" set="42280"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The cobraorb port number is already in use" id="error.label">
 			</validator>			
 		</field>		
 		
 		<field type="text" variable="jboss.hajndi.port">						
-			<spec txt="JBoss hajndi port:" id="text.label" size="5" set="45160"/>
+			<spec txt="JBoss hajndi port:" id="text.label" size="5" set="42160"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The hajndi port number is already in use" id="error.label">
 			</validator>			
 		</field>		
 		
 		<field type="text" variable="jboss.hajrmi.port">						
-			<spec txt="JBoss hajrmi port:" id="text.label" size="5" set="45260"/>
+			<spec txt="JBoss hajrmi port:" id="text.label" size="5" set="42260"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The hajrmi port number is already in use" id="error.label">
 			</validator>			
 		</field>		
 		
 		<field type="text" variable="jboss.jms.port">						
-			<spec txt="JBoss JMS port:" id="text.label" size="5" set="45170"/>
+			<spec txt="JBoss JMS port:" id="text.label" size="5" set="42170"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The jms port number is already in use" id="error.label">
 			</validator>			
@@ -155,28 +155,28 @@
 		<field type="divider" align="top"/>
 
 		<field type="text" variable="jboss.jmx-rmi.port">						
-			<spec txt="JBoss jmx-rmi port:" id="text.label" size="5" set="45290"/>
+			<spec txt="JBoss jmx-rmi port:" id="text.label" size="5" set="42290"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The jmx-rmi port number is already in use" id="error.label">
 			</validator>			
 		</field>		
 
 		<field type="text" variable="jboss.messaging.port">						
-			<spec txt="JBoss messaging port:" id="text.label" size="5" set="45330"/>
+			<spec txt="JBoss messaging port:" id="text.label" size="5" set="42330"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The messaging port number is already in use" id="error.label">
 			</validator>			
 		</field>
 
 		<field type="text" variable="jboss.pooledha.port">						
-			<spec txt="JBoss pooledha port:" id="text.label" size="5" set="45270"/>
+			<spec txt="JBoss pooledha port:" id="text.label" size="5" set="42270"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The pooledha port number is already in use" id="error.label">
 			</validator>			
 		</field>
 
 		<field type="text" variable="jboss.remoting.port">						
-			<spec txt="JBoss remoting port:" id="text.label" size="5" set="45320"/>
+			<spec txt="JBoss remoting port:" id="text.label" size="5" set="42320"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The remoting port number is already in use" id="error.label">
 			</validator>			
@@ -184,21 +184,21 @@
 	
 
 		<field type="text" variable="jboss.server.bind.port">						
-			<spec txt="JBoss bind port:" id="text.label" size="5" set="45190"/>
+			<spec txt="JBoss bind port:" id="text.label" size="5" set="42190"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The bind port number is already in use" id="error.label">
 			</validator>			
 		</field>
 
 		<field type="text" variable="jboss.server.redirect.port">						
-			<spec txt="JBoss redirect port:" id="text.label" size="5" set="45220"/>
+			<spec txt="JBoss redirect port:" id="text.label" size="5" set="42220"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The redirect port number is already in use" id="error.label">
 			</validator>			
 		</field>		
 		
 		<field type="text" variable="jboss.service.rmiobject.port">						
-			<spec txt="JBoss rmiobject port:" id="text.label" size="5" set="45240"/>
+			<spec txt="JBoss rmiobject port:" id="text.label" size="5" set="42240"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The rmiobject port number is already in use" id="error.label">
 			</validator>			
@@ -206,21 +206,21 @@
 		
 		
 		<field type="text" variable="jboss.snmp-trapd.port">						
-			<spec txt="JBoss snmp-trapd port:" id="text.label" size="5" set="45300"/>
+			<spec txt="JBoss snmp-trapd port:" id="text.label" size="5" set="42300"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The snmp-trapd port number is already in use" id="error.label">
 			</validator>			
 		</field>		
 		
 		<field type="text" variable="jboss.snmp.port">						
-			<spec txt="JBoss snmp port:" id="text.label" size="5" set="45310"/>
+			<spec txt="JBoss snmp port:" id="text.label" size="5" set="42310"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The snmp port number is already in use" id="error.label">
 			</validator>			
 		</field>		
 		
 		<field type="text" variable="jboss.web.service.port">						
-			<spec txt="JBoss web service port:" id="text.label" size="5" set="45250"/>
+			<spec txt="JBoss web service port:" id="text.label" size="5" set="42250"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The web service port number is already in use" id="error.label">
 			</validator>			
@@ -244,13 +244,13 @@
 			<spec txt="JBoss Server Name (JBoss_HOME/server/JBoss_SERVER_NAME):" size="15" set="default"/>
 		</field>
 		<field type="text" variable="jboss.server.port">			
-			<spec txt="JBoss HTTP Port:" id="text.label" size="5" set="45210"/>
+			<spec txt="JBoss HTTP Port:" id="text.label" size="5" set="42210"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The http port number is already in use" id="error.label">
 			</validator>
 		</field>		
 		<field type="text" variable="jboss.server.jndi.port">						
-			<spec txt="JBoss JNDI Port:" id="text.label" size="5" set="45210"/>
+			<spec txt="JBoss JNDI Port:" id="text.label" size="5" set="42210"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The jndi port number is already in use" id="error.label">
 			</validator>			
