@@ -16,19 +16,22 @@
 
 	<panel order="1">
 		<field type="title" txt="Type of Install Options" bold="true" size="1" />
+		<field type="staticText" align="left" txt="Choose to run a Typical install or a Custom install. A typical install requires 
+		you to enter an essential mininum number of values to successfully install the software. A typical install configure certain ports and other values. A custom install allows you to modify all of the configurable values such as port numbers."/>
 		<field type="divider" align="top"/>
 		<field type="radio" variable="setup.options.type">
 			<description align="left" txt="Select the type of Install Options"
 			id="install.options.radio"/>
 			<spec>
-				<choice txt="typical" id="setup.options.type.typical" value="typical" set="true" />
-				<choice txt="custom" id="setup.options.type.custom" value="custom" />
+				<choice txt="Typical" id="setup.options.type.typical" value="typical" set="true" />
+				<choice txt="Custom" id="setup.options.type.custom" value="custom" />
 			</spec>
 		</field>		
 	</panel>
  	
 	<panel order="2">
 		<field type="title" txt="Typical Install - Passwords" bold="true" size="1" />
+		<field type="staticText" align="left" txt="The password you enter below is the password used to access the JBoss web console. This is a password you are creating, so you must keep track of this password for future use."/>
 		<field type="divider" align="top"/>
 		<!-- comment out for now-->
 		<field type="password" align="left" variable="jboss.web.password">
