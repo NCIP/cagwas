@@ -16,7 +16,7 @@
 
 	<panel order="1">
 		<field type="title" txt="Type of Install Options" bold="true" size="1" />
-		<field type="staticText" align="left" txt="Choose to run a Typical install or a Custom install. A typical install requires you to enter an essential mininum number of values to successfully install the software. A typical install configures ports and other required values. A custom install allows you to modify all of the configurable values such as port numbers."/>
+		<field type="staticText" align="left" txt="A Typical install requires you to enter an essential mininum number of values to successfully install the software. A Typical install configures ports and other required values. A Custom install allows you to modify all of the configurable values such as port numbers."/>
 		<field type="divider" align="top"/>
 		<field type="radio" variable="setup.options.type">
 			<description align="left" txt="Select the type of Install Options"
@@ -453,13 +453,10 @@
 	<panel order="15">
 		<field type="title" txt="caGWAS Apache  Properties " bold="true" size="1" />
 		<field type="divider" align="top"/>
-
 		<field type="text" align="left" variable="apache.virtual.ip">
-		    <description align="left" txt="The IP address to which you will bind your virtual server (assuming you use virtual servers). For example, 192.168.1.100." id="description1"/>
 			<spec txt="Apache Virtual Server IP:" size="25" set=""/>
 		</field>
 		<field type="text" align="left" variable="apache.virtual.name">
-		    <description align="left" txt="Name you will use as the ServerName value within your virtual server. This should be a fully-qualified domain name to access the server from the outside world. For example, www.mycagwas.com." id="description2"/>
 			<spec txt="Apache Virtual Server Name:" size="25" set=""/>
 		</field>
 		<field type="text" align="left" variable="apache.virtual.port">
