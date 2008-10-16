@@ -455,9 +455,10 @@
 		<field type="divider" align="top"/>
 
 		<field type="text" align="left" variable="apache.virtual.ip">
-		    <description align="left" txt="A description" id="description1"/>
+		    <description align="left" txt="The IP address to which you will bind your virtual server (assuming you use virtual servers). For example, 192.168.1.100." id="description1"/>
 			<spec txt="Apache Virtual Server IP:" size="25" set=""/>
 		</field>
+		<description align="left" txt="Name you will use as the ServerName value within your virtual server. This should be a fully-qualified domain name to access the server from the outside world. For example, www.mycagwas.com." id="description2"/>
 		<field type="text" align="left" variable="apache.virtual.name">
 			<spec txt="Apache Virtual Server Name:" size="25" set=""/>
 		</field>
