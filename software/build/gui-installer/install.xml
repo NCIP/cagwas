@@ -181,7 +181,7 @@
 					<panel classname="UserInputPanel"  id="UserInputPanel.0" />
 					<!-- Typical or Custom -->
 					<panel classname="UserInputPanel"  id="UserInputPanel.1" condition="install"/>
-					<panel classname="UserPathPanel" id="UserPathPanelInstallation"/>
+					<panel classname="UserPathPanel" id="UserPathPanelInstallation" condition="install"/>
 					<!-- Typical Install passwords and set -->
 					<panel classname="UserInputPanel"  id="UserInputPanel.2" condition="install.typical"/>
 					<!-- Jboss Configuration -->

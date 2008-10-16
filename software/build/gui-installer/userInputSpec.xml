@@ -233,7 +233,7 @@
 		<field type="divider" align="top"/>
 		
 		<field type="dir" align="left" variable="existing.jboss.home">
-			<spec txt="Existing JBoss Home:" size="25" set="${UserPathPanelVariable}/${jboss.binaries.relative.dir}"/>
+			<spec txt="Existing JBoss Home:" size="25" set=""/>
 		</field>
 		<field type="text" align="left" variable="jboss.server.hostname">
 			<spec txt="Hostname of this Server:" size="15" set="localhost"/>
@@ -251,7 +251,7 @@
 			</validator>
 		</field>		
 		<field type="text" variable="jboss.server.jndi.port">						
-			<spec txt="JBoss JNDI Port:" id="text.label" size="5" set="42210"/>
+			<spec txt="JBoss JNDI Port:" id="text.label" size="5" set="42200"/>
 			<validator
 				class="com.izforge.izpack.util.PortValidator" txt="The jndi port number is already in use" id="error.label">
 			</validator>			
@@ -306,19 +306,6 @@
 			<spec txt="Database Name:"
 				id="text.label" size="25" set="cagwas"/>
 		</field>		
-		<field type="text" variable="database.system.user">
-			<spec txt="Database Privileged User (enhanced rights):" id="text.label"
-				size="25" set="root"/>
-		</field>		
-		<field type="password" allign="left" variable="database.system.password">
-			<spec>
-				 <pwd txt="Database Privileged User Password:" id="pwd.label" size="25" set=""/>				 
-			</spec>
-			<validator
-				class="com.izforge.izpack.util.DBConnectionValidator" txt="The root password did not match" id="error.label">
-				<param name="systemUser" value="true" />
-			</validator>
-		</field>
 		<field type="text" variable="database.user">
 			<spec txt="Database Application User:" id="text.label" size="25" set="cagwasuser"/>
 		</field>		
