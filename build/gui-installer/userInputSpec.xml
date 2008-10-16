@@ -455,6 +455,7 @@
 		<field type="divider" align="top"/>
 
 		<field type="text" align="left" variable="apache.virtual.ip">
+		    <description align="left" txt="A description" id="description1"/>
 			<spec txt="Apache Virtual Server IP:" size="25" set=""/>
 		</field>
 		<field type="text" align="left" variable="apache.virtual.name">
