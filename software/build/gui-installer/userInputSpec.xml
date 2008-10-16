@@ -16,8 +16,7 @@
 
 	<panel order="1">
 		<field type="title" txt="Type of Install Options" bold="true" size="1" />
-		<field type="staticText" align="left" txt="Choose to run a Typical install or a Custom install. A typical install requires 
-		you to enter an essential mininum number of values to successfully install the software. A typical install configure certain ports and other values. A custom install allows you to modify all of the configurable values such as port numbers."/>
+		<field type="staticText" align="left" txt="Choose to run a Typical install or a Custom install. A typical install requires you to enter an essential mininum number of values to successfully install the software. A typical install configures ports and other required values. A custom install allows you to modify all of the configurable values such as port numbers."/>
 		<field type="divider" align="top"/>
 		<field type="radio" variable="setup.options.type">
 			<description align="left" txt="Select the type of Install Options"
@@ -288,7 +287,7 @@
 
 	<panel order="8">
 		<field type="title" txt="Configuring your MySQL database connection" bold="true" size="1" />
-		<field type="staticText" align="left" txt="The data you will enter below is to connect to an existing MySQL database. It's recommended that Database Host Name is not localhost. The 'Database Name' and 'Database User' must have access to 'Database Name'. Your database administrator should have access to this information."/>
+		<field type="staticText" align="left" txt="The information you enter below is to connect to an existing MySQL database. localhost is NOT a recommended value for Database Host Name. The 'Database Name' and 'Database User' must have access to 'Database Name'. It's highly recommended you contact your database administrator to obtain this information. NOTE: All database objects for 'Database Name' will be dropped and recreated during the installation process."/>
 		<field type="divider" align="top"/>
 	
 		<variable name="install.path" value="$INSTALL_PATH"/>
