@@ -428,14 +428,14 @@
 
 	<panel order="14">
 	
-		<field type="title" txt="CAGWAS Custom Properties " bold="true" size="1" />
+		<field type="title" txt="caGWAS Custom Properties " bold="true" size="1" />
 		<field type="divider" align="top"/>
 	
 		<field type="text" align="left" variable="email.support">
-			<spec txt="Support Eail:" size="25" set=""/>
+			<spec txt="Support Email:" size="25" set=""/>
 		</field>
 		<field type="text" align="left" variable="email.request">
-			<spec txt="Request Eail:" size="25" set=""/>
+			<spec txt="Request Email:" size="25" set=""/>
 		</field>
 		<field type="text" variable="support.url">						
 			<spec txt="URL for Customer Support:" id="text.label" size="35" set=""/>
@@ -451,7 +451,7 @@
 		</field>
 	</panel>
 	<panel order="15">
-		<field type="title" txt="CAGWAS Apache  Properties " bold="true" size="1" />
+		<field type="title" txt="caGWAS Apache  Properties " bold="true" size="1" />
 		<field type="divider" align="top"/>
 
 		<field type="text" align="left" variable="apache.virtual.ip">
