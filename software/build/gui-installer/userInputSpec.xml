@@ -29,7 +29,7 @@
 	</panel>
  	
 	<panel order="2">
-		<field type="title" txt="Typical Install - Passwords" bold="true" size="1" />
+		<field type="title" txt="Typical Install - JBoss Web Console Password" bold="true" size="1" />
 		<field type="staticText" align="left" txt="The password you enter below is the password used to access the JBoss web console. This is a password you are creating, so you must keep track of this password for future use."/>
 		<field type="divider" align="top"/>
 		<!-- comment out for now-->
@@ -73,7 +73,7 @@
 	<panel order="3">
 		<field type="title" txt="JBoss Installation Options" bold="true" size="1" />
 		<field type="divider" align="top"/>
-		<field type="staticText" align="left" txt="As part of this program JBoss will be installed in ${UserPathPanelVariable}/${jboss.binaries.relative.dir}.  It will be configured based on the values you set below.  Note- The Hostname below (and on other panels of this installer) is the host nameas accesible from this machine and others on the local network. To access this jboss application from the internet you may need to provide the JBoss HTTP Port to your Network administrator to allow access through the firewall."/>
+		<field type="staticText" align="left" txt="As part of this program JBoss will be installed in ${UserPathPanelVariable}/${jboss.binaries.relative.dir}.  It will be configured based on the values you set below.  Note: the Hostname below (and on other panels of this installer) is the host nameas accesible from this machine and others on the local network. To access this jboss application from the internet you may need to provide the JBoss HTTP Port to your Network administrator to allow access through the firewall."/>
 		<field type="space"/>
 		<field type="text" align="left" variable="jboss.server.hostname">
 			<spec txt="Hostname of this Server:" size="15" set="localhost"/>
@@ -452,6 +452,7 @@
 	</panel>
 	<panel order="15">
 		<field type="title" txt="caGWAS Apache  Properties " bold="true" size="1" />
+		<field type="staticText" align="left" txt="For detailed descriptions on each of the properties below, see https://wiki.nci.nih.gov/x/Caml."/>
 		<field type="divider" align="top"/>
 		<field type="text" align="left" variable="apache.virtual.ip">
 			<spec txt="Apache Virtual Server IP:" size="25" set=""/>
