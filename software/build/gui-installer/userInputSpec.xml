@@ -5,7 +5,7 @@
 		<field type="staticText" align="left" txt="Choose Install if you haven't installed this software on this machine before. Choose Upgrade if software has previously been installed. WARNING: When choosing Install, the installer will remove any previously installed application servers (using caBIG installers) or databases installed based on the information you provide."/>
 		<field type="divider" align="top"/>
 		<field type="radio" variable="setup.type">
-			<description align="left" txt="Select the type of installation"
+			<description align="left" txt="Choose a new Install or Upgrade an existing installation"
 			id="installation.radio"/>
 			<spec>
 				<choice txt="Install" id="setup.type.install" value="install" set="true" />
@@ -15,11 +15,11 @@
 	</panel>
 
 	<panel order="1">
-		<field type="title" txt="Choose your type of installation" bold="true" size="1" />
-		<field type="staticText" align="left" txt="A Typical install requires you to enter an essential mininum number of values to successfully install the software. A Typical install configures ports and other required values. A Custom install allows you to modify all of the configurable values such as port numbers."/>
+		<field type="title" txt="Choose the type of installation" bold="true" size="1" />
+		<field type="staticText" align="left" txt="A Typical install requires you to enter an essential minimum number of values to successfully install the software. A Typical install configures ports and other required values. A Custom install allows you to modify all of the configurable values such as port numbers."/>
 		<field type="divider" align="top"/>
 		<field type="radio" variable="setup.options.type">
-			<description align="left" txt="Select the type of Install Options"
+			<description align="left" txt="Choose a Typical or Custom install"
 			id="install.options.radio"/>
 			<spec>
 				<choice txt="Typical" id="setup.options.type.typical" value="typical" set="true" />
@@ -29,7 +29,7 @@
 	</panel>
  	
 	<panel order="2">
-		<field type="title" txt="Typical Install - JBoss Web Console Password" bold="true" size="1" />
+		<field type="title" txt="Create a JBoss Web Console Password" bold="true" size="1" />
 		<field type="staticText" align="left" txt="The password you enter below is the password used to access the JBoss web console. This is a password you are creating, so you must keep track of this password for future use."/>
 		<field type="divider" align="top"/>
 		<!-- comment out for now-->
@@ -38,7 +38,7 @@
 				<pwd txt="JBoss Web Console Password:" size="25" set=""/>
 				<pwd txt="Confirm JBoss Web Console Password:" size="25" set=""/>
 			</spec>
-			<validator class="com.izforge.izpack.util.PasswordEqualityValidator" txt="Passwords Must Match." id="key for the error text"/>
+			<validator class="com.izforge.izpack.util.PasswordEqualityValidator" txt="Passwords do not match. Please re-enter your JBoss Web Console passwords." id="key for the error text"/>
 		</field>
 		<variable name="authentication.type" value="db"/>
 		<variable name="grid.external.host" value=""/>
@@ -71,14 +71,14 @@
 		
 	</panel>
 	<panel order="3">
-		<field type="title" txt="JBoss Installation Options" bold="true" size="1" />
+		<field type="title" txt="Configure your JBoss application server" bold="true" size="1" />
 		<field type="divider" align="top"/>
-		<field type="staticText" align="left" txt="As part of this program JBoss will be installed in ${UserPathPanelVariable}/${jboss.binaries.relative.dir}.  It will be configured based on the values you set below.  Note: the Hostname below (and on other panels of this installer) is the host nameas accesible from this machine and others on the local network. To access this jboss application from the internet you may need to provide the JBoss HTTP Port to your Network administrator to allow access through the firewall."/>
+		<field type="staticText" align="left" txt="As part of this installtion, JBoss will be installed in ${UserPathPanelVariable}/${jboss.binaries.relative.dir}.  It will be configured based on the values you enter below.  NOTE: The Hostname below (and on other panels of this installer) is the host name accesible from this machine and others on the local network. To access this JBoss application server from the Internet, you may need to provide the JBoss HTTP Port to your Network administrator to allow access through the firewall."/>
 		<field type="space"/>
 		<field type="text" align="left" variable="jboss.server.hostname">
-			<spec txt="Hostname of this Server:" size="15" set="localhost"/>
+			<spec txt="Hostname of this Server:" size="25" set="localhost"/>
 			<validator
-				class="com.izforge.izpack.util.HostNameValidator" txt="Enter a valid Jboss Host name or the Host is not reachable" id="jbosshostname.label">
+				class="com.izforge.izpack.util.HostNameValidator" txt="Enter a valid JBoss Host name or the Host is not reachable" id="jbosshostname.label">
 			</validator>
 		</field>	
 		<field type="text" variable="jboss.server.name">						
@@ -86,10 +86,10 @@
 		</field>
 		<field type="password" align="left" variable="jboss.web.password">
 			<spec>
-				<pwd txt="JBoss Web Consoles Password:" size="25" set=""/>
-				<pwd txt="Confirm Password:" size="25" set=""/>
+				<pwd txt="JBoss Web Console Password:" size="25" set=""/>
+				<pwd txt="Confirm JBoss Web Console Password:" size="25" set=""/>
 			</spec>
-			<validator class="com.izforge.izpack.util.PasswordEqualityValidator" txt="Passwords Must Match." id="key for the error text"/>
+			<validator class="com.izforge.izpack.util.PasswordEqualityValidator" txt="Passwords do not match. Please re-enter your JBoss Web Console passwords" id="key for the error text"/>
 		</field>
 		<field type="text" variable="jboss.java.opts">						
 			<spec txt="JBoss Server JAVA_OPTS:" id="text.label" size="135" set="-server -Xms2048m -Xmx2048m -XX:ThreadStackSize=128 -XX:SurvivorRatio=10 -XX:PermSize=128m -XX:MaxPermSize=128m -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djava.awt.headless=true"/>
@@ -99,19 +99,19 @@
 		<field type="text" variable="jboss.server.port">			
 			<spec txt="JBoss HTTP Port:" id="text.label" size="5" set="42210"/>
 			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The http port number is already in use" id="error.label">
+				class="com.izforge.izpack.util.PortValidator" txt="The HTTP port number is already in use" id="error.label">
 			</validator>
 		</field>		
 		<field type="text" variable="jboss.server.jndi.port">						
 			<spec txt="JBoss JNDI Port:" id="text.label" size="5" set="42200"/>
 			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The jndi port number is already in use" id="error.label">
+				class="com.izforge.izpack.util.PortValidator" txt="The JNDI port number is already in use" id="error.label">
 			</validator>			
 		</field>
 		<field type="text" variable="jboss.server.rmi.port">						
 			<spec txt="JBoss RMI Port:" id="text.label" size="5" set="42230"/>
 			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The jndi port number is already in use" id="error.label">
+				class="com.izforge.izpack.util.PortValidator" txt="The JBoss RMI port number is already in use" id="error.label">
 			</validator>			
 		</field>
 
@@ -146,10 +146,10 @@
 		<field type="text" variable="jboss.jms.port">						
 			<spec txt="JBoss JMS port:" id="text.label" size="5" set="42170"/>
 			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The jms port number is already in use" id="error.label">
+				class="com.izforge.izpack.util.PortValidator" txt="The JBoss JMS port number is already in use" id="error.label">
 			</validator>			
 		</field>
-		
+
 	</panel>
 
 
@@ -160,28 +160,28 @@
 		<field type="text" variable="jboss.jmx-rmi.port">						
 			<spec txt="JBoss jmx-rmi port:" id="text.label" size="5" set="42290"/>
 			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The jmx-rmi port number is already in use" id="error.label">
+				class="com.izforge.izpack.util.PortValidator" txt="The JBoss jmx-rmi port number is already in use" id="error.label">
 			</validator>			
 		</field>		
 
 		<field type="text" variable="jboss.messaging.port">						
 			<spec txt="JBoss messaging port:" id="text.label" size="5" set="42330"/>
 			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The messaging port number is already in use" id="error.label">
+				class="com.izforge.izpack.util.PortValidator" txt="The JBoss messaging port number is already in use" id="error.label">
 			</validator>			
 		</field>
 
 		<field type="text" variable="jboss.pooledha.port">						
 			<spec txt="JBoss pooledha port:" id="text.label" size="5" set="42270"/>
 			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The pooledha port number is already in use" id="error.label">
+				class="com.izforge.izpack.util.PortValidator" txt="The JBoss pooledha port number is already in use" id="error.label">
 			</validator>			
 		</field>
 
 		<field type="text" variable="jboss.remoting.port">						
 			<spec txt="JBoss remoting port:" id="text.label" size="5" set="42320"/>
 			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The remoting port number is already in use" id="error.label">
+				class="com.izforge.izpack.util.PortValidator" txt="The JBoss remoting port number is already in use" id="error.label">
 			</validator>			
 		</field>
 	
@@ -189,21 +189,21 @@
 		<field type="text" variable="jboss.server.bind.port">						
 			<spec txt="JBoss bind port:" id="text.label" size="5" set="42190"/>
 			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The bind port number is already in use" id="error.label">
+				class="com.izforge.izpack.util.PortValidator" txt="The JBoss bind port number is already in use" id="error.label">
 			</validator>			
 		</field>
 
 		<field type="text" variable="jboss.server.redirect.port">						
 			<spec txt="JBoss redirect port:" id="text.label" size="5" set="42220"/>
 			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The redirect port number is already in use" id="error.label">
+				class="com.izforge.izpack.util.PortValidator" txt="The JBoss redirect port number is already in use" id="error.label">
 			</validator>			
 		</field>		
 		
 		<field type="text" variable="jboss.service.rmiobject.port">						
 			<spec txt="JBoss rmiobject port:" id="text.label" size="5" set="42240"/>
 			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The rmiobject port number is already in use" id="error.label">
+				class="com.izforge.izpack.util.PortValidator" txt="The JBoss rmiobject port number is already in use" id="error.label">
 			</validator>			
 		</field>		
 		
@@ -211,36 +211,36 @@
 		<field type="text" variable="jboss.snmp-trapd.port">						
 			<spec txt="JBoss snmp-trapd port:" id="text.label" size="5" set="42300"/>
 			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The snmp-trapd port number is already in use" id="error.label">
+				class="com.izforge.izpack.util.PortValidator" txt="The JBoss snmp-trapd port number is already in use" id="error.label">
 			</validator>			
 		</field>		
 		
 		<field type="text" variable="jboss.snmp.port">						
-			<spec txt="JBoss snmp port:" id="text.label" size="5" set="42310"/>
+			<spec txt="JBoss SNMP port:" id="text.label" size="5" set="42310"/>
 			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The snmp port number is already in use" id="error.label">
+				class="com.izforge.izpack.util.PortValidator" txt="The JBoss SNMP port number is already in use" id="error.label">
 			</validator>			
 		</field>		
 		
 		<field type="text" variable="jboss.web.service.port">						
 			<spec txt="JBoss web service port:" id="text.label" size="5" set="42250"/>
 			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The web service port number is already in use" id="error.label">
+				class="com.izforge.izpack.util.PortValidator" txt="The JBoss web service port number is already in use" id="error.label">
 			</validator>			
 		</field>			
 	</panel>
 
 	<panel order="5">
-		<field type="title" txt="Application Server Configurations (upgrade)" bold="true" size="1" />
+		<field type="title" txt="Configure your existing JBoss application server" bold="true" size="1" />
 		<field type="divider" align="top"/>
 		
 		<field type="dir" align="left" variable="existing.jboss.home">
 			<spec txt="Existing JBoss Home:" size="25" set=""/>
 		</field>
 		<field type="text" align="left" variable="jboss.server.hostname">
-			<spec txt="Hostname of this Server:" size="15" set="localhost"/>
+			<spec txt="Hostname of this Server:" size="25" set="localhost"/>
 			<validator
-				class="com.izforge.izpack.util.HostNameValidator" txt="Enter a valid Jboss Host name or the Host is not reachable" id="jbosshostname.label">
+				class="com.izforge.izpack.util.HostNameValidator" txt="Unable to reach a host based on the name entered. Please reenter a valid hostname." id="jbosshostname.label">
 			</validator>
 		</field>		
 		<field type="text" align="left" variable="jboss.server.name">
@@ -249,13 +249,13 @@
 		<field type="text" variable="jboss.server.port">			
 			<spec txt="JBoss HTTP Port:" id="text.label" size="5" set="42210"/>
 			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The http port number is already in use" id="error.label">
+				class="com.izforge.izpack.util.PortValidator" txt="The JBoss HTTP port number is already in use" id="error.label">
 			</validator>
 		</field>		
 		<field type="text" variable="jboss.server.jndi.port">						
 			<spec txt="JBoss JNDI Port:" id="text.label" size="5" set="42200"/>
 			<validator
-				class="com.izforge.izpack.util.PortValidator" txt="The jndi port number is already in use" id="error.label">
+				class="com.izforge.izpack.util.PortValidator" txt="The JBoss JNDI port number is already in use" id="error.label">
 			</validator>			
 		</field>
 	</panel>
@@ -277,7 +277,7 @@
 
 	<panel order="7">
 			<field type="title" txt="LDAP Configuration" bold="true" size="1" />
-			<field type="staticText" align="left" txt="Configure LDAP authentication."/>
+			<field type="staticText" align="left" txt="Choose the URL for the LDAP server and the Base DN for authenticating users."/>
 			<field type="divider" align="top"/>
 			<field type="text" variable="ldap.url">						
 				<spec txt="LDAP URL:" id="text.label" size="25" set="ldaps://localhost:636"/>
@@ -335,7 +335,7 @@
 
 	<panel order="10">
 
-		<field type="title" txt="Configure global information for Grid configuration" bold="true" size="1" />
+		<field type="title" txt="Configure global information for Grid configuration. [NEED MORE INFORMATION]" bold="true" size="1" />
 		<field type="divider" align="top"/>
 		<field type="text" variable="grid.index.url">						
 			<spec txt="Grid Index Url:" id="text.label" size="35" set="http://training03.cagrid.org:6080/wsrf/services/DefaultIndexService"/>
@@ -431,7 +431,7 @@
 	<panel order="14">
 	
 		<field type="title" txt="Configure application settings" bold="true" size="1" />
-		<field type="staticText" align="left" txt="For detailed descriptions on each of the properties below, see the Application Setting section at https://wiki.nci.nih.gov/x/Caml"/>
+		<field type="staticText" align="left" txt="For detailed descriptions on each of the properties below, see the Application Settings section at https://wiki.nci.nih.gov/x/Caml"/>
 		<field type="divider" align="top"/>
 	
 		<field type="text" align="left" variable="email.support">
