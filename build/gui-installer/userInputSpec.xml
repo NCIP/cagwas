@@ -2,7 +2,7 @@
 	<!-- Install -->
 	<panel order="0">
 		<field type="title" txt="Install or Upgrade software" bold="true" size="1" />
-		<field type="staticText" align="left" txt="Choose Install if you haven't installed this software on this machine before. Choose Upgrade if software has previously been installed. WARNING: When choosing Install, the installer will remove any previous application server or databases installed based on the information you provide."/>
+		<field type="staticText" align="left" txt="Choose Install if you haven't installed this software on this machine before. Choose Upgrade if software has previously been installed. WARNING: When choosing Install, the installer will remove any previously installed application servers (using caBIG installers) or databases installed based on the information you provide."/>
 		<field type="divider" align="top"/>
 		<field type="radio" variable="setup.type">
 			<description align="left" txt="Select the type of installation"
@@ -277,6 +277,7 @@
 
 	<panel order="7">
 			<field type="title" txt="LDAP Configuration" bold="true" size="1" />
+			<field type="staticText" align="left" txt="Configure LDAP authentication."/>
 			<field type="divider" align="top"/>
 			<field type="text" variable="ldap.url">						
 				<spec txt="LDAP URL:" id="text.label" size="25" set="ldaps://localhost:636"/>
@@ -288,7 +289,7 @@
 
 	<panel order="8">
 		<field type="title" txt="Configuring your MySQL database connection" bold="true" size="1" />
-		<field type="staticText" align="left" txt="The information you enter below is to connect to an existing MySQL database. localhost is NOT a recommended value for Database Host Name. The 'Database Name' and 'Database User' must have access to 'Database Name'. It's highly recommended you contact your database administrator to obtain this information. NOTE: All database objects for 'Database Name' will be dropped and recreated during the installation process. For detailed descriptions on each of the properties below, see the Database Settings section at https://wiki.nci.nih.gov/x/Caml"/>
+		<field type="staticText" align="left" txt="The information you enter below will connect you to an existing MySQL database. localhost is NOT a recommended value for Database Host Name. The 'Database Name' and 'Database User' must have access to 'Database Name'. It's highly recommended you contact your database administrator to obtain this information. NOTE: All database objects for 'Database Name' will be dropped and recreated during the installation process. For detailed descriptions on each of the properties below, see the Database Settings section at https://wiki.nci.nih.gov/x/Caml"/>
 		<field type="divider" align="top"/>
 	
 		<variable name="install.path" value="$INSTALL_PATH"/>
