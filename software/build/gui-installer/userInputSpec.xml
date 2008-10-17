@@ -2,7 +2,7 @@
 	<!-- Install -->
 	<panel order="0">
 		<field type="title" txt="Install or Upgrade software" bold="true" size="1" />
-		<field type="staticText" align="left" txt="Choose Install if you haven't installed this software on this machine before. Choose Upgrade if software has previously been installed. WARNING: When choosing Install, the installer will remove any previously installed application servers (using caBIG installers) or databases installed based on the information you provide."/>
+		<field type="staticText" align="left" txt="Choose Install if you haven't installed this software on this machine before. Choose Upgrade if software has previously been installed. WARNING: When choosing Install, the installer will remove any previously installed application servers (using caBIG installers) or databases installed based on the information you provide, so be sure to backup your application server and database instance if they exist."/>
 		<field type="divider" align="top"/>
 		<field type="radio" variable="setup.type">
 			<description align="left" txt="Choose a new Install or Upgrade an existing installation"
@@ -289,7 +289,7 @@
 
 	<panel order="8">
 		<field type="title" txt="Configuring your MySQL database connection" bold="true" size="1" />
-		<field type="staticText" align="left" txt="The information you enter below will connect you to an existing MySQL database. localhost is NOT a recommended value for Database Host Name. The 'Database Name' and 'Database User' must have access to 'Database Name'. It's highly recommended you contact your database administrator to obtain this information. NOTE: All database objects for 'Database Name' will be dropped and recreated during the installation process. For detailed descriptions on each of the properties below, see the Database Settings section at https://wiki.nci.nih.gov/x/Caml"/>
+		<field type="staticText" align="left" txt="The information you enter below will connect you to an existing MySQL database. localhost is NOT a recommended value for Database Host Name. The 'Database User' must have full access to 'Database Name'. It's highly recommended you contact your database administrator to obtain this information. NOTE: All database objects for 'Database Name' will be dropped and recreated during the installation process. For detailed descriptions on each of the properties below, see the Database Settings section at https://wiki.nci.nih.gov/x/Caml"/>
 		<field type="divider" align="top"/>
 	
 		<variable name="install.path" value="$INSTALL_PATH"/>
@@ -326,7 +326,7 @@
 
 	<panel order="9">
 
-		<field type="title" txt="Configure SMTP server information" bold="true" size="1" />
+		<field type="title" txt="Configure Global Settings" bold="true" size="1" />
 		<field type="divider" align="top"/>
 		<field type="text" variable="mail.smtp.server">						
 			<spec txt="SMTP Relay Host:" id="text.label" size="25" set="localhost"/>
