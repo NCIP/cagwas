@@ -154,7 +154,7 @@
 
 
 	<panel order="4">	
-		<field type="title" txt="JBoss Installation Options Continued.." bold="true" size="1" />
+		<field type="title" txt="Additional JBoss installation options" bold="true" size="1" />
 		<field type="divider" align="top"/>
 
 		<field type="text" variable="jboss.jmx-rmi.port">						
@@ -287,7 +287,7 @@
 
 	<panel order="8">
 		<field type="title" txt="Configuring your MySQL database connection" bold="true" size="1" />
-		<field type="staticText" align="left" txt="The information you enter below is to connect to an existing MySQL database. localhost is NOT a recommended value for Database Host Name. The 'Database Name' and 'Database User' must have access to 'Database Name'. It's highly recommended you contact your database administrator to obtain this information. NOTE: All database objects for 'Database Name' will be dropped and recreated during the installation process."/>
+		<field type="staticText" align="left" txt="The information you enter below is to connect to an existing MySQL database. localhost is NOT a recommended value for Database Host Name. The 'Database Name' and 'Database User' must have access to 'Database Name'. It's highly recommended you contact your database administrator to obtain this information. NOTE: All database objects for 'Database Name' will be dropped and recreated during the installation process. For detailed descriptions on each of the properties below, see the Database Settings section at https://wiki.nci.nih.gov/x/Caml"/>
 		<field type="divider" align="top"/>
 	
 		<variable name="install.path" value="$INSTALL_PATH"/>
@@ -324,7 +324,7 @@
 
 	<panel order="9">
 
-		<field type="title" txt="Global Configurations" bold="true" size="1" />
+		<field type="title" txt="Configure SMTP server information" bold="true" size="1" />
 		<field type="divider" align="top"/>
 		<field type="text" variable="mail.smtp.server">						
 			<spec txt="SMTP Relay Host:" id="text.label" size="25" set="localhost"/>
@@ -333,7 +333,7 @@
 
 	<panel order="10">
 
-		<field type="title" txt="Grid Related Configurations (global)" bold="true" size="1" />
+		<field type="title" txt="Configure global information for Grid configuration" bold="true" size="1" />
 		<field type="divider" align="top"/>
 		<field type="text" variable="grid.index.url">						
 			<spec txt="Grid Index Url:" id="text.label" size="35" set="http://training03.cagrid.org:6080/wsrf/services/DefaultIndexService"/>
@@ -351,7 +351,7 @@
 	</panel>
 
 	<panel order="11">
-		<field type="title" txt="Grid Related Configurations (Research Center)" bold="true" size="1" />
+		<field type="title" txt="Configure research center contact information for Grid configuration" bold="true" size="1" />
 		<field type="divider" align="top"/>
 		<field type="text" variable="grid.poc.tech.researchCenter.displayname">						
 			<spec txt="Research Center Display Name:" id="text.label" size="25" set=""/>
@@ -380,7 +380,7 @@
 	</panel>
 	<panel order="12">
 
-		<field type="title" txt="Grid Related Configurations (tech contact)" bold="true" size="1" />
+		<field type="title" txt="Configure technical contact information for Grid configuration" bold="true" size="1" />
 		<field type="divider" align="top"/>
 
 		<field type="text" variable="grid.poc.tech.affiliation">						
@@ -404,7 +404,7 @@
 	</panel>	
 	
 	<panel order="13">
-		<field type="title" txt="Grid Related Configurations (science contact)" bold="true" size="1" />
+		<field type="title" txt="Configure science contact information for Grid configuration" bold="true" size="1" />
 		<field type="divider" align="top"/>
 		<field type="text" variable="grid.poc.science.affiliation">						
 			<spec txt="Science Contact Affiliation :" id="text.label" size="25" set=""/>
@@ -428,7 +428,8 @@
 
 	<panel order="14">
 	
-		<field type="title" txt="caGWAS Custom Properties " bold="true" size="1" />
+		<field type="title" txt="Configure application settings for caGWAS" bold="true" size="1" />
+		<field type="staticText" align="left" txt="For detailed descriptions on each of the properties below, see the Application Setting section at https://wiki.nci.nih.gov/x/Caml"/>
 		<field type="divider" align="top"/>
 	
 		<field type="text" align="left" variable="email.support">
@@ -444,15 +445,15 @@
 			<spec txt="External URL:" id="text.label" size="35" set=""/>
 		</field>
 		<field type="text" variable="remote.study.url">						
-			<spec txt="URL of remote machine hosting Study:" id="text.label" size="35" set=""/>
+			<spec txt="URL of remote machine hosting study:" id="text.label" size="35" set=""/>
 		</field>
 		<field type="text" align="left" variable="log4j.log.level">
 			<spec txt="Log4J level:" size="25" set="WARN"/>
 		</field>
 	</panel>
 	<panel order="15">
-		<field type="title" txt="caGWAS Apache  Properties " bold="true" size="1" />
-		<field type="staticText" align="left" txt="For detailed descriptions on each of the properties below, see https://wiki.nci.nih.gov/x/Caml."/>
+		<field type="title" txt="Configure Apache settings for caGWAS" bold="true" size="1" />
+		<field type="staticText" align="left" txt="For detailed descriptions on each of the properties below, see the Apache Settings section at https://wiki.nci.nih.gov/x/Caml"/>
 		<field type="divider" align="top"/>
 		<field type="text" align="left" variable="apache.virtual.ip">
 			<spec txt="Apache Virtual Server IP:" size="25" set=""/>
