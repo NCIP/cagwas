@@ -2,8 +2,8 @@
 
 	<!-- Generic properties -->
 	<property name="application_installer" value="cagwas_installer" />
-	<property name="application_installer_zip" value="cagwas_installer0.1.0.zip" />
-	<property name="application_upgrader_zip" value="cagwas_ugprader0.1.0.zip" />
+	<property name="application_installer_zip" value="cagwas_installer1.0.0.zip" />
+	<property name="application_upgrader_zip" value="cagwas_ugprader1.0.0.zip" />
 	
 	
 	<!-- TARGETS -->
