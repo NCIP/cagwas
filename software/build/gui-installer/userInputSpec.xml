@@ -1,8 +1,8 @@
 <userInput>
 	<!-- Install -->
 	<panel order="0">
-		<field type="title" txt="Install or Upgrade caAGWAS" bold="true" size="1" />
-		<field type="staticText" align="left" txt="Choose Install if you haven't installed caGWAS on this machine before. Choose Upgrade if caGWAS has previously been installed. WARNING: When choosing Install, the installer will remove any previous application server or databases installed based on the information you provide."/>
+		<field type="title" txt="Install or Upgrade software" bold="true" size="1" />
+		<field type="staticText" align="left" txt="Choose Install if you haven't installed this software on this machine before. Choose Upgrade if software has previously been installed. WARNING: When choosing Install, the installer will remove any previous application server or databases installed based on the information you provide."/>
 		<field type="divider" align="top"/>
 		<field type="radio" variable="setup.type">
 			<description align="left" txt="Select the type of installation"
@@ -15,7 +15,7 @@
 	</panel>
 
 	<panel order="1">
-		<field type="title" txt="Type of Install Options" bold="true" size="1" />
+		<field type="title" txt="Choose your type of installation" bold="true" size="1" />
 		<field type="staticText" align="left" txt="A Typical install requires you to enter an essential mininum number of values to successfully install the software. A Typical install configures ports and other required values. A Custom install allows you to modify all of the configurable values such as port numbers."/>
 		<field type="divider" align="top"/>
 		<field type="radio" variable="setup.options.type">
@@ -261,13 +261,14 @@
 	</panel>
 	<panel order="6">
 		<field type="title" txt="Authentication Type" bold="true" size="1" />
+		<field type="staticText" align="left" txt="There are two types of ways to authenticate users: against database or using an LDAP server. To connect to LDAP, you must have an LDAP server available in your network."/>
 		<field type="divider" align="top"/>
 		<field type="radio" variable="authentication.type">
 			<description align="left" txt="Which kind of authentiation do you want to use?"
 			id="ldap.radio"/>
 			<spec>
-				<choice txt="LDAP" id="ldap.install" value="ldap"/>
 				<choice txt="Database" id="ldap.install" value="db" set="true" />
+				<choice txt="LDAP" id="ldap.install" value="ldap"/>				
 			</spec>
 		</field>		
 		<variable name="ldap.basedn" value=""/>
@@ -399,7 +400,7 @@
 			<spec txt="Email Address:" id="text.label" size="25" set=""/>
 		</field>
 		<field type="text" variable="grid.poc.tech.role">						
-			<spec txt="Role :" id="text.label" size="25" set=""/>
+			<spec txt="Role:" id="text.label" size="25" set=""/>
 		</field>
 	</panel>	
 	
@@ -422,13 +423,13 @@
 			<spec txt="Email Address:" id="text.label" size="25" set=""/>
 		</field>
 		<field type="text" variable="grid.poc.science.role">						
-			<spec txt="Role :" id="text.label" size="25" set=""/>
+			<spec txt="Role:" id="text.label" size="25" set=""/>
 		</field>
 	</panel>
 
 	<panel order="14">
 	
-		<field type="title" txt="Configure application settings for caGWAS" bold="true" size="1" />
+		<field type="title" txt="Configure application settings" bold="true" size="1" />
 		<field type="staticText" align="left" txt="For detailed descriptions on each of the properties below, see the Application Setting section at https://wiki.nci.nih.gov/x/Caml"/>
 		<field type="divider" align="top"/>
 	
@@ -452,7 +453,7 @@
 		</field>
 	</panel>
 	<panel order="15">
-		<field type="title" txt="Configure Apache settings for caGWAS" bold="true" size="1" />
+		<field type="title" txt="Configure Apache settings" bold="true" size="1" />
 		<field type="staticText" align="left" txt="For detailed descriptions on each of the properties below, see the Apache Settings section at https://wiki.nci.nih.gov/x/Caml"/>
 		<field type="divider" align="top"/>
 		<field type="text" align="left" variable="apache.virtual.ip">
