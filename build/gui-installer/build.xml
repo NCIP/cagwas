@@ -15,12 +15,8 @@
 			<include name="**/*.properties" />
 		</replace>
 		<replace file="${install.path}/${application_installer}/build.xml" token="project.properties" value="${install.path}/${application_installer}/project.properties"/>
-		<!--
-		<replace file="${install.path}/${application_installer}/build.xml" token="${properties.file}" value="${install.path}/${application_installer}/${properties.file}"/>
-		<replace dir="${install.path}/${application_installer}/bda-utils" token="${properties.file}" value="${install.path}/${application_installer}/${properties.file}">
-			<include name="bda-build-utils*.xml" />
-		</replace>
-		-->
+		<replace file="${install.path}/${application_installer}/build.xml" token="install-properties.template" value="${install.path}/${application_installer}/install-properties.template"/>
+		<replace file="${install.path}/${application_installer}/build.xml" token="upgrade-properties.template" value="${install.path}/${application_installer}/upgrade-properties.template"/>
 		<replace dir="${install.path}/${application_installer}/bda-utils" token="bda-utils&quot;&gt;" value="${bda-utils.lib.dir}&quot;&gt;">
 			<include name="bda-build-utils*.xml" />
 		</replace>
@@ -37,12 +33,8 @@
 			<include name="**/*.properties" />
 		</replace>
 		<replace file="${install.path}/${application_installer}/build.xml" token="project.properties" value="${install.path}/${application_installer}/project.properties"/>
-		<!--
-		<replace file="${install.path}/${application_installer}/build.xml" token="${properties.file}" value="${install.path}/${application_installer}/${properties.file}"/>
-		<replace dir="${install.path}/${application_installer}/bda-utils" token="${properties.file}" value="${install.path}/${application_installer}/${properties.file}">
-			<include name="bda-build-utils*.xml" />
-		</replace>
-		-->
+		<replace file="${install.path}/${application_installer}/build.xml" token="install-properties.template" value="${install.path}/${application_installer}/install-properties.template"/>
+		<replace file="${install.path}/${application_installer}/build.xml" token="upgrade-properties.template" value="${install.path}/${application_installer}/upgrade-properties.template"/>
 		<replace dir="${install.path}/${application_installer}/bda-utils/" token="bda-utils&quot;&gt;" value="${bda-utils.lib.dir}&quot;&gt;">
 			<include name="bda-build-utils*.xml" />
 		</replace>
