@@ -496,9 +496,9 @@
 		</field>
 		-->
 		<variable name="external.url" value="http://${jboss.server.hostname}:${jboss.server.port}/cagwas"/>
-		<variable name="file.transfer.external.base.url.hid" value="http://${apache.virtual.name}:${apache.virtual.port}/hid_download_cagwas"/>
-		<variable name="file.transfer.external.base.url.anon" value="http://${apache.virtual.name}:${apache.virtual.port}/anon_browse"/>
-		<variable name="file.transfer.external.base.url.secure" value="http://${apache.virtual.name}:${apache.virtual.port}/authenticated_browse"/>
+		<variable name="file.transfer.external.base.url.hid" value="http://${apache.virtual.name}:${apache.virtual.port}/hid_download_cagwas/"/>
+		<variable name="file.transfer.external.base.url.anon" value="http://${apache.virtual.name}:${apache.virtual.port}/anon_browse/"/>
+		<variable name="file.transfer.external.base.url.secure" value="http://${apache.virtual.name}:${apache.virtual.port}/authenticated_browse/"/>
 
 	</panel>
 </userInput>
