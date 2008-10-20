@@ -280,7 +280,7 @@
 		<variable name="baseDir" value="$INSTALL_PATH"/>
 
 		<field type="text" variable="database.server">
-			<spec txt="Database Host Name:" id="dbhostname.label" size="25" set="localhost"/>
+			<spec txt="Database Host Name:" id="dbhostname.label" size="25" set=""/>
 			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" Database Host Name: is a required field" />
 			<validator class="com.izforge.izpack.util.HostNameValidator" txt="Enter a valid Host name or the Host is not reachable" id="dbhostname.label"/>
 		</field>
