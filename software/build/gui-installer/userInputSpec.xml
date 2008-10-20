@@ -324,18 +324,18 @@
 			<validator class="com.izforge.izpack.util.URLCheckValidator" txt="Please enter a valid Index URL" id="indexurl.label"/>
 		</field>
 		<field type="text" variable="grid.external.host">
-			<spec txt="Grid External Host Name:" id="text.label" size="25" set=""/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" Grid External Host Name: is a required field" />
+			<spec txt="Grid External Hostname:" id="text.label" size="25" set=""/>
+			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" Grid External Hostname is a required field" />
 		</field>
 
 		<field type="text" variable="grid.external.port">
-			<spec txt="Grid External Port Num:" id="text.label" size="5" set=""/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" Grid External Port Num: is a required field" />
+			<spec txt="Grid External Port Number:" id="text.label" size="5" set=""/>
+			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" Grid External Port Number is a required field" />
 		</field>
 	</panel>
 
 	<panel order="11">
-		<field type="title" txt="Configure research center contact information for Grid configuration" bold="true" size="1" />
+		<field type="title" txt="Configure research center contact information for Grid configuration." bold="true" size="1" />
 		<field type="divider" align="top"/>
 		<field type="text" variable="grid.poc.tech.researchCenter.displayname">
 			<spec txt="Research Center Display Name:" id="text.label" size="25" set=""/>
@@ -351,7 +351,6 @@
 		</field>
 		<field type="text" variable="grid.poc.tech.addr.street2">
 			<spec txt="Street Address line 2:" id="text.label" size="35" set=""/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" Street Address line 2: is a required field" />
 		</field>
 		<field type="text" variable="grid.poc.tech.addr.locality">
 			<spec txt="Locality:" id="text.label" size="25" set=""/>
