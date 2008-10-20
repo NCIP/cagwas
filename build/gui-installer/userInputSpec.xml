@@ -246,7 +246,7 @@
 		<field type="staticText" align="left" txt="There are two types of ways to authenticate users: against database or using an LDAP server. To connect to LDAP, you must have an LDAP server available in your network."/>
 		<field type="divider" align="top"/>
 		<field type="radio" variable="authentication.type">
-			<description align="left" txt="Which kind of authentiation do you want to use?"
+			<description align="left" txt="Which kind of authentication do you want to use?"
 			id="ldap.radio"/>
 			<spec>
 				<choice txt="Database" id="ldap.install" value="db" set="true" />
