@@ -36,7 +36,7 @@
 				<pwd txt="JBoss Web Console Password:" size="25" set=""/>
 				<pwd txt="Confirm JBoss Web Console Password:" size="25" set=""/>
 			</spec>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt="JBoss Web Console Password: is a required field" />
+			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt="JBoss Web Console Passwords are required fields" />
 			<validator class="com.izforge.izpack.util.PasswordEqualityValidator" txt="Passwords do not match. Please re-enter your JBoss Web Console passwords." id="key for the error text"/>
 		</field>
 		<variable name="authentication.type" value="db"/>
@@ -88,7 +88,7 @@
 				<pwd txt="JBoss Web Console Password:" size="25" set=""/>
 				<pwd txt="Confirm JBoss Web Console Password:" size="25" set=""/>
 			</spec>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt="JBoss Web Console Password: is a required field" />
+			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt="JBoss Web Console Passwords are required fields" />
 			<validator class="com.izforge.izpack.util.PasswordEqualityValidator" txt="Passwords do not match. Please re-enter your JBoss Web Console passwords" id="key for the error text"/>
 		</field>
 		<field type="text" variable="jboss.java.opts">
