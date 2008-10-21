@@ -17,6 +17,9 @@
 	<property name="bda-utils.dir" value="${software.location}/target/bda-utils" />
 	<property name="project.name" value="cagwas"/>
 	<property name="installer.dir" value=".installer-${project.name}"/>
+	<property name="gui-installer.dist.base.name" value="cagwas_gui_distribution_${cagwas.version}.jar"/>
+	<property name="install.zip.file" value="${cagwas.install.zip.file}"/>
+	<property name="upgrade.zip.file" value="${cagwas.upgrade.zip.file}"/>
 
 <echo message="compile.jar.dir ::: ${compile.jar.dir}"/>
 <echo message="this.dir ::: ${this.dir}"/>
@@ -25,26 +28,26 @@
 
 	<target name="prepare:installer">
 		<replaceregexp file="${this.dir}/build.xml" byline="true"
-				match="^(.*property name=.*application_installer_zip.*)(value=.)(.*)(.zip.*)"
-				replace="\1\2${cagwas.install.name}${cagwas.version}\4"/>	
+			match="^(.*property name=.*application_installer_zip.*value=&quot;)[^&quot;]+(&quot;.*)"
+			replace="\1${install.zip.file}\2"/>
 		<replaceregexp file="${this.dir}/build.xml" byline="true"
-				match="^(.*property name=.*application_upgrader_zip.*)(value=.)(.*)(.zip.*)"
-				replace="\1\2${cagwas.upgrade.name}${cagwas.version}\4"/>	
+			match="^(.*property name=.*application_upgrader_.*value=&quot;)[^&quot;]+(&quot;.*)"
+			replace="\1${upgrade.zip.file}\2"/>
 	</target>
-	
-	<target name="build:installer" depends="prepare:installer">
-		<delete>
-			<fileset dir="${dist.location}">
-				<include name="${cagwas.install.name}${cagwas.version}*.jar"/>
-			</fileset>
-		</delete>
-	        <tstamp>
-			<format property="build.time" pattern="yyyyMMddHHmm" />
-		</tstamp>
 
-		<IzPack output="${dist.location}/${cagwas.install.name}${cagwas.version}-${build.time}.jar"
+	<target name="build:installer" depends="prepare:installer">
+		<delete>        
+			<fileset dir="${dist.location}"> 
+				<include name="${gui-installer.dist.base.name}*.jar"/>
+			</fileset>              
+		</delete>       
+		<tstamp>        
+			<format property="build.time" pattern="yyyyMMddHHmm" />
+		</tstamp>       
+
+		<IzPack output="${dist.location}/${gui-installer.dist.base.name}-${build.time}.jar"
 			installerType="standard"
-			basedir="."
+			basedir="."             
 			IzPackDir="${compile.jar.dir}/">
 			<config><![CDATA[
 			<installation version="1.0">
@@ -234,7 +237,7 @@
 				<packs>
 					<pack name="download_install" id="download_install" installGroups="cagwas" required="no">
 					    <description>The base files</description>
-					    <file src="@{dist.location}/@{cagwas.install.name}@{cagwas.version}.zip" targetdir="$SYSTEM_user_home/@{installer.dir}"/>
+					    <file src="@{dist.location}/@{install.zip.file}" targetdir="$SYSTEM_user_home/@{installer.dir}"/>
 					    <file src="@{this.dir}/build.xml" targetdir="$SYSTEM_user_home/@{installer.dir}"/>
 					    <file src="@{this.dir}/property-template" ="yes" targetdir="$SYSTEM_user_home/@{installer.dir}">
 						<excludes>**/.svn/**</excludes>
