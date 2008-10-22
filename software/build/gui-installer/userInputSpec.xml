@@ -8,7 +8,7 @@
 			id="installation.radio"/>
 			<spec>
 				<choice txt="Install" id="setup.type.install" value="install" set="true" />
-				<choice txt="Upgrade" id="setup.type.upgrade" value="upgrade" />
+				<!--<choice txt="Upgrade" id="setup.type.upgrade" value="upgrade" /> -->
 			</spec>
 		</field>
 	</panel>
@@ -99,47 +99,39 @@
 
 		<field type="text" variable="jboss.server.port">
 			<spec txt="JBoss HTTP Port:" id="text.label" size="5" set="42210"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss HTTP Port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The HTTP port number is already in use" id="error.label"/>
 		</field>
 		<field type="text" variable="jboss.server.jndi.port">
 			<spec txt="JBoss JNDI Port:" id="text.label" size="5" set="42200"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss JNDI Port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JNDI port number is already in use" id="error.label"/>
 		</field>
 		<field type="text" variable="jboss.server.rmi.port">
 			<spec txt="JBoss RMI Port:" id="text.label" size="5" set="42230"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss RMI Port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JBoss RMI port number is already in use" id="error.label"/>
 		</field>
 
 		<field type="text" variable="jboss.ejbinvoker.port">
 			<spec txt="JBoss EJBInvoker Port:" id="text.label" size="5" set="42150"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss EJBInvoker Port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The ejbinvoker port number is already in use" id="error.label"/>
 		</field>
 
 		<field type="text" variable="jboss.cobraorb.port">
 			<spec txt="JBoss CORBAORG port:" id="text.label" size="5" set="42280"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss CORBAORG port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The cobraorb port number is already in use" id="error.label"/>
 		</field>
 
 		<field type="text" variable="jboss.hajndi.port">
 			<spec txt="JBoss hajndi port:" id="text.label" size="5" set="42160"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss hajndi port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The hajndi port number is already in use" id="error.label"/>
 		</field>
 
 		<field type="text" variable="jboss.hajrmi.port">
 			<spec txt="JBoss hajrmi port:" id="text.label" size="5" set="42260"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss hajrmi port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The hajrmi port number is already in use" id="error.label"/>
 		</field>
 
 		<field type="text" variable="jboss.jms.port">
 			<spec txt="JBoss JMS port:" id="text.label" size="5" set="42170"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss JMS port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JBoss JMS port number is already in use" id="error.label"/>
 		</field>
 
@@ -152,63 +144,53 @@
 
 		<field type="text" variable="jboss.jmx-rmi.port">
 			<spec txt="JBoss jmx-rmi port:" id="text.label" size="5" set="42290"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss jmx-rmi port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JBoss jmx-rmi port number is already in use" id="error.label"/>
 		</field>
 
 		<field type="text" variable="jboss.messaging.port">
 			<spec txt="JBoss messaging port:" id="text.label" size="5" set="42330"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss messaging port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JBoss messaging port number is already in use" id="error.label"/>
 		</field>
 
 		<field type="text" variable="jboss.pooledha.port">
 			<spec txt="JBoss pooledha port:" id="text.label" size="5" set="42270"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss pooledha port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JBoss pooledha port number is already in use" id="error.label"/>
 		</field>
 
 		<field type="text" variable="jboss.remoting.port">
 			<spec txt="JBoss remoting port:" id="text.label" size="5" set="42320"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss remoting port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JBoss remoting port number is already in use" id="error.label"/>
 		</field>
 
 
 		<field type="text" variable="jboss.server.bind.port">
 			<spec txt="JBoss bind port:" id="text.label" size="5" set="42190"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss bind port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JBoss bind port number is already in use" id="error.label"/>
 		</field>
 
 		<field type="text" variable="jboss.server.redirect.port">
 			<spec txt="JBoss redirect port:" id="text.label" size="5" set="42220"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss redirect port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JBoss redirect port number is already in use" id="error.label"/>
 		</field>
 
 		<field type="text" variable="jboss.service.rmiobject.port">
 			<spec txt="JBoss rmiobject port:" id="text.label" size="5" set="42240"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss rmiobject port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JBoss rmiobject port number is already in use" id="error.label"/>
 		</field>
 
 
 		<field type="text" variable="jboss.snmp-trapd.port">
 			<spec txt="JBoss snmp-trapd port:" id="text.label" size="5" set="42300"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss snmp-trapd port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JBoss snmp-trapd port number is already in use" id="error.label"/>
 		</field>
 
 		<field type="text" variable="jboss.snmp.port">
 			<spec txt="JBoss SNMP port:" id="text.label" size="5" set="42310"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss SNMP port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JBoss SNMP port number is already in use" id="error.label"/>
 		</field>
 
 		<field type="text" variable="jboss.web.service.port">
 			<spec txt="JBoss web service port:" id="text.label" size="5" set="42250"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss web service port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JBoss web service port number is already in use" id="error.label"/>
 		</field>
 	</panel>
@@ -223,7 +205,6 @@
 		</field>
 		<field type="text" align="left" variable="jboss.server.hostname">
 			<spec txt="Hostname of this Server:" size="25" set="$HOST_NAME"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" Hostname of this Server is a required field" />
 			<validator class="com.izforge.izpack.util.HostNameValidator" txt="Unable to reach a host based on the name entered. Please reenter a valid hostname." id="jbosshostname.label"/>
 		</field>
 		<field type="text" align="left" variable="jboss.server.name">
@@ -232,12 +213,10 @@
 		</field>
 		<field type="text" variable="jboss.server.port">
 			<spec txt="JBoss HTTP Port:" id="text.label" size="5" set="42210"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss HTTP Port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JBoss HTTP port number is already in use" id="error.label"/>
 		</field>
 		<field type="text" variable="jboss.server.jndi.port">
 			<spec txt="JBoss JNDI Port:" id="text.label" size="5" set="42200"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss JNDI Port is a required field" />
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JBoss JNDI port number is already in use" id="error.label"/>
 		</field>
 	</panel>
@@ -281,7 +260,6 @@
 
 		<field type="text" variable="database.server">
 			<spec txt="Database Host Name:" id="dbhostname.label" size="25" set=""/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" Database Host Name is a required field" />
 			<validator class="com.izforge.izpack.util.HostNameValidator" txt="Enter a valid Host name or the Host is not reachable" id="dbhostname.label"/>
 		</field>
 		<field type="text" variable="database.port">
@@ -320,7 +298,6 @@
 		<field type="divider" align="top"/>
 		<field type="text" variable="grid.index.url">
 			<spec txt="Grid Index Url:" id="text.label" size="35" set="http://training03.cagrid.org:6080/wsrf/services/DefaultIndexService"/>
-			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" Grid Index Url is a required field" />
 			<validator class="com.izforge.izpack.util.URLCheckValidator" txt="Please enter a valid Index URL" id="indexurl.label"/>
 		</field>
 		<field type="text" variable="grid.external.host">
