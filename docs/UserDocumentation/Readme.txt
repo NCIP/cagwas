@@ -36,7 +36,7 @@ that captures associations between Study, Study Participant,
 Disease, SNP Association Analysis, SNP Population Frequency and 
 SNP annotations.
 
-* https://caintegrator.nci.nih.gov/cgems
+* http://caintegrator-info.nci.nih.gov/cagwas
 
 Release History
 ------------------------
@@ -93,12 +93,37 @@ application validation.
 
 Known Issues/Defects
 ------------------------
+
+  NOTE: A recent publication suggests that it is possible to determine whether
+  a given genotype is a member of a cohort using summary statistics, such as
+  allele frequency, in genome-wide association studies. 
+  As a result, the NIH is recommending that, in addition to individual genotypes,
+  composite statistics in GWAS databases be privacy protected. To this effect, 
+  the default installation of the caGWAS application has been altered to install
+  without publishing to the caGrid. In an upcoming release of caGWAS, additional
+  privacy controls will be added to improve grid security.
+   
+  Until this updated release where caGWAS implements a password protected grid API,
+  it is recommended that existing caGWAS databases storing human SNP information be
+  removed from the grid, and that new installations intending to study human genomes 
+  defer from publishing to the grid, per the default installation parameters . It is 
+  also recommended that PIs discuss these issues with their IRB prior to importing 
+  and sharing human data via caGWAS. For more information on this change, 
+  please refer to the following:
+	Article on GenomeWeb (http://www.genomeweb.com/issues/news/149097-1.html). 
+    Nils Homer, Szabolcs Szelinger, Margot Redman, David Duggan, Waibhav Tembe,
+    Jill Muehling, John V. Pearson, Dietrich A. Stephan, Stanley F. Nelson, and David W. Craig. 
+    Resolving individuals contributing trace amounts of DNA to highly complex
+    mixtures using high-density SNP genotyping microarrays. 
+    PLoS Genet. 2008 August; 4(8): e1000167. Published online 2008 August 29.
+    doi: 10.1371/journal.pgen.1000167. PMCID: PMC2516199.
+    (http://www.ncbi.nlm.nih.gov/sites/entrez?db=pmc&cmd=search&term=2516199 ). 
   
-See the GForge tracker for the latest use cases, existing open defects, 
-community requests, resolutions and feature requests. The following 
-issues are highlighted. 
+   See the GForge tracker for the latest use cases, existing open defects, 
+   community requests, resolutions and feature requests. The following 
+   issues are highlighted. 
 
-
+---------------------------
 https://gforge.nci.nih.gov/tracker/?group_id=305
 
 [#10743] If you select any item from “Population” only the query 
@@ -144,3 +169,5 @@ Tables:
 odds_ratio
 snp_analysis_lu
 snp_association_analysis 
+
+CSM schema is incorporated within caGWAS schema
