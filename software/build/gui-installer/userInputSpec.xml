@@ -42,7 +42,7 @@
 		<variable name="authentication.type" value="db"/>
 		<variable name="grid.external.host" value=""/>
 		<variable name="grid.external.port" value=""/>
-		<variable name="grid.index.url" value="http://training03.cagrid.org:6080/wsrf/services/DefaultIndexService"/>
+		<variable name="grid.index.url" value="http://cagrid-index.nci.nih.gov:8080/wsrf/services/DefaultIndexService"/>
 		<variable name="jboss.cobraorb.port" value="42280"/>
 		<variable name="jboss.ejbinvoker.port" value="42150"/>
 		<variable name="jboss.hajndi.port" value="42160"/>
@@ -297,7 +297,7 @@
 		<field type="title" txt="Configure global information for Grid configuration. [NEED MORE INFORMATION]" bold="true" size="1" />
 		<field type="divider" align="top"/>
 		<field type="text" variable="grid.index.url">
-			<spec txt="Grid Index Url:" id="text.label" size="35" set="http://training03.cagrid.org:6080/wsrf/services/DefaultIndexService"/>
+			<spec txt="Grid Index Url:" id="text.label" size="35" set="http://cagrid-index.nci.nih.gov:8080/wsrf/services/DefaultIndexService"/>
 			<validator class="com.izforge.izpack.util.URLCheckValidator" txt="Please enter a valid Index URL" id="indexurl.label"/>
 		</field>
 		<field type="text" variable="grid.external.host">
