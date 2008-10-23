@@ -478,4 +478,25 @@
 		<variable name="file.transfer.external.base.url.secure" value="http://${apache.virtual.name}:${apache.virtual.port}/authenticated_browse/"/>
 
 	</panel>
+	<panel order="15">
+		<field type="title" txt="Installation Summary" bold="true" size="1" />
+		<field type="staticText" align="left" txt="Below are "/>
+		<field type="divider" align="top"/>
+
+		<field type="staticText" align="left" txt="JBoss Home [${UserPathPanelVariable}/${jboss.binaries.relative.dir}] - This is where JBoss is installed."/>
+		<field type="space"/>
+		<field type="staticText" align="left" txt="JBoss Server Name [${jboss.server.hostname}] - This is the hostname where jboss is running.  If you want to make this Application avaliable from the internet you may need to provide this to your network administrator."/>
+		<field type="space"/>
+		<field type="staticText" align="left" txt="JBoss Server Port [${jboss.server.port}] - This is the HTTP port for JBoss.  If you want to make this Application avaliable from the internet you may need to provide this to your network administrator."/>
+		<field type="space"/>
+		<field type="staticText" align="left" txt="JBoss URL [http://${jboss.server.hostname}:${jboss.server.port}/cagwas] - This will be the url to reach your application when the install is finished."/>
+		<field type="space"/>
+		<field type="staticText" align="left" txt="JBoss Log Dir [${UserPathPanelVariable}/${jboss.binaries.relative.path}/server/${jboss.server.name}] - This is where the logs can be found."/>
+
+		<field type="space"/>
+		<field type="staticText" align="left" txt="Database URL [jdbc:mysql://${database.server}:${database.port}/${database.name}] "/>
+		<field type="space"/>
+		<field type="staticText" align="left" txt="Database User [${database.user}] "/>
+	</panel>
+
 </userInput>
