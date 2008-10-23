@@ -39,14 +39,14 @@ CSM schema is incorporated within caGWAS schema
   also recommended that PIs discuss these issues with their IRB prior to importing 
   and sharing human data via caGWAS. For more information on this change, 
   please refer to the following:
-	Article on GenomeWeb (http://www.genomeweb.com/issues/news/149097-1.html). 
-    Nils Homer, Szabolcs Szelinger, Margot Redman, David Duggan, Waibhav Tembe,
-    Jill Muehling, John V. Pearson, Dietrich A. Stephan, Stanley F. Nelson, and David W. Craig. 
-    Resolving individuals contributing trace amounts of DNA to highly complex
-    mixtures using high-density SNP genotyping microarrays. 
-    PLoS Genet. 2008 August; 4(8): e1000167. Published online 2008 August 29.
-    doi: 10.1371/journal.pgen.1000167. PMCID: PMC2516199.
-    (http://www.ncbi.nlm.nih.gov/sites/entrez?db=pmc&cmd=search&term=2516199 ). 
+  Article on GenomeWeb (http://www.genomeweb.com/issues/news/149097-1.html). 
+  Nils Homer, Szabolcs Szelinger, Margot Redman, David Duggan, Waibhav Tembe,
+  Jill Muehling, John V. Pearson, Dietrich A. Stephan, Stanley F. Nelson, and David W. Craig. 
+  Resolving individuals contributing trace amounts of DNA to highly complex
+  mixtures using high-density SNP genotyping microarrays. 
+  PLoS Genet. 2008 August; 4(8): e1000167. Published online 2008 August 29.
+  doi: 10.1371/journal.pgen.1000167. PMCID: PMC2516199.
+  (http://www.ncbi.nlm.nih.gov/sites/entrez?db=pmc&cmd=search&term=2516199 ). 
     
     
 Contents
