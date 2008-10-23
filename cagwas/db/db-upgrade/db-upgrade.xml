@@ -19,5 +19,9 @@
 		<comment>execute generisize-081001.sql</comment>
 		<sqlFile path="@db-upgrade.run.dir@/generisize-081001.sql"/>
 	</changeSet>
+	<changeSet id="3" author="ssaksa">        
+		<comment>execute generisize-participant-081024.sql</comment>
+		<sqlFile path="@db-upgrade.run.dir@/generisize-participant-081024.sql"/>
+	</changeSet>
 
 </databaseChangeLog>
