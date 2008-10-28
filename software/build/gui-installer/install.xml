@@ -215,8 +215,7 @@
 					<panel classname="UserInputPanel"  id="UserInputPanel.14" />
 					<!-- Installation Summary -->
 					<panel classname="UserInputPanel"  id="UserInputPanel.15" />
-					<panel classname="InstallationGroupPanel"/>
-					<panel classname="SummaryPanel"/>
+					<panel classname="InstallationGroupPanel"/>					
 					<panel classname="ExtendedInstallPanel"/>
 					<panel classname="FinishPanel"/>
 				</panels>
