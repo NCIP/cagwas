@@ -13,8 +13,10 @@
 	<property name="this.dir" value="${basedir}" />	
 	<property file="../project.properties" />
 	<property name="software.location" value="${this.dir}/../.." />
-	<property name="dist.location" value="${software.location}/target/dist" />
-	<property name="bda-utils.dir" value="${software.location}/target/bda-utils" />
+	<property name="target.location" value="${software.location}/target" />
+	<property name="dist.location" value="${target.location}/dist" />
+	<property name="bda-utils.dir" value="${target.location}/bda-utils" />
+	<property name="custom.resource.dir" value="${target.location}/izpack-custom/resources"/>
 	<property name="project.name" value="cagwas"/>
 	<property name="installer.dir" value=".installer-${project.name}"/>
 	<property name="gui-installer.dist.base.name" value="cagwas_gui_distribution_${cagwas.version}.jar"/>
@@ -164,7 +166,7 @@
 				<resources>
 					<res id="Installer.image"  src="@{this.dir}/logotype.png"/>
 					<res id="AntActionsSpec.xml" src="@{this.dir}/antActionSpec.xml" />
-					<res id="LicencePanel.licence" src="@{this.dir}/Licence.txt"/>
+					<res id="HTMLLicencePanel.licence" src="@{custom.resource.dir}/Licence.html"/>
 					<res id="InfoPanel.info" src="@{this.dir}/Readme.txt"/>
 					<res id="userInputSpec.xml" src="@{this.dir}/userInputSpec.xml" />	
 					<res id="CustomActionsLang.xml_eng" src="@{this.dir}/custom_eng.xml"/>
@@ -180,7 +182,7 @@
 				<panels>
 					<panel classname="HelloPanel"/>
 					<panel classname="InfoPanel"/>
-					<panel classname="LicencePanel"/>		
+					<panel classname="HTMLLicencePanel"/>		
 					<panel classname="UserInputPanel"  id="UserInputPanel.0" />
 					<!-- Typical or Custom -->
 					<panel classname="UserInputPanel"  id="UserInputPanel.1" condition="install"/>
