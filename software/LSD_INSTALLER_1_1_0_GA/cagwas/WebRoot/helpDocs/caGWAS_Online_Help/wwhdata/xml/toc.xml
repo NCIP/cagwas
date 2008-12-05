@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebWorksHelpTOC version="5.0" xmlns="urn:WebWorks-Help-TOC-Schema">
+  <i t="Welcome to caGWAS Online Help" l="0" />
+  <i t="About caGWAS" l="1">
+    <i t="Logging In to caGWAS" l="2" />
+    <i t="Using caGWAS Online Help" l="3" />
+    <i t="Providing Feedback" l="4" />
+  </i>
+  <i t="Browsing caGWAS Data" l="5">
+    <i t="Searching SNP Data by Association Finding" l="6" />
+    <i t="Understanding the SNP Association Findings Report" l="7" />
+    <i t="Searching SNP Data by Population Frequency" l="8" />
+    <i t="Understanding the SNP Population Frequency Report" l="9" />
+    <i t="Searching SNP Subject Data" l="10" />
+    <i t="Understanding the SNP Subject Data Report" l="11" />
+  </i>
+  <i t="Bulk Data Download" l="12">
+    <i t="Downloading Bulk Data Via FTP" l="13" />
+    <i t="Requesting Data for More than 500 Records" l="14" />
+  </i>
+  <i t="caGWAS Glossary" l="15" />
+</WebWorksHelpTOC>
