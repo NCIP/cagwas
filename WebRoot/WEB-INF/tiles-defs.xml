@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+    <definition name="baseDef" path="/WEB-INF/jsp/layout.jsp">
+		<put name="title" value="caGWAS Portal" />
+		<!--  the common criteria  -->
+		<put name="htmlHead" value="/WEB-INF/jsp/tiles/htmlHead_tile.jsp" />
+		<put name="overlib" value="/WEB-INF/jsp/tiles/overlib_tile.jsp" />
+		<put name="header" value="/WEB-INF/jsp/header.jsp" />
+	      <put name="crumbMenu" value="/WEB-INF/jsp/tiles/crumbMenu_tile.jsp" />
+		<put name="sideBar" value="/WEB-INF/jsp/tiles/sideBar_tile.jsp" />
+		<put name="footer" value="/WEB-INF/jsp/footer.jsp" />
+		<!--  form specific criteria  -->
+		<put name="mainForm" value="" />		<!-- main form page, read from props file -->
+	</definition>
+	
+	<definition name="noSidebar" path="/WEB-INF/jsp/layoutNoSidebar.jsp">
+		<put name="title" value="caGWAS Data Portal" />
+		<!--  the common criteria  -->
+		<put name="htmlHead" value="/WEB-INF/jsp/tiles/htmlHead_tile.jsp" />
+		<put name="overlib" value="/WEB-INF/jsp/tiles/overlib_tile.jsp" />
+		<put name="header" value="/WEB-INF/jsp/header.jsp" />
+	      <put name="crumbMenu" value="/WEB-INF/jsp/tiles/crumbMenu_tile.jsp" />
+		<put name="footer" value="/WEB-INF/jsp/footer.jsp" />
+		<!--  form specific criteria  -->
+		<put name="mainForm" value="/WEB-INF/jsp/tiles/empty_tile.jsp" />		
+	</definition>
+
+	<definition name="noSidebarSecondNav" path="/WEB-INF/jsp/layoutNoSidebarSecondNav.jsp">
+		<put name="title" value="caGWAS Data Portal" />
+		<!--  the common criteria  -->
+		<put name="htmlHead" value="/WEB-INF/jsp/tiles/htmlHead_tile.jsp" />
+		<put name="overlib" value="/WEB-INF/jsp/tiles/overlib_tile.jsp" />
+		<put name="header" value="/WEB-INF/jsp/header.jsp" />
+	      <put name="crumbMenu" value="/WEB-INF/jsp/tiles/crumbMenu_tile.jsp" />
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/empty_tile.jsp" />
+		<put name="footer" value="/WEB-INF/jsp/footer.jsp" />
+		<!--  form specific criteria  -->
+		<put name="mainForm" value="/WEB-INF/jsp/tiles/empty_tile.jsp" />		
+	</definition>
+
+	<definition name="noSidebarThirdNav" path="/WEB-INF/jsp/layoutNoSidebarThirdNav.jsp">
+		<put name="title" value="caGWAS Data Portal" />
+		<!--  the common criteria  -->
+		<put name="htmlHead" value="/WEB-INF/jsp/tiles/htmlHead_tile.jsp" />
+		<put name="overlib" value="/WEB-INF/jsp/tiles/overlib_tile.jsp" />
+		<put name="header" value="/WEB-INF/jsp/header.jsp" />
+	      <put name="crumbMenu" value="/WEB-INF/jsp/tiles/crumbMenu_tile.jsp" />
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/empty_tile.jsp" />
+		<put name="thirdNav" value="/WEB-INF/jsp/tiles/empty_tile.jsp" />
+		<put name="footer" value="/WEB-INF/jsp/footer.jsp" />
+		<!--  form specific criteria  -->
+		<put name="mainForm" value="/WEB-INF/jsp/tiles/empty_tile.jsp" />		
+	</definition>
+		
+	<definition name="cagwas.browseData" extends="noSidebar">
+		<put name="title" value="caGWAS Browse Data" />
+		<put name="mainForm" value="/WEB-INF/jsp/browseDataMain.jsp" />		
+      </definition>
+
+	<definition name="cagwas.downloadData" extends="noSidebar">
+		<put name="title" value="caGWAS Bulk Data Download" />
+		<put name="mainForm" value="/WEB-INF/jsp/bulkDownloadMain.jsp" />		
+      </definition>
+
+	<definition name="cagwas.searchAssociations" extends="noSidebar">
+		<put name="title" value="caGWAS Search Associations" />
+		<put name="mainForm" value="/WEB-INF/jsp/searchAssociationsMain.jsp" />		
+      </definition>
+
+	<definition name="cagwas.associationReport" extends="noSidebar">
+		<put name="title" value="caGWAS SNP Association Finding Report" />
+		<put name="mainForm" value="/WEB-INF/jsp/associationFindingReport.jsp" />		
+      </definition>
+
+	<definition name="cagwas.download" extends="noSidebar">
+		<put name="title" value="caGWAS Download Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/downloadMain.jsp" />		
+      </definition>
+
+	<definition name="cagwas.searchPopulation" extends="noSidebar">
+		<put name="title" value="caGWAS Search SNPs" />
+		<put name="mainForm" value="/WEB-INF/jsp/searchPopulationMain.jsp" />		
+      </definition>
+
+	<definition name="cagwas.populationReport" extends="noSidebar">
+		<put name="title" value="caGWAS SNP Population Frequency Report" />
+		<put name="mainForm" value="/WEB-INF/jsp/populationFrequencyReport.jsp" />		
+      </definition>
+
+	<definition name="cagwas.searchGenotype" extends="noSidebar">
+		<put name="title" value="caGWAS Search Genotypes" />
+		<put name="mainForm" value="/WEB-INF/jsp/searchGenotypeMain.jsp" />		
+      </definition>
+
+	<definition name="cagwas.searchSubject" extends="noSidebar">
+		<put name="title" value="caGWAS Search Subjects" />
+		<put name="mainForm" value="/WEB-INF/jsp/searchSubjectMain.jsp" />		
+      </definition>
+
+	<definition name="cagwas.subjectReport" extends="noSidebar">
+		<put name="title" value="caGWAS SubjectReport" />
+		<put name="mainForm" value="/WEB-INF/jsp/subjectReport.jsp" />		
+      </definition>
+
+	<definition name="cagwas.querySuccess" extends="noSidebar">
+		<put name="title" value="caGWAS Query Success Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/querySuccessMain.jsp" />		
+      </definition>
+
+       <definition name="cagwas.feedback" extends="noSidebarThirdNav">
+		<put name="title" value="caGWAS Feedback Page" />
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
+		<put name="thirdNav" value="/WEB-INF/jsp/tiles/contactThirdNav_tile.jsp" />
+		<put name="mainForm" value="/WEB-INF/jsp/feedbackMain.jsp" />	
+		</definition>
+		
+      <definition name="cagwas.support" extends="noSidebarThirdNav">
+		<put name="title" value="caGWAS Support Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/supportMain.jsp" />	
+      </definition>
+
+	<definition name="cagwas.ploneError" extends="noSidebar">
+		<put name="title" value="caGWAS Error Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/ploneErrorMain.jsp" />		
+      </definition>
+
+	<definition name="cagwas.criteriaWarn" extends="noSidebar">
+		<put name="title" value="caGWAS Criteria Warning Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/criteriaWarningMain.jsp" />		
+      </definition>
+
+	<definition name="cagwas.accessWarn" extends="noSidebar">
+		<put name="title" value="caGWAS Access Warning Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/accessWarningMain.jsp" />		
+      </definition>
+
+	<definition name="cagwas.about" extends="noSidebarSecondNav">
+		<put name="title" value="caGWAS About Overview Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/aboutMain.jsp" />
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
+      </definition>
+
+	<definition name="cagwas.study1" extends="noSidebarThirdNav">
+		<put name="title" value="caGWAS About Study Data Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/study1Main.jsp" />
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />	
+		<put name="thirdNav" value="/WEB-INF/jsp/tiles/studiesThirdNav_tile.jsp" />	
+      </definition>
+
+	<definition name="cagwas.study2" extends="noSidebarThirdNav">
+		<put name="title" value="caGWAS About Study Data Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/study2Main.jsp" />	
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
+		<put name="thirdNav" value="/WEB-INF/jsp/tiles/studiesThirdNav_tile.jsp" />	
+      </definition>
+
+	<definition name="cagwas.glossary" extends="noSidebarSecondNav">
+		<put name="title" value="caGWAS Glossary Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/glossaryMain.jsp" />
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
+      </definition>
+
+	<definition name="cagwas.policies" extends="noSidebar">
+		<put name="title" value="caGWAS Policies Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/policiesMain.jsp" />
+      </definition>
+
+      <definition name="cagwas.sitemap" extends="noSidebarSecondNav">
+		<put name="title" value="caGWAS Data Portal site map Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/siteMapMain.jsp" />
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
+      </definition>
+	      
+	<definition name="cagwas.forgottenPassword" extends="noSidebarSecondNav">
+		<put name="title" value="caGWAS Forgotten Password Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/forgottenPasswordMain.jsp" />
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
+      </definition>
+
+	<definition name="cagwas.contacts" extends="noSidebarThirdNav">
+		<put name="title" value="caGWAS Contacts Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/contactMain.jsp" />
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
+		<put name="thirdNav" value="/WEB-INF/jsp/tiles/contactThirdNav_tile.jsp" />	
+      </definition>
+
+	<definition name="cagwas.cite" extends="noSidebarSecondNav">
+		<put name="title" value="caGWAS Cite Overview Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/citeOverviewMain.jsp" />
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/citeSecondNav_tile.jsp" />
+      </definition>
+
+	<definition name="cagwas.citeExample" extends="noSidebarSecondNav">
+		<put name="title" value="caGWAS Cite Example Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/citeExamplesMain.jsp" />
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/citeSecondNav_tile.jsp" />
+      </definition>
+
+	<definition name="cagwas.access" extends="noSidebarSecondNav">
+		<put name="title" value="caGWAS Data Access Overview Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/accessOverviewMain.jsp" />
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/accessSecondNav_tile.jsp" />
+      </definition>
+
+	<definition name="cagwas.openAccess" extends="noSidebarSecondNav">
+		<put name="title" value="caGWAS Open Access Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/openAccessMain.jsp" />
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/accessSecondNav_tile.jsp" />
+      </definition>
+	
+	<definition name="cagwas.controlledAccess" extends="noSidebarSecondNav">
+		<put name="title" value="caGWAS Controlled Access Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/controlledAccessMain.jsp" />
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/accessSecondNav_tile.jsp" />
+      </definition>
+</tiles-definitions>
