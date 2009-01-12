@@ -72,22 +72,23 @@
             input="cagwas.downloadData">
     <forward name="login" path="/login.jsp"/>
     </action>
-
     <action path="/login"
-		type="gov.nih.nci.cagwas.web.action.LoginAction"
+			type="gov.nih.nci.cagwas.web.action.LoginAction"
             name="loginForm"
-		scope="request"
+			scope="request"
             input="/login.jsp">
-    <forward name="success" path="/browseSetup.do"/>
+    <forward name="success" path="/aboutSetup.do" redirect="true"/>
+    <forward name="successBrowse" path="/browseSetup.do" redirect="true"/>
+    <forward name="successDownload" path="/downloadSetup.do" redirect="true"/>
     <forward name="accessWarning" path="cagwas.accessWarn"/>
     </action>
 
     <action path="/logout"
 		type="gov.nih.nci.cagwas.web.action.LogoutAction"
 		scope="request">
-    <forward name="success" path="/browseSetup.do"/>
+    <forward name="success" path="/aboutSetup.do" redirect="true"/>
     </action>
-
+    
     <action path="/searchAssociations"
 		type="gov.nih.nci.cagwas.web.action.SearchAssociationsAction"
             name="associationsForm"

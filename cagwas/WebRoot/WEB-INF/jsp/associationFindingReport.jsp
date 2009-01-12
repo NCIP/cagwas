@@ -46,70 +46,70 @@ else
 	<tr id="searchAssocTableHeader">
 		<% if ((sortedColumn.equals("snpid")) && (sortOrder.equals("ascending"))) { %>
 			<th style="white-space:nowrap">
-				<a href="sortAssociations.do?column=snpid&order=descending"><bean:message key="table.header.snpId"/></a>
+				<a href="sortAssociations.do?column=snpid&order=descending&NoOfCategories=<%=noOfCategories%>"><bean:message key="table.header.snpId"/></a>
 				<img src="images/darr.gif"/>
 			</th>
 		<% } else if ((sortedColumn.equals("snpid")) && (sortOrder.equals("descending"))) { %>
 			<th style="white-space:nowrap">
-				<a href="sortAssociations.do?column=snpid&order=ascending"><bean:message key="table.header.snpId"/></a>
+				<a href="sortAssociations.do?column=snpid&order=ascending&NoOfCategories=<%=noOfCategories%>"><bean:message key="table.header.snpId"/></a>
 				<img src="images/uarr.gif"/>
 			</th>
 		<% } else { %>
-			<th><a href="sortAssociations.do?column=snpid&order=ascending"><bean:message key="table.header.snpId"/></a></th>
+			<th><a href="sortAssociations.do?column=snpid&order=ascending&NoOfCategories=<%=noOfCategories%>"><bean:message key="table.header.snpId"/></a></th>
 		<% } %>
 		<% if ((sortedColumn.equals("chromosome")) && (sortOrder.equals("ascending"))) { %>
 			<th style="white-space:nowrap">
-				<a href="sortAssociations.do?column=chromosome&order=descending"><bean:message key="table.header.chromosome"/></a>
+				<a href="sortAssociations.do?column=chromosome&order=descending&NoOfCategories=<%=noOfCategories%>"><bean:message key="table.header.chromosome"/></a>
 				<img src="images/darr.gif"/>
 			</th>
 		<% } else if ((sortedColumn.equals("chromosome")) && (sortOrder.equals("descending"))) { %>
 			<th style="white-space:nowrap">
-				<a href="sortAssociations.do?column=chromosome&order=ascending"><bean:message key="table.header.chromosome"/></a>
+				<a href="sortAssociations.do?column=chromosome&order=ascending&NoOfCategories=<%=noOfCategories%>"><bean:message key="table.header.chromosome"/></a>
 				<img src="images/uarr.gif"/>
 			</th>
 		<% } else { %>
-			<th><a href="sortAssociations.do?column=chromosome&order=ascending"><bean:message key="table.header.chromosome"/></a></th>
+			<th><a href="sortAssociations.do?column=chromosome&order=ascending&NoOfCategories=<%=noOfCategories%>"><bean:message key="table.header.chromosome"/></a></th>
 		<% } %>
 		<th><bean:message key="table.header.position"/></th>
 		<th><bean:message key="table.header.genes"/></th>
 		<% if ((sortedColumn.equals("analysis")) && (sortOrder.equals("ascending"))) { %>
 			<th>
-				<a href="sortAssociations.do?column=analysis&order=descending"><bean:message key="table.header.analysis"/></a>
+				<a href="sortAssociations.do?column=analysis&order=descending&NoOfCategories=<%=noOfCategories%>"><bean:message key="table.header.analysis"/></a>
 				<img src="images/darr.gif"/>
 			</th>
 		<% } else if ((sortedColumn.equals("analysis")) && (sortOrder.equals("descending"))) { %>
 			<th>
-				<a href="sortAssociations.do?column=analysis&order=ascending"><bean:message key="table.header.analysis"/></a>
+				<a href="sortAssociations.do?column=analysis&order=ascending&NoOfCategories=<%=noOfCategories%>"><bean:message key="table.header.analysis"/></a>
 				<img src="images/uarr.gif"/>
 			</th>
 		<% } else { %>
-			<th><a href="sortAssociations.do?column=analysis&order=ascending"><bean:message key="table.header.analysis"/></a></th>
+			<th><a href="sortAssociations.do?column=analysis&order=ascending&NoOfCategories=<%=noOfCategories%>"><bean:message key="table.header.analysis"/></a></th>
 		<% } %>
 		<% if ((sortedColumn.equals("pvalue")) && (sortOrder.equals("ascending"))) { %>
 			<th style="white-space:nowrap">
-				<a href="sortAssociations.do?column=pvalue&order=descending"><bean:message key="table.header.pvalue"/></a>
+				<a href="sortAssociations.do?column=pvalue&order=descending&NoOfCategories=<%=noOfCategories%>"><bean:message key="table.header.pvalue"/></a>
 				<img src="images/darr.gif"/>
 			</th>
 		<% } else if ((sortedColumn.equals("pvalue")) && (sortOrder.equals("descending"))) { %>
 			<th style="white-space:nowrap">
-				<a href="sortAssociations.do?column=pvalue&order=ascending"><bean:message key="table.header.pvalue"/></a>
+				<a href="sortAssociations.do?column=pvalue&order=ascending&NoOfCategories=<%=noOfCategories%>"><bean:message key="table.header.pvalue"/></a>
 				<img src="images/uarr.gif"/>
 			</th>
 		<% } else { %>
-			<th><a href="sortAssociations.do?column=pvalue&order=ascending"><bean:message key="table.header.pvalue"/></a></th>
+			<th><a href="sortAssociations.do?column=pvalue&order=ascending&NoOfCategories=<%=noOfCategories%>"><bean:message key="table.header.pvalue"/></a></th>
 		<% } %>
 		<% if ((sortedColumn.equals("rank")) && (sortOrder.equals("ascending"))) { %>
 			<th>
-				<a href="sortAssociations.do?column=rank&order=descending"><bean:message key="table.header.rank"/></a>
+				<a href="sortAssociations.do?column=rank&order=descending&NoOfCategories=<%=noOfCategories%>"><bean:message key="table.header.rank"/></a>
 				<img src="images/darr.gif"/>
 			</th>
 		<% } else if ((sortedColumn.equals("rank")) && (sortOrder.equals("descending"))) { %>
 			<th>
-				<a href="sortAssociations.do?column=rank&order=ascending"><bean:message key="table.header.rank"/></a>
+				<a href="sortAssociations.do?column=rank&order=ascending&NoOfCategories=<%=noOfCategories%>"><bean:message key="table.header.rank"/></a>
 				<img src="images/uarr.gif"/>
 			</th>
 		<% } else { %>
-			<th><a href="sortAssociations.do?column=rank&order=ascending"><bean:message key="table.header.rank"/></a></th>
+			<th><a href="sortAssociations.do?column=rank&order=ascending&NoOfCategories=<%=noOfCategories%>"><bean:message key="table.header.rank"/></a></th>
 		<% } %>
 		
 		<% if (noOfCategories != null && noOfCategories.equals("2"))
