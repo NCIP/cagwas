@@ -21,7 +21,7 @@
 	<table>
 		<tr>
 			<td width="150"><bean:message key="label.population"/></td>
-			<td><html:select property="population" multiple="true" style="width:400px">
+			<td><html:select property="population" multiple="true" style="width:500px">
 				<html:option value="All"/>
 				<html:options collection="populationCol" property="name" labelProperty="name"/>
 			    </html:select>
