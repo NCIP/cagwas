@@ -99,7 +99,7 @@
 			<html:radio property="query" value="Subjects" styleClass="radio">
 				<bean:message key="radio.subjects"/>
 			</html:radio>
-			<bean:message key="label.loginRequired"/>
+			<!-- <bean:message key="label.loginRequired"/> -->
 			</td>
 		</tr>
 <%/*

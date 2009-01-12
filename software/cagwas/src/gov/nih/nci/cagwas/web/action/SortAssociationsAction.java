@@ -40,6 +40,7 @@ public class SortAssociationsAction extends Action
 		ActionForward forward = null;
 		String column = (String)request.getParameter("column");
 		String order = (String)request.getParameter("order");
+		String noOfCategories = (String)request.getParameter("NoOfCategories");
 		
 		ArrayList results = (ArrayList)request.getSession().getAttribute("assoc.results");
 		
@@ -62,6 +63,7 @@ public class SortAssociationsAction extends Action
 			request.setAttribute("numberFindings", newResults.size());
 			request.setAttribute("sortedColumn", column);
 			request.setAttribute("sortOrder", order);
+			request.setAttribute("NoOfCategories", noOfCategories);
 		}
 		
 		// If there were errors then return to the input page else go on
@@ -240,8 +242,14 @@ public class SortAssociationsAction extends Action
 				// Handle the column pvalue
 				if (column.equals("pvalue"))
 				{
-					float currentValue = Float.parseFloat(current.getPvalue());
-					float smallestValue = Float.parseFloat(smallest.getPvalue());
+					float currentValue = Float.MIN_VALUE;
+					float smallestValue = Float.MIN_VALUE;
+					if(current.getPvalue()!= null && current.getPvalue().trim().length()> 0){
+						currentValue = Float.parseFloat(current.getPvalue());
+					}
+					if(smallest.getPvalue()!= null && smallest.getPvalue().trim().length()> 0){
+						smallestValue = Float.parseFloat(smallest.getPvalue());
+					}
 					if (currentValue < smallestValue)
 					{
 						smallest = current;
