@@ -138,6 +138,16 @@
 		<put name="title" value="@project_title@ Access Warning Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/accessWarningMain.jsp" />		
       </definition>
+      
+    <definition name="cagwas.notAvialable" extends="noSidebar">
+		<put name="title" value="@project_title@ Not Available Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/notAvailableMain.jsp" />		
+    </definition>
+    
+    <definition name="cagwas.downloadFiles" extends="noSidebar">
+		<put name="title" value="@project_title@ Download files" />
+		<put name="mainForm" value="/WEB-INF/jsp/download.jsp" />		
+    </definition>
 
 	<definition name="cagwas.about" extends="noSidebarSecondNav">
 		<put name="title" value="@project_title@ About Overview Page" />
