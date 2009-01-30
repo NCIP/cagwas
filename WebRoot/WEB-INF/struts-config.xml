@@ -53,6 +53,7 @@
     <forward name="genotypes" path="cagwas.searchGenotype"/>
     <forward name="login" path="/login.jsp"/>
     <forward name="accessWarning" path="cagwas.accessWarn"/>
+    <forward name="notAvialable" path="cagwas.notAvialable"/>    
     </action>
 
     <action path="/reset"
@@ -71,6 +72,8 @@
 		scope="request"
             input="cagwas.downloadData">
     <forward name="login" path="/login.jsp"/>
+    <forward name="download" path="cagwas.downloadFiles"/>
+    <forward name="notAvialable" path="cagwas.notAvialable"/>    
     </action>
     <action path="/login"
 			type="gov.nih.nci.cagwas.web.action.LoginAction"
@@ -210,6 +213,11 @@
 
     <action path="/getRemotePDF"
 		type="gov.nih.nci.cagwas.web.action.GetRemotePDFAction"
+		scope="request">
+    </action>
+    
+    <action path="/getBulkDownloadFile"
+		type="gov.nih.nci.cagwas.web.action.GetBulkDownloadFileAction"
 		scope="request">
     </action>
 
