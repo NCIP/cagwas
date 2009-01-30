@@ -1,5 +1,8 @@
 package gov.nih.nci.cagwas.web.form;
 
+import java.util.Arrays;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -210,7 +213,10 @@ public class PopulationForm extends SNPSearchForm
 		
 		// Check our parent first
 		result = super.isBlank();
-		
+		List pop = Arrays.asList(population);
+		if(pop != null  && pop.size()>= 1  && !pop.contains("All")){
+			result = false;
+		}
 		if ((weinbergValue != null) && (weinbergValue.length() > 0))
 			result = false;
 		if ((alleleValue != null) && (alleleValue.length() > 0))

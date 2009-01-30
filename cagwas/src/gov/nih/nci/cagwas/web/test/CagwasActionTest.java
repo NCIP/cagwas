@@ -83,7 +83,9 @@ public class CagwasActionTest extends MockStrutsTestCase
 					.getBean("findingsManager");
 			
 			SearchStudyHelper studyHelp = new SearchStudyHelper();
-	        Collection<String> studyNames = studyHelp.retrieveStudyNames();
+			List<String> studyIdList = new ArrayList<String>();
+			studyIdList.add("1");
+	        Collection<String> studyNames = studyHelp.retrieveStudyNames(studyIdList);
 	        
 	        ArrayList<LabelValueBean> studyVersionsList = new ArrayList<LabelValueBean>();
         	studyNamesList = new ArrayList<LabelValueBean>();
