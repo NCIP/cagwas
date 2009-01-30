@@ -56,20 +56,34 @@ public class BulkDownloadAction extends Action
 		if ((query.equals("Association")) || (query.equals("Population")))
 		{
 			// Set the forward
-			forward = new ActionForward();
-			forward.setRedirect(true);
-			String redirect = ZipFindingsHelper.getAnonymousBrowseFtpUrl() + studyName + "/" + studyVersion + "/" + query;
-			forward.setPath(redirect);
-			logger.debug("redirecting to " + redirect);
+			forward = null;
+			String redirect = ZipFindingsHelper.getOutputZipDirectory() + studyName + "/" + studyVersion + "/" + query;
+			request.setAttribute("filePath", redirect);
+			request.getSession().setAttribute("filePath", redirect);
+			
+			if(dirHasFiles(request,redirect,query)){
+				forward = mapping.findForward("download");			
+				logger.debug("redirecting to download");
+			}else{
+				logger.debug("NO Subject Data Available!");
+				forward = mapping.findForward("notAvialable");
+			}
 		}
 		if ((query.equals("Subjects")) || (query.equals("Genotypes")))
 		{
 			// Set the forward
-			forward = new ActionForward();
-			forward.setRedirect(true);
-			String redirect = ZipFindingsHelper.getSecureFtpUrl() + studyName + "/" + studyVersion + "/" + query;
-			forward.setPath(redirect);
-			logger.debug("redirecting to " + redirect);
+			forward = null;
+			String redirect = ZipFindingsHelper.getGenotypeDirectory() + studyName + "/" + studyVersion + "/" + query;
+			request.setAttribute("filePath", redirect);
+			request.getSession().setAttribute("filePath", redirect);
+			
+			if(dirHasFiles(request,redirect,query)){
+				forward = mapping.findForward("download");			
+				logger.debug("redirecting to download");
+			}else{
+				logger.debug("NO Subject Data Available!");
+				forward = mapping.findForward("notAvialable");
+			}
 		}
 		
 		// If there were errors then return to the input page else go on
@@ -100,5 +114,33 @@ public class BulkDownloadAction extends Action
 			request.getSession().setAttribute("studyVersion", study.getVersion());
 			request.getSession().setAttribute("study", study.getName()+" Version: "+study.getVersion());
 		}
+	}
+	/**
+	 * retrieveStudy is called to get the study object from the database
+	 * <P>
+	 * @param request The HttpServletRequest for this post
+	 * @param studyId The study Id for getting the study object
+	 * @throws Exception any Exceptions that occur
+	 */
+	private boolean dirHasFiles(HttpServletRequest request, String path, String query) throws Exception
+	{
+		boolean isFiles = true;
+		try {
+			java.io.File folder = new java.io.File(path);
+			java.io.File[] files = folder.listFiles();
+			if(files == null ||(files != null && files.length == 0)){
+				isFiles = false;
+			}
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		if(!isFiles)
+		{
+			request.getSession().setAttribute("query", query);
+			request.getSession().setAttribute("queryType", "bulkdownload");
+
+		}
+		return isFiles;
 	}
 }

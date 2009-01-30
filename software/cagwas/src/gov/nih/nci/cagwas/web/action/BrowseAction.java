@@ -64,6 +64,7 @@ public class BrowseAction extends Action
 		BrowseForm bForm = (BrowseForm)form;
 		Long studyId = bForm.getStudyId();
 		String query = bForm.getQuery();
+		String queryType = "browse";
 		logger.debug("Study is " + studyId);
 		logger.debug("Query is " + query);
 		
@@ -104,20 +105,29 @@ public class BrowseAction extends Action
 			if ((logged != null  && (logged.equals("yes"))  &&
 				(studyIDs != null && studyIDs.contains(studyId.toString()))))
 			{
-				// Get the population list from the database
-				retrievePopulations(request, studyId);
-				
-				// Get the analysis groups from the database
-				retrieveAnalysisGroups(request, studyId);
-				
-				// Get the age bands from the database
-				retrieveAgeBands(request, studyId);
-				
-				// Get the case controls list
-				retrieveCaseControls(request, studyId);
-				
-				// Set the forward
-				forward = mapping.findForward("subjects");
+				if(getStudyParticipantCount(studyId)> 0){
+					// Get the population list from the database
+					retrievePopulations(request, studyId);
+					
+					// Get the analysis groups from the database
+					retrieveAnalysisGroups(request, studyId);
+					
+					// Get the age bands from the database
+					retrieveAgeBands(request, studyId);
+					
+					// Get the case controls list
+					retrieveCaseControls(request, studyId);
+					
+					// Set the forward
+					forward = mapping.findForward("subjects");
+				}else{
+					//No subject data available
+					request.getSession().setAttribute("query", query);
+					request.getSession().setAttribute("queryType", queryType);
+					logger.debug("NO Subject Data Available!");
+					forward = mapping.findForward("notAvialable");
+					
+				}
 			}
 			else if(logged == null  || !logged.equals("yes"))
 			{
@@ -237,6 +247,22 @@ public class BrowseAction extends Action
         FindingsManager manager = (FindingsManager)SpringContext.getBean("findingsManager");
 		Collection<Population> population = manager.getPopulations(popCrit);
 		request.getSession().setAttribute("populationCol", population);
+	}
+	/**
+	 * getStudyParticipantCount is called to get the count of study participants from the database
+	 * for use to check if .
+	 * <P>
+	 * @param study The study to get the study participant count for
+	 * @return count Study participant count
+	 * @throws Exception any Exceptions that occur
+	 */
+	private Long getStudyParticipantCount(Long studyId) throws Exception
+	{
+		// Get the study participant count from the database
+		StudyCriteria studyCrit = new StudyCriteria();
+        studyCrit.setId(studyId);
+        FindingsManager manager = (FindingsManager)SpringContext.getBean("findingsManager");
+		return manager.getStudyParticipantCount(studyCrit);		
 	}
 	
 	/**

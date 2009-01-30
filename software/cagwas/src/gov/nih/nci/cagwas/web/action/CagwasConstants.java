@@ -15,4 +15,6 @@ public class CagwasConstants
 	public static int MAX_IDS = 1000;
 	// The maximum number of findings to be displayed
 	public static int MAX_RESULTS = 500;
+	
+	public static final String dlpath = "dl.download?f=";
 }

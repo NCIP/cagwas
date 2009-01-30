@@ -7,6 +7,7 @@ import gov.nih.nci.caintegrator.studyQueryService.germline.FindingsManager;
 
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -51,23 +52,25 @@ public class SearchStudyHelper
 	 * <P>
 	 * @throws Exception any Exceptions that occur
 	 */
-	public Set<String> retrieveStudyNames() throws Exception
+	public Set<String> retrieveStudyNames(List<String> studyIds) throws Exception
 	{
 		Set<String> studyNames = new TreeSet<String>();
 		Study study = null;
 		
 		// Get the list of studies from the database
 		StudyCriteria sc = new StudyCriteria();
-        FindingsManager manager = (FindingsManager)SpringContext.getBean("findingsManager");
-		Collection<Study> studies = manager.getStudies(sc);
-		Iterator<Study> iterator = studies.iterator();
-		
-		while(iterator.hasNext())
-		{		
-			study = iterator.next();
-			if(study != null && study.getName()!= null)
-			{
-				studyNames.add(study.getName());
+		if(studyIds != null  && studyIds.size() > 0){
+	        FindingsManager manager = (FindingsManager)SpringContext.getBean("findingsManager");
+			Collection<Study> studies = manager.getStudies(sc);
+			Iterator<Study> iterator = studies.iterator();
+			
+			while(iterator.hasNext())
+			{		
+				study = iterator.next();
+				if(study != null && study.getName()!= null && study.getId() != null  && studyIds.contains(study.getId().toString()))
+				{
+					studyNames.add(study.getName());
+				}
 			}
 		}
 		

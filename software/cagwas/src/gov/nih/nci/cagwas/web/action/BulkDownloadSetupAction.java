@@ -56,7 +56,9 @@ public class BulkDownloadSetupAction extends Action
         HashMap<String, List<LabelValueBean>> studyVersionMap = new HashMap<String, List<LabelValueBean>>();
         
         SearchStudyHelper studyHelp = new SearchStudyHelper();
-        Collection<String> studyNames = studyHelp.retrieveStudyNames();
+        List<String> studyIDList = (List<String>) request.getSession().getAttribute("studyIDList");
+
+        Collection<String> studyNames = studyHelp.retrieveStudyNames(studyIDList);
         for(String studyName:studyNames)
         {
         	ArrayList<LabelValueBean> studyVersionsList = new ArrayList<LabelValueBean>();
