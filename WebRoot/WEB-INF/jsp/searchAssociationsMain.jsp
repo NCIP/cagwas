@@ -55,8 +55,8 @@
 				<td width="50"></td>
 				<td align="right"><%=label%></td>
 				<td>
-					<html:select property="<%=propertyName%>" styleClass="analysisDD" onchange="<%=jsMethod%>">
-						<html:options collection="<%=collectionName%>" property="value" labelProperty="label"/>
+					<html:select property="<%=propertyName%>" styleClass="analysisDD" onchange="<%=jsMethod%>" onmouseover="calcula(this.value)">
+						<html:options collection="<%=collectionName%>" property="value" labelProperty="label" />
 					</html:select>
 				</td>
 			</tr>
