@@ -50,10 +50,11 @@ div.content {
 }
 
 .analysisDD, #abstractTxt, #abstractTxtHeader, #methodAbstractTxt1, #methodAbstractTxt2, #methodAbstractTxt3, #methodAbstractTxt4, #methodAbstractTxt5, #methodAbstractTxt6, #methodAbstractTxt7, #methodAbstractTxt8	{
-	width: 420px
+	overflow-x:scroll;	
+	overflow: -moz-scrollbars-horizontal;
 }
  descriptionDD, #descriptionHeader, #descriptionTxt	{
-	width: 520px
+	width: 520px;
 }
 
 #descriptionHeader	{
