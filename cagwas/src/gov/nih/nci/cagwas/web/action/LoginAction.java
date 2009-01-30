@@ -16,6 +16,7 @@ import org.apache.struts.action.ActionMessages;
 import org.apache.struts.action.ActionMessage;
 import org.apache.log4j.Logger;
 
+import gov.nih.nci.cagwas.application.zip.ZipFindingsHelper;
 import gov.nih.nci.cagwas.web.form.LoginForm;
 import gov.nih.nci.caintegrator.security.SecurityManager;
 import gov.nih.nci.caintegrator.security.UserCredentials;
@@ -31,7 +32,7 @@ import gov.nih.nci.security.authorization.domainobjects.ProtectionElement;
 public class LoginAction extends Action
 {
 	private static Logger logger = Logger.getLogger(LoginAction.class);
-	private final String APPLICATION_CONTEXT = "cagwas";
+	private final String APPLICATION_CONTEXT = ZipFindingsHelper.getCagwasProperties("project.title")!= null ? ZipFindingsHelper.getCagwasProperties("project.title").toLowerCase():"cagwas" ;
 	
 	/**
 	 * execute is called when this action is posted to
@@ -52,7 +53,6 @@ public class LoginAction extends Action
 		String username = lForm.getUsername();
 		String password = lForm.getPassword();
 		logger.debug("Username is " + username);
-		
 		SecurityManager securityManager = SecurityManager.getInstance(APPLICATION_CONTEXT);
 		UserCredentials credentials = null;
 		
