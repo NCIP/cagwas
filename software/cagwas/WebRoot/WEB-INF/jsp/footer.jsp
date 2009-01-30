@@ -16,7 +16,6 @@
 		<%}%> | <a href="remoteSetup.do?content=contacts">Contact Us</a> | <a href="remoteSetup.do?content=policies">Policies</a> | <a href="http://www3.cancer.gov/accessibility/nci508.htm">Accessibility</a> | <a href="siteMap.jsp">Site Map</a>
 	<br /><br />
 	<a href="http://www.cancer.gov/" target="_blank"><img src="images/footer_logo_nci.jpg" alt="National Cancer Institute" width="63" height="39" border="0"></a>
-	<a href="http://www.genome.gov/" target="_blank"><img src="images/logo_nhgri.gif" alt="National Human Genome Research Institute" width="76" height="39" border="0"></a>
 	<a href="http://www.nih.gov/" target="_blank"><img src="images/footer_logo_nih.jpg" alt="National Institutes of Health" width="48" height="39" border="0"></a>
 	<img src="images/spacer.gif" alt="" width="6" height="39">
 	<a href="http://www.dhhs.gov/" target="_blank"><img src="images/footer_logo_hhs.jpg" alt="Department of Health and Human Services" width="41" height="39" border="0"></a>
