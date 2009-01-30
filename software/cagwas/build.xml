@@ -181,13 +181,14 @@
 				<include name="caintegrator-spec.jar" />
 			</zipfileset>
 		</war>
+		<copy todir="${artifacts.dir}" file="${module_name}.war" />
 	</target>
 
 	<!--
 	TARGET: deploy
 	simply copies the war file to the jboss deployment directory
 	-->
-	<target name="-filter" depends="configure.database.type.asMySQL, configure.database.type.asOracle">
+	<target name="-filter" depends="configure.database.type.asMySQL, configure.database.type.asOracle,configure.resources.asCGEMS">
 		<!-- filtering properties -->
 		<echo>properties ...
 		project_name = ${project_name}
@@ -263,7 +264,34 @@
 							</not>
 						</condition>			
 		</target>
-		
+	
+		<!--checks if its a cgems build exists-->	
+		<target name="check.war.type" description="check if this is a cgems build or a cagwas build">
+			<condition property="isCGEMS">
+				<matches pattern="cgems" string="${module_name}" />
+			</condition>
+			<echo> isCGEMS="${isCGEMS}" </echo>
+		</target>
+	
+		<target name="configure.resources.asCGEMS" depends="configure.header.jsp.asCGEMS,check.war.type" if="isCGEMS" description="configure the war file for CGEMS">
+			<echo message="Configuring configure.resources.asCGEMS" />
+			<replaceregexp file="${build.source.dir}/cagwasResources.properties" match="caGWAS" replace="CGEMS" flags="g" />
+			<replaceregexp file="${build.source.dir}/cagwasResources.properties" match="cagwas" replace="cgems" flags="g" />
+			<replaceregexp file="${build.source.dir}/cagwasResources.properties" match="Study1" replace="Prostate" flags="g" />
+			<replaceregexp file="${build.source.dir}/cagwasResources.properties" match="Study2" replace="Breast" flags="g" />
+		</target>
+	
+	<!-- modify header.jsp in tiles-def.xml for cgems-->
+	<target name="configure.header.jsp.asCGEMS" depends="check.war.type" if="isCGEMS" description="configure the header.jsp in tiles-def.xml for CGEMS">
+				<echo message="Configuring configure.header.jsp.asCGEMS" />
+				<delete>
+					<fileset file="./WebRoot/WEB-INF/jsp/header.jsp" />
+				</delete>
+				<copy tofile="./WebRoot/WEB-INF/jsp/header.jsp">
+					<fileset file="./WebRoot/WEB-INF/jsp/header_cgems.jsp" />
+				</copy>
+			</target>
+	
 		<!--adds login-config.xml if it does not already exist-->
 		<target name="addLoginConfig" if="login.xml.not.present" depends="login_check,appendLoginConfig">
 			<echo message="No login-config file exists, copy over from csmdeploy dir"/>		
