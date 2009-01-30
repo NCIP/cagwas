@@ -25,7 +25,8 @@
 		</tr>
 		<tr>
 			<td align="left">
-				<html:select property="studyName" size="3" styleClass="descriptionDD" onclick="changeStudyVersion(this);">
+				<html:select property="studyName" size="3" styleClass="descriptionDD" 
+				onclick="changeStudyVersion(this);">
 					<html:options collection="studyNames" property="value" labelProperty="label"/>
 				</html:select>
 			</td>

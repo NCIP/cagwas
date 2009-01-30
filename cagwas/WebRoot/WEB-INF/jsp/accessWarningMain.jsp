@@ -9,7 +9,6 @@ You do not have access to <strong><% out.println(session.getAttribute("studyName
 If you would like to get access to this dataset, please click the <strong>Register to access raw data</strong> link below. <br>
 Otherwise, go back and select another Study and Version.
 <br><br>
-<% String bulkUrl = (String)request.getAttribute("bulkUrl"); %>
 <a href="javascript:history.back()">Go Back</a> | <a href="<%=regUrl%>" target="_blank">Register to access raw data</a>
 <div>
 

@@ -21,7 +21,7 @@
 	<table>
 		<tr>
 			<td width="150"><bean:message key="label.population"/></td>
-			<td><html:select property="population" multiple="true" style="width:500px">
+			<td><html:select property="population" multiple="true" style="overflow-x:scroll; overflow: -moz-scrollbars-horizontal;">
 				<html:option value="All"/>
 				<html:options collection="populationCol" property="name" labelProperty="name"/>
 			    </html:select>
@@ -29,6 +29,7 @@
 			</td>
 		</tr>
 	</table>
+	
 	
 <h3 class="ur">AND</h3>
 
