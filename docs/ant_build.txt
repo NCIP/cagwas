@@ -1,0 +1,72 @@
+*********************************************************************************************
+				BUILD DOWNLOAD 
+*********************************************************************************************
+
+Check out:
+caintegator-analysis-commons
+caintegator-spec
+caintegrator-application-commons
+cagwas
+from cvs using the above tag
+*********************************************************************************************
+
+Assumption mySQL is the DB and DB is going to be used for User Authentication.
+
+ 
+if DB is going to be Oracle or the User Authentication is going to be LDAP
+Modify the following in cagwas build.properties before running build_zip
+#CSM Authentication type
+# set ldap or db
+csm.authentication.type=ldap
+
+# Database Properties
+# set DB type: mysql or oracle
+db.type=oracle
+
+*********************************************************************************************
+1. From build_download.xml 
+2. Run the target build_zip target for the following in the same order
+	caintegator-analysis-commons
+	caintegator-spec
+	caintegrator-application-commons
+	cagwas
+3. Copy the zip file to any folder.
+**********************************************************************************************
+
+The cagwas.zip file now consists of the 
+	cagwas war file 
+	build.xml
+	build.properties
+	mailzip.properties
+	conf folder
+	docs folder
+        not_deployed_jars
+	deployment-artifacts folder 
+
+***********************************************************************************************
+Modify the following in the build.properties
+1. csm and cagwas DB Parameters
+2. EXTERNAL.CONFIG.DIR
+3. JBOSS.HOME.DIR
+4. JBOSS.SERVER.NAME
+
+***********************************************************************************************
+
+
+1. Double click and select extract to folder cagwas [example - c:\cagwas_bundle]. 
+2. Go to command prompt. Make sure you have ANT 1.7.0 installed on your machine.
+3. At command prompt go to the directory one level down, where you extracted your zip file [c:\cagwas_bundle\cagwas]
+4. Modify the following in the build.properties
+	csm and cagwas DB Parameters
+	EXTERNAL.CONFIG.DIR
+	JBOSS.HOME.DIR
+	JBOSS.SERVER.NAME
+
+5. type command ant deploy -this creates the deployment artifacts into the deployment-artifacts folder.
+6. Verify the cagwas-ds.xml and cagwas-csm-ds.xml got copied to JBoss deploy folder.
+7. Verify properties-service.xml properties has cagwas properties.
+8. Verify login-config.xml got modifed with cagwas entry in JBOss-Home/server/default/conf.
+9. Verify external property files (mail.properties & zip.properties) got copied to the EXTERNAL.CONFIG.DIR
+9. Start JBoss.
+10.Open caGWAS home page.
+
