@@ -267,6 +267,9 @@
 	
 		<!--checks if its a cgems build exists-->	
 		<target name="check.war.type" description="check if this is a cgems build or a cagwas build">
+			<copy tofile="conf/cagwasResources.properties">
+								<fileset file="${build.source.dir}/cagwasResources.properties" />
+			</copy>
 			<condition property="isCGEMS">
 				<matches pattern="cgems" string="${module_name}" />
 			</condition>
