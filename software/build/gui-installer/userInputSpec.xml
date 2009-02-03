@@ -31,6 +31,11 @@
 		<field type="title" txt="Create a JBoss Web Console Password" bold="true" size="1" />
 		<field type="staticText" align="left" txt="The password you enter below is the password used to access the JBoss web console. This is a password you are creating, so you must keep track of this password for future use."/>
 		<field type="divider" align="top"/>
+		<field type="text" variable="jboss.web.user">
+			<spec txt="JBoss Web Console User:" id="text.label" size="15" set="admin"/>
+			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt="JBoss web user is a required field" />
+		</field>
+
 		<field type="password" align="left" variable="jboss.web.password">
 			<spec>
 				<pwd txt="JBoss Web Console Password:" size="25" set=""/>
@@ -67,7 +72,23 @@
 		<variable name="ldap.url" value=""/>
 		<variable name="mail.smtp.server" value="localhost"/>
 		<variable name="jboss.java.opts" value="-server -Xms2048m -Xmx2048m -XX:ThreadStackSize=128 -XX:SurvivorRatio=10 -XX:PermSize=128m -XX:MaxPermSize=128m -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djava.awt.headless=true"/>
-
+		<variable name="jboss.ssl.enable" value="false"/>
+		<variable name="jboss.ssl.keystore.location" value=""/>
+		<variable name="jboss.ssl.keystore.pass" value=""/>
+		<variable name="jboss.ssl.keystore.alias" value=""/>
+		<variable name="jboss.ssl.fullyqualified.hostname" value=""/>
+		<variable name="jboss.external.ssl.host" value=""/>
+		<variable name="jboss.external.ssl.port" value=""/>
+		<variable name="jboss.external.http.host" value=""/>
+		<variable name="jboss.external.http.port" value=""/>
+		<variable name="grid.secure.enable" value="false"/>
+		<variable name="grid.secure.cert.location" value=""/>
+		<variable name="grid.secure.key.location" value=""/>
+		<variable name="grid.external.secure.host" value=""/>
+		<variable name="grid.external.secure.port" value=""/>
+		<variable name="log4j.maxFileSize" value="100MB"/>
+		<variable name="log4j.maxDays" value="7"/>
+		<variable name="log4j.level" value="WARN"/>
 	</panel>
 	<panel order="3">
 		<field type="title" txt="Configure your JBoss application server" bold="true" size="1" />
@@ -82,6 +103,10 @@
 		<field type="text" variable="jboss.server.name">
 			<spec txt="JBoss Server Name (JBoss_HOME/server/JBoss_SERVER_NAME):" id="text.label" size="15" set="default"/>
 			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" JBoss Server Name (JBoss_HOME/server/JBoss_SERVER_NAME) is a required field" />
+		</field>
+		<field type="text" variable="jboss.web.user">
+			<spec txt="JBoss Web Console User:" id="text.label" size="15" set="admin"/>
+			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt="JBoss web user is a required field" />
 		</field>
 		<field type="password" align="left" variable="jboss.web.password">
 			<spec>
@@ -134,7 +159,9 @@
 			<spec txt="JBoss JMS port:" id="text.label" size="5" set="42170"/>
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JBoss JMS port number is already in use" id="error.label"/>
 		</field>
-
+		<variable name="log4j.maxFileSize" value="100MB"/>
+		<variable name="log4j.maxDays" value="7"/>
+		<variable name="log4j.level" value="WARN"/>
 	</panel>
 
 
@@ -194,8 +221,53 @@
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JBoss web service port number is already in use" id="error.label"/>
 		</field>
 	</panel>
-
 	<panel order="5">
+		<field type="title" txt="Configuring JBoss SSL and External Hostnames" bold="true" size="1" />
+		<field type="staticText" align="left" txt="For JBoss SSL configuration details see https://wiki.nci.nih.gov/x/7xWy"/>
+		<field type="divider" align="top"/> 
+
+		<field type="radio" variable="jboss.ssl.enable">
+			<description align="left" txt="Enable JBoss SSL Port (note requires SSL Certificate Keystore and Internet facing DNS) "/>
+			<spec>
+				<choice txt="True"  value="true" />
+				<choice txt="False" value="false" set="true"/>
+			</spec>
+		</field>
+		<field type="text" variable="jboss.ssl.keystore.location"> 
+			<spec txt="Keystore file location: "  size="75" set=""/>
+		</field>
+		<field type="password" align="left" variable="jboss.ssl.keystore.pass">
+			<spec>
+				<pwd txt="Keystore file password:" size="25" set=""/>
+				<pwd txt="Confirm keystore file password:" size="25" set=""/>
+			</spec>
+			<validator class="com.izforge.izpack.util.PasswordEqualityValidator" txt="Passwords do not match. Please re-enter your passwords."/>
+		</field>
+		<field type="text" variable="jboss.ssl.keystore.alias">
+			<spec txt="Keystore alias name: "  size="25" set=""/>
+		</field>
+		<field type="text" variable="jboss.ssl.fullyqualified.hostname">
+			<spec txt="Fully Qualified Host Name (FQHN) (ie, www.mydomain.com): "  size="50" set=""/>
+		</field>
+
+		<field type="divider" align="top"/>
+		<field type="staticText" align="left" txt="For JBoss External Hostname configurations see https://wiki.nci.nih.gov/x/8hWy, values not required if not externally accessible"/>
+		<field type="text" variable="jboss.external.ssl.host">
+			<spec txt="External Host Name for ssl port (generally same as FQHN): "  size="50" set=""/>
+		</field>
+		<field type="text" variable="jboss.external.ssl.port">
+			<spec txt="External Port for ssl port"  size="5" set=""/>
+		</field>
+		<field type="text" variable="jboss.external.http.host">
+			<spec txt="External Host Name for http port (generally same as FQHN): "  size="50" set=""/>
+		</field>
+		<field type="text" variable="jboss.external.http.port">
+			<spec txt="External Port for http port"  size="5" set=""/>
+		</field>
+
+	</panel>
+
+	<panel order="6">
 		<field type="title" txt="Configure your existing JBoss application server" bold="true" size="1" />
 		<field type="divider" align="top"/>
 
@@ -219,8 +291,11 @@
 			<spec txt="JBoss JNDI Port:" id="text.label" size="5" set="42200"/>
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JBoss JNDI port number is already in use" id="error.label"/>
 		</field>
+		<variable name="log4j.maxFileSize" value="100MB"/>
+		<variable name="log4j.maxDays" value="7"/>
+		<variable name="log4j.level" value="WARN"/>
 	</panel>
-	<panel order="6">
+	<panel order="7">
 		<field type="title" txt="Authentication Type" bold="true" size="1" />
 		<field type="staticText" align="left" txt="There are two types of ways to authenticate users: against database or using an LDAP server. To connect to LDAP, you must have an LDAP server available in your network."/>
 		<field type="divider" align="top"/>
@@ -236,7 +311,7 @@
 		<variable name="ldap.url" value=""/>
 	</panel>
 
-	<panel order="7">
+	<panel order="8">
 			<field type="title" txt="LDAP Configuration" bold="true" size="1" />
 			<field type="staticText" align="left" txt="Choose the URL for the LDAP server and the Base DN for authenticating users."/>
 			<field type="divider" align="top"/>
@@ -250,7 +325,7 @@
 			</field>
 	</panel>
 
-	<panel order="8">
+	<panel order="9">
 		<field type="title" txt="Configuring your MySQL database connection" bold="true" size="1" />
 		<field type="staticText" align="left" txt="The information you enter below will connect you to an existing MySQL database. It's highly recommended that 'Database Host Name' NOT be the machine from which you are currently installing. The 'Database User' must have full access to 'Database Name'. It's highly recommended you contact your database administrator to obtain this information. NOTE: All database objects for 'Database Name' will be dropped and recreated during the installation process. For detailed descriptions on each of the properties below, see the Database Settings section at https://wiki.nci.nih.gov/x/Caml"/>
 		<field type="divider" align="top"/>
@@ -282,7 +357,7 @@
 		</field>
 	</panel>
 
-	<panel order="9">
+	<panel order="10">
 
 		<field type="title" txt="Configure Global Settings" bold="true" size="1" />
 		<field type="divider" align="top"/>
@@ -292,7 +367,7 @@
 		</field>
 	</panel>
 
-	<panel order="10">
+	<panel order="11">
 
 		<field type="title" txt="Configure global information for Grid configuration. [NEED MORE INFORMATION]" bold="true" size="1" />
 		<field type="divider" align="top"/>
@@ -311,7 +386,7 @@
 		</field>
 	</panel>
 
-	<panel order="11">
+	<panel order="12">
 		<field type="title" txt="Configure research center contact information for Grid configuration." bold="true" size="1" />
 		<field type="divider" align="top"/>
 		<field type="text" variable="grid.poc.tech.researchCenter.displayname">
@@ -346,7 +421,7 @@
 			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" Country is a required field" />
 		</field>
 	</panel>
-	<panel order="12">
+	<panel order="13">
 
 		<field type="title" txt="Configure technical contact information for Grid configuration" bold="true" size="1" />
 		<field type="divider" align="top"/>
@@ -377,7 +452,7 @@
 		</field>
 	</panel>
 
-	<panel order="13">
+	<panel order="14">
 		<field type="title" txt="Configure science contact information for Grid configuration" bold="true" size="1" />
 		<field type="divider" align="top"/>
 		<field type="text" variable="grid.poc.science.affiliation">
@@ -406,7 +481,34 @@
 		</field>
 	</panel>
 
-	<panel order="14">
+	<panel order="15">
+		<field type="title" txt="Deploy a secure grid" bold="true" size="1" />
+		<field type="staticText" align="left" txt="For secure grid inforation see https://wiki.nci.nih.gov/x/8BWy"/>
+		<field type="divider" align="top"/>
+
+		<field type="radio" variable="grid.secure.enable">
+			<description align="left" txt="Enable secure Grid"/>
+			<spec>
+				<choice txt="True"  value="true" />
+				<choice txt="False" value="false" set="true"/>
+			</spec>
+		</field>
+		<field type="text" variable="grid.secure.cert.location">
+			<spec txt="caGrid certificate file location: "  size="75" set=""/>
+		</field>
+		<field type="text" variable="grid.secure.key.location">
+			<spec txt="caGrid private key file location: "  size="75" set=""/>
+		</field>
+		<field type="text" variable="grid.external.secure.host">
+			<spec txt="Grid External Hostname:" id="text.label" size="25" set=""/>
+		</field>
+
+		<field type="text" variable="grid.external.secure.port">
+			<spec txt="Grid External Port Number:" id="text.label" size="5" set=""/>
+		</field>
+	</panel>
+
+	<panel order="16">
 
 		<field type="title" txt="caGWAS and Apache application settings" bold="true" size="1" />
 		<field type="staticText" align="left" txt="For detailed descriptions on each of the properties below, see the Application Settings section at https://wiki.nci.nih.gov/x/Caml"/>
@@ -478,7 +580,7 @@
 		<variable name="file.transfer.external.base.url.secure" value="http://${apache.virtual.name}:${apache.virtual.port}/authenticated_browse/"/>
 
 	</panel>
-	<panel order="15">
+	<panel order="17">
 		<field type="title" txt="Installation Summary" bold="true" size="1" />
 		<field type="staticText" align="left" txt="Below are "/>
 		<field type="divider" align="top"/>
