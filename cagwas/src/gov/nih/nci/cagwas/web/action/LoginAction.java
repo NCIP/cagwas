@@ -132,6 +132,22 @@ public class LoginAction extends Action
 
 
 	    	}
+	    	if(request.getSession().getAttribute("zipFile") != null)
+	    	{
+	    		String zipFile = (String)request.getSession().getAttribute("zipFile");
+	    		// must do this preprocessing before forwarding to make sure beans are in place
+	    		String logged = (String)request.getSession().getAttribute("logged");
+	    		if (logged != null  && (logged.equals("yes")))
+	    		{
+		    		request.getSession().setAttribute("zipFile",zipFile);
+			    	forward = mapping.findForward("downloadZip");
+	    		}
+	    		else{
+					forward = mapping.findForward("accessWarning");
+	    		}
+
+
+	    	}
 	    	else
 	    	{
 	    		forward = mapping.findForward("success");
