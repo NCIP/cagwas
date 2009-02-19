@@ -84,6 +84,7 @@
     <forward name="successBrowse" path="/browseSetup.do" redirect="true"/>
     <forward name="successDownload" path="/downloadSetup.do" redirect="true"/>
     <forward name="accessWarning" path="cagwas.accessWarn"/>
+    <forward name="downloadZip" path="/downloadZipFile.do" redirect="true"/>
     </action>
 
     <action path="/logout"
@@ -220,6 +221,14 @@
 		type="gov.nih.nci.cagwas.web.action.GetBulkDownloadFileAction"
 		scope="request">
     </action>
+    
+    <action path="/downloadZipFile"
+		type="gov.nih.nci.cagwas.web.action.DownloadZipFileAction"
+		scope="request">
+	<forward name="downloadZipFile" path="cagwas.downloadZipFile"/>
+    <forward name="accessWarning" path="cagwas.accessWarn"/>
+	<forward name="login" path="/login.jsp"/>
+	</action>
 
     <action path="/viewText"
 		type="gov.nih.nci.cagwas.web.action.ViewTextAction"
