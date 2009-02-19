@@ -122,7 +122,7 @@ public class ZipFindingsHelper {
 			List<ZipItem> zipItemCollection = new ArrayList<ZipItem>();
 			zipItemCollection.add(zipItem);
 			zipper.setItems(zipItemCollection);
-	        zipper.setTarget(getOutputZipDirectory()+File.separator+zipItem.getFileName());
+	        zipper.setTarget(getInputZipDirectory()+File.separator+zipItem.getFileName());
 	        zipper.setBreakIntoMultipleFileIfLarge(false);
 	        zipper.setZipPropertyFilename(CAGWAS_ZIP_PROPERTIES);
 	        zipper.run();
