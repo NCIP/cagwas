@@ -37,6 +37,9 @@ public class CheckLoginFilter implements Filter {
         	String isloginpage = ((HttpServletRequest) request).getRequestURI();
         	if(isloginpage!=null && ( isloginpage.endsWith("login.do") || 
         			isloginpage.contains("remoteSetup.do") || 
+        			isloginpage.contains("downloadZipFile.do") || 
+        			isloginpage.endsWith("/cgems/") ||
+        			isloginpage.endsWith("/cagwas/") ||
         			isloginpage.contains("aboutSetup.do") ))	{
         		//just continue, so they can login
         		chain.doFilter(request, response);
