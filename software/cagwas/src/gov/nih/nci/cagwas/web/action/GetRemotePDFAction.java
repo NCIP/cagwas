@@ -3,6 +3,7 @@ package gov.nih.nci.cagwas.web.action;
 import gov.nih.nci.cagwas.application.zip.ZipFindingsHelper;
 import gov.nih.nci.cagwas.web.action.RemoteContentHelper;
 import gov.nih.nci.caintegrator.application.util.SafeHTMLUtil;
+import gov.nih.nci.caintegrator.application.util.URLChecker;
 
 import java.io.FileInputStream;
 import java.util.Properties;
@@ -52,7 +53,12 @@ public class GetRemotePDFAction extends Action
 		RemoteContentHelper rcHelp = new RemoteContentHelper();
 		remoteContent = rcHelp.getRemoteContent(remoteUrl + "/" + pdfFilename);
 		
-		if (remoteContent != null)
+		if (URLChecker.exists(remoteUrl))
+		{
+			forward = new ActionForward();
+			forward.setPath(remoteUrl + "/" + pdfFilename);
+			forward.setRedirect(true);
+		} else if (remoteContent != null )
 		{
 			forward = new ActionForward();
 			forward.setPath(remoteUrl + "/" + pdfFilename);

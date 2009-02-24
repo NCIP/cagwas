@@ -44,9 +44,9 @@ public class RemoteContentHelper
 		
 		String remoteUrl = mailProperties.getProperty("remote.url");
 		String remoteBody = mailProperties.getProperty(propertyName);
-		
-		responseBody = getContent(remoteUrl + remoteBody);
-		
+		if(remoteUrl != null && remoteBody != null){
+			responseBody = getContent(remoteUrl + remoteBody);
+		}
 		return responseBody;
 	}
 	
