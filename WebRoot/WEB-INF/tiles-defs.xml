@@ -138,6 +138,7 @@
 		<put name="title" value="caGWAS Access Warning Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/accessWarningMain.jsp" />		
       </definition>
+      
 	<definition name="cagwas.downloadZipFile" extends="noSidebar">
 		<put name="title" value="caGWAS Download Zip Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/downloadZipFileMain.jsp" />		
