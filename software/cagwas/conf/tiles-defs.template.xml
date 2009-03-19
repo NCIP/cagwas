@@ -223,13 +223,13 @@
       </definition>
 
 	<definition name="cagwas.openAccess" extends="noSidebarSecondNav">
-		<put name="title" value="@project_title@ Open Access Page" />
+		<put name="title" value="@project_title@ Public Access Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/openAccessMain.jsp" />
 		<put name="secondNav" value="/WEB-INF/jsp/tiles/accessSecondNav_tile.jsp" />
       </definition>
 	
 	<definition name="cagwas.controlledAccess" extends="noSidebarSecondNav">
-		<put name="title" value="@project_title@ Controlled Access Page" />
+		<put name="title" value="@project_title@ Registered Access Page" />
 		<put name="mainForm" value="/WEB-INF/jsp/controlledAccessMain.jsp" />
 		<put name="secondNav" value="/WEB-INF/jsp/tiles/accessSecondNav_tile.jsp" />
       </definition>
