@@ -161,7 +161,7 @@ CREATE TABLE `csm_protection_element` (
 
 /*!40000 ALTER TABLE `csm_protection_element` DISABLE KEYS */;
 LOCK TABLES `csm_protection_element` WRITE;
-INSERT INTO `csm_protection_element` VALUES ('20','cagwas_study1',NULL,'1',NULL,'2','2007-11-14 00:00:00',NULL),('23','csmupt','UPT Super Admin Application','csmupt',NULL,'4','2007-07-09 16:36:18',NULL),('25','cagwas','cagwas','cagwas',NULL,'4','2007-07-15 00:00:00',NULL),('30','cagwas_study2',NULL,'2',NULL,'2','2007-11-14 00:00:00',NULL),('31','cagwas_study3',NULL,'3',NULL,'2','2007-11-14 00:00:00',NULL),('32','cagwas_study4',NULL,'4',NULL,'2','2007-11-19 00:00:00',NULL),('33','cagwas_study5',NULL,'5',NULL,'2','2007-11-19 00:00:00',NULL),('34','cagwas_study6',NULL,'6',NULL,'2','2007-11-19 00:00:00',NULL);
+INSERT INTO `csm_protection_element` ( PROTECTION_ELEMENT_ID, PROTECTION_ELEMENT_NAME, PROTECTION_ELEMENT_DESCRIPTION, OBJECT_ID, ATTRIBUTE, APPLICATION_ID, UPDATE_DATE, PROTECTION_ELEMENT_TYPE ) VALUES ('20','cagwas_study1',NULL,'1',NULL,'2','2007-11-14 00:00:00',NULL),('23','csmupt','UPT Super Admin Application','csmupt',NULL,'4','2007-07-09 16:36:18',NULL),('25','cagwas','cagwas','cagwas',NULL,'4','2007-07-15 00:00:00',NULL),('30','cagwas_study2',NULL,'2',NULL,'2','2007-11-14 00:00:00',NULL),('31','cagwas_study3',NULL,'3',NULL,'2','2007-11-14 00:00:00',NULL),('32','cagwas_study4',NULL,'4',NULL,'2','2007-11-19 00:00:00',NULL),('33','cagwas_study5',NULL,'5',NULL,'2','2007-11-19 00:00:00',NULL),('34','cagwas_study6',NULL,'6',NULL,'2','2007-11-19 00:00:00',NULL);
 UNLOCK TABLES;
 /*!40000 ALTER TABLE `csm_protection_element` ENABLE KEYS */;
 
