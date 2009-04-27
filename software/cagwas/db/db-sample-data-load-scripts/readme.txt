@@ -1,8 +1,8 @@
 To load sample data into an empty cagwas schema, please follow the steps below.
 1) Unzip db-sample-data-load-scripts.zip.
-1) Create the empty table schema using the following script : cagwas_tbls_mysql.sql
-2) Next, execute the load_all_tbls.sql to load the tables with sample data 
-3) To load your own data into caGWAS, please mimic the CSV file format.
+2) Create the empty table schema using the following script : cagwas_tbls_mysql.sql
+3) Next, execute the load_all_tbls.sql to load the tables with sample data 
+4) To load your own data into caGWAS, please mimic the CSV file format.
 
 
 For running the script using MySQL GUI Tool ( MySQL Query Browser )
