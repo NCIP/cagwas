@@ -428,9 +428,22 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 			</else> 
 		</if>   
 		<echo message="Inserting ${login-config.block.file} into ${jboss.home}/server/${jboss.server.name}/conf/login-config.xml"/>
+		
+		<xmltask source="${jboss.home}/server/${jboss.server.name}/conf/login-config.xml"
+			dest="${jboss.home}/server/${jboss.server.name}/conf/login-config.xml">
+			<xmlcatalog refid="bda.xml.catalog"/>
+			<remove path="//policy/application-policy[@name='${application.context.name}']"/>
+		</xmltask>
+		<xmltask failWithoutMatch="true" source="${jboss.home}/server/${jboss.server.name}/conf/login-config.xml"
+			dest="${jboss.home}/server/${jboss.server.name}/conf/login-config.xml">
+			<xmlcatalog refid="bda.xml.catalog"/>
+			<insert path="//policy" file="${login-config.block.file}"/>
+		</xmltask>
+<!--		
 		<xmlconfig in="${jboss.home}/server/${jboss.server.name}/conf/login-config.xml" verbose="false">
 			<insertbranch path="//policy" srcxmlfile="${login-config.block.file}" srcpath="//application-policy" />
 		</xmlconfig>
+-->
 	</target>
 
 	<!-- Configure MQ settings based on contents of ncia/software/resrouces/deploy/jbossmq-destinations-service.block.xml -->
