@@ -1,4 +1,5 @@
-<%@ page language="java" import="java.util.*, gov.nih.nci.cagwas.web.action.CagwasConstants, javax.servlet.jsp.JspWriter" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*, java.net.URLEncoder
+, gov.nih.nci.cagwas.web.action.CagwasConstants, javax.servlet.jsp.JspWriter" pageEncoding="UTF-8"%>
 
 <%! String filePath;%>
 <%
@@ -60,12 +61,14 @@ Download Files
 			public void visitAllDirsAndFiles(java.io.File dir, JspWriter out) {
 			
 				String fname = dir.toString().substring(dir.toString().lastIndexOf(java.io.File.separator)+1);
-					//String root = CSPConstants.getFpath().replace("/", java.io.File.separator).replace("\\", java.io.File.separator);
-					String root = filePath.replace("/", java.io.File.separator).replace("\\", java.io.File.separator);;
+				
 			        if(dir.isFile())	{
 			        	//System.out.println(root + " - " + dir.toString());
 			        	try	{
-				        	out.println("<li><a href=getBulkDownloadFile.do?file=" + fname +
+			        	String fPath = dir.getPath().toString().substring(this.filePath.length()+1);
+						fPath = fPath.replace("/", java.io.File.separator).replace("\\", java.io.File.separator);;
+			        	fPath = URLEncoder.encode(fPath,"UTF-8");
+				        	out.println("<li><a href=getBulkDownloadFile.do?file=" + fPath +
 				        	" onmouseover=\"return overlib(\'Name: " + fname + "<br>Size: " +  (dir.length()/1000) + "KB <br> Modified: " + new Date(dir.lastModified()).toString() + "\', CAPTION, \'File Details\', DELAY, 250, VAUTO, HAUTO);\" onmouseout=\"return nd();\"" + 
 				        	">" + fname + " </a></li>");
 				        	
