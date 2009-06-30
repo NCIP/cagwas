@@ -22,7 +22,7 @@
 
   <!-- ========== Global Forward Definitions ============================== -->
   <global-forwards>
-    <forward name="error" path="/error.jsp"/>
+    <forward name="error" path="/errorMain.jsp"/>
     <forward name="ploneError" path="cagwas.ploneError"/>
     <forward name="criteriaWarn" path="cagwas.criteriaWarn"/>
   </global-forwards>
