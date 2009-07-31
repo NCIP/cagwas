@@ -59,7 +59,7 @@ public class LoginAction extends Action
 		if (securityManager == null)
 		{
 			logger.error("Unable to get security manager for authentication");
-			errors.add(ActionMessages.GLOBAL_MESSAGE, new ActionMessage("error.authentication"));
+			errors.add("authentication", new ActionMessage("error.authentication"));			
 		}
 		else
 		{
@@ -73,6 +73,7 @@ public class LoginAction extends Action
 			catch (AuthenticationException e)
 			{
 				logger.debug(e);
+				//errors.add("authentication", new ActionMessage("error.authentication"));	
 			}
 	
 			if (credentials != null && credentials.authenticated())
@@ -94,7 +95,7 @@ public class LoginAction extends Action
 			}
 			else
 			{
-				errors.add(ActionMessages.GLOBAL_MESSAGE, new ActionMessage("error.authentication"));
+				errors.add("authentication", new ActionMessage("error.authentication"));	
 				//request.getSession().invalidate();
 			}
 		}
