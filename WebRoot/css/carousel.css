@@ -63,12 +63,12 @@
 }
 .carousel-component ul.carousel-list { 
 	margin:0px;
-	padding:0px 0px 0px 0px;
+	padding:0px 4px 4px 4px;
 }
 .carousel-component .carousel-list li { 
 	text-align:center;
 	margin:0px 0px 0px 0px;
-	padding:0px;
+	padding:2px;
 	font:10px verdana,arial,sans-serif;
 	color:#666;
 }
