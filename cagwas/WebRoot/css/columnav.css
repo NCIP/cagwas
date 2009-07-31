@@ -102,7 +102,7 @@ html>body .carousel-component ul.carousel-list li a.columnav-has-menu.columnav-a
 }
 
 .carousel-component ul.carousel-list li a span {
-    background-image: url(../images/url-off.gif);
+    background-image: url(../images/page.gif);
     background-repeat: no-repeat;
     background-position: 0px center;
     margin-right: 14px;
@@ -110,7 +110,7 @@ html>body .carousel-component ul.carousel-list li a.columnav-has-menu.columnav-a
 }
 
 .carousel-component ul.carousel-list li a.columnav-active span {
-    background-image: url(../images/url-on.gif);
+    background-image: url(../images/page.gif);
     color: white;
 }
 

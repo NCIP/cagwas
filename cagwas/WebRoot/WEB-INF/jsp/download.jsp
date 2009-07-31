@@ -66,9 +66,10 @@ Download Files
 			        	//System.out.println(root + " - " + dir.toString());
 			        	try	{
 			        	String fPath = dir.getPath().toString().substring(this.filePath.length()+1);
+			        	fPath = fPath.substring(0,fPath.indexOf(fname));
 						fPath = fPath.replace("/", java.io.File.separator).replace("\\", java.io.File.separator);;
 			        	fPath = URLEncoder.encode(fPath,"UTF-8");
-				        	out.println("<li><a href=getBulkDownloadFile.do?file=" + fPath +
+				        	out.println("<li><a href=getBulkDownloadFile.do?file=" + fname +"&path="+fPath+
 				        	" onmouseover=\"return overlib(\'Name: " + fname + "<br>Size: " +  (dir.length()/1000) + "KB <br> Modified: " + new Date(dir.lastModified()).toString() + "\', CAPTION, \'File Details\', DELAY, 250, VAUTO, HAUTO);\" onmouseout=\"return nd();\"" + 
 				        	">" + fname + " </a></li>");
 				        	

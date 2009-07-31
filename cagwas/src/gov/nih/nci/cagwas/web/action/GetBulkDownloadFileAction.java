@@ -37,17 +37,27 @@ public class GetBulkDownloadFileAction extends Action
 			HttpServletResponse response) throws Exception
 	{
 		String dir = (String) request.getSession().getAttribute("filePath");
+		dir = dir.replace("/", java.io.File.separator).replace("\\", java.io.File.separator);
+
 		String fileName = request.getParameter("file");
-		String filePath = dir + "/"+ fileName;
+		String path = request.getParameter("path");
+		String filePath = dir + File.separator + fileName;
+		if(path != null && path.length()> 0){
+			path = path.replace("/", java.io.File.separator).replace("\\", java.io.File.separator);
+			filePath = dir + File.separator + path + File.separator + fileName;
+		}
 		final ServletOutputStream out = response.getOutputStream(); 
+		BufferedInputStream is = null;
 		response.setContentType("application/octet-stream");
-		
+		if(fileName.contains(".qz") || fileName.contains(".zip")){
+			response.setContentType("application/x-zip-compressed");
+		}
 		response.setHeader( "Content-Disposition", "attachment; filename=\"" + fileName + "\"" );
 		File file = null;
 		try {
 			file = new File(filePath);
 			response.setContentLength( (int)file.length() );
-			BufferedInputStream is = new BufferedInputStream(new FileInputStream(file));
+			is = new BufferedInputStream(new FileInputStream(file));
 			byte[] buf = new byte[4 * 1024]; // 4K buffer
 			int bytesRead;
 			while ((bytesRead = is.read(buf)) != -1) {
@@ -56,7 +66,9 @@ public class GetBulkDownloadFileAction extends Action
 			is.close();
 			out.close();
 		}catch (IOException ioe){
+			if( !ioe.getClass().getName().contains("ClientAbortException")){//these are aborted downloads, so ignore them
 			logger.error("IO exception in sending file " +  file.toString() + ioe.getMessage());
+			}
 		}
 
 		return  null;

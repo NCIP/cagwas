@@ -15,7 +15,7 @@ if(session.getAttribute("ref")==null)	{
 </div>
 
 <div class="divMain">
-<span class="er"><html:errors/></span>
+<span class="er">  <html:errors property="authentication"/></span>
 
 <html:form action="login.do">
 <table cellpadding="15">
