@@ -5,7 +5,7 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 -->
 <project name="build-bda-template" default="build:all" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant" xmlns:cs="antlib:com.puppycrawl.tools.checkstyle">
 	<description>
-		This build file is part of the bda-build-template project.  This is the master build file for the project.  It should be placed in project/software/.  This script wrappers sub projects to build, test and inspect code.  Additionally this project manges creation of distributions and deployment locally or remotely.  Deployments will call the install.xml from the distribution to install or upgrade the application.  Lastly this script will run include targets that require manipulation of containers (selenium tests because they require starting the application server container (and require a fully deployed application which this process is responsible for). This build script assumes two sub-projects cagwas and bda-blueprints-api. The API targets are commented out and can be removed if not needed.  Also support for both tomcat and jboss download, install and configure are included.  These scripts require Java, Ant, Database and SVN to work.
+		This build file is part of the bda-build-template project.  This is the master build file for the project.  It should be placed in project/software/.  This script wrappers sub projects to build, test and inspect code.  Additionally this project manges creation of distributions and deployment locally or remotely.  Deployments will call the install.xml from the distribution to install or upgrade the application.  Lastly this script will run include targets that require manipulation of containers (selenium tests because they require starting the application server container (and require a fully deployed application which this process is responsible for). This build script assumes two sub-projects cagwas and caGwas. The API targets are commented out and can be removed if not needed.  Also support for both tomcat and jboss download, install and configure are included.  These scripts require Java, Ant, Database and SVN to work.
 	</description>
 
 	<!-- Property file related properties and tasks -->
@@ -15,7 +15,8 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 	<property file="project.properties" />
 
 	<property name="properties.file" value="install.properties"/>
-
+	<property name="properties.file.location" location="${properties.file}"/>
+	<property name="upgrade.properties.file" value="upgrade.properties"/>
 	<echo message="Using properties file of ${properties.file}." />
 	<available file="${properties.file}" property="properties.file.exists" />
 	<fail unless="properties.file.exists" message="The properties.file ${properties.file} does not exist, please make sure that you pass in an accurate file name with the 'ant -Dproperties.file=somepath/somefile', otherwise the build will fail." />
@@ -75,6 +76,15 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 	<!-- The target name that should be called from the sub-project build file -->
 	<property name="cagwas.build.target" value="build-all" />
 
+	<!-- Maven comamnd line arguments, bda profile is inside profiles.xml that gets copied to ear folder before build to override exiting properties -->
+	<property name="cagwas.maven.profile.list" value="local,bda" />
+	<property name="cagwas.maven.goal.list" value="clean install" />
+	<property name="cagwas-api.maven.goal.list" value="clean install" />
+
+	<!-- Added to make sure that it works with both absolute and relative paths, this property is handed to sub-project scripts in absolute format. -->
+	<property name="jar-signing.keystore.abs-location" location="${jar-signing.keystore.location}"/>
+
+
 	<!-- Used by dist:*:prep to determin list of files to use for incremental build process.
 		Directory and files must be in svn to work.
 	-->
@@ -121,6 +131,28 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 	<property name="cagwas.file.name"  value="${cagwas.name}.war"/>
 	<property name="cagwas.src.dir" value="${cagwas.base.dir}/WebRoot"/>
 
+	<!-- retrive ivy.jar.files then retrieve bda files and librarires -->
+	<condition property="commonlibrary.dir" value="">
+		<or>
+		<os family="unix" />
+			<os family="mac" />
+		</or>
+	</condition>
+
+	<condition property="commonlibrary.dir" value="c:/">
+		<os family="windows" />
+	</condition>
+
+	<condition property="local.cbiit-ivy-repo.dir" value="">
+		<or>
+		<os family="unix" />
+			<os family="mac" />
+		</or>
+	</condition>
+
+	<condition property="local.cbiit-ivy-repo.dir" value="c:/">
+		<os family="windows" />
+	</condition>
 
 	<!-- retrive ivy files then retrieve bda files and librarires -->
 	<property name="bda-download.file" value="bda-ivy-build.xml" />
@@ -135,6 +167,13 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 		<property name="bda-utils.dir" location="${bda-utils.dir}" />
 		<property name="lib.dir" location="${lib.dir}" />
 		<property name="software.dir" location="${software.dir}" />
+		<property name="commonlibrary.dir" location="${commonlibrary.dir}" />
+		<!-- Use below for old ivy repo -->
+		<!--<property name="ivy.settings.file" value="ivy-bda-settings.xml"/>-->
+		<!-- Use below for new ivy repo -->
+		<property name="ivy.settings.file" value="cbiit-ivy-bda-settings.xml"/>
+		<property name="target.dir" location="${target.dir}"/>
+		<property name="local.cbiit-ivy-repo.dir" value="${local.cbiit-ivy-repo.dir}"/>
 	</ant>
 
 
@@ -153,14 +192,10 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 	</path>
 
 	<!-- Task definitions -->
-	<taskdef name="xmlconfig" classname="com.xmlconfig.anttask.XmlConfig" classpathref="bda-utils.classpath" />
 	<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.classpath" />
-	<taskdef name="for" classname="net.sf.antcontrib.logic.ForTask">
-		<classpath>
-			<pathelement location="${bda-utils.dir}/ant-contrib-1.0b3.jar" />
-		</classpath>
-	</taskdef>
-
+	<taskdef name="for" classname="net.sf.antcontrib.logic.ForTask" classpathref="bda-utils.classpath"/>
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="bda-utils.classpath"/>
+	
 	<!-- Includes- include BDA marcos -->
 	<import file="${bda-utils.dir}/bda-build-utils-${bda.version}.xml" />
 
@@ -170,32 +205,16 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 		<format property="install.time" pattern="yyyy-MM-dd-HH-mm" />
 	</tstamp>
 	<record name="${log.dir}/install-${install.time}.log" action="start" />
-	<!-- set some db variables -->
-	<switch value="${database.type}">
-		<case value="oracle">
-			<property name="database.dialect" value="org.hibernate.dialect.OracleDialect"/>
-			<property name="database.driver.file" value="${bda-utils.dir}/ojdbc14-10.2.0.3.0.jar"/>
-			<property name="database.driver" value="oracle.jdbc.driver.OracleDriver"/>
-			<property name="db-upgrade.list.file" value="${db-upgrade.oracle.list.file}"/>
-			<property name="db-upgrade.conf.file" value="${db-upgrade.oracle.conf.file}"/>
-			<property name="database.schema" value="${database.name}"/>
-		</case>
-		<case value="mysql">
-			<property name="database.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-			<property name="database.driver.file" value="${bda-utils.dir}/mysql-connector-java-5.0.5.jar"/>
-			<property name="database.driver" value="com.mysql.jdbc.Driver"/>
-			<property name="db-upgrade.list.file" value="${db-upgrade.mysql.list.file}"/>
-			<property name="db-upgrade.conf.file" value="${db-upgrade.mysql.conf.file}"/>
-			<property name="database.schema" value="${database.name}"/>
-		</case>
-		<default>
-			<fail message="Invalid database type ${database.type}"/>
-		</default>
-	</switch>
 
-	<path id="jdbc.driver.classpath">
-		<pathelement location="${database.driver.file}"/>
-	</path>
+	<!-- Echo properties to catch AHP variables at build time-->
+	<if>
+		<equals arg1="${bda.debug}" arg2="true"/>
+		<then>
+			<echoproperties/>
+		</then>
+	</if>
+	<!-- Fix first time build issue -->
+	<mkdir dir="${download.dir}"/>
 
 
 	<!-- Targets -->
@@ -227,7 +246,6 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 		<mkdir dir="${pt.dir}" />
 
 		<available file="${jboss.dest.file}" property="jboss.tools.exists" />
-		<available file="${tomcat.dest.file}" property="tomcat.tools.exists" />
 		<!-- If jboss is required to build, then check for jboss in jboss.home, then check for in jboss in working directory, if not found then download it into this that directory.  If found at any point set local.jboss.home to where it is found.  This can be passed to sub-projects so then can compile code against distribution.  This is especially important on AntHillPro server which will not have jboss present, thus will have to use a copy in the working area.  This also makes it easier to start the project, if the developer does not yet have jboss installed, build will download it and install it so build can proceed. -->
 		<if>
 			<equals arg1="${require.jboss}" arg2="true" />
@@ -323,14 +341,22 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 	</target>
 
 	<target name="dist:gui-installer" description="Makes Gui-Installer distribution">
+		<delete>
+			<fileset dir="${dist.dir}">
+				<include name="*.jar"/>
+			</fileset>
+		</delete>
 		<gui-installer-prep
+			product.name="${cagwas.install.name}"
+			product.version="${cagwas.version}"
+
 			/>
 		<ant inheritAll="false" inheritRefs="false" 
 			antfile="install.xml"
 			target="build:installer"
 			dir="${build.dir}/gui-installer"
 			>
-			<property name="compile.jar.dir" value="${target.dir}/izpack-4.0.1"/>
+			<property name="compile.jar.dir" value="${target.dir}/izpack-4.3"/>
 		</ant>
 	</target>
 
@@ -413,6 +439,17 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 		</replaceregexp>
 		<dist-prep
 			/>
+		<copy todir="${tools.dist.dir}">
+			<fileset dir="${download.dir}">
+				<include name="cagrid*"/>
+			</fileset>
+		</copy>	
+		<if>
+			<equals arg1="${jar-signing.execution.time}" arg2="install"/>
+			<then>
+				<copy file="${jar-signing.keystore.abs-location}" todir="${dist.exploded.dir}"/>
+			</then>
+		</if>			
 	</target>
 
 	<target name="dist:installer" depends="dist:installer:prep" description="Produces zip file based on installer distribution area. Zip is used by deploy:remote:* or external installations">
@@ -437,31 +474,97 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 				<include name="**/*" />
 			</fileset>
 		</copy>
+		<!-- For non DAC upgrades
 		<dist-prep
 			copy.tools.flag="N"
 			default.target="upgrade"
 			/>
+		-->
+		<!-- For DAC upgrades -->
+		<dist-prep
+			copy.tools.flag="Y"
+			default.target="upgrade"
+			/>
+		<if>
+			<equals arg1="${jar-signing.execution.time}" arg2="install"/>
+			<then>
+				<copy file="${jar-signing.keystore.abs-location}" todir="${dist.exploded.dir}"/>
+			</then>
+		</if>			
 	</target>
 
 	<target name="dist:upgrader" depends="dist:upgrader:prep" description="Produces zip file based on installer distribution area. Zip is used by deploy:remote:* or external installations">
 		<delete file="${dist.dir}/${cagwas.upgrade.zip.file}" />
 		<!-- Set environment name to external -->
+		<copy todir="${dist.exploded.dir}" overwrite="true">
+			<fileset dir="${build.dir}">
+				<include name="upgrade.properties" />
+			</fileset>              
+		</copy>         
+		<delete file="${dist.exploded.dir}/install.properties"/>
 		<replaceregexp file="${dist.exploded.dir}/install.properties" byline="true" match="^(env.name)=.*" replace="\1=external" />
+
 		<obfuscate-properties-file
 			properties.file="${dist.exploded.dir}/install.properties"
 			required.property.list="application.baseesdlinux,application.base.path.windows,database.system.user,database.system.password,database.server,database.port,database.name,database.user,database.password,mail.smtp.host,jboss.server.hostname"
 			optional.property.list="ldap.url,ldap.basedn"
 			delete.property.list="exclude.jboss.backup"
 			/>
-		<copy todir="${dist.exploded.dir}" overwrite="true">
-			<fileset dir="${build.dir}">
-				<include name="upgrade.properties" />
-			</fileset>
-		</copy>
+
 		<replaceregexp file="${dist.exploded.dir}/build.xml" byline="true" match="(&lt;property name=&quot;properties.file&quot;\s+value=&quot;).*(&quot;\s*\/&gt;)" replace="\1upgrade.properties\2" />
 		<zip destfile="${dist.dir}/${cagwas.upgrade.zip.file}" basedir="${dist.exploded.dir}" />
 	</target>
 
+	<target name="dist:upgrade:tier:db" depends="dist:installer:prep">
+		<delete file="${dist.dir}/${cagwas.install.name}_${cagwas.version}-db.zip"/>
+		<zip destfile="${dist.dir}/${cagwas.install.name}_${cagwas.version}-db.zip">
+			<zipfileset dir="${db-install.dist.dir}" prefix="${db-install.dist.relative.dir}" />
+			<zipfileset dir="${db-upgrade.dist.dir}" prefix="${db-upgrade.dist.relative.dir}" />
+			<!-- not needed for this target
+			<zipfileset dir="${cagwas.dist.dir}" prefix="${cagwas.dist.relative.dir}"/>
+			<zipfileset dir="${grid-sample.dist.dir}" prefix="${grid-sample.dist.relative.dir}"/>
+			<zipfileset dir="${tools.dist.dir}" prefix="${tools.dist.relative.dir}"/>
+			<zipfileset dir="${common.dist.dir}" prefix="${common.dist.relative.dir}"/>
+			-->
+			<zipfileset dir="${bda-utils.dir}" prefix="bda-utils"/>
+			<zipfileset dir="${dist.exploded.dir}">
+				<include name="build.xml" />
+				<include name="install.properties" />
+				<include name="properties.template" />
+				<include name="project.properties" />
+			</zipfileset>
+			<!--  might want to add this
+			<zipfileset dir="${build.dir}">
+				<include name="local.properties" />
+			</zipfileset>
+			-->
+		</zip>          
+	</target>
+
+	<target name="dist:upgrade:tier:jboss" depends="dist:installer:prep">
+		<delete file="${dist.dir}/${cagwas.install.name}_${cagwas.version}-jboss.zip"/>
+		<zip destfile="${dist.dir}/${cagwas.install.name}_${cagwas.version}-jboss.zip">
+			<zipfileset dir="${cagwas.dist.dir}" prefix="${cagwas.dist.relative.dir}"/>
+			<zipfileset dir="${grid-sample.dist.dir}" prefix="${grid-sample.dist.relative.dir}"/>
+			<zipfileset dir="${tools.dist.dir}" prefix="${tools.dist.relative.dir}">
+				<include name="*jboss*"/>
+			</zipfileset>
+			<zipfileset dir="${common.dist.dir}" prefix="${common.dist.relative.dir}"/>
+			<zipfileset dir="${bda-utils.dir}" prefix="bda-utils"/>
+			<zipfileset dir="${dist.exploded.dir}">
+				<include name="build.xml" />
+				<include name="install.properties" />
+				<include name="properties.template" />
+				<include name="project.properties" />
+			</zipfileset>
+		</zip>          
+	</target>
+
+	<target name="dist:upgrade:tier"
+		depends="
+		dist:upgrade:tier:db,
+		dist:upgrade:tier:jboss
+		"/>
 
 	<target name="deploy:local:install" depends="build:all,dist:installer:prep" description="Installs and configures the application and required binaries and re-creates the datbase  on the local machine. Used for developer desktops and ci environments.">
 		<!--
@@ -487,6 +590,7 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 		-->
 		<deploy-local
 			target.name="${upgrade.target}"
+			properties.file="${upgrade.properties.file}"
 			/>
 	</target>
 
@@ -518,6 +622,32 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 		<deploy-files dist.file="${cagwas.upgrade.zip.file}" />
 		<!-- SSH to machine ant run ant command line to install application -->
 		<remote-ssh remotesshcommand=". .bash_profile;cd ${ssh.dir.temp}; ant -Dproperties.file=${properties.file.name} -Dforce.reinstall=true ${upgrade.target}" />
+	</target>
+	<target name="deploy:remote:upgrade:db"
+	       depends="
+		build:all,
+		dist:upgrade:tier:db
+		">
+		<deploy-files 
+			ssh.user="${db.ssh.server.username}"
+			ssh.host="${db.ssh.server.hostname}"
+			remote.directory.property.name="db.ssh.dir.temp"
+			dist.file="${cagwas.install.name}_${cagwas.version}-db.zip"
+		       />
+		<remote-ssh remotesshcommand=". .bash_profile;cd ${db.ssh.dir.temp}; ant -Dproperties.file=${properties.file.name} -Dforce.reinstall=true -Dexclude.jboss=true -Dexclude.tomcat=true upgrade:database" />
+	</target>
+	<target name="deploy:remote:upgrade:jboss"
+	       depends="
+		build:all,
+		dist:upgrade:tier:jboss
+		">
+		<deploy-files 
+			ssh.user="${jboss.ssh.server.username}"
+			ssh.host="${jboss.ssh.server.hostname}"
+			remote.directory.property.name="jboss.ssh.dir.temp"
+			dist.file="${cagwas.install.name}_${cagwas.version}-jboss.zip"
+		       />
+		<remote-ssh remotesshcommand=". .bash_profile;cd ${jboss.ssh.dir.temp}; ant -Dproperties.file=${properties.file.name} -Dforce.reinstall=true -Dexclude.tomcat=true -Dexclude.database=true upgrade:jboss" />
 	</target>
 
 	<target name="usage" description="Explains how to use this build script">
@@ -562,7 +692,6 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 	<target name="test:all" description="Runs test target for all sub-projects" depends="
 		clean,
 		init,
-		test:bda-blueprints-api,
 		test:cagwas
 		" />
 
@@ -576,7 +705,6 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 	<target name="static-analysis:all" description="Runs static-analysis target for all sub-projects" depends="
 		clean,
 		init,
-		static-analysis:bda-blueprints-api,
 		static-analysis:cagwas
 		" />
 
@@ -693,6 +821,34 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 	</target>
 
 	<target name="database:prep" description="Copies db files with filtering">
+		<!-- set some db variables -->
+		<switch value="${database.type}">
+			<case value="oracle">
+				<property name="database.dialect" value="org.hibernate.dialect.OracleDialect"/>
+				<property name="database.driver.file" value="${bda-utils.dir}/ojdbc14-10.2.0.3.0.jar"/>
+				<property name="database.driver" value="oracle.jdbc.driver.OracleDriver"/>
+				<property name="database.schema" value="${database.name}"/>
+			</case>
+			<case value="mysql">
+				<property name="database.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+				<property name="database.driver.file" value="${bda-utils.dir}/mysql-connector-java-5.0.8.jar"/>
+				<property name="database.driver" value="com.mysql.jdbc.Driver"/>
+				<property name="database.schema" value="${database.name}"/>
+			</case>
+			<case value="postgresql">
+				<property name="database.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+				<property name="database.driver.file" value="${bda-utils.dir}/postgresql-8.3-603.jdbc3.jar"/>
+				<property name="database.driver" value="org.postgresql.Driver"/>
+				<property name="database.schema" value="public"/>
+			</case>
+			<default>
+				<fail message="Invalid database type ${database.type}"/>
+			</default>
+		</switch>
+		<path id="jdbc.driver.classpath">
+			<pathelement location="${database.driver.file}"/>
+		</path>
+	
 		<echoproperties prefix="database"/>
 		<copy todir="${working.dir}/" filtering="true"  overwrite="true">
 			<fileset dir="${db.src.dir}">
@@ -742,16 +898,28 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 
 	<target name="report:uml">
 		<property name="uml.dir" value="${reports.dir}/uml"/>
-		<path id="bda-blueprints.classpath.ref">
+		<path id="cagwas.classpath.ref">
 			<fileset dir="${lib.dir}/runtime">
 				<include name="**/*.jar" />
 			</fileset>
 		</path>
 		<generate-uml   
 			uml.dir="${uml.dir}"    
-			src.java.dir="${bda-blueprints-webapp.base.dir}/src/java"
-			uml.source.path="bda-blueprints.classpath.ref"
+			src.java.dir="${cagwas.base.dir}/src/java"
+			uml.source.path="cagwas.classpath.ref"
 			/>
 	</target>
 
+	<target name="deploy:remote:upgrade:ahp" description="Installs and configures the application and required binaries and re-creates the datbase  on a remote machine. Used for NCI tiers (dev, qa, stg, prod)" >
+		<!--
+		  * Will use the target from install.xml specified in ${upgrade.target} (defaults to upgrade unless passed in on command line).
+		  * Requires specifying -Dproperties.file=@file@ on the command line to point installer to correct enviornment to install into.
+		  * Calls ant from exec task to ensure properties are do not carry over from current ant runtime and also to emulate a manual install, if you want properties to be used at install time they must be included in a proeprties file.
+		-->
+		<!-- Call macro to deploy files on desired server -->
+		<echoproperties prefix="ssh"/>
+		<deploy-files dist.file="${cagwas.upgrade.zip.file}" />
+		<!-- SSH to machine ant run ant command line to install application -->
+		<remote-ssh remotesshcommand=". .bash_profile;cd ${ssh.dir.temp}; ant -Dproperties.file=${properties.file.name} -Dforce.reinstall=true ${upgrade.target}" />
+	</target>
 </project>
