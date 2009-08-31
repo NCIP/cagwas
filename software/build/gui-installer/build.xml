@@ -1,3 +1,7 @@
+<!--
+$Id: build.xml 1936 2009-08-07 13:58:32Z saksass $
+$HeadURL: http://gforge.nci.nih.gov/svnroot/automation/trunk/software/bda-build-template/software/build/gui-installer/build.xml $
+-->
 <project name="Installer" default="install" basedir="." >
 	<!-- Generic properties -->
 	<property name="application_installer" value="cagwas_installer" />
@@ -9,10 +13,11 @@
 		<delete dir="${install.path}/${application_installer}" />
 		<unzip src="${install.path}/${application_installer_zip}" dest="${install.path}/${application_installer}" />
 		<copy file="${install.path}/property-template/installer.template.properties" tofile="${install.path}/${application_installer}/install.properties" overwrite="true"/>
-		<copy file="${install.path}/property-template/upgrade.template.properties" tofile="${install.path}/${application_installer}/upgrade.properties" />
+		<copy file="${install.path}/property-template/upgrade.template.properties" tofile="${install.path}/${application_installer}/upgrade.properties" overwrite="true"/>
 		<replace dir="${install.path}/${application_installer}" token="basedir}" value="install.path}/${application_installer}">
 			<include name="**/*.xml" />
 			<include name="**/*.properties" />
+			<exclude name="**/sync-gts/**/*"/>
 		</replace>
 		<replace file="${install.path}/${application_installer}/build.xml" token="project.properties" value="${install.path}/${application_installer}/project.properties"/>
 		<replace file="${install.path}/${application_installer}/build.xml" token="install-properties.template" value="${install.path}/${application_installer}/install-properties.template"/>
@@ -31,6 +36,7 @@
 		<replace dir="${install.path}/${application_installer}" token="basedir}" value="install.path}/${application_installer}">
 			<include name="**/*.xml" />
 			<include name="**/*.properties" />
+			<exclude name="**/sync-gts/**/*"/>
 		</replace>
 		<replace file="${install.path}/${application_installer}/build.xml" token="project.properties" value="${install.path}/${application_installer}/project.properties"/>
 		<replace file="${install.path}/${application_installer}/build.xml" token="install-properties.template" value="${install.path}/${application_installer}/install-properties.template"/>
@@ -44,7 +50,7 @@
 	<target name="convert-install-path" >
 		<echo message="${install.base.path}"/>
 		<pathconvert targetos="unix" property="application.base.path.convert">
-			 <path location="${install.base.path}"/>
+			<path location="${install.base.path}"/>
 		</pathconvert>
 
 		<replaceregexp file="${install.path}/${application_installer}/install.properties" byline="true"
@@ -53,15 +59,29 @@
 	</target>
 
 	<target name="convert-upgrade-path" >
-	<echo message="${upgrade.base.path}"/>
-		<dirname file="${upgrade.base.path}" property="upgrade.application.base.path"/>
+	<echo message="${upgrade.application.base.path}"/>
+	<!--
+		<dirname file="${application.base.path}" property="upgrade.application.base.path"/>
+	-->
 		<pathconvert targetos="unix" property="application.base.path.convert">
-			 <path location="${upgrade.application.base.path}"/>
+			 <path location="${application.base.path}"/>
+		</pathconvert>
+		<pathconvert targetos="unix" property="jboss.home.convert">
+			 <path location="${jboss.home}"/>
+		</pathconvert>
+		<pathconvert targetos="unix" property="tomcat.home.convert">
+			 <path location="${tomcat.home}"/>
 		</pathconvert>
 
 		<replaceregexp file="${install.path}/${application_installer}/upgrade.properties" byline="true"
-				match="^(application.base.path.*)=(.*)"
-				replace="\1=${application.base.path.convert}"/>
+			match="^(application.base.path.*)=(.*)"
+			replace="\1=${application.base.path.convert}"/>
+		<replaceregexp file="${install.path}/${application_installer}/upgrade.properties" byline="true"
+			match="^(jboss.home)=(.*)"
+			replace="\1=${jboss.home.convert}"/>
+		<replaceregexp file="${install.path}/${application_installer}/upgrade.properties" byline="true"
+			match="^(tomcat.home)=(.*)"
+			replace="\1=${tomcat.home.convert}"/>
 		<replaceregexp file="${install.path}/${application_installer}/build.xml" byline="true"
 			match="(&lt;property name=&quot;properties.file.*)install.properties(.*)"
 			replace="\1upgrade.properties\2"
@@ -76,6 +96,7 @@
 		<echo message="${install.path}"/>
 		<ant inheritAll="false" inheritRefs="false"
 			antfile="build.xml"
+			target="${build.file.target}"
 			dir="${install.path}/${application_installer}"
 			>
 			<property name="install.path" value="${install.path}"/>
