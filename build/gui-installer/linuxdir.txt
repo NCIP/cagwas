@@ -1,1 +1,1 @@
-${APPLICATIONS_DEFAULT_ROOT}/apps/cagwas-lsd
+${APPLICATIONS_DEFAULT_ROOT}/apps/cagwas
