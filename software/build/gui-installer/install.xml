@@ -265,7 +265,7 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/automation/trunk/software/bda-build-
 					<res id="HTMLLicencePanel.licence" src="@{this.dir}/Licence.html"/>
 					<res id="InfoPanel.info" src="@{this.dir}/Readme.txt"/>
 					<res id="userInputSpec.xml" src="@{this.dir}/userInputSpec.xml" />
-					<res id="CustomActionsLang.xml_eng" src="@{this.dir}/custom_eng.xml"/>
+					<res id="userInputLang.xml_eng_eng" src="@{this.dir}/custom_eng.xml"/>
 					<res id="UserPathPanel.dir.windows" src="@{this.dir}/windir.txt"/>
 					<res id="UserPathPanel.dir.linux" src="@{this.dir}/linuxdir.txt" />
 				</resources>

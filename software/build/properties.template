@@ -9,8 +9,8 @@
 ##############################
 ###  APPLICATION SETTINGS  ###
 ##############################
-application.base.path.linux=
-application.base.path.windows=
+#application.base.path.linux=
+#application.base.path.windows=
 authentication.type=
 
 # Have to add support for this
@@ -20,8 +20,6 @@ email.support=
 email.request=
 # URL sent in email for support site for application
 support.url=
-# desired url to reach application, must be valid other app will not work
-external.url=
 # URL used by link on main page to your own study site.
 remote.study.url=
 log4j.log.level=
@@ -40,9 +38,6 @@ database.url=
 ########################
 ###  JBOSS SETTINGS  ###
 ########################
-# jboss.home will be generated as ${application.base.path}/${jboss.relateive.path}
-jboss.relative.path=
-jboss.server.hostname=
 jboss.server.name=
 # have to add support for this
 jboss.java.opts=
