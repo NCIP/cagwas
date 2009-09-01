@@ -76,8 +76,7 @@ Guide to this file:
 		<panelreader classname="pre-install/install.xml" methodname="upgrade:common:init" language="ant">
 			<inpropertymap inpropertyname="application.base.path" inpropertyvalue="application.base.path"/>
 			<inpropertymap inpropertyname="jboss.home" inpropertyvalue="jboss.home"/>
-			<inpropertymap inpropertyname="jboss.server.name" inpropertyvalue="jboss.server.name"/>
-			<inpropertymap inpropertyname="tomcat.home" inpropertyvalue="tomcat.home"/>
+			<inpropertymap inpropertyname="jboss.server.name" inpropertyvalue="jboss.server.name"/>			
 			<propertymap propertyname="authentication.type" mapname="authentication.type"/>
 			<propertymap propertyname="database.name" mapname="database.name"/>
 			<propertymap propertyname="database.password" mapname="database.password"/>
@@ -653,6 +652,7 @@ Guide to this file:
 		</field>
 		<field type="space"/>
 		<field type="radio" variable="log4j.log.level">
+		<description align="left" txt="Select the log level"/>		
 			<spec>
 				<choice txt="DEBUG" value="DEBUG" />
 				<choice txt="INFO" value="INFO" />
