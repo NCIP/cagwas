@@ -650,6 +650,10 @@ Guide to this file:
 			<spec txt="URL of remote machine hosting study:" size="35" set=""/>
 			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" URL of remote machine hosting study is a required field" />
 		</field>
+		<field type="text" variable="external.url">
+			<spec txt="External URl:" size="35" set="http://${jboss.server.hostname}:${jboss.server.port}/cagwas"/>
+			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" URL of remote machine hosting study is a required field" />
+		</field>
 		<field type="space"/>
 		<field type="radio" variable="log4j.log.level">
 		<description align="left" txt="Select the log level"/>		
@@ -660,7 +664,9 @@ Guide to this file:
 				<choice txt="ERROR" value="ERROR" />
 			</spec>
 		</field>
-
+		<!--
+		<variable name="external.url" value="http://${jboss.server.hostname}:${jboss.server.port}/cagwas"/>
+		-->
 	</panel>	
 	<panel order="16">
 		<field type="title" txt="Installation Summary" bold="true" size="1" />

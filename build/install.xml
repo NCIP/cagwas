@@ -416,26 +416,6 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 			match="^(remote.url)=(.*)"
 			replace="\1=${external.url}"/>
 
-		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
-			match="^(zip_location)=\/cagwas\/(.*)"
-			replace="\1=\/${file.transfer.base.dir}\/hid_download_cagwas"/>
-		<!-- ftp_locationftp_location is where generated files go -->
-		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
-			match="^(ftp_location)=\/cagwas\/(.*)"
-			replace="\1=\/${file.transfer.base.dir}\/hid_download_cagwas"/>
-		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
-			match="^(genotype_location)=\/cagwas\/(.*)"
-			replace="\1=\/${file.transfer.base.dir}\/\2"/>
-		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
-			match="^(ftpHostnameAndPort)=(.*)"
-			replace="\1=${apache.virtual.name}:${apache.virtual.port}"/>
-		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
-			match="^(ftp_anonBrowse_URL)=(.*)"
-			replace="\1=${file.transfer.external.base.url.anon}"/>
-		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
-			match="^(ftp_secure_URL)=(.*)"
-			replace="\1=${file.transfer.external.base.url.secure}"/>
-
 		<!-- new propety added for url in line to external project page -->
 		<replaceregexp file="${cagwas.dir.dist}/mailzip.properties" byline="true"
 			match="^(remote.study.url)=.*"
