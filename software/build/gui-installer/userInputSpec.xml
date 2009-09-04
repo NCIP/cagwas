@@ -1,6 +1,6 @@
 <!--
 $Id: userInputSpec.xml 1941 2009-08-07 18:35:17Z saksass $
-$HeadURL: http://gforge.nci.nih.gov/svnroot/automation/trunk/software/bda-build-template/software/build/gui-installer/userInputSpec.xml $
+$HeadURL: http://gforge.nci.nih.gov/svnroot/automation/trunk/software/cagwas/software/build/gui-installer/userInputSpec.xml $
 
 Guide to this file:
 	First off remember this is a template you will be changing it.  Our test project deploys both an application and a grid component on both Tomcat and JBoss.  You may only support JBoss and have no grid component, at which point you would delete Tomcat and grid related panels.  Or you have have 3 JBoss containers, two apps and one grid.  This would reuqire that you delete tomcat and copy the jboss sections 3 times.
@@ -87,17 +87,10 @@ Guide to this file:
 			<propertymap propertyname="database.url" mapname="database.url"/>
 			<propertymap propertyname="database.user" mapname="database.user"/>
 			<propertymap propertyname="grid.index.url" mapname="grid.index.url"/>
-			<propertymap propertyname="jboss.external.grid.secure.host" mapname="jboss.external.grid.secure.host"/>
-			<propertymap propertyname="jboss.external.grid.secure.port" mapname="jboss.external.grid.secure.port"/>
 			<propertymap propertyname="jboss.external.http.host" mapname="jboss.external.http.host"/>
 			<propertymap propertyname="jboss.external.http.port" mapname="jboss.external.http.port"/>
 			<propertymap propertyname="jboss.external.ssl.host" mapname="jboss.external.ssl.host"/>
 			<propertymap propertyname="jboss.external.ssl.port" mapname="jboss.external.ssl.port"/>
-			<propertymap propertyname="jboss.grid.secure.cert.file" mapname="jboss.grid.secure.cert.file"/>
-			<propertymap propertyname="jboss.grid.secure.dir" mapname="jboss.grid.secure.dir"/>
-			<propertymap propertyname="jboss.grid.secure.enable" mapname="jboss.grid.secure.enable"/>
-			<propertymap propertyname="jboss.grid.secure.key.file" mapname="jboss.grid.secure.key.file"/>
-			<propertymap propertyname="jboss.grid.secure.port" mapname="jboss.grid.secure.port"/>
 			<propertymap propertyname="jboss.http-connector.remove" mapname="jboss.http-connector.remove"/>
 			<propertymap propertyname="jboss.java.opts" mapname="jboss.java.opts"/>
 			<propertymap propertyname="jboss.server.bindingfile.location" mapname="jboss.server.bindingfile.location"/>
@@ -165,17 +158,10 @@ Guide to this file:
 			<propertymap propertyname="database.url" mapname="database.url"/>
 			<propertymap propertyname="database.user" mapname="database.user"/>
 			<propertymap propertyname="grid.index.url" mapname="grid.index.url"/>
-			<propertymap propertyname="jboss.external.grid.secure.host" mapname="jboss.external.grid.secure.host"/>
-			<propertymap propertyname="jboss.external.grid.secure.port" mapname="jboss.external.grid.secure.port"/>
 			<propertymap propertyname="jboss.external.http.host" mapname="jboss.external.http.host"/>
 			<propertymap propertyname="jboss.external.http.port" mapname="jboss.external.http.port"/>
 			<propertymap propertyname="jboss.external.ssl.host" mapname="jboss.external.ssl.host"/>
 			<propertymap propertyname="jboss.external.ssl.port" mapname="jboss.external.ssl.port"/>
-			<propertymap propertyname="jboss.grid.secure.cert.file" mapname="jboss.grid.secure.cert.file"/>
-			<propertymap propertyname="jboss.grid.secure.dir" mapname="jboss.grid.secure.dir"/>
-			<propertymap propertyname="jboss.grid.secure.enable" mapname="jboss.grid.secure.enable"/>
-			<propertymap propertyname="jboss.grid.secure.key.file" mapname="jboss.grid.secure.key.file"/>
-			<propertymap propertyname="jboss.grid.secure.port" mapname="jboss.grid.secure.port"/>
 			<propertymap propertyname="jboss.java.opts" mapname="jboss.java.opts"/>
 			<propertymap propertyname="jboss.server.bindingfile.location" mapname="jboss.server.bindingfile.location"/>
 			<propertymap propertyname="jboss.server.hostname" mapname="jboss.server.hostname"/>
@@ -457,33 +443,8 @@ Guide to this file:
 		<field type="text" variable="jboss.ssl.fullyqualified.hostname">
 			<spec txt="Fully Qualified Host Name (FQHN) (ie, www.mydomain.com): "  size="50" set=""/>
 		</field>
-		<field type="space" align="top"/>
-		<field type="staticText" align="left" txt="For JBoss Grid SSL Port, values not required if not using."/>
-		<field type="divider" align="top"/>
-		<field type="radio" variable="jboss.grid.secure.enable">
-			<description align="left" txt="Enable secure Grid"/>
-			<spec>
-				<choice txt="True"  value="true" />
-				<choice txt="False" value="false" set="true"/>
-			</spec>
-		</field>
-		<field type="radio" variable="jboss.http-connector.remove">
-			<description align="left" txt="Remove HTTP Port"/>
-			<spec>
-				<choice txt="True"  value="true" />
-				<choice txt="False" value="false" set="true"/>
-			</spec>
-		</field>
-		<field type="text" variable="jboss.grid.secure.port">
-			<spec txt="Port to run the Grid service on JBoss:"  size="5" set="42500"/>
-		</field>
-		<field type="text" variable="jboss.grid.secure.cert.location">
-			<spec txt="caGrid certificate file location: "  size="75" set=""/>
-		</field>
-		<field type="text" variable="jboss.grid.secure.key.location">
-			<spec txt="caGrid private key file location: "  size="75" set=""/>
-		</field>
 
+		<variable name="jboss.http-connector.remove" value="true"/>
 	</panel>
 	<!-- External host stuff for Jboss -->
 	<panel order="9">
@@ -497,13 +458,10 @@ Guide to this file:
 			<spec txt="External Port for ssl port"  size="5" set=""/>
 		</field>
 		<field type="text" variable="jboss.external.http.host">
-			<spec txt="External Host Name for http port (generally same as FQHN): "  size="50" set=""/>
+			<spec txt="External Host Name for http host (generally same as FQHN): "  size="50" set=""/>
 		</field>
 		<field type="text" variable="jboss.external.http.port">
 			<spec txt="External Port for http port"  size="5" set=""/>
-		</field>
-		<field type="text" variable="jboss.external.grid.secure.host">
-			<spec txt="Grid External Hostname:" size="25" set=""/>
 		</field>
 
 		<field type="text" variable="jboss.external.grid.secure.port">
@@ -565,11 +523,11 @@ Guide to this file:
 			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" Database Port is a required field" />
 		</field>
 		<field type="text" variable="database.name">
-			<spec txt="Database Name:" size="25" set="bda"/>
+			<spec txt="Database Name:" size="25" set="cagwas"/>
 			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" Database Name is a required field" />
 		</field>
 		<field type="text" variable="database.user">
-			<spec txt="Database Application User:" size="25" set="bdauser"/>
+			<spec txt="Database Application User:" size="25" set="cagwasuser"/>
 			<validator class="com.izforge.izpack.util.NotEmptyValidator" txt=" Database Application User is a required field" />
 		</field>
 		<field type="password" allign="left" variable="database.password">
