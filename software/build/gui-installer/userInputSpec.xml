@@ -360,52 +360,6 @@ Guide to this file:
 			<spec txt="JBoss web service port:" size="5" set="42250"/>
 			<validator class="com.izforge.izpack.util.PortValidator" txt="The JBoss web service port number is already in use"/>
 		</field>
-
-		<field type="text" variable="jboss.unifiedinvoker.port">
-			<spec txt="JBoss Unified Invoker Port" size="5" set="42360"/>
-			<validator class="com.izforge.izpack.util.PortValidator" txt="JBoss Unified Invoker port number is already in use"/>
-		</field>
-
-		<field type="text" variable="jboss.hajndi.auto.port">
-			<spec txt="JBoss hajndi Auto Discovery Port" size="5" set="42370"/>
-			<validator class="com.izforge.izpack.util.PortValidator" txt="JBoss hajndi Auto Discovery port number is already in use"/>
-		</field>
-
-		<field type="text" variable="jboss.ssl.port">
-			<spec txt="JBoss SSL" size="5" set="42380"/>
-			<validator class="com.izforge.izpack.util.PortValidator" txt="JBoss SSL port number is already in use"/>
-		</field>
-
-		<field type="text" variable="jboss.jms2.netty.port">
-			<spec txt="JBoss Messaging 2.x HTTP port" size="5" set="42390"/>
-			<validator class="com.izforge.izpack.util.PortValidator" txt="JBoss Messaging 2.x HTTP port number is already in use"/>
-		</field>
-
-		<field type="text" variable="jboss.jms2.netty.port">
-			<spec txt="JBoss Messaging 2.x HTTP port" size="5" set="42390"/>
-			<validator class="com.izforge.izpack.util.PortValidator" txt="JBoss Messaging 2.x HTTP port number is already in use"/>
-		</field>
-
-		<field type="text" variable="jboss.jms2.netty-ssl.port">
-			<spec txt="JBoss Messaging 2.x SSL port" size="5" set="42400"/>
-			<validator class="com.izforge.izpack.util.PortValidator" txt="JBoss Messaging 2.x SSL port number is already in use"/>
-		</field>
-
-		<field type="text" variable="jboss.transaction.recovery.port">
-			<spec txt="JBoss Transaction Recovery port" size="5" set="42410"/>
-			<validator class="com.izforge.izpack.util.PortValidator" txt="JBoss Transaction Recovery port number is already in use"/>
-		</field>
-
-		<field type="text" variable="jboss.transaction.status.port">
-			<spec txt="JBoss Transaction Status port" size="5" set="42420"/>
-			<validator class="com.izforge.izpack.util.PortValidator" txt="JBoss Transaction Status port number is already in use"/>
-		</field>
-
-		<field type="text" variable="jboss.transaction.processid.port">
-			<spec txt="JBoss Transaction Process ID port" size="5" set="42430"/>
-			<validator class="com.izforge.izpack.util.PortValidator" txt="JBoss Transaction Process ID port number is already in use"/>
-		</field>
-
 	</panel>
 	<!--
 		<field type="text" variable="">
