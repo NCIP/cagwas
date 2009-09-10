@@ -276,7 +276,7 @@
 			<echo> isCGEMS="${isCGEMS}" </echo>
 		</target>
 	
-		<target name="configure.resources.asCGEMS" depends="configure.header.jsp.asCGEMS,check.war.type" if="isCGEMS" description="configure the war file for CGEMS">
+		<target name="configure.resources.asCGEMS" depends="configure.header.jsp.asCGEMS,configure.header.jsp.asCAGWAS,check.war.type" if="isCGEMS" description="configure the war file for CGEMS">
 			<echo message="Configuring configure.resources.asCGEMS" />
 			<replaceregexp file="${build.source.dir}/cagwasResources.properties" match="caGWAS" replace="CGEMS" flags="g" />
 			<replaceregexp file="${build.source.dir}/cagwasResources.properties" match="cagwas" replace="cgems" flags="g" />
@@ -292,6 +292,15 @@
 				</delete>
 				<copy tofile="./WebRoot/WEB-INF/jsp/header.jsp">
 					<fileset file="./WebRoot/WEB-INF/jsp/header_cgems.jsp" />
+				</copy>
+			</target>
+	<target name="configure.header.jsp.asCAGWAS" depends="check.war.type" unless="isCGEMS" description="configure the header.jsp in tiles-def.xml for caGWAS">
+				<echo message="Configuring configure.header.jsp.asCAGWAS" />
+				<delete>
+					<fileset file="./WebRoot/WEB-INF/jsp/header.jsp" />
+				</delete>
+				<copy tofile="./WebRoot/WEB-INF/jsp/header.jsp">
+					<fileset file="./WebRoot/WEB-INF/jsp/header_cagwas.jsp" />
 				</copy>
 			</target>
 	
