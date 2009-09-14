@@ -96,7 +96,7 @@ public class LoginAction extends Action
 			else
 			{
 				errors.add("authentication", new ActionMessage("error.authentication"));	
-				//request.getSession().invalidate();
+				request.getSession().invalidate();
 			}
 		}
 		
