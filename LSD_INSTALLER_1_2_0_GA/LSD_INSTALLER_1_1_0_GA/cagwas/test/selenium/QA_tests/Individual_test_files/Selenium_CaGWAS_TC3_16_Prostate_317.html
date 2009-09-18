@@ -1,0 +1,89 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Selenium_CaGWAS_TC3_16_Prostate_317</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Selenium_CaGWAS_TC3_16_Prostate_317</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>https://caintegrator-qa.nci.nih.gov/cagwas/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Browse Data</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>studyName</td>
+	<td>label=CaGWAS Prostate Cancer WGAS (Illumina 317K)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//option[@value='CaGWAS Prostate Cancer WGAS (Illumina 317K)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>document.browseForm.query[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>removeSelection</td>
+	<td>population</td>
+	<td>label=All</td>
+</tr>
+<tr>
+	<td>addSelection</td>
+	<td>population</td>
+	<td>label=CASE_AGGRESSIVE</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>chromosome</td>
+	<td>label=1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>chromosomeFrom</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>fromUnit</td>
+	<td>label=mb</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>chromosomeTo</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>toUnit</td>
+	<td>label=mb</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>idList</td>
+	<td>rs912988<br />rs912991<br />rs1326005<br />rs1004125<br />rs950601<br />rs707582<br />rs945322<br />rs971814<br />rs709184<br />rs707580<br />rs771071<br />rs707593<br />rs770701<br />rs770702<br />rs796396<br />rs770693<br />rs873982<br />rs904532<br />rs868162<br />rs551207<br />rs875574<br />rs806104<br />rs806111<br />rs531099<br />rs546526<br />rs1295107<br />rs1295087<br />rs1295085<br />rs756096<br />rs747393<br />rs1064721<br />rs737243<br />rs13513<br /></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Submit']</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

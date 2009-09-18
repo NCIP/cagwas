@@ -1,0 +1,34 @@
+<project name="cagwas" default="build_zip" basedir=".">
+	<property file="build.properties" />
+
+	<!--
+	TARGET: Zip
+		Zip the source code and compiled caintegrator-analysis-commons.jar,caintegrator-applications-commons.jar,caintegrator-spec.jar, 
+	-->
+	
+	<target name="-build_war">
+		<ant antfile="build.xml" target="build-all"/>
+	</target>
+
+	<target name="build_zip" depends="-build_war">
+		<delete file="${module_name}.zip" />
+				<zip destfile="${module_name}.zip">
+					<zipfileset dir="${artifacts.dir}" prefix="${project_name}/${artifacts.dir}">
+					<exclude name="${module_name}.war"/>
+					</zipfileset>
+					<zipfileset dir="${build.conf.dir}" prefix="${project_name}/${build.conf.dir}"/>
+					<!-- <zipfileset dir="${build.docs.dir}" prefix="${project_name}/${build.docs.dir}"/> -->
+					<zipfileset dir="${not.deployed.jarFiles}" prefix="${project_name}/${not.deployed.jarFiles}">
+						<include name="xmltask-v1.15.1.jar" />
+					</zipfileset>
+					<zipfileset dir="." prefix="${project_name}/.">
+						<include name="build.xml" />
+						<include name="build.properties" />
+						<include name="mailzip.properties" />
+						<include name="${module_name}.war" />
+					</zipfileset>
+					</zip>
+		<copy file="${module_name}.zip" todir="${artifacts.dir}" />
+	</target>	
+
+</project>

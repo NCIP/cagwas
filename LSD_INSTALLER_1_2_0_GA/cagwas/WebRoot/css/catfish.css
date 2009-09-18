@@ -1,0 +1,19 @@
+#catfish {
+	position:fixed;
+	bottom:0px;
+	left:0; /* rl */
+	background:transparent url(../images/caIntegratorLogoPowerT.gif) no-repeat 200px bottom;
+	
+	padding:0;
+	height: 22px;  /* includes transparent part */
+	cursor: pointer;
+	margin: 0; 
+	width:100%;
+	background-color:#DADADA;
+	filter:alpha(opacity=90);
+	-moz-opacity: .90;
+	/*background-image: url(images/caIntegratorLogoPowerT.gif);*/
+}
+html {
+	padding:0 0 22px 0; /* 58px = height of the opaque part of the Catfish */
+}

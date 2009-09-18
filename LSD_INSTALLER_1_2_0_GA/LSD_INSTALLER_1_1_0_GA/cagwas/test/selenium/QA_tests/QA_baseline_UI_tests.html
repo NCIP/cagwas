@@ -1,0 +1,398 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>QA_baseline_UI_tests</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">QA_baseline_UI_tests</td></tr>
+</thead><tbody>
+<!-- Login handled by another program -->
+<!--  test navigation between tabs and elements on each page -->
+<tr>
+	<td>open</td>
+	<td>/cagwas/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Welcome</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Browse Data</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Bulk Data Download</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Support</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Feedback</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Login/Register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//input[@value='Browse Data']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//input[@value='Bulk Data Download']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=About CaGWAS Study</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=How to use the CaGWAS data portal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>link=Register to access raw data</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Welcome</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Browse Data</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Select a Study:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Select a Version:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Select a Dataset:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Association Finding</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Population Frequency</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Subjects Data (login required)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>studyName</td>
+	<td>label=CaGWAS Breast Cancer WGAS (Illumina 550K)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//option[@value='CaGWAS Breast Cancer WGAS (Illumina 550K)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>studyName</td>
+	<td>label=CaGWAS Prostate Cancer WGAS (Illumina 317K and 240K)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//option[@value='CaGWAS Prostate Cancer WGAS (Illumina 317K and 240K)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>studyName</td>
+	<td>label=CaGWAS Prostate Cancer WGAS (Illumina 317K)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//option[@value='CaGWAS Prostate Cancer WGAS (Illumina 317K)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bulk Data Download</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Select a Study:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Select a Version:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Select a Dataset:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Association Finding</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Population Frequency</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Subjects Data (login required)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Genotypes Data (login required)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>studyName</td>
+	<td>label=CaGWAS Breast Cancer WGAS (Illumina 550K)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//option[@value='CaGWAS Breast Cancer WGAS (Illumina 550K)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>studyName</td>
+	<td>label=CaGWAS Prostate Cancer WGAS (Illumina 317K and 240K)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//option[@value='CaGWAS Prostate Cancer WGAS (Illumina 317K and 240K)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>studyName</td>
+	<td>label=CaGWAS Prostate Cancer WGAS (Illumina 317K)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//option[@value='CaGWAS Prostate Cancer WGAS (Illumina 317K)']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>chooseCancelOnNextConfirmation</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Feedback</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Thanks for using the CaGWAS Application</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Please provide us with any feedback you may have</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Please select the feature you most liked/used this session:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Please select the feature you least liked/used this session:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Please provide any additional feedback:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>likeFeature</td>
+	<td>label=SNP Association Search</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>likeFeature</td>
+	<td>label=SNP Population Frequency Search</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>likeFeature</td>
+	<td>label=Subjects Search</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>likeFeature</td>
+	<td>label=Online Help</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dislikeFeature</td>
+	<td>label=SNP Association Search</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dislikeFeature</td>
+	<td>label=SNP Population Frequency Search</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dislikeFeature</td>
+	<td>label=Subjects Search</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>dislikeFeature</td>
+	<td>label=Online Help</td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//input[@value='Reset']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//input[@value='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Reset']</td>
+	<td></td>
+</tr>
+<!-- Test to ensure defect #7854 "Reset button on Feedback survey does not reset values" is closed -->
+<tr>
+	<td>type</td>
+	<td>comment</td>
+	<td>test values</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Reset']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>comment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Login/Register</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Please login with your provided username and password.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Registered Users:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>exact:Username:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>exact:Password:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>username</td>
+	<td>acde</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>password</td>
+	<td>qazx</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>btnReset</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>username</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>password</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>New Users:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Register for access']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/cagwas-data-access-policies/app_view</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/cagwas/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Welcome</td>
+	<td></td>
+</tr>
+<!-- Logout handled by another program -->
+
+</tbody></table>
+</body>
+</html>

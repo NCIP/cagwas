@@ -1,0 +1,86 @@
+function  WWHBookData_AddIndexEntries(P)
+{
+var A=P.fA("A",null,null,"002");
+var B=A.fA("Allele, definition",new Array("15#1060591"));
+B=A.fA("Associated genes",new Array("7#1075045"));
+var C=B.fA("no value for a SNP",new Array("7#1075102"));
+B=A.fA("Association Finding, criterion for searching SNP data",new Array("6"));
+A=P.fA("B",null,null,"002");
+B=A.fA("Becoming a registered user",new Array("3","14"));
+B=A.fA("Browsing CGEMS data");
+C=B.fA("by Association Finding",new Array("5"));
+C=B.fA("by Genotype Data",new Array("5"));
+C=B.fA("by Population Frequency",new Array("5"));
+C=B.fA("by Subjects Data",new Array("5"));
+B=A.fA("Bulk data download",new Array("13"));
+A=P.fA("C",null,null,"002");
+B=A.fA("CGEMS Breast Cancer WGAS (Illumina 550K)",new Array("6#1079377"));
+B=A.fA("CGEMS Prostate Cancer Follup-up Scan 1",new Array("6#1084509"));
+B=A.fA("CGEMS Prostate Cancer WGAS (Illumina 317K and 240K)",new Array("6#1084516"));
+B=A.fA("CGEMS Prostate Cancer WGAS (Illumina 317K)",new Array("6#1079387"));
+B=A.fA("CGEMS, definition",new Array("15#1060587"));
+B=A.fA("Chromosome",new Array("7#1075033"));
+B=A.fA("Completion rate, definition",new Array("15#1060583"));
+B=A.fA("confidence interval, definition",new Array("15#1062362"));
+A=P.fA("D",null,null,"002");
+B=A.fA("dbSNP ID",new Array("7#1075026"));
+B=A.fA("dbSNP identifier, definition",new Array("15#1060579"));
+B=A.fA("Downloading bulk data",new Array("13"));
+C=B.fA("by registered users",new Array("13#1064527"));
+B=A.fA("Downloading bulk data via FTP");
+C=B.fA("by public users",new Array("13#1064870"));
+A=P.fA("F",null,null,"002");
+B=A.fA("Feedback",new Array("4#1068564"));
+B=A.fA("FTP data download",new Array("13"));
+A=P.fA("G",null,null,"002");
+B=A.fA("Genome, definition",new Array("15#1060595"));
+B=A.fA("Genomic location, definition",new Array("15#1060600"));
+B=A.fA("Genotype, definition",new Array("15#1060640"));
+B=A.fA("Glossary",new Array("15#1059361"));
+A=P.fA("H",null,null,"002");
+B=A.fA("Hardy Weinberg p-value, definition",new Array("15#1060636"));
+B=A.fA("HUGO gene symbol, definition",new Array("15#1060632"));
+A=P.fA("M",null,null,"002");
+B=A.fA("Minor allele frequency, definition",new Array("15#1060628"));
+B=A.fA("More than 500 records, requesting data for",new Array("14"));
+A=P.fA("N",null,null,"002");
+B=A.fA("NCICB, definition",new Array("15#1060620"));
+A=P.fA("O",null,null,"002");
+B=A.fA("odds ratio, definition",new Array("15#1062369"));
+B=A.fA("Online help");
+C=B.fA("locating topics of interest",new Array("3#1070722"));
+C=B.fA("printing",new Array("3#1070747"));
+C=B.fA("using navigation tools",new Array("3#1070737"));
+B=A.fA("Online help, using",new Array("3"));
+B=A.fA("Order of SNPs",new Array("7#1075101"));
+A=P.fA("P",null,null,"002");
+B=A.fA("Physical position",new Array("7#1075039"));
+B=A.fA("Population frequency, criterion for searching SNP data",new Array("8"));
+B=A.fA("Providing feedback",new Array("4#1068564"));
+B=A.fA("Public users");
+C=B.fA("downloading bulk data via FTP",new Array("13#1064870"));
+B=A.fA("P-value, definition",new Array("15#1060616"));
+A=P.fA("R",null,null,"002");
+B=A.fA("Registered users");
+C=B.fA("downloading bulk data via FTP",new Array("13#1064527"));
+B=A.fA("Registration",new Array("3","14"));
+A=P.fA("S",null,null,"002");
+B=A.fA("Searching SNP data by Association Finding",new Array("6"));
+B=A.fA("Searching SNP subject data",new Array("10"));
+B=A.fA("Selecting a study version",new Array("13#1069180"));
+B=A.fA("SNP order",new Array("7#1075101"));
+B=A.fA("SNP panel, definition",new Array("15#1062227"));
+B=A.fA("SNP Population Frequency reports, understanding",new Array("11"));
+B=A.fA("SNP Subject Data report, understanding",new Array("11"));
+B=A.fA("SNP subject data, searching",new Array("10"));
+B=A.fA("SNP, definition",new Array("15#1060612"));
+A=P.fA("U",null,null,"002");
+B=A.fA("Using online help",new Array("3"));
+A=P.fA("W",null,null,"002");
+B=A.fA("Whole genome rank, definition",new Array("15#1060604"));
+}
+
+function  WWHBookData_MaxIndexLevel()
+{
+  return 3;
+}
