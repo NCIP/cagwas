@@ -1,0 +1,19 @@
+<project name="cagwas-test" default="selenese" basedir=".">
+	<property file="build.properties" />
+	<property file="test.properties" />
+
+	<target name="selenese"/>
+	<taskdef resource="selenium-ant.properties">
+	    <classpath>
+	        <pathelement location="${not.deployed.jarFiles}/selenium-server.jar"/>
+	    </classpath>
+	</taskdef>
+	<selenese 
+	    suite="test\selenium\QA_bulk_cagwasTestSuite.html"
+	    browser="${browser}"
+	    results="${result_file}"
+	    multiWindow="false"
+	    timeoutInSeconds="200"
+		port="${server_port}"
+	    startURL="${test_url}"  />	
+</project>

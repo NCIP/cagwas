@@ -1,0 +1,84 @@
+################################################################################
+#
+#	Basic Properties for cagwas project
+#
+################################################################################
+#
+# DO NOT MODIFY THESE PROPERTIES
+################################################################################
+
+#The location of the compiled classes
+build.classes.dir=bin
+
+#Location of the source files to be compiled
+build.source.dir=src
+
+#Location of the web root
+webapp.dir=WebRoot
+
+#Location of the webapp libraries directory
+webapp.lib.dir=WebRoot/WEB-INF/lib
+
+#Location of the webapp classes directory
+webapp.classes.dir=WebRoot/WEB-INF/classes
+
+#Dummy property for anthill dependency artifacts
+anthill.dependency.artifacts.dir=../artifacts
+anthill.artifacts.dir=../artifacts
+
+# Jboss directories
+not.deployed.jarFiles=not_deployed_jars
+jboss.lib.dir=${jboss.install.dir}server/${jboss.server.name}/lib
+jboss.deploy.dir=${jboss.install.dir}server/${jboss.server.name}/deploy
+jboss.conf.dir=${jboss.install.dir}server/${jboss.server.name}/conf
+
+# Common Security Module Settings  
+csm.hibernate.config.file=${jboss.install.dir}server/${jboss.server.name}/conf/cagwas.hibernate.cfg.xml
+csm.application.config.file=${jboss.install.dir}server/${jboss.server.name}/conf/ApplicationSecurityConfig.xml
+
+# CSM universal settings
+csm.jndi.connection.datasource=cgemscsm
+csm.exception.sorter.class=org.jboss.resource.adapter.jdbc.vendor.OracleExceptionSorter
+csm.databaseUser=CSM_CAINTEGRATOR
+csm.databasePassword=csm#951
+csm.urlDbalias=jdbc:oracle:thin:@cbiodb2-d.nci.nih.gov:1521:RBTDEV
+
+# LDAP properties	
+ldap.initial.context.factory=com.sun.jndi.ldap.LdapCtxFactory
+ldap.provider.url=ldaps://your_ldap_ip:636
+ldap.security.authentication=simple
+ldap.security.protocol=ssl
+ldap.context=ou=nci,o=nih
+
+################################################################################
+#
+# MODIFY THESE FOR YOUR DEPLOYMENT
+################################################################################
+#Name of the project
+project_name=cgems
+
+#Name of the module
+module_name=cgems
+
+#Tile of the project
+project_title=CGEMS
+
+# JBoss install directory
+jboss.install.dir=D:/jboss-4.0.2/
+
+# JBoss server name
+jboss.server.name=default
+
+# Dev Database Properties
+db.jndi.connection=cgems
+urlDbalias=jdbc:oracle:thin:@cbiodb2-d.nci.nih.gov:1521:CPDEV
+databaseUser=cgemsdev
+databasePassword=dev1234
+jdbcRuntimeDriver=oracle.jdbc.driver.OracleDriver
+
+
+#External Properties Path
+ncicb.configure.directory=D:/Development/NCI/cgems/content/cgems/config/cgems/config
+#ncicb.configure.directory=/local/content/
+#caIntegrator Hibernate build file
+caintegrator.hibernate.config.file=cagwas-domain-hibernate.cfg.xml
