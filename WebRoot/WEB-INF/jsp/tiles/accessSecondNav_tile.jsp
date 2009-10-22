@@ -8,11 +8,11 @@
 			<div id="secondary_bg" >
 				<div id="list_container">
 					<ul>
-						<li id="overview"><a href="remoteSetup.do?content=access">Overview</a></li>
-<li id="open"><a href="remoteSetup.do?content=openAccess">Public Access</a></li>
+						<!-- <li id="overview"><a href="remoteSetup.do?content=access">Overview</a></li>  -->
+						<!-- <li id="open"><a href="remoteSetup.do?content=openAccess">Public Access</a></li> -->
 						<% String regUrl = (String)session.getAttribute("registrationUrl"); 
 						%>
-						<li id="controlled"><a href="<%=regUrl%>" target="#">Registered Access</a></li>					</ul>
+						<!-- <li id="controlled"><a href="<%=regUrl%>" target="#">Registered Access</a></li> -->					</ul>
 				</div>
 			</div>
 		</div>

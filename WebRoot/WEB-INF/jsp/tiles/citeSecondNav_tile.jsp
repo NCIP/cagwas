@@ -8,8 +8,8 @@
 			<div id="secondary_bg" >
 				<div id="list_container">
 					<ul>
-						<li id="overview"><a href="remoteSetup.do?content=cite">Overview</a></li>
-						<li id="examples"><a href="remoteSetup.do?content=citeExample">Examples</a></li>
+						<!--  <li id="overview"><a href="remoteSetup.do?content=cite">Overview</a></li> -->
+						<!-- <li id="examples"><a href="remoteSetup.do?content=citeExample">Examples</a></li> -->
 					</ul>
 				</div>
 			</div>

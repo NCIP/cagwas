@@ -14,6 +14,12 @@
 	<li id="study2"><a
 		href="remoteSetup.do?content=study2"><bean:message
 		key="study2.title" /> Cancer</a></li>
+	<li id="study3"><a
+		href="remoteSetup.do?content=study3"><bean:message
+		key="study3.title" /> Cancer</a></li>
+	<li id="study4"><a
+		href="remoteSetup.do?content=study4"><bean:message
+		key="study4.title" /> Cancer</a></li>
 </ul>
 </div>
 </div>
@@ -37,7 +43,14 @@
 		{
  			cur = "<bean:message key="study2.title"/>";
  		}
-		 		
+		else if(top.document.title.toLowerCase().indexOf("about <bean:message key="study3.title"/> data")!=-1)
+		{
+ 			cur = "<bean:message key="study3.title"/>";
+ 		}
+ 		else if(top.document.title.toLowerCase().indexOf("about <bean:message key="study4.title"/> data")!=-1)
+		{
+ 			cur = "<bean:message key="study4.title"/>";
+ 		} 		
   		try
 		{
 			//alert("cur is " + cur);
