@@ -203,6 +203,8 @@
 		scope="request">
     <forward name="study1" path="cagwas.study1"/>
     <forward name="study2" path="cagwas.study2"/>
+    <forward name="study3" path="cagwas.study3"/>
+    <forward name="study4" path="cagwas.study4"/>
     <forward name="policies" path="cagwas.policies"/>
     <forward name="contacts" path="cagwas.contacts"/>
     <forward name="cite" path="cagwas.cite"/>
