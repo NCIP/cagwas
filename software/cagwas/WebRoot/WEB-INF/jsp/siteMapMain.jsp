@@ -33,7 +33,7 @@
 <area shape="rect" coords="617,54,737,81" href="downloadSetup.do" target="_blank" alt="Bulk Data download">
 <area shape="rect" coords="765,54,822,82" href="remoteSetup.do?content=cite" target="_blank" alt="Cite">
 <area shape="rect" coords="780,90,828,110" href="remoteSetup.do?content=cite" target="_blank" alt="Cite Overview">
-<area shape="rect" coords="781,113,830,131" href="remoteSetup.do?content=citeExample" target="_blank" alt="Cite Examples">
+<!-- <area shape="rect" coords="781,113,830,131" href="remoteSetup.do?content=citeExample" target="_blank" alt="Cite Examples"> -->
 
 <area shape="rect" coords="856,54,933,80" href="remoteSetup.do?content=access" target="_blank" alt="Data Access">
 <area shape="rect" coords="891,89,940,107" href="remoteSetup.do?content=access" target="_blank" alt="Data Access Overview">

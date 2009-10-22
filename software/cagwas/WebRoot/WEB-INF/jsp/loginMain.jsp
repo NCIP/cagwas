@@ -5,8 +5,8 @@
 
 <%
 //how did we get here?
-if(session.getAttribute("ref")==null)	{
-	//session.setAttribute("ref", request.getHeader("Referer"));
+if(session != null && session.getAttribute("ref")==null)	{
+	session.setAttribute("ref", request.getHeader("Referer"));
 }
 //out.print("ref: " + session.getAttribute("ref"));
 %>
@@ -51,14 +51,14 @@ if(session.getAttribute("ref")==null)	{
 	<script type="text/javascript">Help.insertHelp("cagwas_login_help", "", "padding:8px;float:right;");</script>
 	
 	<b>New Users:</b><br/><br/>
+		
 		<% String regUrl = (String)session.getAttribute("registrationUrl"); %>
 		<input type="button" class="btn" value="Register for access" onclick="window.open('<%=regUrl%>');"/><br/>
 		
-<%/*
 		<div id="reg" style="padding:20px;">
-			Since the process for registered access to the raw genotype data and limited co-variates has not been formally approved by NIH, it is not yet possible currently to accept requests for registered access. We are working with the appropriate officials to resolve the issues. Please try back in the near future. If you want to send us your e-mail address to be notified when the solution is found, please send it to <a href="mailto:ncicb@pop.nci.nih.gov?subject=CaGWAS Registration">ncicb@pop.nci.nih.gov</a>
+			<% String regText = (String)session.getAttribute("registrationText"); %>
+			<%=regText%>
 		</div>
-*/%>
 	</td>
 </tr>
 </table>
