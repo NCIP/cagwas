@@ -41,14 +41,38 @@ public class AboutSetupAction extends Action
 		// Get the update static content
 		String updateContent = rcHelp.getRemoteContent("remote.update");
 		
-		if (updateContent != null)
+		if (updateContent != null){
 			request.setAttribute("updateContent", updateContent);
+		}else{
+			request.setAttribute("updateContent", "");
+		}
+		
+		// Get the spotlight static content
+		String spotlightContent = rcHelp.getRemoteContent("remote.spotlight");
+		if (spotlightContent != null){
+			request.setAttribute("spotlightContent", spotlightContent);
+		}else{
+			request.setAttribute("spotlightContent", "");
+		}
+		
+		// Get the registrationText static content
+		String registrationText = rcHelp.getRemoteContent("remote.registrationText");
+		if (registrationText != null){
+			request.getSession().setAttribute("registrationText", registrationText);
+		}else{
+			request.getSession().setAttribute("registrationText", "");
+		}
 		
 		// Get the URL for the user registration
 		String remoteUrl = rcHelp.getProperty("remote.url");
 		String remoteRegistration = rcHelp.getProperty("remote.registration");
-		request.getSession().setAttribute("registrationUrl", remoteUrl + remoteRegistration);
-	
+		if(!remoteRegistration.contains("http")){
+			request.getSession().setAttribute("registrationUrl", remoteUrl + remoteRegistration);
+		}else{
+			request.getSession().setAttribute("registrationUrl", remoteRegistration);
+		}
+		
+		
 		// If we did not get content then forward to an error page
 	    if ((aboutContent == null) || (updateContent == null))
 	    {
