@@ -173,6 +173,20 @@
 		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
 		<put name="thirdNav" value="/WEB-INF/jsp/tiles/studiesThirdNav_tile.jsp" />	
       </definition>
+      
+    <definition name="cagwas.study3" extends="noSidebarThirdNav">
+		<put name="title" value="@project_title@ About Study Data Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/study3Main.jsp" />	
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
+		<put name="thirdNav" value="/WEB-INF/jsp/tiles/studiesThirdNav_tile.jsp" />	
+    </definition>
+    
+   	<definition name="cagwas.study4" extends="noSidebarThirdNav">
+		<put name="title" value="@project_title@ About Study Data Page" />
+		<put name="mainForm" value="/WEB-INF/jsp/study4Main.jsp" />	
+		<put name="secondNav" value="/WEB-INF/jsp/tiles/aboutSecondNav_tile.jsp" />
+		<put name="thirdNav" value="/WEB-INF/jsp/tiles/studiesThirdNav_tile.jsp" />	
+    </definition>
 
 	<definition name="cagwas.glossary" extends="noSidebarSecondNav">
 		<put name="title" value="@project_title@ Glossary Page" />
