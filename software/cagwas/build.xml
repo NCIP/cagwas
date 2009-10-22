@@ -267,8 +267,11 @@
 	
 		<!--checks if its a cgems build exists-->	
 		<target name="check.war.type" description="check if this is a cgems build or a cagwas build">
-			<copy tofile="conf/cagwasResources.properties">
-								<fileset file="${build.source.dir}/cagwasResources.properties" />
+			<delete>
+				<fileset file="${build.source.dir}/cagwasResources.properties" />
+			</delete>
+			<copy tofile="${build.source.dir}/cagwasResources.properties">
+				<fileset file="${build.conf.dir}/cagwasResources.properties" />
 			</copy>
 			<condition property="isCGEMS">
 				<matches pattern="cgems" string="${module_name}" />
@@ -282,6 +285,8 @@
 			<replaceregexp file="${build.source.dir}/cagwasResources.properties" match="cagwas" replace="cgems" flags="g" />
 			<replaceregexp file="${build.source.dir}/cagwasResources.properties" match="Study1" replace="Prostate" flags="g" />
 			<replaceregexp file="${build.source.dir}/cagwasResources.properties" match="Study2" replace="Breast" flags="g" />
+			<replaceregexp file="${build.source.dir}/cagwasResources.properties" match="Study3" replace="Pancreatic" flags="g" />
+			<replaceregexp file="${build.source.dir}/cagwasResources.properties" match="Study4" replace="Lung" flags="g" />
 		</target>
 	
 	<!-- modify header.jsp in tiles-def.xml for cgems-->
