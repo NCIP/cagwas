@@ -13,6 +13,8 @@
 			<div class="right_highlights">
 				<div class="spotlight">
 					<h1>Spotlight</h1>
+					<%out.print(request.getAttribute("spotlightContent"));%>
+					<!--  
 					<p>
 						<a href="#" onclick="Help.popHelpMain('');return false;">How to Use the <bean:message key="project.title"/> data portal</a>
 					</p>
@@ -20,6 +22,7 @@
 					<p>
 						<a href="<%=regUrl%>" target="_blank">Register to access raw data</a>
 					</p>
+					-->
 				</div>
 				
 				<div class="spotlight">
