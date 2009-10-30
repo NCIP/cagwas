@@ -110,6 +110,7 @@ public class ZipFindingsHelper {
 	    	zipItem = new caGWASZipItemImpl();
 	        zipItem.setFileName(targetZipFileName);
 	        zipItem.setFilePath(filePath);
+	        zipItem.setFileSize(f.length());
 	        zipItem.setDirectoryInZip(directoryInZip);
 
 	    }
