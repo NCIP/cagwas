@@ -25,11 +25,11 @@
  		//alert(wht);
  		//alert(top.document.title);
 	
- 		if(top.document.title.toLowerCase().indexOf("cagwas support")!=-1 )
+ 		if(top.document.title.toLowerCase().indexOf("support")!=-1 )
 		{
  			cur = "support";
  		}
- 		else if(top.document.title.toLowerCase().indexOf("cagwas feedback")!=-1)
+ 		else if(top.document.title.toLowerCase().indexOf("feedback")!=-1)
 		{
  			cur = "feedback";
  		}
@@ -37,7 +37,7 @@
   		try
 		{
 			//alert("cur is " + cur);
- 			if(cur!="" && $(cur) && $(cur).childNodes[0] && $(cur).childNodes[0].nodeName == "C")
+ 			if(cur!="" && $(cur) && $(cur).childNodes[0] && $(cur).childNodes[0].nodeName == "A")
 			{
 				$(cur).className = "selected";
  				$(cur).childNodes[0].className = "selected";

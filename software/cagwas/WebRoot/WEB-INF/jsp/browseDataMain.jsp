@@ -115,7 +115,7 @@
 */%>
 	</table>
 	<p>
-	<html:reset styleClass="btn"/>
+    <html:button property="btnReset" onclick="clearBrowseForm()"><bean:message key="button.reset"/></html:button>
 	<html:submit styleClass="btn"/>	
 </html:form>
 </div>
