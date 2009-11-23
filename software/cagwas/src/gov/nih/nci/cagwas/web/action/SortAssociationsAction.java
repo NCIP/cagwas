@@ -238,12 +238,16 @@ public class SortAssociationsAction extends Action
 						smallestIndex = i;
 					}
 				}
-				
+/*				
 				// Handle the column pvalue
 				if (column.equals("pvalue"))
 				{
 					float currentValue = Float.MIN_VALUE;
 					float smallestValue = Float.MIN_VALUE;
+					//if no p-value treat it as max
+					//if(current.getPvalue()!= null && current.getPvalue().trim().length() == 0){
+					//	currentValue = Float.MAX_VALUE;
+					//}
 					if(current.getPvalue()!= null && current.getPvalue().trim().length()> 0){
 						currentValue = Float.parseFloat(current.getPvalue());
 					}
@@ -256,9 +260,9 @@ public class SortAssociationsAction extends Action
 						smallestIndex = i;
 					}
 				}
-				
+				*/
 				// Handle the column rank
-				if (column.equals("rank"))
+				if (column.equals("pvalue") || column.equals("rank"))
 				{
 					long currentRank = Long.parseLong(current.getRank());
 					long smallestRank = Long.parseLong(smallest.getRank());
@@ -434,7 +438,7 @@ public class SortAssociationsAction extends Action
 						largestIndex = i;
 					}
 				}
-				
+/*				
 				// Handle the column rank
 				if (column.equals("pvalue"))
 				{
@@ -446,9 +450,9 @@ public class SortAssociationsAction extends Action
 						largestIndex = i;
 					}
 				}
-				
+				*/
 				// Handle the column rank
-				if (column.equals("rank"))
+				if (column.equals("pvalue") || column.equals("rank"))
 				{
 					long currentRank = Long.parseLong(current.getRank());
 					long largestRank = Long.parseLong(largest.getRank());

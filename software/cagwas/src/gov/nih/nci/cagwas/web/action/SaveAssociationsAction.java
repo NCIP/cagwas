@@ -41,7 +41,7 @@ public class SaveAssociationsAction extends Action
 		ArrayList results = (ArrayList)request.getSession().getAttribute("assoc.results");
 		String studyName = (String)request.getSession().getAttribute("studyName");
 		String caseStudyName = (String)request.getSession().getAttribute("caseStudyName");
-
+		String noOfCategories = (String)request.getParameter("NoOfCategories");
 		
 		if (results != null)
 		{
@@ -61,15 +61,16 @@ public class SaveAssociationsAction extends Action
 			        ZipFindingsHelper.getCagwasProperties("table.header.rank")+"\t");
 			
 			// Handle the case study specific case
-			if (studyName.equals(caseStudyName))
+			//if (studyName.equals(caseStudyName))
+			if (noOfCategories != null && noOfCategories.equals("0"))
+				{
+				 out.print("\n");
+				}
+			 else if (noOfCategories != null && noOfCategories.equals("2"))
 			{
-				out.print(ZipFindingsHelper.getCagwasProperties("table.header.or1")+" "+
+				out.print(ZipFindingsHelper.getCagwasProperties("table.header.eor")+" "+
 						ZipFindingsHelper.getCagwasProperties("table.header.heterozygote.risk")+"\t"+
-						ZipFindingsHelper.getCagwasProperties("table.header.or1")+" "+
-						ZipFindingsHelper.getCagwasProperties("table.header.homozygote.risk")+"\t"+
-						ZipFindingsHelper.getCagwasProperties("table.header.or2")+" "+
-						ZipFindingsHelper.getCagwasProperties("table.header.heterozygote.risk")+"\t"+
-						ZipFindingsHelper.getCagwasProperties("table.header.or2")+" "+
+						ZipFindingsHelper.getCagwasProperties("table.header.eor")+" "+
 						ZipFindingsHelper.getCagwasProperties("table.header.homozygote.risk")+"\n");
 			}
 			else
@@ -97,17 +98,22 @@ public class SaveAssociationsAction extends Action
 						snpAssociationFindingReport.getRank()+"\t");
 				
 				// Handle the case study specific case
-				if (studyName.equals(caseStudyName))
+				//if (studyName.equals(caseStudyName))
+				 if (noOfCategories != null && noOfCategories.equals("0"))
+					{
+					 out.print("\n");
+					}
+				 else if (noOfCategories != null && noOfCategories.equals("2"))
 				{
-					out.print(snpAssociationFindingReport.getCaseHeterozygote()+"\t"+
-		        			snpAssociationFindingReport.getCaseHomozygote()+"\n");
+					out.print(snpAssociationFindingReport.getCaseHeterozygote()+" "+snpAssociationFindingReport.getCaseHeterozygoteConfidence()+"\t"+
+		        			snpAssociationFindingReport.getCaseHomozygote()+" "+snpAssociationFindingReport.getCaseHomozygoteConfidence()+"\n");
 				}
 				else
 				{
-					out.print(snpAssociationFindingReport.getNonaggressiveHeterozygote()+"\t"+
-		        			snpAssociationFindingReport.getNonaggressiveHomozygote()+"\t"+
-		        			snpAssociationFindingReport.getAggressiveHeterozygote()+"\t"+
-		        			snpAssociationFindingReport.getAggressiveHomozygote()+"\n");
+					out.print(snpAssociationFindingReport.getNonaggressiveHeterozygote()+" "+snpAssociationFindingReport.getNonaggressiveHeterozygoteConfidence()+"\t"+
+		        			snpAssociationFindingReport.getNonaggressiveHomozygote()+" "+snpAssociationFindingReport.getNonaggressiveHomozygoteConfidence()+"\t"+
+		        			snpAssociationFindingReport.getAggressiveHeterozygote()+" "+snpAssociationFindingReport.getAggressiveHeterozygoteConfidence()+"\t"+
+		        			snpAssociationFindingReport.getAggressiveHomozygote()+" "+snpAssociationFindingReport.getAggressiveHomozygoteConfidence()+"\n");
 				}
             }
 			

@@ -61,8 +61,14 @@ public class AboutSetupAction extends Action
 			request.getSession().setAttribute("registrationText", registrationText);
 		}else{
 			request.getSession().setAttribute("registrationText", "");
+		}		
+		// Get the loginText static content
+		String loginText = rcHelp.getRemoteContent("remote.loginText");
+		if (loginText != null){
+			request.getSession().setAttribute("loginText", loginText);
+		}else{
+			request.getSession().setAttribute("loginText", "");
 		}
-		
 		// Get the URL for the user registration
 		String remoteUrl = rcHelp.getProperty("remote.url");
 		String remoteRegistration = rcHelp.getProperty("remote.registration");
