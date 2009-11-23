@@ -64,6 +64,8 @@
     <forward name="subjects" path="cagwas.searchSubject"/>
     <forward name="genotypes" path="cagwas.searchGenotype"/>
     <forward name="login" path="/login.jsp"/>
+    <forward name="browse" path="cagwas.browseData"/>
+    <forward name="bulkDownload" path="cagwas.downloadData"/>
     </action>
 
     <action path="/bulkDownload"
