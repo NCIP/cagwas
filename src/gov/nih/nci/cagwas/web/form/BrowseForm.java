@@ -59,6 +59,9 @@ public class BrowseForm extends ActionForm
 	public void reset(ActionMapping mapping, HttpServletRequest request)
 	{
 		this.query = "Association";
+		this.studyId = null;
+		this.studyName = null;
+		this.studyVersion = null;
 	}
 
 	public String getQuery()

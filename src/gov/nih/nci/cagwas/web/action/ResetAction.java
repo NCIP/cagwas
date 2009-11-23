@@ -95,14 +95,26 @@ public class ResetAction extends Action
 			// Set the forward 
 			forward = mapping.findForward("login");
 		}
-		
+		else if (formName.equals("Browse"))
+		{
+			logger.debug("Resetting to Browse form");
+			
+			// Set the forward 
+			forward = mapping.findForward("browse");
+		}
+		else if (formName.equals("BulkDownload"))
+		{
+			logger.debug("Resetting to BulkDownload form");
+			
+			// Set the forward 
+			forward = mapping.findForward("bulkDownload");
+		}
 		// If there were errors then return to the input page else go on
 	    if (!errors.isEmpty())
 	    {
 	      addErrors(request, errors);
 	      forward = new ActionForward(mapping.getInput());
 	    }
-		
 		return forward;
 	}
 

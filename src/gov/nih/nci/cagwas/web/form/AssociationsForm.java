@@ -333,7 +333,7 @@ public class AssociationsForm extends SNPSearchForm
 		// Removed since Breast first selection defaults to a value
 		/*if ((analysisMethod1 != null) && (analysisMethod1.length() > 0))
 			result = false;*/
-		if ((analysisMethod2 != null) && (analysisMethod2.length() > 0))
+/*		if ((analysisMethod2 != null) && (analysisMethod2.length() > 0))
 			result = false;
 		if ((analysisMethod3 != null) && (analysisMethod3.length() > 0))
 			result = false;
@@ -346,7 +346,7 @@ public class AssociationsForm extends SNPSearchForm
 		if ((analysisMethod7 != null) && (analysisMethod7.length() > 0))
 			result = false;
 		if ((analysisMethod8 != null) && (analysisMethod8.length() > 0))
-			result = false;
+			result = false;*/
 		if ((association != null) && (association.length() > 0))
 			result = false;
 		if ((pvalue != null) && (pvalue.length() > 0))
