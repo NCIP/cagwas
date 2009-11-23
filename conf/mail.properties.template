@@ -62,6 +62,7 @@ remote.study2=@remote.study2@
 remote.study3=@remote.study3@
 remote.study4=@remote.study4@
 remote.registrationText=@remote.regText@
+remote.loginText=@remote.loginText@
 remote.glossary=@remote.glossary@
 remote.contacts=@remote.contacts@
 remote.policies=@remote.policies@
