@@ -23,7 +23,7 @@ p{
 }
 
 /* Create constant scrollbar in FF so no "shifting" occurs */
-html { min-height:100%; margin-bottom:1px; } 
+html { min-height:101%; margin-bottom:1px; } 
 form{    } 
 
 a:link, a:active, a:visited {  color:#009BCD; text-decoration:underline;}
@@ -149,7 +149,7 @@ li{
 #nav_util a.util_nav_link{color:#77e4ff;}
 
 #nav{
-	margin:0px 0px 0px 0px; 
+	margin:0px 0px 0px 7px; 
 	padding:0px;
 	line-height:1.2em;
 }
@@ -167,11 +167,12 @@ li{
 	background-color: #e7e7e7;
 }
 #nav #middle ul{
+	float:middle;
 	list-style-type:none;
 	margin:0px;
 	padding:0px;
 	display:block; 
-	width: 770px; 
+	width: 759px; 
 }
 #nav #middle li{
 	float:left;
