@@ -112,7 +112,7 @@
 		</tr>
 	</table>
 	<p>
-	<html:reset styleClass="btn"/>
+    <html:button property="btnReset" onclick="clearBulkDownloadForm()"><bean:message key="button.reset"/></html:button>
 	<html:submit styleClass="btn"/>
 </html:form>
 </div>

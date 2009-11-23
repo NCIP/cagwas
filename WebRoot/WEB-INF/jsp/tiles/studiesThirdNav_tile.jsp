@@ -35,21 +35,21 @@
  		//alert(wht);
  		//alert(top.document.title);
 	
- 		if(top.document.title.toLowerCase().indexOf("about <bean:message key="study1.title"/> data")!=-1 )
+ 		if(wht.toLowerCase().indexOf("study1")!=-1 )
 		{
- 			cur = "<bean:message key="study1.title"/>";
+ 			cur = "study1";
  		}
- 		else if(top.document.title.toLowerCase().indexOf("about <bean:message key="study2.title"/> data")!=-1)
+ 		else if(wht.toLowerCase().indexOf("study2")!=-1 )
 		{
- 			cur = "<bean:message key="study2.title"/>";
+ 			cur = "study2";
  		}
-		else if(top.document.title.toLowerCase().indexOf("about <bean:message key="study3.title"/> data")!=-1)
+		else if(wht.toLowerCase().indexOf("study3")!=-1 )
 		{
- 			cur = "<bean:message key="study3.title"/>";
+ 			cur = "study3";
  		}
- 		else if(top.document.title.toLowerCase().indexOf("about <bean:message key="study4.title"/> data")!=-1)
+ 		else if(wht.toLowerCase().indexOf("study4")!=-1 )
 		{
- 			cur = "<bean:message key="study4.title"/>";
+ 			cur = "study4";
  		} 		
   		try
 		{

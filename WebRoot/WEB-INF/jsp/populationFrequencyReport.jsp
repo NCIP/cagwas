@@ -21,8 +21,15 @@ if (panel != null)
 <%
 Integer num = (Integer)request.getAttribute("numberFindings");
 int numFindings = num.intValue();
-if (numFindings == 0)
-	out.print("Your search criteria produced no results");
+if (numFindings == 0){
+	out.print("Your search criteria produced no results");%>
+	<br><br>
+	<div align="center">
+	<a href="#" onClick="javascript:history.go(-2); return false;">Go Back to Browse</a>
+	<br>
+	</div>
+	<%
+}
 else
 {
 %>

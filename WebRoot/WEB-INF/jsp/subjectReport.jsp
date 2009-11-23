@@ -12,8 +12,15 @@
 <%
 Integer num = (Integer)request.getAttribute("numberSubjects");
 int numSubjects = num.intValue();
-if (numSubjects == 0)
-	out.print("Your search criteria produced no results");
+if (numSubjects == 0){
+	out.print("Your search criteria produced no results");%>
+	<br><br>
+	<div align="center">
+	<a href="#" onClick="javascript:history.go(-2); return false;">Go Back to Browse</a>
+	<br>
+	</div>
+	<%
+}
 else
 {
 %>

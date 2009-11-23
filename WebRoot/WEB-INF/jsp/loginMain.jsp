@@ -46,6 +46,10 @@ if(session != null && session.getAttribute("ref")==null)	{
 		<html:button property="btnReset" onclick="clearLoginForm()"><bean:message key="button.reset"/></html:button>
 		<html:submit/>
 	</div>
+	<div id="reg" style="padding:20px;">
+	<% String loginText = (String)session.getAttribute("loginText"); %>
+	<%=loginText%>
+	</div>
 	</td>
 	<td style="padding-left:20px;border-left:1px dashed black;vertical-align:top;">
 	<script type="text/javascript">Help.insertHelp("cagwas_login_help", "", "padding:8px;float:right;");</script>

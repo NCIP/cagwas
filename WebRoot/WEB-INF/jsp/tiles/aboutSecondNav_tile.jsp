@@ -31,7 +31,7 @@
 		{
  			cur = "overview";
  		}
- 		else if(top.document.title.toLowerCase().indexOf("about <bean:message key="study1.title"/> data")!=-1 || top.document.title.toLowerCase().indexOf("about breast data")!=-1)
+ 		else if(wht.toLowerCase().indexOf("study1")!=-1)
 		{
  			cur = "studies";
  		}
@@ -39,7 +39,7 @@
 		{
  			cur = "glossary";
  		}
-		else if(top.document.title.toLowerCase().indexOf("contact us")!=-1)
+		else if(top.document.title.toLowerCase().indexOf("contact")!=-1)
 		{
  			cur = "contact";
  		}

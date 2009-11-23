@@ -34,7 +34,13 @@ filePath = (String)request.getAttribute("filePath");
   YAHOO.util.Event.addListener(window, 'load', init);
 </script>
 <div class="divHeader">
-Download Files
+	<h3>
+	Study: <% out.println(session.getAttribute("studyName")); %>
+	<br>
+	Version: <% out.println(session.getAttribute("studyVersion")); %>
+	</h3>
+	
+	<bean:message key="header.bulk.download"/>
 </div>
 
 <div class="divMain">	

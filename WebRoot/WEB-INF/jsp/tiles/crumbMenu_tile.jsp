@@ -34,11 +34,18 @@
 		{
  			cur = "browseTab";
  		}
- 		else if(wht.indexOf("downloadSetup")!=-1)
+ 		else if(wht.indexOf("downloadSetup")!=-1 || wht.indexOf("bulkDownload")!=-1 || top.document.title.toLowerCase().indexOf("download")!=-1  )
 		{
  			cur = "bulkTab";
  		}
-
+		else if(top.document.title.toLowerCase().indexOf("cite")!=-1 )
+		{
+ 			cur = "citeTab";
+ 		}
+ 		else if(top.document.title.toLowerCase().indexOf("access")!=-1 )
+		{
+ 			cur = "accessTab";
+ 		}
   		try
 		{
 			//alert("cur is " + cur);

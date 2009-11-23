@@ -23,8 +23,15 @@ if (panel != null)
 <%
 Integer num = (Integer)request.getAttribute("numberFindings");
 int numFindings = num.intValue();
-if (numFindings == 0)
-	out.print("Your search criteria produced no results");
+if (numFindings == 0){
+	out.print("Your search criteria produced no results");%>
+	<br><br>
+	<div align="center">
+	<a href="#" onClick="javascript:history.go(-2); return false;">Go Back to Browse</a>
+	<br>
+	</div>
+	<%
+}
 else
 {
 %>
@@ -40,7 +47,7 @@ else
 		&nbsp;
 		<div class="save">
 			<a href="saveAssociations.do"><img src="images/page_save.png" align="right" border="0"/></a>
-			<a href="saveAssociations.do">Save Results</a>
+			<a href="saveAssociations.do?NoOfCategories=<%=noOfCategories%>">Save Results</a>
 		</div>
 	</caption>
 	<tr id="searchAssocTableHeader">
@@ -111,8 +118,10 @@ else
 		<% } else { %>
 			<th><a href="sortAssociations.do?column=rank&order=ascending&NoOfCategories=<%=noOfCategories%>"><bean:message key="table.header.rank"/></a></th>
 		<% } %>
-		
-		<% if (noOfCategories != null && noOfCategories.equals("2"))
+		<% if (noOfCategories != null && noOfCategories.equals("0"))
+			{%>
+			<% }
+		else if (noOfCategories != null && noOfCategories.equals("2"))
 		{%>
 			<th colspan="2"><bean:message key="table.header.eor"/></th>		
 		<%} else{%>
@@ -121,7 +130,10 @@ else
 		<% }%>
 	</tr>
 	<tr id="searchAssocTableHeader">
-	<% if (noOfCategories != null && noOfCategories.equals("2"))
+	<% if (noOfCategories != null && noOfCategories.equals("0"))
+	{%>
+	<% }
+	   else if (noOfCategories != null && noOfCategories.equals("2"))
 	{%>
 		<th colspan="7"></th>
 		<th><bean:message key="table.header.heterozygote.risk"/></th>
@@ -158,8 +170,10 @@ else
 			<td><bean:write name="result" property="snpAssociationAnalysisName"/></td>
 			<td><bean:write name="result" property="pvalue"/></td>
 			<td><bean:write name="result" property="rank"/></td>
-			
-			<% if (noOfCategories != null && noOfCategories.equals("2"))
+			<% if (noOfCategories != null && noOfCategories.equals("0"))
+			{%>
+			<% }
+				else if (noOfCategories != null && noOfCategories.equals("2"))
 			{%>
 				<td>
 				<bean:write name="result" property="caseHeterozygote"/>
