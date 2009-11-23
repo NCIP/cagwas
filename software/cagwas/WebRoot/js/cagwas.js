@@ -117,6 +117,19 @@ function clearLoginForm()
 	document.loginForm.submit();
 }
 
+
+function clearBrowseForm()
+{
+	document.browseForm.action="reset.do?formName=Browse";
+	document.browseForm.submit();
+}
+
+function clearBulkDownloadForm()
+{
+	document.browseForm.action="reset.do?formName=BulkDownload";
+	document.browseForm.submit();
+}
+
 function clearAssocForm()
 {
 	document.associationsForm.action="reset.do?formName=Association";
