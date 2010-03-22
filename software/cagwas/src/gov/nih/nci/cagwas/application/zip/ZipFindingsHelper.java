@@ -7,8 +7,6 @@ import gov.nih.nci.caintegrator.application.zip.ZipConfig;
 import gov.nih.nci.caintegrator.application.zip.ZipItem;
 import gov.nih.nci.caintegrator.application.zip.ZipManager;
 import gov.nih.nci.caintegrator.domain.annotation.gene.bean.GeneBiomarker;
-import gov.nih.nci.caintegrator.domain.study.bean.Population;
-import gov.nih.nci.cagwas.application.zip.caGWASZipItemImpl;
 
 import java.io.File;
 import java.io.IOException;
