@@ -5,8 +5,10 @@ import gov.nih.nci.caintegrator.domain.analysis.snp.bean.SNPAnalysisGroup;
 import gov.nih.nci.caintegrator.domain.analysis.snp.bean.SNPAnalysisMethod;
 import gov.nih.nci.caintegrator.domain.analysis.snp.bean.SNPAssociationAnalysis;
 import gov.nih.nci.caintegrator.domain.annotation.snp.bean.SNPPanel;
+import gov.nih.nci.caintegrator.domain.study.bean.FrequencyPopulation;
 import gov.nih.nci.caintegrator.domain.study.bean.Population;
 import gov.nih.nci.caintegrator.domain.study.bean.Study;
+import gov.nih.nci.caintegrator.domain.study.bean.SubjectPopulation;
 import gov.nih.nci.caintegrator.studyQueryService.dto.germline.AnalysisGroupCriteria;
 import gov.nih.nci.caintegrator.studyQueryService.dto.germline.SNPAssociationAnalysisCriteria;
 import gov.nih.nci.caintegrator.studyQueryService.dto.study.PopulationCriteria;
@@ -89,8 +91,8 @@ public class BrowseAction extends Action
 		else if (query.equals("Population"))
 		{
 			// Get the population list from the database
-			retrievePopulations(request, studyId);
-			
+			//retrievePopulations(request, studyId);
+			retrieveFrequencyPopulations(request, studyId);
 			// Get the chromosome list
 			retrieveChromosomes(request);
 			
@@ -107,7 +109,7 @@ public class BrowseAction extends Action
 			{
 				if(getStudyParticipantCount(studyId)> 0){
 					// Get the population list from the database
-					retrievePopulations(request, studyId);
+					retrieveSubjectPopulations(request, studyId);
 					
 					// Get the analysis groups from the database
 					retrieveAnalysisGroups(request, studyId);
@@ -200,7 +202,7 @@ public class BrowseAction extends Action
 	{
 		Long studyId = (Long)request.getSession().getAttribute("studyId");
 		retrieveStudy(request,studyId);
-		retrievePopulations(request, studyId);
+		retrievePopulations(request, studyId);		
 		retrieveAnalysisGroups(request, studyId);
 		retrieveChromosomes(request);
 		retrievePanels(request, studyId);
@@ -247,6 +249,38 @@ public class BrowseAction extends Action
         FindingsManager manager = (FindingsManager)SpringContext.getBean("findingsManager");
 		Collection<Population> population = manager.getPopulations(popCrit);
 		request.getSession().setAttribute("populationCol", population);
+	}
+	/**
+	 * retrieveFrequencyPopulations is called to get the Frequency Populations from the database
+	 * for use in the forms as a drop down list.
+	 * <P>
+	 * @param request The HttpServletRequest for this post
+	 * @param study The study to get the populations for
+	 * @throws Exception any Exceptions that occur
+	 */
+	private void retrieveFrequencyPopulations(HttpServletRequest request, Long studyId) throws Exception
+	{
+		// Get the populations from the database
+		PopulationCriteria popCrit = new PopulationCriteria(studyId);
+        FindingsManager manager = (FindingsManager)SpringContext.getBean("findingsManager");
+		Collection<FrequencyPopulation> frequencyPopulation = manager.getFrequencyPopulations(popCrit);
+		request.getSession().setAttribute("populationCol", frequencyPopulation);
+	}
+	/**
+	 * retrieveSubjectPopulations is called to get the Subject Populations from the database
+	 * for use in the forms as a drop down list.
+	 * <P>
+	 * @param request The HttpServletRequest for this post
+	 * @param study The study to get the populations for
+	 * @throws Exception any Exceptions that occur
+	 */
+	private void retrieveSubjectPopulations(HttpServletRequest request, Long studyId) throws Exception
+	{
+		// Get the populations from the database
+		PopulationCriteria popCrit = new PopulationCriteria(studyId);
+        FindingsManager manager = (FindingsManager)SpringContext.getBean("findingsManager");
+		Collection<SubjectPopulation> subjectPopulation = manager.getSubjectPopulations(popCrit);
+		request.getSession().setAttribute("populationCol", subjectPopulation);
 	}
 	/**
 	 * getStudyParticipantCount is called to get the count of study participants from the database

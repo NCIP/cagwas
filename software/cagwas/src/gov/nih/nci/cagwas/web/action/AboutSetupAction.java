@@ -1,5 +1,7 @@
 package gov.nih.nci.cagwas.web.action;
 
+import gov.nih.nci.cagwas.web.DeleteOldResultsFilesJob;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -7,6 +9,7 @@ import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.quartz.SchedulerException;
 
 /**
  * The AboutSetupAction class is used to get the remote content for the about
@@ -78,6 +81,12 @@ public class AboutSetupAction extends Action
 			request.getSession().setAttribute("registrationUrl", remoteRegistration);
 		}
 		
+		//start up scheduler to DeleteOldResultsFilesJob
+    	if(System.getProperty("rembrandt.scheduler.started") == null){
+    		DeleteOldResultsFilesJob.getInstance();
+    		System.setProperty("rembrandt.scheduler.started","TRUE");
+    	}
+
 		
 		// If we did not get content then forward to an error page
 	    if ((aboutContent == null) || (updateContent == null))
