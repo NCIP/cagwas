@@ -54,6 +54,8 @@
           <mapping resource ="gov/nih/nci/caintegrator/domain/analysis/snp/bean/SNPAnalysisGroup.hbm.xml"/>
           <mapping resource ="gov/nih/nci/caintegrator/domain/analysis/snp/bean/SNPAssociationAnalysis.hbm.xml"/>
           <mapping resource ="gov/nih/nci/caintegrator/domain/analysis/snp/bean/SNPAssociationFinding.hbm.xml"/>
+          <mapping resource ="gov/nih/nci/caintegrator/domain/study/bean/FrequencyPopulation.hbm.xml"/>
+          <mapping resource ="gov/nih/nci/caintegrator/domain/study/bean/SubjectPopulation.hbm.xml"/>
           <mapping resource ="gov/nih/nci/caintegrator/domain/study/bean/Population.hbm.xml"/>
           <mapping resource ="gov/nih/nci/caintegrator/domain/study/bean/Study.hbm.xml"/>
           <mapping resource ="gov/nih/nci/caintegrator/domain/study/bean/Specimen.hbm.xml"/>
