@@ -97,6 +97,29 @@ public class LoginAction extends Action
 			{
 				errors.add("authentication", new ActionMessage("error.authentication"));	
 				request.getSession().invalidate();
+				RemoteContentHelper rcHelp = new RemoteContentHelper();
+				// Get the registrationText static content
+				String registrationText = rcHelp.getRemoteContent("remote.registrationText");
+				if (registrationText != null){
+					request.getSession().setAttribute("registrationText", registrationText);
+				}else{
+					request.getSession().setAttribute("registrationText", "");
+				}		
+				// Get the loginText static content
+				String loginText = rcHelp.getRemoteContent("remote.loginText");
+				if (loginText != null){
+					request.getSession().setAttribute("loginText", loginText);
+				}else{
+					request.getSession().setAttribute("loginText", "");
+				}
+				// Get the URL for the user registration
+				String remoteUrl = rcHelp.getProperty("remote.url");
+				String remoteRegistration = rcHelp.getProperty("remote.registration");
+				if(!remoteRegistration.contains("http")){
+					request.getSession().setAttribute("registrationUrl", remoteUrl + remoteRegistration);
+				}else{
+					request.getSession().setAttribute("registrationUrl", remoteRegistration);
+				}
 			}
 		}
 		

@@ -2,12 +2,7 @@
 <%@ taglib uri="/WEB-INF/struts-tiles.tld" prefix="tiles" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
-<%@ page import="gov.nih.nci.caintegrator.domain.annotation.snp.bean.SNPAnnotation" %>
-<%@ page import="gov.nih.nci.caintegrator.domain.study.bean.Population" %>
 <%@ page import="java.util.Set" %>
-<%@ page import="java.lang.StringBuffer" %>
-<%@ page import="java.text.FieldPosition" %>
-<%@ page import="java.text.DecimalFormat" %>
 <br clear="both"/>
 <script type="text/javascript">Help.insertHelp("cagwas_population_report_help", "", "padding:8px;float:right;");</script>
 <h3 align="left">Study: <% out.println(session.getAttribute("study")); %></h3>

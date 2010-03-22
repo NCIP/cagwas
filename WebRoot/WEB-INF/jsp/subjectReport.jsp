@@ -2,8 +2,6 @@
 <%@ taglib uri="/WEB-INF/struts-tiles.tld" prefix="tiles" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
-<%@ page import="gov.nih.nci.caintegrator.domain.study.bean.Population" %>
-<%@ page import="gov.nih.nci.caintegrator.domain.common.bean.NumericMeasurement" %>
 <%@ page import="java.util.Set" %>
 <br clear="both"/>
 <script type="text/javascript">Help.insertHelp("cagwas_subject_data_report_help", "", "padding:8px;float:right;");</script><br clear="left"/>
