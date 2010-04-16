@@ -36,14 +36,11 @@
 			<%} else {%>
 			    <a href="login.jsp">Login</a>
 			<%}%>	
-			| <a href="remoteSetup.do?content=contacts">Contact Us</a> 
-			
-			
-			
-			|	Visit the <a href="remoteSetup.do?content=studyHome" target="_blank" class="util_nav_link"><strong><bean:message key="project.title"/> Home Site</strong></a>	
+			|			 
+			<a href="remoteSetup.do?content=contacts">Contact Us</a> |	Visit the <a href="remoteSetup.do?content=studyHome" target="_blank" class="util_nav_link"><strong><bean:message key="project.title"/> Home Site</strong></a>	
 		</div>
 		<!-- END Utility Nav  -->
-		<img src="images/header.jpg" alt="CGEMS Banner" border="0" usemap="#header" class="main_header" />
+		<img src="images/study_header.jpg" alt="<bean:message key="project.title"/> Banner/Your study logo" border="0" usemap="#studyheader" class="main_header" /><img src="images/logo_header.jpg" alt="<bean:message key="project.title"/> Banner/Related logo" border="0" usemap="#logoheader" class="main_header" />
 		<% } %>
 	</div>
 </div>
@@ -56,10 +53,12 @@
 </map>
 
 <!-- Image Map for header  -->
-<map name="header">
-<area shape="rect" coords="1,12,326,78" href="/cgems" target="" alt="Cancer Genetic Markers of Susceptibility Data Portal">
-<area shape="rect" coords="374,34,457,80" href="http://cgfweb.nci.nih.gov/" target=_blank"" alt="Core Genotyping Facility">
-<area shape="rect" coords="465,34,556,80" href="http://ocg.cancer.gov" target="_blank" alt="Office of Cancer Genomics">
-<area shape="rect" coords="563,34,646,81" href="http://dceg.cancer.gov" target="_blank" alt="Division of Cancer Epidemiology and Genetics">
-<area shape="rect" coords="652,31,744,85" href="http://cabig.cancer.gov" target="_blank" alt="Cancer Biomedical Infomatics Grid caBIG">
+<map name="studyheader">
+<area shape="rect" coords="5,20,348,78" href="/<bean:message key="href.home"/>" target="" alt="Cancer Genetic Markers of Susceptibility Data Portal">
+</map>
+<map name="logoheader">
+<area shape="rect" coords="25,36,117,80" href="#" target=_blank"" alt="Logo1">
+<area shape="rect" coords="120,44,212,80" href="#" target="_blank" alt="Logo2">
+<area shape="rect" coords="215,45,300,81" href="#" target="_blank" alt="Logo3">
+<area shape="rect" coords="305,31,396,80" href="#" target="_blank" alt="Logo4">
 </map>
