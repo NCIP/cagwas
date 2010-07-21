@@ -19,8 +19,10 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 	<property name="upgrade.properties.file" value="upgrade.properties"/>
 	<echo message="Using properties file of ${properties.file}." />
 	<available file="${properties.file}" property="properties.file.exists" />
+	<!--
 	<fail unless="properties.file.exists" message="The properties.file ${properties.file} does not exist, please make sure that you pass in an accurate file name with the 'ant -Dproperties.file=somepath/somefile', otherwise the build will fail." />
-
+	-->
+	
 	<replaceregexp file="${properties.file}" byline="true" match="^([\w\d.]+)=(.*[\w\d\/\{\}\\]+)[ \t]+\r*$" replace="\1=\2" />
 	<replaceregexp file="${properties.file}" byline="true" match="^([\w\d.]+)=[ \t]+(.*[\w\d\/\{\}\\]+)\r*$" replace="\1=\2" />
 	<property file="${properties.file}" />
@@ -606,23 +608,40 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 		<!-- Call macro to deploy files on desired server -->
 		<deploy-files dist.file="${cagwas.install.zip.file}" />
 		<!-- SSH to machine ant run ant command line to install application -->
-		<remote-ssh remotesshcommand=". .bash_profile;cd ${ssh.dir.temp}; ant -Dproperties.file=${properties.file.name} -Dforce.reinstall=true ${install.target}" />
+		<remote-ssh remotesshcommand=". .bash_profile;cd ${ssh.dir.temp}; ant -v -Dproperties.file=${properties.file.name} -Dforce.reinstall=true ${install.target}" />
 	</target>
 
 	<target name="deploy:remote:upgrade" description="Installs and configures the application and required binaries and re-creates the datbase  on a remote machine. Used for NCI tiers (dev, qa, stg, prod)" depends="
 		build:all,
 		dist:upgrader
 		">
-		<!--
-		  * Will use the target from install.xml specified in ${upgrade.target} (defaults to upgrade unless passed in on command line).
-		  * Requires specifying -Dproperties.file=@file@ on the command line to point installer to correct enviornment to install into.
-		  * Calls ant from exec task to ensure properties are do not carry over from current ant runtime and also to emulate a manual install, if you want properties to be used at install time they must be included in a proeprties file.
-		-->
-		<!-- Call macro to deploy files on desired server -->
-		<deploy-files dist.file="${cagwas.upgrade.zip.file}" />
-		<!-- SSH to machine ant run ant command line to install application -->
-		<remote-ssh remotesshcommand=". .bash_profile;cd ${ssh.dir.temp}; ant -Dproperties.file=${properties.file.name} -Dforce.reinstall=true ${upgrade.target}" />
+        <!--
+          * Will use the target from install.xml specified in ${upgrade.target} (defaults to upgrade unless passed in on command line).
+          * Requires specifying -Dproperties.file=@file@ on the command line to point installer to correct enviornment to install into.
+          * Calls ant from exec task to ensure properties are do not carry over from current ant runtime and also to emulate a manual install, if you want properties to be used at install time they must be included in a proeprties file.
+        -->
+        <!-- Call macro to deploy files on desired server -->
+        <echoproperties prefix="ssh"/>
+        <if>
+                <equals arg1="@{enable.install.debug}" arg2="true"/>
+                <then>
+                        <echo message="Turning on ANT debug for install"/>
+                        <property name="install.debug" value="-v"/>
+                </then>
+                <else>
+                        <property name="install.debug" value=""/>
+                </else>
+        </if>
+
+        <deploy-files dist.file="${cagwas.upgrade.zip.file}" />
+        <override-properties-prep
+                override.properties="${override.properties}"
+                override.properties.string.property.name="override.properties.string"
+                />
+        <!-- SSH to machine ant run ant command line to install application -->
+        <remote-ssh remotesshcommand=". .bash_profile;cd ${ssh.dir.temp}; ant -v -Dproperties.file=${properties.file.name} -Dforce.reinstall=true ${override.properties.string} ${upgrade.target}" />
 	</target>
+	
 	<target name="deploy:remote:upgrade:db"
 	       depends="
 		build:all,

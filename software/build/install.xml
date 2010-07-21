@@ -172,10 +172,10 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 		<if>
 			<equals arg1="${jboss.http-connector.remove}" arg2="true"/>
 			<then>
-				<property name="jboss.application.url" value="http://${jboss.server.hostname}:${jboss.server.port}/${cagwas.name}"/>
+				<property name="jboss.application.url" value="http://${jboss.server.hostname}:${jboss.grid.secure.port}/${cagwas.name}"/>
 			</then>
 			<else>
-				<property name="jboss.application.url" value="https://${jboss.server.hostname}:${jboss.grid.secure.port}/${cagwas.name}"/>
+				<property name="jboss.application.url" value="https://${jboss.server.hostname}:${jboss.server.port}/${cagwas.name}"/>
 			</else>
 		</if>
 		<available file="${jboss.home}/server/${jboss.server.name}/conf/jboss-service.xml" property="jboss.exists"/>
@@ -582,7 +582,7 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 		depends="
 		common:init
 		">
-		<validate-post-common />
+		<validate-post-common propertyfile.backup.location="/tmp"/>
 	</target>
 	<target name="install:jboss:validation:post-install" description="Run post-install checks from bda-utils"
 		depends="
@@ -670,13 +670,13 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/cagwas/trunk/software/install.xml $
 	</target>
 
 	<!-- Generic targets to call appropriate upgrade path targets, just change the depends to use alternate ugprade path -->
-	<target name="upgrade:jboss" description="Wrapper target to call all targets required to upgrade jboss container." unless="exclude.jboss" depends="upgrade:jboss:init,common:init,upgrade-dac:jboss">
+	<target name="upgrade:jboss" description="Wrapper target to call all targets required to upgrade jboss container." unless="exclude.jboss" depends="upgrade:jboss:init,common:init,upgrade-ncm:jboss">
 	</target>
 
-	<target name="upgrade" description="Upgrades JBoss and Database" depends="upgrade:common:init,common:init,upgrade-dac">
+	<target name="upgrade" description="Upgrades JBoss and Database" depends="upgrade:common:init,common:init,upgrade-ncm">
 	</target>
 
-	<target name="upgrade-with-dbinstall" description="Upgrades JBoss and Database" depends="upgrade:common:init,common:init,upgrade-dac:with-dbinstall">
+	<target name="upgrade-with-dbinstall" description="Upgrades JBoss and Database" depends="upgrade:common:init,common:init,upgrade-ncm:with-dbinstall">
 	</target>
 
 	<!-- Upgrade with Disposable Application Conttainer (DAC) -->
