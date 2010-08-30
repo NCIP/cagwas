@@ -476,17 +476,18 @@ $HeadURL: http://gforge.nci.nih.gov/svnroot/generic/trunk/software/build.xml $
 				<include name="**/*" />
 			</fileset>
 		</copy>
-		<!-- For non DAC upgrades
+		<!-- For non DAC upgrades -->
 		<dist-prep
 			copy.tools.flag="N"
 			default.target="upgrade"
 			/>
-		-->
-		<!-- For DAC upgrades -->
+		
+		<!-- For DAC upgrades 
 		<dist-prep
 			copy.tools.flag="Y"
 			default.target="upgrade"
 			/>
+		-->
 		<if>
 			<equals arg1="${jar-signing.execution.time}" arg2="install"/>
 			<then>
