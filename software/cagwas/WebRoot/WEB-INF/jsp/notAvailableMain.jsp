@@ -1,3 +1,10 @@
+<%--L
+  Copyright SAIC.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/cagwas/LICENSE.txt for details.
+L--%>
+
 <div class="divHeader">
 	<h3>
 	Study: <% out.println(session.getAttribute("studyName")); %>

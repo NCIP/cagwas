@@ -1,3 +1,10 @@
+<%--L
+  Copyright SAIC.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/cagwas/LICENSE.txt for details.
+L--%>
+
 <%@ page language="java" import="java.util.*, java.net.URLEncoder
 , gov.nih.nci.cagwas.web.action.CagwasConstants, javax.servlet.jsp.JspWriter" pageEncoding="UTF-8"%>
 
