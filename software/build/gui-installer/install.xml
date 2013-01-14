@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+
+<!--L
+  Copyright SAIC.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/cagwas/LICENSE.txt for details.
+L-->
+
 <!--
 $Id: install.xml 1960 2009-08-19 16:01:05Z saksass $
 $HeadURL: http://gforge.nci.nih.gov/svnroot/automation/trunk/software/bda-build-template/software/build/gui-installer/install.xml $

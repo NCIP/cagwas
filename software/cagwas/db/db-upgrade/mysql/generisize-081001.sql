@@ -1,3 +1,10 @@
+/*L
+  Copyright SAIC.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/cagwas/LICENSE.txt for details.
+L*/
+
 alter table odds_ratio modify column `heterozygote` decimal(25,12) default NULL;
 alter table odds_ratio modify column`homozygote` decimal(12,6) default NULL;
 

@@ -1,3 +1,10 @@
+/*L
+  Copyright SAIC.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/cagwas/LICENSE.txt for details.
+L*/
+
 ﻿alter table csm_user_pe drop foreign key fk_user_pe_pe
 ;
 
