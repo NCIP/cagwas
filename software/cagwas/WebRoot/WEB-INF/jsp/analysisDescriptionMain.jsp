@@ -1,3 +1,10 @@
+<%--L
+  Copyright SAIC.
+
+  Distributed under the OSI-approved BSD 3-Clause License.
+  See http://ncip.github.com/cagwas/LICENSE.txt for details.
+L--%>
+
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="gov.nih.nci.caintegrator.domain.analysis.snp.bean.SNPAssociationAnalysis" %>
 
