@@ -21,4 +21,3 @@ You will find more details about caGWAS in the following links:
  * Code Repository: http://github.com/NCIP/cagwas
  * Issue Tracker: https://tracker.nci.nih.gov/browse/CAGWAS
  * Documentation: https://wiki.nci.nih.gov/x/HAo9Ag
- * NCI OSDI: https://wiki.nci.nih.gov/display/caBIGCommunityCode/CBIIT+Open+Source+Development+Initiative
