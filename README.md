@@ -19,5 +19,6 @@ You will find more details about caGWAS in the following links:
 
  * Home Page: https://wiki.nci.nih.gov/x/HAo9Ag
  * Code Repository: http://github.com/NCIP/cagwas
- * Issue Tracker: https://tracker.nci.nih.gov/browse/CAGWAS
+ * Current Issue Tracker: http://gforge.nci.nih.gov/tracker/?group_id=379
+ * Future Issue Tracker: https://tracker.nci.nih.gov/browse/CAGWAS
  * Documentation: https://wiki.nci.nih.gov/x/HAo9Ag
