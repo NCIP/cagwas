@@ -23,4 +23,4 @@ You will find more details about caGWAS in the following links:
  * Future Issue Tracker: https://tracker.nci.nih.gov/browse/CAGWAS
  * Documentation: https://wiki.nci.nih.gov/x/HAo9Ag
  * Release Notes: https://wiki.nci.nih.gov/x/HAo9Ag
- * Downloads: https://gforge.nci.nih.gov/frs/?group_id=379
+ * Installation Package: https://gforge.nci.nih.gov/frs/?group_id=379
