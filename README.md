@@ -17,10 +17,12 @@ Please see the NOTICE and LICENSE files for details.
 
 You will find more details about caGWAS in the following links:
 
- * Home Page: https://wiki.nci.nih.gov/x/HAo9Ag
- * Code Repository: http://github.com/NCIP/cagwas
- * Current Issue Tracker: http://gforge.nci.nih.gov/tracker/?group_id=379
- * Future Issue Tracker: https://tracker.nci.nih.gov/browse/CAGWAS
- * Documentation: https://wiki.nci.nih.gov/x/HAo9Ag
- * Release Notes: https://gforge.nci.nih.gov/frs/shownotes.php?release_id=2694
- * Installation Package: https://gforge.nci.nih.gov/frs/?group_id=379
+ * [Community Wiki] (https://wiki.nci.nih.gov/x/HAo9Ag)
+ * [Code Repository] (http://github.com/NCIP/cagwas)
+ * [Current Issue Tracker] (http://gforge.nci.nih.gov/tracker/?group_id=379)
+ * [Future Issue Tracker] (https://tracker.nci.nih.gov/browse/CAGWAS)
+ * [Documentation] (https://wiki.nci.nih.gov/x/HAo9Ag)
+ * [Release Notes] (https://gforge.nci.nih.gov/frs/shownotes.php?release_id=2694)
+ * [Installation Package] (https://gforge.nci.nih.gov/frs/?group_id=379)
+
+Please join us in further developing and improving caGWAS.
